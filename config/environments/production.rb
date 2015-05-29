@@ -1,6 +1,6 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-
+  ENV['JUALON_DATABASE_PASSWORD'] = "Ju4l0_pwds_on"
   # Code is not reloaded between requests.
   config.cache_classes = true
 
