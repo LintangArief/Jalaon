@@ -96,4 +96,8 @@ footer {
 }
 .a-footer-menu{
   color: #767676;
+  text-decoration: none !important;
+}
+a:hover {
+  color: #ce0b10;;
 }

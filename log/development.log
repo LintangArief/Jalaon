@@ -2128,3 +2128,27 @@ Processing by StaticsController#home as HTML
   Rendered layouts/_header.html.slim (2.0ms)
   Rendered layouts/_footer.html.slim (4.4ms)
 Completed 200 OK in 737ms (Views: 734.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-30 11:12:47 +0700
+Processing by StaticsController#home as HTML
+  Rendered statics/home.html.slim within layouts/application (0.2ms)
+  Rendered layouts/_header.html.slim (1.7ms)
+  Rendered layouts/_footer.html.slim (5.1ms)
+Completed 200 OK in 843ms (Views: 840.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-30 11:16:42 +0700
+Processing by StaticsController#home as HTML
+  Rendered statics/home.html.slim within layouts/application (0.2ms)
+  Rendered layouts/_header.html.slim (1.9ms)
+  Rendered layouts/_footer.html.slim (4.4ms)
+Completed 200 OK in 941ms (Views: 938.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-30 11:17:33 +0700
+Processing by StaticsController#home as HTML
+  Rendered statics/home.html.slim within layouts/application (0.2ms)
+  Rendered layouts/_header.html.slim (1.6ms)
+  Rendered layouts/_footer.html.slim (4.4ms)
+Completed 200 OK in 684ms (Views: 680.8ms | ActiveRecord: 0.0ms)
