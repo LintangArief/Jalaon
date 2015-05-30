@@ -38,8 +38,9 @@ header#top {
 
 /*Footer*/
 footer {
-  background-color: #eee;
-  border-top: 4px solid #ddd;
+  background-color: #fff;
+  border-top: 1px solid #ddd;
+  box-shadow: 0 0 6px rgba(0,0,0,0.5);
   color: #777;
   font-size: 14px;
   bottom: 0;
