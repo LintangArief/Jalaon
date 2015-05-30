@@ -1,0 +1,68 @@
+.container
+  .wrapper
+    .row
+      .col-xs-12.col-sm-12
+        h2.content-desc Cari Service di Sekitar Anda
+    .row
+      .col-xs-12.col-sm-12
+        .container
+          div.navbar.navbar-default
+            .col-xs-12.col-sm-1
+            .col-xs-12.col-sm-10
+              .col-xs-12.col-sm-12
+                  = form_tag("/search", method: "get") do
+                    .div-header.col-xs-12.col-sm-5.search-left.form-group.form-group-lg
+                      = text_field_tag 'q', nil, placeholder: 'Enter Your Place...', class:"form-control twitter-typeahead tt-input form-input jualo-search"
+                    .div-header.col-xs-12.col-sm-5.div-right.form-group.form-group-lg
+                      = select_tag "category", options_for_select([['Choose Service', '0'],['Service 1', 1], ['Service 2', 2], ['Service 3', 2], ['Service 4', 2], ['Service 5', 2]]), class:"form-control twitter-typeahead tt-input form-input jualo-search"
+                    .div-header.col-xs-12.col-sm-2.btn-div
+                      = submit_tag "Find Service", :class=>"btn btn-warning btn-block btn-search btn-lg"
+    .row.rule
+      .col-md-3.text-center
+        .panel.panel-danger.panel-pricing
+          .panel-heading
+            img src="http://dy3erx8o0a6nh.cloudfront.net/images/homepage-step-1-20140924.png"
+          .panel-body.text-center
+            p
+              strong 1. Isikan Alamat Anda yang menjadi tujuan pengantar Service
+          ul.list-group.text-center
+            li.list-group-item
+              i.fa.fa-check
+              |  Masukkan Nama Area atau Jalan yang menjadi tujuan pengantar Service
+      .col-md-3.text-center
+        .panel.panel-danger.panel-pricing
+          .panel-heading
+            img src="http://dy3erx8o0a6nh.cloudfront.net/images/homepage-step-2-20140924.png"
+          .panel-body.text-center
+            p
+              strong 2. Pilih Service yang Anda inginkan
+          ul.list-group.text-center
+            li.list-group-item
+              i.fa.fa-check
+              |  Ada lebih dari ribuan Service yang tersedia dan sangat siap melayani anda
+      .col-md-3.text-center
+        .panel.panel-success.panel-pricing
+          .panel-heading
+            img src="http://dy3erx8o0a6nh.cloudfront.net/images/homepage-step-3-20140924.png"
+          .panel-body.text-center
+            p
+              strong 3. Lakukan Pemesanan dan Pembayaran
+          ul.list-group.text-center
+            li.list-group-item
+              i.fa.fa-check
+              |  Prosesnya cepat dan sangat aman, disertai pilihan COD dan payment gateway
+      .col-md-3.text-center
+        .panel.panel-success.panel-pricing
+          .panel-heading
+            img src="http://dy3erx8o0a6nh.cloudfront.net/images/homepage-step-04.png"
+          .panel-body.text-center
+            p
+              strong 
+                | 4. Service
+                br/ 
+                | Menuju Anda
+          ul.list-group.text-center
+            li.list-group-item
+              i.fa.fa-check
+              |  Cara yang sangat mudah dan praktis untuk mencari service terbaik pilihan Anda!
+

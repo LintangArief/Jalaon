@@ -14,12 +14,15 @@ header#top {
 
 .navbar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand {
   margin-left: -15px;
-  width: 100%;
   height: 100%;
+}
+ul.nav.navbar-nav.navbar-right li a:hover{
+  background-color: #ce0b10 !important;
+  color: #fff; 
+  border-radius: 2px;
 }
 
 .navbar-right {
-  float: right !important;
   margin-right: -15px;
   height: 100%;
   padding-top: 0px;
@@ -45,7 +48,7 @@ footer {
   font-size: 14px;
   bottom: 0;
   left: 0;
-  position: absolute;
+  position: relative;
   right: 0;
 }
 .footer-menu{
@@ -97,7 +100,44 @@ footer {
 .a-footer-menu{
   color: #767676;
   text-decoration: none !important;
+  display: block;
 }
+.a-footer-menu-1{
+  color: #767676;
+  text-decoration: none !important;
+}
+
 a:hover {
-  color: #ce0b10;;
+  color: #ce0b10;
+  font-weight: bold;
+}
+
+form .form-control {
+  font-size: 16px;
+}
+.navbar-toggle .icon-bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  border-radius: 1px;
+  background: white;
+}
+.navbar-toggle {
+  position: relative;
+  float: right;
+  margin-right: 15px;
+  padding: 9px 10px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  background-color: #ce0b10;
+  background-image: none;
+  border: #ce0b10;
+  border-radius: 4px;
+}
+.navbar-right {
+  margin: 0 auto;
+  /* float: right !important; */
+  margin-right: -15px;
+  height: 100%;
+  padding-top: 0px;
 }
