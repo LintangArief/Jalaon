@@ -13,8 +13,8 @@ header#top.navbar.navbar-static-top.bs-docs-nav role="banner"
       ul.nav.navbar-nav
       ul.nav.navbar-nav.navbar-right
         li
-          = link_to "Log In", "#", :class => "a-header"
+          = link_to "Log In", new_user_session_path, :class => "a-header"
         li
-          = link_to "Sign Up", "#", :class => "a-header"
+          = link_to "Sign Up", new_user_registration_path, :class => "a-header"
         li
           = link_to "Help", "#", :class => "a-header"

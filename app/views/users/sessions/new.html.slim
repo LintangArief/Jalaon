@@ -1,0 +1,28 @@
+.container
+  .row 
+    .col-xs-12.col-sm-8.col-md-6.col-sm-offset-2.col-md-offset-3
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        fieldset
+          h2 Please Sign In
+          hr.colorgraph/
+          .form-group
+            = f.label :email
+            = f.email_field :email, autofocus: true, :class=> "form-control input-lg", :placeholder=>"Email Address"
+          .form-group
+            = f.label :password
+            = f.password_field :password, autocomplete: "off", :class=> "form-control input-lg"
+          span.button-checkbox
+            button.btn.btn-info.active data-color="info" type="button" 
+              - if devise_mapping.rememberable?
+                  = f.check_box :remember_me, :class=>"state-icon.glyphicon-check"
+                  = f.label :remember_me, :class=> "remember-check"
+            <!-- a. href=""  Forgot Password? -->
+            = render "users/shared/links"
+          hr.colorgraph/
+          .row
+            .col-xs-6.col-sm-6.col-md-6
+              = f.submit "Sign In", :class=> "btn btn-lg btn-success btn-block"
+            .col-xs-6.col-sm-6.col-md-6
+              = link_to "Register", new_user_registration_path, :class => "btn btn-lg btn-primary btn-block"
+
+      

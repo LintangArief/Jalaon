@@ -7,10 +7,18 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= render "layouts/header" %>
-<br/>
-<%= yield %>
-<br/>
-<%= render "layouts/footer" %>
+    <%= render "layouts/header" %>
+    <% if notice %>
+      <p class="alert alert-success"><%= notice %></p>
+      <br/>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+      <br/>
+    <% end %>
+    <%= yield %>
+    <br/>
+    <br/>
+    <%= render "layouts/footer" %>
 </body>
 </html>
