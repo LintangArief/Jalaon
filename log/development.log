@@ -2016,3 +2016,83 @@ Processing by StaticsController#home as HTML
   Rendered layouts/_header.html.slim (1.9ms)
   Rendered layouts/_footer.html.slim (1.0ms)
 Completed 200 OK in 726ms (Views: 723.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-30 10:57:58 +0700
+Processing by StaticsController#home as HTML
+  Rendered statics/home.html.slim within layouts/application (64.6ms)
+  Rendered layouts/_header.html.slim (43.6ms)
+  Rendered layouts/_footer.html.slim (84.4ms)
+Completed 200 OK in 2571ms (Views: 2492.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-30 10:58:20 +0700
+Processing by StaticsController#home as HTML
+  Rendered statics/home.html.slim within layouts/application (0.2ms)
+  Rendered layouts/_header.html.slim (1.9ms)
+  Rendered layouts/_footer.html.slim (99.5ms)
+Completed 200 OK in 725ms (Views: 718.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-30 10:58:21 +0700
+Processing by StaticsController#home as HTML
+  Rendered statics/home.html.slim within layouts/application (0.2ms)
+  Rendered layouts/_header.html.slim (1.8ms)
+  Rendered layouts/_footer.html.slim (6.5ms)
+Completed 200 OK in 565ms (Views: 558.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-30 10:58:54 +0700
+Processing by StaticsController#home as HTML
+  Rendered statics/home.html.slim within layouts/application (0.3ms)
+  Rendered layouts/_header.html.slim (1.9ms)
+  Rendered layouts/_footer.html.slim (65.0ms)
+Completed 200 OK in 636ms (Views: 633.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-30 11:00:43 +0700
+Processing by StaticsController#home as HTML
+  Rendered statics/home.html.slim within layouts/application (0.2ms)
+  Rendered layouts/_header.html.slim (1.9ms)
+  Rendered layouts/_footer.html.slim (101.1ms)
+Completed 200 OK in 670ms (Views: 667.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-30 11:02:29 +0700
+Processing by StaticsController#home as HTML
+  Rendered statics/home.html.slim within layouts/application (0.2ms)
+  Rendered layouts/_header.html.slim (1.9ms)
+  Rendered layouts/_footer.html.slim (94.9ms)
+Completed 200 OK in 981ms (Views: 973.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-30 11:03:56 +0700
+Processing by StaticsController#home as HTML
+  Rendered statics/home.html.slim within layouts/application (0.2ms)
+  Rendered layouts/_header.html.slim (6.1ms)
+  Rendered layouts/_footer.html.slim (5.3ms)
+Completed 200 OK in 821ms (Views: 812.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-30 11:05:03 +0700
+Processing by StaticsController#home as HTML
+  Rendered statics/home.html.slim within layouts/application (0.2ms)
+  Rendered layouts/_header.html.slim (1.9ms)
+  Rendered layouts/_footer.html.slim (83.7ms)
+Completed 200 OK in 633ms (Views: 630.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-30 11:05:37 +0700
+Processing by StaticsController#home as HTML
+  Rendered statics/home.html.slim within layouts/application (3.1ms)
+  Rendered layouts/_header.html.slim (1.9ms)
+  Rendered layouts/_footer.html.slim (4.6ms)
+Completed 200 OK in 850ms (Views: 847.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-30 11:06:42 +0700
+Processing by StaticsController#home as HTML
+  Rendered statics/home.html.slim within layouts/application (0.2ms)
+  Rendered layouts/_header.html.slim (2.1ms)
+  Rendered layouts/_footer.html.slim (5.5ms)
+Completed 200 OK in 953ms (Views: 946.9ms | ActiveRecord: 0.0ms)

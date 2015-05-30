@@ -12,63 +12,62 @@ footer
       .col-xs-12.col-sm-2
         ul.list-unstyled.footer-menu
           li
-            a href="/sell"  
+            = link_to "Suggest Service", "#", :class => "a-footer-menu"
           li
-            a href="/affiliate"  Suggest Service
-          li
-            a href="/about"  Contact Me
+            = link_to "Contact Me", "#", :class => "a-footer-menu"
       .col-xs-12.col-sm-2
         ul.list-unstyled.footer-menu
           li
-            a href="/sell" 
+            = link_to "Service Favotire", "#", :class => "a-footer-menu"
           li
-            a href="/affiliate" Service Favotire
-          li
-            a href="/about"  New Service
+            = link_to "New Service", "#", :class => "a-footer-menu" 
       .col-xs-12.col-sm-2
         ul.list-unstyled.footer-menu
           li
-            a href="/faq"  FAQ
-          li
-            a href="/submission-guidelines"  Submission Guidelines
-          li
-            a href="/payment-rates"  Payment Rates
-          li
-            a href="/contact-support"  Contact Support
+            #footBox4.l-col.l-size1of6.list-structural
+              a href="http://www.facebook.com/justeat" rel="publisher" 
+              .social_sprite-icon.social_sprite-icon-facebook aria-label=("Our Facebook page") role="link" tabindex="0" 
+              span.visuallyhidden Facebook page
+              a href="http://twitter.com/JustEatUK" rel="publisher" 
+              .social_sprite-icon.social_sprite-icon-twitter aria-label=("Our Twitter page") role="link" tabindex="0" 
+              span.visuallyhidden Twitter page
+              a href="https://plus.google.com/107536521260601946480" rel="publisher" 
+              .social_sprite-icon.social_sprite-icon-googleplus aria-label=("Our Google Plus page") role="link" tabindex="0" 
+              span.visuallyhidden Our Google Plus page
+              a href="http://www.just-eat.co.uk/blog/" rel="publisher" 
+              .social_sprite-icon.social_sprite-icon-blog aria-label=("Our Blog") role="link" tabindex="0" 
+              span.visuallyhidden Our Blog
       .col-xs-12.col-sm-2
         ul.list-unstyled.footer-menu
           li
-            a href="https://stocksnap.io" target="_blank"  Free Stock Photos
-          li
-            a href="/blog"  Blog
-          li
-            a href="/blog/bootstrap-resources/"  Resource List
-          li
-            a href="/blog/category/tutorials/"  Tutorials
+            #footBox5.l-col.l-size1of6.list-structural
+              p
+                img alt="" src="//dy3erx8o0a6nh.cloudfront.net/images/payment-and-trust-seals.png" /
+
       .col-xs-12.col-sm-2
         ul.list-unstyled.footer-menu
           li
-            a href="https://www.facebook.com/bootstrapbay" target="_blank" Privacy policy / T&Cs
+            = link_to "Privacy policy / T&Cs", "#", :class => "a-footer-menu"
           li
-            a href="https://twitter.com/bootstrapbay" target="_blank"  How do We Use
+            = link_to "Disclaimer", "#", :class => "a-footer-menu"
           li
-            a href="http://www.youtube.com/user/bootstrapbayofficial" target="_blank" Cookies
+            = link_to "Cookies?", "#", :class => "a-footer-menu"
           li
-            a href="https://plus.google.com/+BootstrapbayThemes/posts" target="_blank" Contact Us
+            = link_to "Contact Us", "#", :class => "a-footer-menu"
           li
-            a href="https://plus.google.com/+BootstrapbayThemes/posts" target="_blank" Jobs
+            = link_to "Jobs", "#", :class => "a-footer-menu"
           li
-            a href="https://plus.google.com/+BootstrapbayThemes/posts" target="_blank" Mobile App
+            = link_to "Mobile App", "#", :class => "a-footer-menu" 
   .subFooter
     .container
       .row
         .col-xs-12
           .pull-left
             | © 2015 
-            a href="http://noscomedia.com/" target="_blank" Ilham Media Inc.
-            |  -
-            a href="/licenses"  Licenses
-            |  -
-            a href="/terms"  Terms &amp; Conditions
-            |  -
-            a href="/privacy"  Privacy Policy
+            = link_to "Ilham Media Inc.", "#", :class => "a-footer-menu" 
+            |  - 
+            = link_to "Licenses", "#", :class => "a-footer-menu" 
+            |  - 
+            = link_to "Conditions", "#", :class => "a-footer-menu" 
+            |  - 
+            = link_to "Privacy Policy.", "#", :class => "a-footer-menu" 
