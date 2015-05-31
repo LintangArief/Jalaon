@@ -3643,3 +3643,13 @@ Processing by Devise::RegistrationsController#edit as HTML
   Rendered layouts/_header.html.slim (2.0ms)
   Rendered layouts/_footer.html.slim (4.3ms)
 Completed 200 OK in 490ms (Views: 479.2ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-31 18:48:29 +0700
+Processing by StaticsController#home as HTML
+  [1m[36mServiceCategory Load (2.4ms)[0m  [1mSELECT "service_categories".* FROM "service_categories"[0m
+  Rendered statics/home.html.slim within layouts/application (86.9ms)
+  [1m[35mUser Load (2.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 9]]
+  Rendered layouts/_header.html.slim (12.2ms)
+  Rendered layouts/_footer.html.slim (6.3ms)
+Completed 200 OK in 477ms (Views: 468.9ms | ActiveRecord: 4.8ms)
