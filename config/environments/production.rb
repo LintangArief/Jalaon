@@ -76,4 +76,13 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  config.action_mailer.default_url_options = { host: "http://jualon.herokuapp.com" }
+  config.action_mailer.smtp_settings = {
+    address: "smtp.mandrillapp.com",
+    port: 587,
+    domain: "localhost",
+    enable_starttls_auto: :true,
+    user_name: "lintangarief13@gmail.com",
+    password: "dKCnICn7RGgaD69UpfI2bQ"
+  }
 end

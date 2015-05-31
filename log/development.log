@@ -7188,3 +7188,2491 @@ Processing by StaticsController#home as HTML
   Rendered layouts/_header.html.slim (2.3ms)
   Rendered layouts/_footer.html.slim (4.4ms)
 Completed 200 OK in 532ms (Views: 529.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-31 09:13:16 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (42.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticsController#home as HTML
+  Rendered statics/home.html.slim within layouts/application (155.5ms)
+  Rendered layouts/_header.html.slim (41.6ms)
+  Rendered layouts/_footer.html.slim (88.4ms)
+Completed 200 OK in 2985ms (Views: 2909.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-05-31 09:14:48 +0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered users/shared/_links.html.erb (5.6ms)
+  Rendered users/sessions/new.html.slim within layouts/application (283.8ms)
+  Rendered layouts/_header.html.slim (2.5ms)
+  Rendered layouts/_footer.html.slim (5.4ms)
+Completed 200 OK in 1529ms (Views: 1133.2ms | ActiveRecord: 271.7ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-05-31 09:15:00 +0700
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered users/registrations/new.html.slim within layouts/application (51.5ms)
+  Rendered layouts/_header.html.slim (2.2ms)
+  Rendered layouts/_footer.html.slim (7.5ms)
+Completed 200 OK in 814ms (Views: 808.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-05-31 09:15:03 +0700
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered users/registrations/new.html.slim within layouts/application (7.5ms)
+  Rendered layouts/_header.html.slim (3.6ms)
+  Rendered layouts/_footer.html.slim (4.9ms)
+Completed 200 OK in 627ms (Views: 623.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-05-31 09:15:05 +0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered users/shared/_links.html.erb (1.7ms)
+  Rendered users/sessions/new.html.slim within layouts/application (19.0ms)
+  Rendered layouts/_header.html.slim (2.0ms)
+  Rendered layouts/_footer.html.slim (4.3ms)
+Completed 200 OK in 581ms (Views: 573.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-05-31 09:15:07 +0700
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered users/registrations/new.html.slim within layouts/application (11.2ms)
+  Rendered layouts/_header.html.slim (2.2ms)
+  Rendered layouts/_footer.html.slim (4.5ms)
+Completed 200 OK in 541ms (Views: 536.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-05-31 09:15:09 +0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered users/shared/_links.html.erb (1.1ms)
+  Rendered users/sessions/new.html.slim within layouts/application (17.0ms)
+  Rendered layouts/_header.html.slim (2.0ms)
+  Rendered layouts/_footer.html.slim (4.2ms)
+Completed 200 OK in 596ms (Views: 579.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-05-31 09:15:12 +0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered users/shared/_links.html.erb (1.3ms)
+  Rendered users/sessions/new.html.slim within layouts/application (21.8ms)
+  Rendered layouts/_header.html.slim (1.9ms)
+  Rendered layouts/_footer.html.slim (4.5ms)
+Completed 200 OK in 559ms (Views: 553.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2015-05-31 09:15:26 +0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"axEX7SVf/OJJPX+asw2017//KzS0Q4NLxEooWCVvUXD1FeseEB8huCWAXyEOIggZTWDNxIWTa8JIjoHBAasD3Q==", "user"=>{"email"=>"lintangarief13@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign In"}
+  [1m[35mUser Load (42.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["email", "lintangarief13@gmail.com"]]
+Completed 401 Unauthorized in 230ms (ActiveRecord: 43.3ms)
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"axEX7SVf/OJJPX+asw2017//KzS0Q4NLxEooWCVvUXD1FeseEB8huCWAXyEOIggZTWDNxIWTa8JIjoHBAasD3Q==", "user"=>{"email"=>"lintangarief13@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign In"}
+  Rendered users/shared/_links.html.erb (1.1ms)
+  Rendered users/sessions/new.html.slim within layouts/application (17.1ms)
+  Rendered layouts/_header.html.slim (1.9ms)
+  Rendered layouts/_footer.html.slim (5.0ms)
+Completed 200 OK in 900ms (Views: 562.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-05-31 09:15:38 +0700
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered users/registrations/new.html.slim within layouts/application (10.4ms)
+  Rendered layouts/_header.html.slim (2.2ms)
+  Rendered layouts/_footer.html.slim (4.9ms)
+Completed 200 OK in 634ms (Views: 629.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2015-05-31 09:16:42 +0700
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wunLnSoHXcH4wZ2rRnV+xFroGlXuogzPclPjtF4aOhRc7TduH0eAm5R8vRD7WsIKqHf8pd9y5Eb+l0otet5ouQ==", "user"=>{"first_name"=>"lintang", "last_name"=>"arief", "email"=>"lintangarief13@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Register"}
+Unpermitted parameters: first_name, last_name
+  [1m[36m (0.8ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (1.6ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'lintangarief13@gmail.com' LIMIT 1
+  [1m[36mSQL (93.9ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "lintangarief13@gmail.com"], ["encrypted_password", "$2a$10$k/iNuXiR15t/M1n4wvsKleyAF9V537DxNY.98vyw1VpQc3oT8Rf6."], ["created_at", "2015-05-31 02:16:42.778461"], ["updated_at", "2015-05-31 02:16:42.778461"]]
+  [1m[35m (91.5ms)[0m  COMMIT
+  [1m[36m (0.6ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (2.7ms)[0m  UPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "last_sign_in_ip" = $3, "current_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = $7  [["last_sign_in_at", "2015-05-31 02:16:42.977772"], ["current_sign_in_at", "2015-05-31 02:16:42.977772"], ["last_sign_in_ip", "127.0.0.1/32"], ["current_sign_in_ip", "127.0.0.1/32"], ["sign_in_count", 1], ["updated_at", "2015-05-31 02:16:42.983518"], ["id", 1]]
+  [1m[36m (7.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 721ms (ActiveRecord: 198.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-31 09:16:44 +0700
+Processing by StaticsController#home as HTML
+  Rendered statics/home.html.slim within layouts/application (4.7ms)
+  Rendered layouts/_header.html.slim (2.3ms)
+  Rendered layouts/_footer.html.slim (4.6ms)
+Completed 200 OK in 613ms (Views: 610.3ms | ActiveRecord: 0.0ms)
+  [1m[36mUser Load (5.1ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" DESC LIMIT 1[0m
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-31 09:21:24 +0700
+Processing by StaticsController#home as HTML
+  Rendered statics/home.html.slim within layouts/application (3.7ms)
+  Rendered layouts/_header.html.slim (105.8ms)
+Completed 500 Internal Server Error in 652ms (ActiveRecord: 0.0ms)
+
+Temple::FilterError - Explicit end statements are forbidden:
+  slim (3.0.3) lib/slim/end_inserter.rb:28:in `block in on_multi'
+  slim (3.0.3) lib/slim/end_inserter.rb:26:in `on_multi'
+  (eval):5:in `dispatcher'
+  temple (0.7.5) lib/temple/mixins/dispatcher.rb:49:in `compile'
+  temple (0.7.5) lib/temple/html/dispatcher.rb:27:in `on_html_tag'
+  (eval):32:in `dispatcher'
+  temple (0.7.5) lib/temple/mixins/dispatcher.rb:49:in `compile'
+  slim (3.0.3) lib/slim/end_inserter.rb:43:in `block in on_multi'
+  slim (3.0.3) lib/slim/end_inserter.rb:26:in `on_multi'
+  (eval):5:in `dispatcher'
+  temple (0.7.5) lib/temple/mixins/dispatcher.rb:49:in `compile'
+  temple (0.7.5) lib/temple/html/dispatcher.rb:27:in `on_html_tag'
+  (eval):32:in `dispatcher'
+  temple (0.7.5) lib/temple/mixins/dispatcher.rb:49:in `compile'
+  slim (3.0.3) lib/slim/end_inserter.rb:43:in `block in on_multi'
+  slim (3.0.3) lib/slim/end_inserter.rb:26:in `on_multi'
+  (eval):5:in `dispatcher'
+  temple (0.7.5) lib/temple/mixins/dispatcher.rb:49:in `compile'
+  temple (0.7.5) lib/temple/html/dispatcher.rb:27:in `on_html_tag'
+  (eval):32:in `dispatcher'
+  temple (0.7.5) lib/temple/mixins/dispatcher.rb:49:in `compile'
+  slim (3.0.3) lib/slim/end_inserter.rb:43:in `block in on_multi'
+  slim (3.0.3) lib/slim/end_inserter.rb:26:in `on_multi'
+  (eval):5:in `dispatcher'
+  temple (0.7.5) lib/temple/mixins/dispatcher.rb:49:in `compile'
+  temple (0.7.5) lib/temple/html/dispatcher.rb:27:in `on_html_tag'
+  (eval):32:in `dispatcher'
+  temple (0.7.5) lib/temple/mixins/dispatcher.rb:49:in `compile'
+  slim (3.0.3) lib/slim/end_inserter.rb:43:in `block in on_multi'
+  slim (3.0.3) lib/slim/end_inserter.rb:26:in `on_multi'
+  (eval):5:in `dispatcher'
+  temple (0.7.5) lib/temple/mixins/dispatcher.rb:49:in `compile'
+  temple (0.7.5) lib/temple/html/dispatcher.rb:27:in `on_html_tag'
+  (eval):32:in `dispatcher'
+  temple (0.7.5) lib/temple/mixins/dispatcher.rb:49:in `compile'
+  slim (3.0.3) lib/slim/end_inserter.rb:43:in `block in on_multi'
+  slim (3.0.3) lib/slim/end_inserter.rb:26:in `on_multi'
+  (eval):5:in `dispatcher'
+  temple (0.7.5) lib/temple/mixins/dispatcher.rb:49:in `compile'
+  temple (0.7.5) lib/temple/mixins/dispatcher.rb:45:in `call'
+  temple (0.7.5) lib/temple/engine.rb:50:in `block in call'
+  temple (0.7.5) lib/temple/engine.rb:50:in `call'
+  temple (0.7.5) lib/temple/mixins/template.rb:10:in `compile'
+  temple (0.7.5) lib/temple/templates/rails.rb:8:in `call'
+  actionview (4.2.1) lib/action_view/template.rb:270:in `compile'
+  actionview (4.2.1) lib/action_view/template.rb:245:in `block (2 levels) in compile!'
+  activesupport (4.2.1) lib/active_support/notifications.rb:166:in `instrument'
+  actionview (4.2.1) lib/action_view/template.rb:333:in `instrument'
+  actionview (4.2.1) lib/action_view/template.rb:244:in `block in compile!'
+  actionview (4.2.1) lib/action_view/template.rb:232:in `compile!'
+  actionview (4.2.1) lib/action_view/template.rb:144:in `block in render'
+  activesupport (4.2.1) lib/active_support/notifications.rb:166:in `instrument'
+  actionview (4.2.1) lib/action_view/template.rb:333:in `instrument'
+  actionview (4.2.1) lib/action_view/template.rb:143:in `render'
+  actionview (4.2.1) lib/action_view/renderer/partial_renderer.rb:339:in `render_partial'
+  actionview (4.2.1) lib/action_view/renderer/partial_renderer.rb:310:in `block in render'
+  actionview (4.2.1) lib/action_view/renderer/abstract_renderer.rb:39:in `block in instrument'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.1) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `instrument'
+  actionview (4.2.1) lib/action_view/renderer/abstract_renderer.rb:39:in `instrument'
+  actionview (4.2.1) lib/action_view/renderer/partial_renderer.rb:309:in `render'
+  actionview (4.2.1) lib/action_view/renderer/renderer.rb:47:in `render_partial'
+  actionview (4.2.1) lib/action_view/helpers/rendering_helper.rb:35:in `render'
+  app/views/layouts/application.html.erb:10:in `_app_views_layouts_application_html_erb__907992544__624033348'
+  actionview (4.2.1) lib/action_view/template.rb:145:in `block in render'
+  activesupport (4.2.1) lib/active_support/notifications.rb:166:in `instrument'
+  actionview (4.2.1) lib/action_view/template.rb:333:in `instrument'
+  actionview (4.2.1) lib/action_view/template.rb:143:in `render'
+  actionview (4.2.1) lib/action_view/renderer/template_renderer.rb:66:in `render_with_layout'
+  actionview (4.2.1) lib/action_view/renderer/template_renderer.rb:52:in `render_template'
+  actionview (4.2.1) lib/action_view/renderer/template_renderer.rb:14:in `render'
+  actionview (4.2.1) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.2.1) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.2.1) lib/action_view/rendering.rb:100:in `_render_template'
+  actionpack (4.2.1) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.2.1) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (4.2.1) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.2.1) lib/action_controller/metal/renderers.rb:37:in `render_to_body'
+  actionpack (4.2.1) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.2.1) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+  activesupport (4.2.1) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /home/lintangarief/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/benchmark.rb:303:in `realtime'
+  activesupport (4.2.1) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+  activerecord (4.2.1) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:43:in `render'
+  actionpack (4.2.1) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.2.1) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.2.1) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:555:in `block (2 levels) in compile'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:505:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_process_action_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.1) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.1) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.1) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.1) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.1) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:819:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.6.1) lib/rack/etag.rb:24:in `call'
+  rack (1.6.1) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.1) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.1) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.1) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.1) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:649:in `call'
+  activerecord (4.2.1) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_call_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.0.3) lib/quiet_assets.rb:23:in `call_with_quiet_assets'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.1) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.1) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.1) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  rack (1.6.1) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.1) lib/rack/handler/webrick.rb:89:in `service'
+  /home/lintangarief/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/lintangarief/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/lintangarief/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/01a7106929d9babe/variables" for 127.0.0.1 at 2015-05-31 09:21:27 +0700
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-31 09:21:35 +0700
+Processing by StaticsController#home as HTML
+  Rendered statics/home.html.slim within layouts/application (5.0ms)
+  [1m[35mUser Load (2.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered layouts/_header.html.slim (47.7ms)
+  Rendered layouts/_footer.html.slim (84.4ms)
+Completed 200 OK in 651ms (Views: 645.9ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-31 09:24:28 +0700
+Processing by StaticsController#home as HTML
+  Rendered statics/home.html.slim within layouts/application (4.8ms)
+  [1m[36mUser Load (1.9ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_header.html.slim (49.3ms)
+  Rendered layouts/_footer.html.slim (4.5ms)
+Completed 200 OK in 656ms (Views: 651.6ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-31 09:24:48 +0700
+Processing by StaticsController#home as HTML
+  Rendered statics/home.html.slim within layouts/application (3.9ms)
+  [1m[35mUser Load (1.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered layouts/_header.html.slim (48.1ms)
+  Rendered layouts/_footer.html.slim (4.5ms)
+Completed 200 OK in 609ms (Views: 604.7ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-31 09:25:06 +0700
+Processing by StaticsController#home as HTML
+  Rendered statics/home.html.slim within layouts/application (3.4ms)
+  [1m[36mUser Load (2.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_header.html.slim (50.5ms)
+  Rendered layouts/_footer.html.slim (4.5ms)
+Completed 200 OK in 657ms (Views: 651.9ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2015-05-31 09:25:59 +0700
+
+ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.0.3) lib/quiet_assets.rb:23:in `call_with_quiet_assets'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.1) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.1) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.1) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  rack (1.6.1) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.1) lib/rack/handler/webrick.rb:89:in `service'
+  /home/lintangarief/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/lintangarief/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/lintangarief/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.3ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (13.0ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (18.8ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (7.9ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (214.8ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (1.8ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.7ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.8ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.7ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (113.8ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (1.8ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (2.3ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (276.4ms)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2015-05-31 09:26:00 +0700
+
+ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.0.3) lib/quiet_assets.rb:23:in `call_with_quiet_assets'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.1) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.1) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.1) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  rack (1.6.1) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.1) lib/rack/handler/webrick.rb:89:in `service'
+  /home/lintangarief/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/lintangarief/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/lintangarief/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (9.0ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (10.5ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (7.2ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (6.5ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (170.6ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (1.8ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.6ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.5ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.5ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (93.5ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (1.7ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (2.2ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (194.0ms)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2015-05-31 09:26:55 +0700
+
+ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.0.3) lib/quiet_assets.rb:23:in `call_with_quiet_assets'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.1) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.1) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.1) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  rack (1.6.1) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.1) lib/rack/handler/webrick.rb:89:in `service'
+  /home/lintangarief/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/lintangarief/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/lintangarief/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (8.4ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (11.0ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (7.1ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (6.7ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (164.5ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (2.2ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.9ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (2.3ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (2.5ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (93.0ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (2.1ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (2.3ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (188.1ms)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2015-05-31 09:26:57 +0700
+
+ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.0.3) lib/quiet_assets.rb:23:in `call_with_quiet_assets'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.1) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.1) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.1) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  rack (1.6.1) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.1) lib/rack/handler/webrick.rb:89:in `service'
+  /home/lintangarief/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/lintangarief/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/lintangarief/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (9.7ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (15.8ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (7.7ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (7.1ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (183.6ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (1.9ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.6ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (2.1ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.8ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (92.7ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (2.1ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (2.5ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (188.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-31 09:27:06 +0700
+Processing by StaticsController#home as HTML
+  Rendered statics/home.html.slim within layouts/application (4.4ms)
+  [1m[35mUser Load (1.9ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered layouts/_header.html.slim (48.3ms)
+  Rendered layouts/_footer.html.slim (4.6ms)
+Completed 200 OK in 644ms (Views: 637.1ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/users/sign_out.1" for 127.0.0.1 at 2015-05-31 09:27:13 +0700
+
+ActionController::RoutingError (No route matches [GET] "/users/sign_out.1"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.0.3) lib/quiet_assets.rb:23:in `call_with_quiet_assets'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.1) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.1) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.1) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  rack (1.6.1) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.1) lib/rack/handler/webrick.rb:89:in `service'
+  /home/lintangarief/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/lintangarief/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/lintangarief/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (7.8ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (9.7ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (6.5ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (6.0ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (157.8ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (1.7ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.6ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.4ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.4ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (86.4ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (1.5ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (2.1ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (177.3ms)
+
+
+Started GET "/users/sign_out.1" for 127.0.0.1 at 2015-05-31 09:27:14 +0700
+
+ActionController::RoutingError (No route matches [GET] "/users/sign_out.1"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.0.3) lib/quiet_assets.rb:23:in `call_with_quiet_assets'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.1) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.1) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.1) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  rack (1.6.1) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.1) lib/rack/handler/webrick.rb:89:in `service'
+  /home/lintangarief/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/lintangarief/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/lintangarief/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (8.2ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (9.9ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (6.6ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (5.9ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (161.7ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (1.7ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (2.1ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.9ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.5ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (94.0ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (1.7ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (2.1ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (188.5ms)
+
+
+Started GET "/users/sign_out.1" for 127.0.0.1 at 2015-05-31 09:28:15 +0700
+
+ActionController::RoutingError (No route matches [GET] "/users/sign_out.1"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.0.3) lib/quiet_assets.rb:23:in `call_with_quiet_assets'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.1) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.1) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.1) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  rack (1.6.1) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.1) lib/rack/handler/webrick.rb:89:in `service'
+  /home/lintangarief/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/lintangarief/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/lintangarief/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (8.1ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (10.0ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (6.7ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (6.3ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (161.2ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (1.8ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.8ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.5ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.4ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (92.0ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (1.6ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (2.3ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (185.3ms)
+
+
+Started GET "/users/sign_out.1" for 127.0.0.1 at 2015-05-31 09:28:17 +0700
+
+ActionController::RoutingError (No route matches [GET] "/users/sign_out.1"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.0.3) lib/quiet_assets.rb:23:in `call_with_quiet_assets'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.1) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.1) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.1) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  rack (1.6.1) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.1) lib/rack/handler/webrick.rb:89:in `service'
+  /home/lintangarief/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/lintangarief/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/lintangarief/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (8.6ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (11.2ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (6.9ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (6.5ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (164.8ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (1.7ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.5ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.6ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.5ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (90.3ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (1.5ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (2.0ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (183.3ms)
+
+
+Started GET "/users/sign_out.1" for 127.0.0.1 at 2015-05-31 09:28:17 +0700
+
+ActionController::RoutingError (No route matches [GET] "/users/sign_out.1"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.0.3) lib/quiet_assets.rb:23:in `call_with_quiet_assets'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.1) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.1) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.1) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  rack (1.6.1) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.1) lib/rack/handler/webrick.rb:89:in `service'
+  /home/lintangarief/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/lintangarief/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/lintangarief/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (8.9ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (13.1ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (7.0ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (7.1ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (183.7ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (2.8ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.6ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.7ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (2.1ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (97.3ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (1.6ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (2.1ms)
+  Rendered /home/lintangarief/.rvm/gems/ruby-2.2.2/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (202.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-31 09:28:51 +0700
+Processing by StaticsController#home as HTML
+  Rendered statics/home.html.slim within layouts/application (4.5ms)
+  [1m[36mUser Load (2.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_header.html.slim (152.6ms)
+Completed 500 Internal Server Error in 737ms (ActiveRecord: 2.0ms)
+
+NoMethodError - undefined method `fa_icon' for #<#<Class:0xb59a7760>:0xb446080c>:
+  app/views/layouts/_header.html.slim:25:in `block in _app_views_layouts__header_html_slim__814994662__636978048'
+  actionview (4.2.1) lib/action_view/helpers/capture_helper.rb:38:in `block in capture'
+  actionview (4.2.1) lib/action_view/helpers/capture_helper.rb:200:in `with_output_buffer'
+  actionview (4.2.1) lib/action_view/helpers/capture_helper.rb:38:in `capture'
+  actionview (4.2.1) lib/action_view/helpers/tag_helper.rb:106:in `content_tag'
+  actionview (4.2.1) lib/action_view/helpers/url_helper.rb:184:in `link_to'
+  app/views/layouts/_header.html.slim:24:in `_app_views_layouts__header_html_slim__814994662__636978048'
+  actionview (4.2.1) lib/action_view/template.rb:145:in `block in render'
+  activesupport (4.2.1) lib/active_support/notifications.rb:166:in `instrument'
+  actionview (4.2.1) lib/action_view/template.rb:333:in `instrument'
+  actionview (4.2.1) lib/action_view/template.rb:143:in `render'
+  actionview (4.2.1) lib/action_view/renderer/partial_renderer.rb:339:in `render_partial'
+  actionview (4.2.1) lib/action_view/renderer/partial_renderer.rb:310:in `block in render'
+  actionview (4.2.1) lib/action_view/renderer/abstract_renderer.rb:39:in `block in instrument'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.1) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `instrument'
+  actionview (4.2.1) lib/action_view/renderer/abstract_renderer.rb:39:in `instrument'
+  actionview (4.2.1) lib/action_view/renderer/partial_renderer.rb:309:in `render'
+  actionview (4.2.1) lib/action_view/renderer/renderer.rb:47:in `render_partial'
+  actionview (4.2.1) lib/action_view/helpers/rendering_helper.rb:35:in `render'
+  app/views/layouts/application.html.erb:10:in `_app_views_layouts_application_html_erb__907992544__624033348'
+  actionview (4.2.1) lib/action_view/template.rb:145:in `block in render'
+  activesupport (4.2.1) lib/active_support/notifications.rb:166:in `instrument'
+  actionview (4.2.1) lib/action_view/template.rb:333:in `instrument'
+  actionview (4.2.1) lib/action_view/template.rb:143:in `render'
+  actionview (4.2.1) lib/action_view/renderer/template_renderer.rb:66:in `render_with_layout'
+  actionview (4.2.1) lib/action_view/renderer/template_renderer.rb:52:in `render_template'
+  actionview (4.2.1) lib/action_view/renderer/template_renderer.rb:14:in `render'
+  actionview (4.2.1) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.2.1) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.2.1) lib/action_view/rendering.rb:100:in `_render_template'
+  actionpack (4.2.1) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.2.1) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (4.2.1) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.2.1) lib/action_controller/metal/renderers.rb:37:in `render_to_body'
+  actionpack (4.2.1) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.2.1) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+  activesupport (4.2.1) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /home/lintangarief/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/benchmark.rb:303:in `realtime'
+  activesupport (4.2.1) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+  activerecord (4.2.1) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:43:in `render'
+  actionpack (4.2.1) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.2.1) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.2.1) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:555:in `block (2 levels) in compile'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:505:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_process_action_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.1) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.1) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.1) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.1) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.1) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:819:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.6.1) lib/rack/etag.rb:24:in `call'
+  rack (1.6.1) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.1) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.1) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.1) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.1) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:649:in `call'
+  activerecord (4.2.1) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_call_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.0.3) lib/quiet_assets.rb:23:in `call_with_quiet_assets'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.1) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.1) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.1) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  rack (1.6.1) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.1) lib/rack/handler/webrick.rb:89:in `service'
+  /home/lintangarief/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/lintangarief/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/lintangarief/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/b482cc5f25d1760b/variables" for 127.0.0.1 at 2015-05-31 09:28:54 +0700
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-31 09:29:18 +0700
+Processing by StaticsController#home as HTML
+  Rendered statics/home.html.slim within layouts/application (4.3ms)
+  [1m[35mUser Load (1.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered layouts/_header.html.slim (48.1ms)
+  Rendered layouts/_footer.html.slim (4.6ms)
+Completed 200 OK in 625ms (Views: 621.1ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-31 09:29:25 +0700
+Processing by StaticsController#home as HTML
+  Rendered statics/home.html.slim within layouts/application (3.5ms)
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_header.html.slim (9.2ms)
+  Rendered layouts/_footer.html.slim (5.4ms)
+Completed 200 OK in 597ms (Views: 591.4ms | ActiveRecord: 1.4ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2015-05-31 09:29:34 +0700
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"HFhAcG31Dzj+2M2p9Mqmj7qz8SQogRfJa6ny919dnIaCXLyDWLXSYpJl7RJJ5RpBSCwX1BlR/0DnbVtue5nOKw=="}
+  [1m[35mUser Load (1.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (1.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.9ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 80ms (ActiveRecord: 3.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-31 09:29:34 +0700
+Processing by StaticsController#home as HTML
+  Rendered statics/home.html.slim within layouts/application (5.9ms)
+  Rendered layouts/_header.html.slim (4.3ms)
+  Rendered layouts/_footer.html.slim (5.7ms)
+Completed 200 OK in 638ms (Views: 635.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-31 09:29:54 +0700
+Processing by StaticsController#home as HTML
+  Rendered statics/home.html.slim within layouts/application (5.7ms)
+  Rendered layouts/_header.html.slim (49.1ms)
+  Rendered layouts/_footer.html.slim (6.2ms)
+Completed 200 OK in 784ms (Views: 779.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-31 09:31:06 +0700
+Processing by StaticsController#home as HTML
+  Rendered statics/home.html.slim within layouts/application (5.8ms)
+  Rendered layouts/_header.html.slim (3.5ms)
+  Rendered layouts/_footer.html.slim (4.2ms)
+Completed 200 OK in 671ms (Views: 668.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-05-31 09:31:12 +0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered users/shared/_links.html.erb (1.9ms)
+  Rendered users/sessions/new.html.slim within layouts/application (22.4ms)
+  Rendered layouts/_header.html.slim (3.0ms)
+  Rendered layouts/_footer.html.slim (4.9ms)
+Completed 200 OK in 628ms (Views: 621.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-05-31 09:31:12 +0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered users/shared/_links.html.erb (1.2ms)
+  Rendered users/sessions/new.html.slim within layouts/application (17.6ms)
+  Rendered layouts/_header.html.slim (2.9ms)
+  Rendered layouts/_footer.html.slim (4.7ms)
+Completed 200 OK in 644ms (Views: 638.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-05-31 09:31:13 +0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered users/shared/_links.html.erb (1.2ms)
+  Rendered users/sessions/new.html.slim within layouts/application (30.5ms)
+  Rendered layouts/_header.html.slim (3.2ms)
+  Rendered layouts/_footer.html.slim (4.9ms)
+Completed 200 OK in 630ms (Views: 619.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2015-05-31 09:31:20 +0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"N7KyAG6NfiWcVP8GeGcqQIUWBFws6yEcEHLxsEmV0zrM8bnOMg7AIRH8478HWuTWJObcW6RySR0N1kVFuefWSA==", "user"=>{"email"=>"lintangarief13@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (30.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "lintangarief13@gmail.com"]]
+  [1m[35m (0.8ms)[0m  BEGIN
+  [1m[36mSQL (2.5ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = $1, "sign_in_count" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["current_sign_in_at", "2015-05-31 02:31:21.125104"], ["sign_in_count", 2], ["updated_at", "2015-05-31 02:31:21.133895"], ["id", 1]]
+  [1m[35m (38.9ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 486ms (ActiveRecord: 72.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-31 09:31:22 +0700
+Processing by StaticsController#home as HTML
+  Rendered statics/home.html.slim within layouts/application (4.4ms)
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_header.html.slim (9.0ms)
+  Rendered layouts/_footer.html.slim (4.1ms)
+Completed 200 OK in 544ms (Views: 537.6ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-31 09:40:49 +0700
+Processing by StaticsController#home as HTML
+  Rendered statics/home.html.slim within layouts/application (5254.3ms)
+  [1m[35mUser Load (77.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered layouts/_header.html.slim (240.3ms)
+  Rendered layouts/_footer.html.slim (468.5ms)
+Completed 200 OK in 13119ms (Views: 12860.1ms | ActiveRecord: 77.2ms)
+  [1m[35mUser Load (2508.2ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" DESC LIMIT 1
+  [1m[36mUser Load (58.1ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" DESC LIMIT 1[0m
+  [1m[35m (0.9ms)[0m  BEGIN
+  [1m[36mSQL (121.6ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  [1m[35m (149.8ms)[0m  COMMIT
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2015-05-31 09:57:11 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (3.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"b0Nb6CXPhxdNFqFGZINmAwFCWl61uHGoZ9RMsEbVMb+DKHtjI0S0aKARk9tKo1jCzcwz+/DDmzn6Zi087oOgVQ=="}
+  [1m[35mUser Load (35.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :verify_signed_out_user rendered or redirected
+Completed 302 Found in 417ms (ActiveRecord: 107.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-31 09:57:14 +0700
+Processing by StaticsController#home as HTML
+  Rendered statics/home.html.slim within layouts/application (177.6ms)
+  Rendered layouts/_header.html.slim (68.2ms)
+  Rendered layouts/_footer.html.slim (97.6ms)
+Completed 200 OK in 4958ms (Views: 4955.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-05-31 09:57:32 +0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered users/shared/_links.html.erb (6.9ms)
+  Rendered users/sessions/new.html.slim within layouts/application (182.4ms)
+  Rendered layouts/_header.html.slim (3.3ms)
+  Rendered layouts/_footer.html.slim (4.4ms)
+Completed 200 OK in 1093ms (Views: 976.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-05-31 09:57:34 +0700
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered users/registrations/new.html.slim within layouts/application (82.8ms)
+  Rendered layouts/_header.html.slim (3.2ms)
+  Rendered layouts/_footer.html.slim (7.6ms)
+Completed 200 OK in 1008ms (Views: 1001.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2015-05-31 09:57:47 +0700
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dX7PAmjS/R3nq8Rn7WhaU5Nhc+GVsiucpCuPqR/l5cyZFe+JblnOYgqs9vrDSGSSX+8aRNDJwQ05me4lt7N0Jg==", "user"=>{"first_name"=>"lintang", "last_name"=>"arief", "email"=>"lintangarief13@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Register"}
+Unpermitted parameters: first_name, last_name
+  [1m[36m (0.7ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (48.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'lintangarief13@gmail.com' LIMIT 1
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "lintangarief13@gmail.com"], ["encrypted_password", "$2a$10$AIwOYWqO8/3xEqInNa.HR.vXSUdOrosCMisQiFqeZNCbKw9ivc0py"], ["created_at", "2015-05-31 02:57:47.662246"], ["updated_at", "2015-05-31 02:57:47.662246"]]
+  [1m[35m (23.6ms)[0m  COMMIT
+  [1m[36m (0.8ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.5ms)[0m  UPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "last_sign_in_ip" = $3, "current_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = $7  [["last_sign_in_at", "2015-05-31 02:57:47.713414"], ["current_sign_in_at", "2015-05-31 02:57:47.713414"], ["last_sign_in_ip", "127.0.0.1/32"], ["current_sign_in_ip", "127.0.0.1/32"], ["sign_in_count", 1], ["updated_at", "2015-05-31 02:57:47.719172"], ["id", 2]]
+  [1m[36m (14.2ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 725ms (ActiveRecord: 90.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-31 09:57:48 +0700
+Processing by StaticsController#home as HTML
+  Rendered statics/home.html.slim within layouts/application (6.5ms)
+  [1m[35mUser Load (2.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  Rendered layouts/_header.html.slim (12.0ms)
+  Rendered layouts/_footer.html.slim (4.8ms)
+Completed 200 OK in 1139ms (Views: 1133.2ms | ActiveRecord: 2.4ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2015-05-31 10:01:34 +0700
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"q4ikqCAY0/mP/9ia60gyhlYVZTjYfiPp7p5JdDJBRYVH44QjJpPghmL46gfFaAxHmpsMnZ0FyXhzLCj4mhfUbw=="}
+  [1m[36mUser Load (1.9ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.8ms)[0m  BEGIN
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 212ms (ActiveRecord: 3.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-31 10:01:35 +0700
+Processing by StaticsController#home as HTML
+  Rendered statics/home.html.slim within layouts/application (3.8ms)
+  Rendered layouts/_header.html.slim (3.6ms)
+  Rendered layouts/_footer.html.slim (4.5ms)
+Completed 200 OK in 815ms (Views: 811.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-05-31 10:01:42 +0700
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered users/registrations/new.html.slim within layouts/application (9.7ms)
+  Rendered layouts/_header.html.slim (3.4ms)
+  Rendered layouts/_footer.html.slim (4.6ms)
+Completed 200 OK in 614ms (Views: 610.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-05-31 10:01:43 +0700
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered users/registrations/new.html.slim within layouts/application (8.5ms)
+  Rendered layouts/_header.html.slim (2.8ms)
+  Rendered layouts/_footer.html.slim (4.2ms)
+Completed 200 OK in 559ms (Views: 552.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2015-05-31 10:02:04 +0700
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4l0Vr6JesW6xv/6JFxM6rttTjXZZOnlMfjvya3ydHJOfW285SlsEXVjZ0JytR8cSPDGnZM2VoIBws6PwKmcndQ==", "user"=>{"first_name"=>"lintang", "last_name"=>"arief", "email"=>"lintangarief12@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Register"}
+Unpermitted parameters: first_name, last_name
+  [1m[35m (0.7ms)[0m  BEGIN
+  [1m[36mUser Exists (1.8ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'lintangarief12@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (3.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["email", "lintangarief12@gmail.com"], ["encrypted_password", "$2a$10$HjFUpHoue3IXV6pSnV0lB.BEBA6kq29RahOkj5yVBXO0tVSSYiQ/W"], ["created_at", "2015-05-31 03:02:04.506096"], ["updated_at", "2015-05-31 03:02:04.506096"]]
+  [1m[36m (45.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  BEGIN
+  [1m[36mSQL (1.5ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "last_sign_in_ip" = $3, "current_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["last_sign_in_at", "2015-05-31 03:02:04.564002"], ["current_sign_in_at", "2015-05-31 03:02:04.564002"], ["last_sign_in_ip", "127.0.0.1/32"], ["current_sign_in_ip", "127.0.0.1/32"], ["sign_in_count", 1], ["updated_at", "2015-05-31 03:02:04.568691"], ["id", 3]]
+  [1m[35m (35.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 513ms (ActiveRecord: 88.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-31 10:02:05 +0700
+Processing by StaticsController#home as HTML
+  Rendered statics/home.html.slim within layouts/application (4.2ms)
+  [1m[36mUser Load (2.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  Rendered layouts/_header.html.slim (9.2ms)
+  Rendered layouts/_footer.html.slim (4.2ms)
+Completed 200 OK in 667ms (Views: 661.0ms | ActiveRecord: 2.0ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2015-05-31 10:02:41 +0700
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"CcW1T6VcbqtS7QrSPOGODaHGbvAMsxFhWtsCUuczMXN0w8/ZTVnbmLuLJMeGtXOxRqRE4pgcyK1UU1PJsckKlQ=="}
+  [1m[35mUser Load (2.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  [1m[36m (0.8ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.8ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 33ms (ActiveRecord: 4.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-31 10:02:42 +0700
+Processing by StaticsController#home as HTML
+  Rendered statics/home.html.slim within layouts/application (3.5ms)
+  Rendered layouts/_header.html.slim (3.5ms)
+  Rendered layouts/_footer.html.slim (4.7ms)
+Completed 200 OK in 586ms (Views: 583.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-05-31 10:02:47 +0700
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered users/registrations/new.html.slim within layouts/application (11.3ms)
+  Rendered layouts/_header.html.slim (3.3ms)
+  Rendered layouts/_footer.html.slim (7.7ms)
+Completed 200 OK in 713ms (Views: 708.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-05-31 10:02:48 +0700
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered users/registrations/new.html.slim within layouts/application (22.3ms)
+  Rendered layouts/_header.html.slim (3.9ms)
+  Rendered layouts/_footer.html.slim (5.0ms)
+Completed 200 OK in 657ms (Views: 649.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-05-31 10:02:49 +0700
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered users/registrations/new.html.slim within layouts/application (17.1ms)
+  Rendered layouts/_header.html.slim (3.0ms)
+  Rendered layouts/_footer.html.slim (5.1ms)
+Completed 200 OK in 658ms (Views: 654.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2015-05-31 10:03:00 +0700
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MoqmBsbbZ6pjFQ9yb3pL2vOkNQZFeCmDPlXovAjh1ce0MPVqk60ZCgzo1gnDbesn8KFWMZ/zvHHIZ8O4PQJYUg==", "user"=>{"first_name"=>"asdasd", "last_name"=>"adasd", "email"=>"lintangarief8@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Register"}
+Unpermitted parameters: first_name, last_name
+  [1m[36m (0.8ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (1.6ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'lintangarief8@gmail.com' LIMIT 1
+  [1m[36mSQL (2.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "lintangarief8@gmail.com"], ["encrypted_password", "$2a$10$jluoHioW8g/.salcqOc.bersmBkf/iny43rhyNbuXhK6irIzgq8tq"], ["created_at", "2015-05-31 03:03:01.300715"], ["updated_at", "2015-05-31 03:03:01.300715"]]
+  [1m[35m (28.5ms)[0m  COMMIT
+  [1m[36m (4.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (37.8ms)[0m  UPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "last_sign_in_ip" = $3, "current_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = $7  [["last_sign_in_at", "2015-05-31 03:03:01.340965"], ["current_sign_in_at", "2015-05-31 03:03:01.340965"], ["last_sign_in_ip", "127.0.0.1/32"], ["current_sign_in_ip", "127.0.0.1/32"], ["sign_in_count", 1], ["updated_at", "2015-05-31 03:03:01.349777"], ["id", 4]]
+  [1m[36m (28.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 516ms (ActiveRecord: 103.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-31 10:03:02 +0700
+Processing by StaticsController#home as HTML
+  Rendered statics/home.html.slim within layouts/application (4.1ms)
+  [1m[35mUser Load (5.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 4]]
+  Rendered layouts/_header.html.slim (12.6ms)
+  Rendered layouts/_footer.html.slim (4.0ms)
+Completed 200 OK in 598ms (Views: 589.6ms | ActiveRecord: 5.4ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2015-05-31 10:03:11 +0700
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"l2lDXpJ2Igrrdv3h7lV0vLoM+j8bKEGDitpM3D1Y2wMR0xAyxwBcqoSLJJpCQtRBuQmZCMGj1HF86GfYCLtWlg=="}
+  [1m[36mUser Load (4.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 4]]
+  [1m[35m (1.0ms)[0m  BEGIN
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 31ms (ActiveRecord: 6.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-31 10:03:12 +0700
+Processing by StaticsController#home as HTML
+  Rendered statics/home.html.slim within layouts/application (3.4ms)
+  Rendered layouts/_header.html.slim (3.1ms)
+  Rendered layouts/_footer.html.slim (4.0ms)
+Completed 200 OK in 563ms (Views: 560.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-05-31 10:05:48 +0700
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered users/registrations/new.html.slim within layouts/application (8.4ms)
+  Rendered layouts/_header.html.slim (3.0ms)
+  Rendered layouts/_footer.html.slim (5.1ms)
+Completed 200 OK in 781ms (Views: 583.7ms | ActiveRecord: 113.2ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2015-05-31 10:06:07 +0700
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yXFMIhmuKePJTBhv9ZXog46yyTIcSQPfpCvIIyXzqIdrbl6xZPNqylBntOWd/YcuxPElEx0RGYsy4dCmDIzQmA==", "user"=>{"first_name"=>"lintang", "last_name"=>"yakuji13", "email"=>"lintangarief15@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Register"}
+  [1m[35m (0.9ms)[0m  BEGIN
+  [1m[36mUser Exists (1.8ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'lintangarief15@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (32.4ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "lintang"], ["last_name", "yakuji13"], ["email", "lintangarief15@gmail.com"], ["encrypted_password", "$2a$10$b9dsvntCBbB/k3jlkHLDyOvvEV1kc8TJZwqxW5T4te0Cetbxbq5Zq"], ["created_at", "2015-05-31 03:06:07.618498"], ["updated_at", "2015-05-31 03:06:07.618498"]]
+  [1m[36m (29.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (5.1ms)[0m  BEGIN
+  [1m[36mSQL (5.1ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "last_sign_in_ip" = $3, "current_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["last_sign_in_at", "2015-05-31 03:06:07.704249"], ["current_sign_in_at", "2015-05-31 03:06:07.704249"], ["last_sign_in_ip", "127.0.0.1/32"], ["current_sign_in_ip", "127.0.0.1/32"], ["sign_in_count", 1], ["updated_at", "2015-05-31 03:06:07.713418"], ["id", 5]]
+  [1m[35m (6.5ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 533ms (ActiveRecord: 81.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-31 10:06:08 +0700
+Processing by StaticsController#home as HTML
+  Rendered statics/home.html.slim within layouts/application (5.5ms)
+  [1m[36mUser Load (1.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  Rendered layouts/_header.html.slim (11.8ms)
+  Rendered layouts/_footer.html.slim (5.0ms)
+Completed 200 OK in 679ms (Views: 672.7ms | ActiveRecord: 1.5ms)
+  [1m[36mUser Load (2.5ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" DESC LIMIT 1[0m
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2015-05-31 10:07:36 +0700
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Z2OGoL8HZ37JaWZrgdG2/VgZ/Bzj2eyU+sr6MkjYcZjFfJQzwlokV1BCyuHpudlQEloQPeKB9sBsAOK3YacJhw=="}
+  [1m[35mUser Load (1.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36m (0.7ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.9ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 28ms (ActiveRecord: 3.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-31 10:07:37 +0700
+Processing by StaticsController#home as HTML
+  Rendered statics/home.html.slim within layouts/application (3.8ms)
+  Rendered layouts/_header.html.slim (6.5ms)
+  Rendered layouts/_footer.html.slim (4.6ms)
+Completed 200 OK in 585ms (Views: 582.3ms | ActiveRecord: 0.0ms)
+  [1m[35mUser Load (2.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (1.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.7ms)[0m  DELETE FROM "users" WHERE "users"."id" = $1  [["id", 2]]
+  [1m[36m (32.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (1.2ms)[0m  BEGIN
+  [1m[36mSQL (1.5ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 3]]
+  [1m[35m (44.4ms)[0m  COMMIT
+  [1m[36m (0.9ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.8ms)[0m  DELETE FROM "users" WHERE "users"."id" = $1  [["id", 4]]
+  [1m[36m (3.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  BEGIN
+  [1m[36mSQL (2.0ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 5]]
+  [1m[35m (3.6ms)[0m  COMMIT
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-31 10:09:52 +0700
+Processing by StaticsController#home as HTML
+  Rendered statics/home.html.slim within layouts/application (4.2ms)
+  Rendered layouts/_header.html.slim (3.8ms)
+  Rendered layouts/_footer.html.slim (5.3ms)
+Completed 200 OK in 566ms (Views: 563.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-05-31 10:11:13 +0700
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered users/registrations/new.html.slim within layouts/application (8.3ms)
+  Rendered layouts/_header.html.slim (3.0ms)
+  Rendered layouts/_footer.html.slim (4.4ms)
+Completed 200 OK in 672ms (Views: 578.1ms | ActiveRecord: 12.5ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2015-05-31 10:11:37 +0700
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9vz9EyqWna9PuWirNthE1iT7p7QDFKYJyEAsV+5Kjjp+PNHjKphF/ktqB6a2i+jqx2dQY7ClyAxqbHETX4xxXg==", "user"=>{"first_name"=>"lintang", "last_name"=>"arief", "email"=>"lintangarief13@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Register"}
+  [1m[36m (0.8ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (3.7ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'lintangarief13@gmail.com' LIMIT 1
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "lintang"], ["last_name", "arief"], ["email", "lintangarief13@gmail.com"], ["encrypted_password", "$2a$10$IeR0n0cgWyzVfc5ohyEtF.LNMmxyAlbZeZl.5U1TXRlyeXMD/Ot4O"], ["created_at", "2015-05-31 03:11:37.456203"], ["updated_at", "2015-05-31 03:11:37.456203"]]
+  [1m[35m (66.4ms)[0m  COMMIT
+  [1m[36m (0.9ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.7ms)[0m  UPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "last_sign_in_ip" = $3, "current_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = $7  [["last_sign_in_at", "2015-05-31 03:11:37.540502"], ["current_sign_in_at", "2015-05-31 03:11:37.540502"], ["last_sign_in_ip", "127.0.0.1/32"], ["current_sign_in_ip", "127.0.0.1/32"], ["sign_in_count", 1], ["updated_at", "2015-05-31 03:11:37.545684"], ["id", 6]]
+  [1m[36m (41.9ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 534ms (ActiveRecord: 116.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-31 10:11:38 +0700
+Processing by StaticsController#home as HTML
+  Rendered statics/home.html.slim within layouts/application (4.4ms)
+  [1m[35mUser Load (2.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  Rendered layouts/_header.html.slim (12.9ms)
+  Rendered layouts/_footer.html.slim (4.5ms)
+Completed 200 OK in 590ms (Views: 585.1ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-31 10:15:27 +0700
+Processing by StaticsController#home as HTML
+  Rendered statics/home.html.slim within layouts/application (8.4ms)
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  Rendered layouts/_header.html.slim (218.3ms)
+Completed 500 Internal Server Error in 1088ms (ActiveRecord: 1.4ms)
+
+NameError - undefined local variable or method `edit_user_registration' for #<#<Class:0xb5890d7c>:0xb4321cac>:
+  app/views/layouts/_header.html.slim:22:in `_app_views_layouts__header_html_slim___252465940__638608438'
+  actionview (4.2.1) lib/action_view/template.rb:145:in `block in render'
+  activesupport (4.2.1) lib/active_support/notifications.rb:166:in `instrument'
+  actionview (4.2.1) lib/action_view/template.rb:333:in `instrument'
+  actionview (4.2.1) lib/action_view/template.rb:143:in `render'
+  actionview (4.2.1) lib/action_view/renderer/partial_renderer.rb:339:in `render_partial'
+  actionview (4.2.1) lib/action_view/renderer/partial_renderer.rb:310:in `block in render'
+  actionview (4.2.1) lib/action_view/renderer/abstract_renderer.rb:39:in `block in instrument'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.1) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `instrument'
+  actionview (4.2.1) lib/action_view/renderer/abstract_renderer.rb:39:in `instrument'
+  actionview (4.2.1) lib/action_view/renderer/partial_renderer.rb:309:in `render'
+  actionview (4.2.1) lib/action_view/renderer/renderer.rb:47:in `render_partial'
+  actionview (4.2.1) lib/action_view/helpers/rendering_helper.rb:35:in `render'
+  app/views/layouts/application.html.erb:10:in `_app_views_layouts_application_html_erb__565373132__624004588'
+  actionview (4.2.1) lib/action_view/template.rb:145:in `block in render'
+  activesupport (4.2.1) lib/active_support/notifications.rb:166:in `instrument'
+  actionview (4.2.1) lib/action_view/template.rb:333:in `instrument'
+  actionview (4.2.1) lib/action_view/template.rb:143:in `render'
+  actionview (4.2.1) lib/action_view/renderer/template_renderer.rb:66:in `render_with_layout'
+  actionview (4.2.1) lib/action_view/renderer/template_renderer.rb:52:in `render_template'
+  actionview (4.2.1) lib/action_view/renderer/template_renderer.rb:14:in `render'
+  actionview (4.2.1) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.2.1) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.2.1) lib/action_view/rendering.rb:100:in `_render_template'
+  actionpack (4.2.1) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.2.1) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (4.2.1) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.2.1) lib/action_controller/metal/renderers.rb:37:in `render_to_body'
+  actionpack (4.2.1) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.2.1) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+  activesupport (4.2.1) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /home/lintangarief/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/benchmark.rb:303:in `realtime'
+  activesupport (4.2.1) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+  activerecord (4.2.1) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:43:in `render'
+  actionpack (4.2.1) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.2.1) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.2.1) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:555:in `block (2 levels) in compile'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:505:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_process_action_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.1) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.1) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.1) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.1) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.1) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:819:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.6.1) lib/rack/etag.rb:24:in `call'
+  rack (1.6.1) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.1) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.1) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.1) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.1) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:649:in `call'
+  activerecord (4.2.1) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_call_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.0.3) lib/quiet_assets.rb:23:in `call_with_quiet_assets'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.1) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.1) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.1) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  rack (1.6.1) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.1) lib/rack/handler/webrick.rb:89:in `service'
+  /home/lintangarief/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/lintangarief/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/lintangarief/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/872107317a0b2d7e/variables" for 127.0.0.1 at 2015-05-31 10:15:34 +0700
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-31 10:15:47 +0700
+Processing by StaticsController#home as HTML
+  Rendered statics/home.html.slim within layouts/application (4.3ms)
+  [1m[35mUser Load (1.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  Rendered layouts/_header.html.slim (48.2ms)
+  Rendered layouts/_footer.html.slim (4.4ms)
+Completed 200 OK in 633ms (Views: 627.4ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2015-05-31 10:15:54 +0700
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (1.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  Rendered users/registrations/edit.html.erb within layouts/application (23.0ms)
+  Rendered layouts/_header.html.slim (41.6ms)
+  Rendered layouts/_footer.html.slim (99.6ms)
+Completed 200 OK in 808ms (Views: 795.1ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2015-05-31 10:25:12 +0700
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[35mUser Load (1.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  Rendered users/registrations/edit.html.erb within layouts/application (19.4ms)
+  Rendered layouts/_header.html.slim (2.1ms)
+  Rendered layouts/_footer.html.slim (5.4ms)
+Completed 200 OK in 942ms (Views: 931.9ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2015-05-31 11:54:11 +0700
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (91.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  Rendered users/registrations/edit.html.slim within layouts/application (4494.8ms)
+Completed 500 Internal Server Error in 8752ms (ActiveRecord: 91.3ms)
+
+SyntaxError - syntax error, unexpected tIDENTIFIER, expecting tCONSTANT
+...((f.text_field ::address_line_2, :class=>"form-control input...
+...                               ^
+/home/lintangarief/workspace/Jualon/app/views/users/registrations/edit.html.slim:74: syntax error, unexpected =>, expecting :: or '[' or '.'
+...ield ::address_line_2, :class=>"form-control input-lg", :id=...
+...                               ^
+/home/lintangarief/workspace/Jualon/app/views/users/registrations/edit.html.slim:74: syntax error, unexpected ',', expecting ')'
+...class=>"form-control input-lg", :id=>"last_name", :placehold...
+...                               ^
+/home/lintangarief/workspace/Jualon/app/views/users/registrations/edit.html.slim:74: syntax error, unexpected ',', expecting ')'
+...ol input-lg", :id=>"last_name", :placeholder=>"Address Line ...
+...                               ^:
+  app/views/users/registrations/edit.html.slim:74:in `'
+  actionview (4.2.1) lib/action_view/template.rb:296:in `compile'
+  actionview (4.2.1) lib/action_view/template.rb:245:in `block (2 levels) in compile!'
+  activesupport (4.2.1) lib/active_support/notifications.rb:166:in `instrument'
+  actionview (4.2.1) lib/action_view/template.rb:333:in `instrument'
+  actionview (4.2.1) lib/action_view/template.rb:244:in `block in compile!'
+  actionview (4.2.1) lib/action_view/template.rb:232:in `compile!'
+  actionview (4.2.1) lib/action_view/template.rb:144:in `block in render'
+  activesupport (4.2.1) lib/active_support/notifications.rb:166:in `instrument'
+  actionview (4.2.1) lib/action_view/template.rb:333:in `instrument'
+  actionview (4.2.1) lib/action_view/template.rb:143:in `render'
+  actionview (4.2.1) lib/action_view/renderer/template_renderer.rb:54:in `block (2 levels) in render_template'
+  actionview (4.2.1) lib/action_view/renderer/abstract_renderer.rb:39:in `block in instrument'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.1) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `instrument'
+  actionview (4.2.1) lib/action_view/renderer/abstract_renderer.rb:39:in `instrument'
+  actionview (4.2.1) lib/action_view/renderer/template_renderer.rb:53:in `block in render_template'
+  actionview (4.2.1) lib/action_view/renderer/template_renderer.rb:61:in `render_with_layout'
+  actionview (4.2.1) lib/action_view/renderer/template_renderer.rb:52:in `render_template'
+  actionview (4.2.1) lib/action_view/renderer/template_renderer.rb:14:in `render'
+  actionview (4.2.1) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.2.1) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.2.1) lib/action_view/rendering.rb:100:in `_render_template'
+  actionpack (4.2.1) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.2.1) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (4.2.1) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.2.1) lib/action_controller/metal/renderers.rb:37:in `render_to_body'
+  actionpack (4.2.1) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.2.1) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+  activesupport (4.2.1) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /home/lintangarief/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/benchmark.rb:303:in `realtime'
+  activesupport (4.2.1) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+  activerecord (4.2.1) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:43:in `render'
+  app/controllers/devise/registrations_controller.rb:37:in `edit'
+  actionpack (4.2.1) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.2.1) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:555:in `block (2 levels) in compile'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:505:in `call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_process_action_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.1) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.1) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.1) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.1) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.1) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.1) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.1) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.1) lib/action_dispatch/routing/mapper.rb:49:in `serve'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.1) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.1) lib/action_dispatch/routing/route_set.rb:819:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.6.1) lib/rack/etag.rb:24:in `call'
+  rack (1.6.1) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.1) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.1) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.1) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.1) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:649:in `call'
+  activerecord (4.2.1) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_call_callbacks'
+  activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.0.3) lib/quiet_assets.rb:23:in `call_with_quiet_assets'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.1) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.1) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.1) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  rack (1.6.1) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.1) lib/rack/handler/webrick.rb:89:in `service'
+  /home/lintangarief/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/lintangarief/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/lintangarief/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/8f52d3ddc7bd0932/variables" for 127.0.0.1 at 2015-05-31 11:54:46 +0700
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2015-05-31 11:56:31 +0700
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[35mUser Load (8.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  Rendered users/registrations/edit.html.slim within layouts/application (386.8ms)
+  Rendered layouts/_header.html.slim (58.8ms)
+  Rendered layouts/_footer.html.slim (63.0ms)
+Completed 200 OK in 5999ms (Views: 5922.7ms | ActiveRecord: 10.1ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2015-05-31 11:57:12 +0700
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (2.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  Rendered users/registrations/edit.html.slim within layouts/application (377.5ms)
+  Rendered layouts/_header.html.slim (4.8ms)
+  Rendered layouts/_footer.html.slim (9.2ms)
+Completed 200 OK in 1957ms (Views: 1939.8ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2015-05-31 11:58:10 +0700
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[35mUser Load (2.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  Rendered users/registrations/edit.html.slim within layouts/application (114.2ms)
+  Rendered layouts/_header.html.slim (3.6ms)
+  Rendered layouts/_footer.html.slim (10.5ms)
+Completed 200 OK in 1316ms (Views: 1283.7ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2015-05-31 11:58:35 +0700
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (8.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  Rendered users/registrations/edit.html.slim within layouts/application (131.0ms)
+  Rendered layouts/_header.html.slim (4.5ms)
+  Rendered layouts/_footer.html.slim (7.6ms)
+Completed 200 OK in 1195ms (Views: 1171.0ms | ActiveRecord: 8.1ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2015-05-31 11:59:00 +0700
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[35mUser Load (2.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  Rendered users/registrations/edit.html.slim within layouts/application (145.2ms)
+  Rendered layouts/_header.html.slim (3.5ms)
+  Rendered layouts/_footer.html.slim (7.1ms)
+Completed 200 OK in 1439ms (Views: 1412.9ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2015-05-31 11:59:47 +0700
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (7.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  Rendered users/registrations/edit.html.slim within layouts/application (122.2ms)
+  Rendered layouts/_header.html.slim (3.3ms)
+  Rendered layouts/_footer.html.slim (7.2ms)
+Completed 200 OK in 1201ms (Views: 1182.4ms | ActiveRecord: 7.1ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2015-05-31 12:00:43 +0700
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[35mUser Load (3.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  Rendered users/registrations/edit.html.slim within layouts/application (125.3ms)
+  Rendered layouts/_header.html.slim (3.7ms)
+  Rendered layouts/_footer.html.slim (12.0ms)
+Completed 200 OK in 1171ms (Views: 1150.6ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2015-05-31 12:01:21 +0700
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (2.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  Rendered users/registrations/edit.html.slim within layouts/application (126.3ms)
+  Rendered layouts/_header.html.slim (3.8ms)
+  Rendered layouts/_footer.html.slim (7.3ms)
+Completed 200 OK in 1124ms (Views: 1105.0ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2015-05-31 12:03:15 +0700
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[35mUser Load (2.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  Rendered users/registrations/edit.html.slim within layouts/application (131.8ms)
+  Rendered layouts/_header.html.slim (3.9ms)
+  Rendered layouts/_footer.html.slim (7.3ms)
+Completed 200 OK in 1150ms (Views: 1132.9ms | ActiveRecord: 2.1ms)
+
+
+Started PUT "/users" for 127.0.0.1 at 2015-05-31 12:03:59 +0700
+Processing by Devise::RegistrationsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RAmV8MTRi3BmFCB+n35O02+AmSKr7YJDdRkbcgIuG/DMybkAxN9TIWLHT3MfLeLvjBxu9Rhc7EbXNUY2s+jklA==", "user"=>{"phone_number"=>"081910298293", "address_line_1"=>"cibiru 1", "address_line_2"=>"", "state"=>"jawa barat", "city"=>"Bandung"}, "commit"=>"Submit"}
+  [1m[36mUser Load (2.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35mUser Load (2.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 6]]
+  Rendered users/registrations/edit.html.slim within layouts/application (25.4ms)
+  Rendered layouts/_header.html.slim (3.5ms)
+  Rendered layouts/_footer.html.slim (7.2ms)
+Completed 200 OK in 2711ms (Views: 950.3ms | ActiveRecord: 4.7ms)
+
+
+Started PUT "/users" for 127.0.0.1 at 2015-05-31 12:05:59 +0700
+Processing by Devise::RegistrationsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RAmV8MTRi3BmFCB+n35O02+AmSKr7YJDdRkbcgIuG/DMybkAxN9TIWLHT3MfLeLvjBxu9Rhc7EbXNUY2s+jklA==", "user"=>{"phone_number"=>"081910298293", "address_line_1"=>"cibiru 1", "address_line_2"=>"", "state"=>"jawa barat", "city"=>"Bandung"}, "commit"=>"Submit"}
+  [1m[36mUser Load (1.8ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35mUser Load (3.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 6]]
+  Rendered users/registrations/edit.html.slim within layouts/application (169.9ms)
+  Rendered layouts/_header.html.slim (3.9ms)
+  Rendered layouts/_footer.html.slim (7.1ms)
+Completed 200 OK in 1711ms (Views: 1099.6ms | ActiveRecord: 4.9ms)
+
+
+Started PUT "/users" for 127.0.0.1 at 2015-05-31 12:06:33 +0700
+Processing by Devise::RegistrationsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RAmV8MTRi3BmFCB+n35O02+AmSKr7YJDdRkbcgIuG/DMybkAxN9TIWLHT3MfLeLvjBxu9Rhc7EbXNUY2s+jklA==", "user"=>{"phone_number"=>"081910298293", "address_line_1"=>"cibiru 1", "address_line_2"=>"", "state"=>"jawa barat", "city"=>"Bandung"}, "commit"=>"Submit"}
+  [1m[36mUser Load (2.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35mUser Load (2.9ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 6]]
+  Rendered users/registrations/edit.html.slim within layouts/application (132.6ms)
+  Rendered layouts/_header.html.slim (3.7ms)
+  Rendered layouts/_footer.html.slim (7.4ms)
+Completed 200 OK in 1689ms (Views: 1063.3ms | ActiveRecord: 5.4ms)
+
+
+Started PUT "/users" for 127.0.0.1 at 2015-05-31 12:06:49 +0700
+Processing by Devise::RegistrationsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BWhWS/v5FHWytbGQNGkex7OKF+tOnkEQEp3HBNShiDqNqHq7+/fMJLZm3p20OrL7UBbgPP0vLxWwsZpAZWd3Xg==", "user"=>{"phone_number"=>"081910298293", "address_line_1"=>"cibiru 1", "address_line_2"=>"", "state"=>"jawa barat", "city"=>"Bandung", "current_password"=>"[FILTERED]"}, "commit"=>"Submit"}
+  [1m[36mUser Load (2.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35mUser Load (2.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 6]]
+  [1m[36m (1.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (42.8ms)[0m  UPDATE "users" SET "phone_number" = $1, "city" = $2, "address_line_1" = $3, "address_line_2" = $4, "state" = $5, "updated_at" = $6 WHERE "users"."id" = $7  [["phone_number", "081910298293"], ["city", "Bandung"], ["address_line_1", "cibiru 1"], ["address_line_2", ""], ["state", "jawa barat"], ["updated_at", "2015-05-31 05:06:50.513206"], ["id", 6]]
+  [1m[36m (136.7ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 867ms (ActiveRecord: 185.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-31 12:06:51 +0700
+Processing by StaticsController#home as HTML
+  Rendered statics/home.html.slim within layouts/application (6.8ms)
+  [1m[35mUser Load (5.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 6]]
+  Rendered layouts/_header.html.slim (16.8ms)
+  Rendered layouts/_footer.html.slim (11.9ms)
+Completed 200 OK in 989ms (Views: 979.3ms | ActiveRecord: 5.8ms)
+  [1m[36mUser Load (6.5ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" DESC LIMIT 1[0m
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2015-05-31 12:33:53 +0700
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"xeA9bfpc7RfhILKEggaM/9U6O4ZNJht4Ghwd3sx9w+lNIBGd+lI1RuXz3YkCVSDDNqbMUf6XdX24MECafbs8jQ=="}
+  [1m[36mUser Load (1.8ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 6]]
+  [1m[35m (1.0ms)[0m  BEGIN
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 9362ms (ActiveRecord: 1881.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-31 12:35:04 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (28.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticsController#home as HTML
+  Rendered statics/home.html.slim within layouts/application (401.9ms)
+  Rendered layouts/_header.html.slim (68.0ms)
+  Rendered layouts/_footer.html.slim (91.8ms)
+Completed 200 OK in 6449ms (Views: 6343.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-05-31 12:35:28 +0700
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered users/registrations/new.html.slim within layouts/application (122.3ms)
+  Rendered layouts/_header.html.slim (3.2ms)
+  Rendered layouts/_footer.html.slim (4.9ms)
+Completed 200 OK in 1007ms (Views: 859.2ms | ActiveRecord: 27.6ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-05-31 12:35:30 +0700
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered users/registrations/new.html.slim within layouts/application (9.5ms)
+  Rendered layouts/_header.html.slim (4.8ms)
+  Rendered layouts/_footer.html.slim (4.2ms)
+Completed 200 OK in 801ms (Views: 796.7ms | ActiveRecord: 0.0ms)
+  [1m[35mUser Load (238.0ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (1.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (97.8ms)[0m  DELETE FROM "users" WHERE "users"."id" = $1  [["id", 6]]
+  [1m[36m (177.6ms)[0m  [1mCOMMIT[0m
+
+
+Started POST "/users" for 127.0.0.1 at 2015-05-31 12:36:10 +0700
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zBn/YTZbLal9wv9w1aeRT3Epo+xVJlgyjXnHFDjTfTf6zhQ2HUYnqW8CsyGkZpIluM2SBVgtHgCJxqamM3GkrQ==", "user"=>{"first_name"=>"lintang", "last_name"=>"arief", "email"=>"lintangarief13@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Register"}
+  [1m[35m (0.9ms)[0m  BEGIN
+  [1m[36mUser Exists (119.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'lintangarief13@gmail.com' LIMIT 1[0m
+  [1m[35mUser Load (2.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."confirmation_token" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["confirmation_token", "9f7c790aa46c16ad844aebd94bf1d5e81f654cfad0e963e2c80e5002162ea3f2"]]
+  [1m[36mSQL (2.8ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "lintang"], ["last_name", "arief"], ["email", "lintangarief13@gmail.com"], ["encrypted_password", "$2a$10$pUCjlM3Li9wn8CNcwGxgnu32R.86NsSOCXfrbV.yVkz/fluF2ewOy"], ["created_at", "2015-05-31 05:36:11.319187"], ["updated_at", "2015-05-31 05:36:11.319187"], ["confirmation_token", "9f7c790aa46c16ad844aebd94bf1d5e81f654cfad0e963e2c80e5002162ea3f2"], ["confirmation_sent_at", "2015-05-31 05:36:13.165324"]]
+  Rendered users/mailer/confirmation_instructions.html.erb (4.0ms)
+
+Devise::Mailer#confirmation_instructions: processed outbound mail in 936.6ms
+
+Sent mail to lintangarief13@gmail.com (5454.2ms)
+Date: Sun, 31 May 2015 12:36:14 +0700
+From: info@jalaon.com
+Reply-To: info@jalaon.com
+To: lintangarief13@gmail.com
+Message-ID: <556a9dce3b072_15af261e2152318bc@lintangarief.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome lintangarief13@gmail.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=UnPUv17E7PaUxMPys_Xv">Confirm my account</a></p>
+
+  [1m[35m (37.4ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 9152ms (ActiveRecord: 163.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-31 12:36:20 +0700
+Processing by StaticsController#home as HTML
+  Rendered statics/home.html.slim within layouts/application (5.8ms)
+  Rendered layouts/_header.html.slim (3.6ms)
+  Rendered layouts/_footer.html.slim (4.8ms)
+Completed 200 OK in 605ms (Views: 601.0ms | ActiveRecord: 0.0ms)
+  [1m[35mUser Load (454.5ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" DESC LIMIT 1
+  [1m[36mUser Load (2.5ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" DESC LIMIT 1[0m
+  [1m[35m (0.7ms)[0m  BEGIN
+  [1m[36mSQL (103.3ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 7]]
+  [1m[35m (115.3ms)[0m  COMMIT
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-05-31 12:47:19 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (2.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered users/registrations/new.html.slim within layouts/application (190.2ms)
+  Rendered layouts/_header.html.slim (42.7ms)
+  Rendered layouts/_footer.html.slim (86.8ms)
+Completed 200 OK in 5710ms (Views: 5473.7ms | ActiveRecord: 46.7ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-05-31 12:47:26 +0700
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered users/registrations/new.html.slim within layouts/application (8.1ms)
+  Rendered layouts/_header.html.slim (3.0ms)
+  Rendered layouts/_footer.html.slim (4.4ms)
+Completed 200 OK in 564ms (Views: 560.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-05-31 12:47:31 +0700
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered users/registrations/new.html.slim within layouts/application (9.6ms)
+  Rendered layouts/_header.html.slim (3.1ms)
+  Rendered layouts/_footer.html.slim (6.3ms)
+Completed 200 OK in 781ms (Views: 776.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2015-05-31 12:48:02 +0700
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6p3DDr3h0mxNeqhnLg3RYedT7sniYJHduZMqsKpGU2/cSihZlvzYbF+65DZfzNILLrffIO9r1++9LEsCoeSK9Q==", "user"=>{"first_name"=>"lintang", "last_name"=>"arief", "email"=>"lintangarief13@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Register"}
+  [1m[35m (0.8ms)[0m  BEGIN
+  [1m[36mUser Exists (52.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'lintangarief13@gmail.com' LIMIT 1[0m
+  [1m[35mUser Load (46.9ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."confirmation_token" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["confirmation_token", "6d34c00020e4790f08b3141f3a259c55de8f25fefc5d5e22415e7d8cc247f4c4"]]
+  [1m[36mSQL (117.0ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "lintang"], ["last_name", "arief"], ["email", "lintangarief13@gmail.com"], ["encrypted_password", "$2a$10$qrJ0FG29g6g/wGfjNx0gxO8Tkr/oOcwpZPh/uAp8PsPdxS2rU7gzK"], ["created_at", "2015-05-31 05:48:03.325880"], ["updated_at", "2015-05-31 05:48:03.325880"], ["confirmation_token", "6d34c00020e4790f08b3141f3a259c55de8f25fefc5d5e22415e7d8cc247f4c4"], ["confirmation_sent_at", "2015-05-31 05:48:05.146992"]]
+  Rendered users/mailer/confirmation_instructions.html.erb (4.3ms)
+
+Devise::Mailer#confirmation_instructions: processed outbound mail in 1690.0ms
+
+Sent mail to lintangarief13@gmail.com (1626.6ms)
+Date: Sun, 31 May 2015 12:48:07 +0700
+From: info@jalaon.com
+Reply-To: info@jalaon.com
+To: lintangarief13@gmail.com
+Message-ID: <556aa09750d97_164426044d8624888@lintangarief.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome lintangarief13@gmail.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=TCsUZysy8mkyzLnK_qzE">Confirm my account</a></p>
+
+  [1m[35m (22.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 6301ms (ActiveRecord: 240.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-31 12:48:10 +0700
+Processing by StaticsController#home as HTML
+  Rendered statics/home.html.slim within layouts/application (90.3ms)
+  Rendered layouts/_header.html.slim (3.8ms)
+  Rendered layouts/_footer.html.slim (4.4ms)
+Completed 200 OK in 845ms (Views: 842.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/confirmation?confirmation_token=TCsUZysy8mkyzLnK_qzE" for 127.0.0.1 at 2015-05-31 12:59:45 +0700
+Processing by Devise::ConfirmationsController#show as HTML
+  Parameters: {"confirmation_token"=>"TCsUZysy8mkyzLnK_qzE"}
+  [1m[36mUser Load (39.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."confirmation_token" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["confirmation_token", "6d34c00020e4790f08b3141f3a259c55de8f25fefc5d5e22415e7d8cc247f4c4"]]
+  [1m[35m (13.9ms)[0m  BEGIN
+  [1m[36mSQL (57.2ms)[0m  [1mUPDATE "users" SET "confirmed_at" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["confirmed_at", "2015-05-31 05:59:48.268461"], ["updated_at", "2015-05-31 05:59:48.285960"], ["id", 8]]
+  [1m[35m (111.8ms)[0m  COMMIT
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 796ms (ActiveRecord: 222.3ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-05-31 12:59:49 +0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered users/shared/_links.html.erb (7.2ms)
+  Rendered users/sessions/new.html.slim within layouts/application (255.3ms)
+  Rendered layouts/_header.html.slim (3.3ms)
+  Rendered layouts/_footer.html.slim (4.9ms)
+Completed 200 OK in 1366ms (Views: 1359.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2015-05-31 13:00:44 +0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"DGKxiU/Tds6FfQ3W80eucEKhuYr6TBaqiK1ZZU78d/86tVreZM58zpe9QYeChq0ai0WIY/dHUJiMEjjXRV6uZQ==", "user"=>{"email"=>"lintangarief13@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (33.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "lintangarief13@gmail.com"]]
+  [1m[35m (0.9ms)[0m  BEGIN
+  [1m[36mSQL (1.8ms)[0m  [1mUPDATE "users" SET "remember_created_at" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["remember_created_at", "2015-05-31 06:00:45.587067"], ["updated_at", "2015-05-31 06:00:45.592456"], ["id", 8]]
+  [1m[35m (50.3ms)[0m  COMMIT
+  [1m[36m (0.8ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.5ms)[0m  UPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "last_sign_in_ip" = $3, "current_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = $7  [["last_sign_in_at", "2015-05-31 06:00:45.718957"], ["current_sign_in_at", "2015-05-31 06:00:45.718957"], ["last_sign_in_ip", "127.0.0.1/32"], ["current_sign_in_ip", "127.0.0.1/32"], ["sign_in_count", 1], ["updated_at", "2015-05-31 06:00:45.724503"], ["id", 8]]
+  [1m[36m (53.7ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 1005ms (ActiveRecord: 142.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-31 13:00:46 +0700
+Processing by StaticsController#home as HTML
+  Rendered statics/home.html.slim within layouts/application (9.1ms)
+  [1m[35mUser Load (1.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 8]]
+  Rendered layouts/_header.html.slim (11.7ms)
+  Rendered layouts/_footer.html.slim (4.2ms)
+Completed 200 OK in 751ms (Views: 746.2ms | ActiveRecord: 1.7ms)
+  [1m[36mUser Load (1061.1ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" DESC LIMIT 1[0m
+  [1m[35m (1.0ms)[0m  BEGIN
+  [1m[36mSQL (13.6ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 8]]
+  [1m[35m (216.9ms)[0m  COMMIT
+  [1m[36mUser Load (39.1ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" DESC LIMIT 1[0m
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-05-31 13:27:51 +0700
+Processing by Devise::RegistrationsController#new as HTML
+  [1m[36mUser Load (27.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 8]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 8]]
+  Rendered users/registrations/new.html.slim within layouts/application (47.7ms)
+  Rendered layouts/_header.html.slim (5.5ms)
+  Rendered layouts/_footer.html.slim (40.6ms)
+Completed 200 OK in 3924ms (Views: 3803.4ms | ActiveRecord: 27.8ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-05-31 13:27:56 +0700
+Processing by Devise::RegistrationsController#new as HTML
+  [1m[36mUser Load (2.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 8]]
+  [1m[35mCACHE (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 8]]
+  Rendered users/registrations/new.html.slim within layouts/application (24.4ms)
+  Rendered layouts/_header.html.slim (19.0ms)
+  Rendered layouts/_footer.html.slim (5.8ms)
+Completed 200 OK in 15515ms (Views: 15480.4ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-05-31 13:28:12 +0700
+Processing by Devise::RegistrationsController#new as HTML
+  [1m[36mUser Load (1.8ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 8]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 8]]
+  Rendered users/registrations/new.html.slim within layouts/application (7.2ms)
+  Rendered layouts/_header.html.slim (3.9ms)
+  Rendered layouts/_footer.html.slim (5.2ms)
+Completed 200 OK in 1125ms (Views: 1109.4ms | ActiveRecord: 2.0ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2015-05-31 13:28:29 +0700
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"6hAib/REWGniKEu/MVvcNiSnyEclDEwJd6/qzldl603ZicnP0SI+yLywOVVpH0cDhMLIEM+R/Z8YMcK7JiehVA=="}
+Redirected to http://localhost:3000/
+Filter chain halted as :verify_signed_out_user rendered or redirected
+Completed 302 Found in 7ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-31 13:28:31 +0700
+Processing by StaticsController#home as HTML
+  Rendered statics/home.html.slim within layouts/application (54.3ms)
+  Rendered layouts/_header.html.slim (3.5ms)
+  Rendered layouts/_footer.html.slim (5.3ms)
+Completed 200 OK in 3136ms (Views: 3103.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-05-31 13:28:51 +0700
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered users/registrations/new.html.slim within layouts/application (8.5ms)
+  Rendered layouts/_header.html.slim (3.7ms)
+  Rendered layouts/_footer.html.slim (9.2ms)
+Completed 200 OK in 856ms (Views: 846.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2015-05-31 13:29:13 +0700
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mEyR6wg2zvhJI6sg87Ugcgu+hS9t+XWfO9vnfkO9AfGr1XpLLVCoWRe72cqr8btHq9uFeIdkxAlURc8LMv9L6A==", "user"=>{"first_name"=>"lintang", "last_name"=>"arief", "email"=>"lintangarief13@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Register"}
+  [1m[36m (0.9ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (112.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'lintangarief13@gmail.com' LIMIT 1
+  [1m[36mUser Load (2.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."confirmation_token" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["confirmation_token", "b14c16777241f55784ed5bf84c69d346cb26b3f7a038495b367d875a4555aeec"]]
+  [1m[35mSQL (104.2ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["first_name", "lintang"], ["last_name", "arief"], ["email", "lintangarief13@gmail.com"], ["encrypted_password", "$2a$10$aq.T4fqpm5TXoKl1J19.GuIfV5MlEKmuThvuHunEBcGMSsLdMxbMC"], ["created_at", "2015-05-31 06:29:14.572252"], ["updated_at", "2015-05-31 06:29:14.572252"], ["confirmation_token", "b14c16777241f55784ed5bf84c69d346cb26b3f7a038495b367d875a4555aeec"], ["confirmation_sent_at", "2015-05-31 06:29:14.590796"]]
+  Rendered users/mailer/confirmation_instructions.html.erb (103.7ms)
+
+Devise::Mailer#confirmation_instructions: processed outbound mail in 312.4ms
+
+Sent mail to lintangarief13@gmail.com (2652.9ms)
+Date: Sun, 31 May 2015 13:29:15 +0700
+From: info@jalaon.com
+Reply-To: info@jalaon.com
+To: lintangarief13@gmail.com
+Message-ID: <556aaa3bb7a1f_164425e30a90249cf@lintangarief.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" bg=
+color=3D"#edece4">
+    <tbody>
+        <tr>
+            <td style=3D"padding:50px 15px">
+                <center>
+                    <table width=3D"600" cellspacing=3D"0" cellpadding=3D=
+"0" align=3D"center" bgcolor=3D"#fff">
+                        <tbody>
+                            <tr>
+                                <td align=3D"left">
+                                    <div style=3D"border:solid 1px #d9d9d=
+9">
+                                        <table width=3D"100%" border=3D"0=
+" cellspacing=3D"0" cellpadding=3D"0" bgcolor=3D"#fff">
+                                            <tbody>
+                                                <tr>
+                                                    <td style=3D"color:#f=
+ff" colspan=3D"2" valign=3D"bottom" height=3D"25"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td style=3D"padding-=
+top:15px;padding-left:50px;padding-right:50px;padding-bottom:15px;text-al=
+ign:right" valign=3D"baseline">
+                                                        <a style=3D"text-=
+decoration:none" href=3D"https://jalaon.com" target=3D"_blank">
+                                                            <img src=3D"h=
+ttp://jalakata.com/jalakata/img/logo.png"
+                                                            width=3D"125"=
+ height=3D"40" alt=3D"Ghost logo" class=3D"CToWUd">
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <table style=3D"margin-right:80px=
+;margin-left:80px;padding-top:25px;padding-bottom:25px;color:#828282;line=
+-height:1.6;font-size:16px;font-family:Arial,sans-serif" width=3D"480" bo=
+rder=3D"0" cellspacing=3D"0" cellpadding=3D"0" bgcolor=3D"#fff">
+                                            <tbody>
+                                                <tr>
+                                                    <td colspan=3D"2">
+                                                        <div>
+
+                                                            <p>Hey there,=
+</p>
+
+                                                            <p>You're in!=
+ Thanks for signing up for an account on JalaOn.com - to keep the dirty s=
+pammers out and make sure you're a human, please click the link below to =
+<span class=3D"il">confirm</span> your email
+                                                                address.<=
+/p>
+
+                                                            <p><a href=3D=
+"http://localhost:3000/users/confirmation?confirmation_token=3DcJMYUUyxTj=
+-dY6UkTveV">Confirm my account</a></p>
+
+                                                            <p>Thanks!</p=
+>
+
+                                                            <p>Team Jala =
+Media Inc</p>
+
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <table width=3D"580" border=3D"0"=
+ cellspacing=3D"0" cellpadding=3D"0" bgcolor=3D"#fff">
+                                            <tbody>
+                                                <tr style=3D"font-size:11=
+px;color:#999999;text-align:right">
+                                                    <td colspan=3D"2">
+                                                        <div style=3D"pad=
+ding-top:15px;padding-bottom:25px;padding-left:20px;padding-right:20px">
+                                                            =C2=A9 2015 J=
+ala Media Inc =E2=80=A2 All Rights Reserved
+                                                            <br>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style=3D"color:#f=
+ff" colspan=3D"2" height=3D"15">.</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </center>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+  [1m[36m (41.7ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 4625ms (ActiveRecord: 261.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-31 13:29:18 +0700
+Processing by StaticsController#home as HTML
+  Rendered statics/home.html.slim within layouts/application (4.6ms)
+  Rendered layouts/_header.html.slim (3.4ms)
+  Rendered layouts/_footer.html.slim (38.8ms)
+Completed 200 OK in 630ms (Views: 626.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/confirmation?confirmation_token=cJMYUUyxTj-dY6UkTveV" for 127.0.0.1 at 2015-05-31 13:32:08 +0700
+Processing by Devise::ConfirmationsController#show as HTML
+  Parameters: {"confirmation_token"=>"cJMYUUyxTj-dY6UkTveV"}
+  [1m[35mUser Load (2.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."confirmation_token" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["confirmation_token", "b14c16777241f55784ed5bf84c69d346cb26b3f7a038495b367d875a4555aeec"]]
+  [1m[36m (0.9ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.6ms)[0m  UPDATE "users" SET "confirmed_at" = $1, "updated_at" = $2 WHERE "users"."id" = $3  [["confirmed_at", "2015-05-31 06:32:08.579488"], ["updated_at", "2015-05-31 06:32:08.586123"], ["id", 9]]
+  [1m[36m (47.6ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 105ms (ActiveRecord: 52.3ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-05-31 13:32:09 +0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered users/shared/_links.html.erb (2.0ms)
+  Rendered users/sessions/new.html.slim within layouts/application (181.7ms)
+  Rendered layouts/_header.html.slim (3.4ms)
+  Rendered layouts/_footer.html.slim (7.3ms)
+Completed 200 OK in 1006ms (Views: 998.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2015-05-31 13:32:26 +0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"pXSIZlKW1ma0aPW2CzZgmmcumBHj/QxA8v0lmdlg+xWW7WPGd/Cwx+rwh1xTcvuvx0uYRglgvdadYw3sqCKxDA==", "user"=>{"email"=>"lintangarief13@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Sign In"}
+  [1m[35mUser Load (49.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["email", "lintangarief13@gmail.com"]]
+  [1m[36m (0.9ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (12.8ms)[0m  UPDATE "users" SET "remember_created_at" = $1, "updated_at" = $2 WHERE "users"."id" = $3  [["remember_created_at", "2015-05-31 06:32:27.020047"], ["updated_at", "2015-05-31 06:32:27.024571"], ["id", 9]]
+  [1m[36m (34.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.8ms)[0m  BEGIN
+  [1m[36mSQL (30.7ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "last_sign_in_ip" = $3, "current_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["last_sign_in_at", "2015-05-31 06:32:27.125310"], ["current_sign_in_at", "2015-05-31 06:32:27.125310"], ["last_sign_in_ip", "127.0.0.1/32"], ["current_sign_in_ip", "127.0.0.1/32"], ["sign_in_count", 1], ["updated_at", "2015-05-31 06:32:27.681579"], ["id", 9]]
+  [1m[35m (46.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 1216ms (ActiveRecord: 174.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-31 13:32:27 +0700
+Processing by StaticsController#home as HTML
+  Rendered statics/home.html.slim within layouts/application (3.8ms)
+  [1m[36mUser Load (2.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 9]]
+  Rendered layouts/_header.html.slim (10.4ms)
+  Rendered layouts/_footer.html.slim (4.5ms)
+Completed 200 OK in 652ms (Views: 647.2ms | ActiveRecord: 2.4ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2015-05-31 13:37:08 +0700
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Sw2eSQjtmsZgmiMWAsk2s9Xy53qJvkVn1LqNPqDHwY/CPCSP8SshXSeet9mTau0XyxUNqf8eVDF3ZYWJ1tFwdQ=="}
+  [1m[35mUser Load (4.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 9]]
+  [1m[36m (0.8ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (39.0ms)[0m  UPDATE "users" SET "remember_created_at" = $1, "updated_at" = $2 WHERE "users"."id" = $3  [["remember_created_at", nil], ["updated_at", "2015-05-31 06:37:08.565423"], ["id", 9]]
+  [1m[36m (42.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 180ms (ActiveRecord: 87.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-31 13:37:09 +0700
+Processing by StaticsController#home as HTML
+  Rendered statics/home.html.slim within layouts/application (6.1ms)
+  Rendered layouts/_header.html.slim (3.5ms)
+  Rendered layouts/_footer.html.slim (4.4ms)
+Completed 200 OK in 560ms (Views: 557.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-05-31 13:37:15 +0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered users/shared/_links.html.erb (2.0ms)
+  Rendered users/sessions/new.html.slim within layouts/application (23.0ms)
+  Rendered layouts/_header.html.slim (3.0ms)
+  Rendered layouts/_footer.html.slim (4.5ms)
+Completed 200 OK in 624ms (Views: 618.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-05-31 13:37:16 +0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered users/shared/_links.html.erb (1.9ms)
+  Rendered users/sessions/new.html.slim within layouts/application (20.1ms)
+  Rendered layouts/_header.html.slim (3.5ms)
+  Rendered layouts/_footer.html.slim (4.4ms)
+Completed 200 OK in 599ms (Views: 593.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/password/new" for 127.0.0.1 at 2015-05-31 13:37:19 +0700
+Processing by Devise::PasswordsController#new as HTML
+  Rendered users/shared/_links.html.erb (31.6ms)
+  Rendered users/passwords/new.html.erb within layouts/application (65.2ms)
+  Rendered layouts/_header.html.slim (143.1ms)
+  Rendered layouts/_footer.html.slim (133.2ms)
+Completed 200 OK in 1164ms (Views: 1123.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/password/new" for 127.0.0.1 at 2015-05-31 13:37:22 +0700
+Processing by Devise::PasswordsController#new as HTML
+  Rendered users/shared/_links.html.erb (1.6ms)
+  Rendered users/passwords/new.html.erb within layouts/application (11.2ms)
+  Rendered layouts/_header.html.slim (3.6ms)
+  Rendered layouts/_footer.html.slim (4.4ms)
+Completed 200 OK in 565ms (Views: 561.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/password" for 127.0.0.1 at 2015-05-31 13:37:29 +0700
+Processing by Devise::PasswordsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2RNWEmMS2ID2C9QkxmLMjUW1wj6Ovg7uudjxVzuJ0dcFxj5hnPMW5DHPuyxE7NoTkW5t2MeR2I/3mf/tYnQIzg==", "user"=>{"email"=>"lintangarief13@gmail.com"}, "commit"=>"Send me reset password instructions"}
+  [1m[35mUser Load (2.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["email", "lintangarief13@gmail.com"]]
+  [1m[36mUser Load (2.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."reset_password_token" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["reset_password_token", "78c5ade921b29d6c870ff311eb00f46597cfc6e7d9bbb3676415ca55cef81894"]]
+  [1m[35m (0.9ms)[0m  BEGIN
+  [1m[36mSQL (2.0ms)[0m  [1mUPDATE "users" SET "reset_password_token" = $1, "reset_password_sent_at" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["reset_password_token", "78c5ade921b29d6c870ff311eb00f46597cfc6e7d9bbb3676415ca55cef81894"], ["reset_password_sent_at", "2015-05-31 06:37:31.266479"], ["updated_at", "2015-05-31 06:37:31.270432"], ["id", 9]]
+  [1m[35m (50.6ms)[0m  COMMIT
+  Rendered users/mailer/reset_password_instructions.html.erb (7.5ms)
+
+Devise::Mailer#reset_password_instructions: processed outbound mail in 53.1ms
+
+Sent mail to lintangarief13@gmail.com (1659.9ms)
+Date: Sun, 31 May 2015 13:37:31 +0700
+From: info@jalaon.com
+Reply-To: info@jalaon.com
+To: lintangarief13@gmail.com
+Message-ID: <556aac2b675cd_1644262fd51e25010@lintangarief.mail>
+Subject: Reset password instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" bg=
+color=3D"#edece4">
+    <tbody>
+        <tr>
+            <td style=3D"padding:50px 15px">
+                <center>
+                    <table width=3D"600" cellspacing=3D"0" cellpadding=3D=
+"0" align=3D"center" bgcolor=3D"#fff">
+                        <tbody>
+                            <tr>
+                                <td align=3D"left">
+                                    <div style=3D"border:solid 1px #d9d9d=
+9">
+                                        <table width=3D"100%" border=3D"0=
+" cellspacing=3D"0" cellpadding=3D"0" bgcolor=3D"#fff">
+                                            <tbody>
+                                                <tr>
+                                                    <td style=3D"color:#f=
+ff" colspan=3D"2" valign=3D"bottom" height=3D"25"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td style=3D"padding-=
+top:15px;padding-left:50px;padding-right:50px;padding-bottom:15px;text-al=
+ign:right" valign=3D"baseline">
+                                                        <a style=3D"text-=
+decoration:none" href=3D"https://jalaon.com" target=3D"_blank">
+                                                            <img src=3D"h=
+ttp://jalakata.com/jalakata/img/logo.png"
+                                                            width=3D"125"=
+ height=3D"40" alt=3D"JalaOn" class=3D"CToWUd">
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <table style=3D"margin-right:80px=
+;margin-left:80px;padding-top:25px;padding-bottom:25px;color:#828282;line=
+-height:1.6;font-size:16px;font-family:Arial,sans-serif" width=3D"480" bo=
+rder=3D"0" cellspacing=3D"0" cellpadding=3D"0" bgcolor=3D"#fff">
+                                            <tbody>
+                                                <tr>
+                                                    <td colspan=3D"2">
+                                                        <div>
+
+                                                            <p>Hey there,=
+</p>
+
+                                                            <p>You're in!=
+ Someone has requested a link to change your password. You can do this th=
+rough the link below, please click the link below to <span class=3D"il">r=
+eset</span> your Password.</p>
+
+                                                            <p><a href=3D=
+"http://localhost:3000/users/password/edit?reset_password_token=3DhbJ2xNs=
+5X4_5-wox9WZr">Change my password</a></p>
+                                                            <br/>
+                                                            <p>If you did=
+n't request this, please ignore this email.</p>
+                                                            <p>Your passw=
+ord won't change until you access the link above and create a new one.</p=
+>
+
+                                                            <p>Thanks!</p=
+>
+
+                                                            <p>Team Jala =
+Media Inc</p>
+
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <table width=3D"580" border=3D"0"=
+ cellspacing=3D"0" cellpadding=3D"0" bgcolor=3D"#fff">
+                                            <tbody>
+                                                <tr style=3D"font-size:11=
+px;color:#999999;text-align:right">
+                                                    <td colspan=3D"2">
+                                                        <div style=3D"pad=
+ding-top:15px;padding-bottom:25px;padding-left:20px;padding-right:20px">
+                                                            =C2=A9 2015 J=
+ala Media Inc =E2=80=A2 All Rights Reserved
+                                                            <br>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style=3D"color:#f=
+ff" colspan=3D"2" height=3D"15">.</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </center>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 3776ms (ActiveRecord: 58.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-05-31 13:37:33 +0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered users/shared/_links.html.erb (5.9ms)
+  Rendered users/sessions/new.html.slim within layouts/application (31.1ms)
+  Rendered layouts/_header.html.slim (3.0ms)
+  Rendered layouts/_footer.html.slim (4.4ms)
+Completed 200 OK in 636ms (Views: 630.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/password/edit?reset_password_token=[FILTERED]" for 127.0.0.1 at 2015-05-31 13:39:45 +0700
+Processing by Devise::PasswordsController#edit as HTML
+  Parameters: {"reset_password_token"=>"[FILTERED]"}
+  Rendered users/shared/_links.html.erb (2.4ms)
+  Rendered users/passwords/edit.html.erb within layouts/application (365.4ms)
+  Rendered layouts/_header.html.slim (3.2ms)
+  Rendered layouts/_footer.html.slim (4.7ms)
+Completed 200 OK in 1053ms (Views: 1048.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/password/edit?reset_password_token=[FILTERED]" for 127.0.0.1 at 2015-05-31 13:48:40 +0700
+Processing by Devise::PasswordsController#edit as HTML
+  Parameters: {"reset_password_token"=>"[FILTERED]"}
+  Rendered users/passwords/edit.html.erb within layouts/application (199.3ms)
+  Rendered layouts/_header.html.slim (3.8ms)
+  Rendered layouts/_footer.html.slim (4.1ms)
+Completed 200 OK in 978ms (Views: 970.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/password/edit?reset_password_token=[FILTERED]" for 127.0.0.1 at 2015-05-31 13:49:11 +0700
+Processing by Devise::PasswordsController#edit as HTML
+  Parameters: {"reset_password_token"=>"[FILTERED]"}
+  Rendered users/passwords/edit.html.erb within layouts/application (0.2ms)
+  Rendered layouts/_header.html.slim (3.0ms)
+  Rendered layouts/_footer.html.slim (4.7ms)
+Completed 200 OK in 607ms (Views: 601.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/password/edit?reset_password_token=[FILTERED]" for 127.0.0.1 at 2015-05-31 13:49:33 +0700
+Processing by Devise::PasswordsController#edit as HTML
+  Parameters: {"reset_password_token"=>"[FILTERED]"}
+  Rendered users/passwords/edit.html.erb within layouts/application (0.2ms)
+  Rendered layouts/_header.html.slim (3.3ms)
+  Rendered layouts/_footer.html.slim (4.4ms)
+Completed 200 OK in 781ms (Views: 777.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/password/edit?reset_password_token=[FILTERED]" for 127.0.0.1 at 2015-05-31 13:50:02 +0700
+Processing by Devise::PasswordsController#edit as HTML
+  Parameters: {"reset_password_token"=>"[FILTERED]"}
+  Rendered users/shared/_links.html.erb (2.0ms)
+  Rendered users/passwords/edit.html.slim within layouts/application (57.5ms)
+  Rendered layouts/_header.html.slim (3.0ms)
+  Rendered layouts/_footer.html.slim (4.5ms)
+Completed 200 OK in 678ms (Views: 669.5ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/users/password" for 127.0.0.1 at 2015-05-31 13:50:22 +0700
+Processing by Devise::PasswordsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"oBkqsnplpaxt3XZTOPdX5IIBIGuCSgBNwgb75FsGk7B8zELBhYRryKoZGVu6eUF6VtqPjctl1iyMR/VeAvtKqQ==", "user"=>{"reset_password_token"=>"[FILTERED]", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Change my Password"}
+  [1m[36mUser Load (14.9ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."reset_password_token" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["reset_password_token", "78c5ade921b29d6c870ff311eb00f46597cfc6e7d9bbb3676415ca55cef81894"]]
+  [1m[35m (0.7ms)[0m  BEGIN
+  [1m[36mSQL (32.8ms)[0m  [1mUPDATE "users" SET "encrypted_password" = $1, "reset_password_token" = $2, "reset_password_sent_at" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["encrypted_password", "$2a$10$2QYhcoyl49a1JCIyL1oabeca48SqYUrhCza4tnFmRW1LrUkSZAAc."], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["updated_at", "2015-05-31 06:50:22.701993"], ["id", 9]]
+  [1m[35m (34.3ms)[0m  COMMIT
+  [1m[36m (0.8ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.8ms)[0m  UPDATE "users" SET "current_sign_in_at" = $1, "sign_in_count" = $2, "updated_at" = $3 WHERE "users"."id" = $4  [["current_sign_in_at", "2015-05-31 06:50:22.782872"], ["sign_in_count", 2], ["updated_at", "2015-05-31 06:50:22.822187"], ["id", 9]]
+  [1m[36m (34.3ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 639ms (ActiveRecord: 119.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-31 13:50:23 +0700
+Processing by StaticsController#home as HTML
+  Rendered statics/home.html.slim within layouts/application (6.2ms)
+  [1m[35mUser Load (1.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 9]]
+  Rendered layouts/_header.html.slim (10.5ms)
+  Rendered layouts/_footer.html.slim (4.4ms)
+Completed 200 OK in 672ms (Views: 667.0ms | ActiveRecord: 1.6ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2015-05-31 13:50:37 +0700
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"IklPhpFr624WvVqGgxHkWmQyrsR0Xo12fJZjPtcW3cb+nCf1boolCtF5NY4Bn/LEsOkBIj1xWxcy122EjusE3w=="}
+  [1m[36mUser Load (7.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 9]]
+  [1m[35m (0.7ms)[0m  BEGIN
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 36ms (ActiveRecord: 9.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-31 13:50:37 +0700
+Processing by StaticsController#home as HTML
+  Rendered statics/home.html.slim within layouts/application (7.7ms)
+  Rendered layouts/_header.html.slim (4.0ms)
+  Rendered layouts/_footer.html.slim (4.7ms)
+Completed 200 OK in 682ms (Views: 680.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-05-31 13:50:43 +0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered users/shared/_links.html.erb (1.9ms)
+  Rendered users/sessions/new.html.slim within layouts/application (19.5ms)
+  Rendered layouts/_header.html.slim (3.3ms)
+  Rendered layouts/_footer.html.slim (4.3ms)
+Completed 200 OK in 607ms (Views: 597.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/password/new" for 127.0.0.1 at 2015-05-31 13:50:46 +0700
+Processing by Devise::PasswordsController#new as HTML
+  Rendered users/shared/_links.html.erb (2.2ms)
+  Rendered users/passwords/new.html.slim within layouts/application (62.4ms)
+  Rendered layouts/_header.html.slim (3.6ms)
+  Rendered layouts/_footer.html.slim (4.4ms)
+Completed 200 OK in 657ms (Views: 653.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-05-31 13:50:54 +0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered users/shared/_links.html.erb (2.6ms)
+  Rendered users/sessions/new.html.slim within layouts/application (19.2ms)
+  Rendered layouts/_header.html.slim (3.1ms)
+  Rendered layouts/_footer.html.slim (4.3ms)
+Completed 200 OK in 645ms (Views: 639.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-31 13:51:01 +0700
+Processing by StaticsController#home as HTML
+  Rendered statics/home.html.slim within layouts/application (95.3ms)
+  Rendered layouts/_header.html.slim (3.8ms)
+  Rendered layouts/_footer.html.slim (4.7ms)
+Completed 200 OK in 675ms (Views: 671.8ms | ActiveRecord: 0.0ms)

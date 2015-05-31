@@ -1,5 +1,72 @@
-<p>Welcome <%= @email %>!</p>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#edece4">
+    <tbody>
+        <tr>
+            <td style="padding:50px 15px">
+                <center>
+                    <table width="600" cellspacing="0" cellpadding="0" align="center" bgcolor="#fff">
+                        <tbody>
+                            <tr>
+                                <td align="left">
+                                    <div style="border:solid 1px #d9d9d9">
+                                        <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#fff">
+                                            <tbody>
+                                                <tr>
+                                                    <td style="color:#fff" colspan="2" valign="bottom" height="25"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="padding-top:15px;padding-left:50px;padding-right:50px;padding-bottom:15px;text-align:right" valign="baseline">
+                                                        <a style="text-decoration:none" href="https://jalaon.com" target="_blank">
+                                                            <img src="http://jalakata.com/jalakata/img/logo.png"
+                                                            width="125" height="40" alt="JalaOn logo" class="CToWUd">
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <table style="margin-right:80px;margin-left:80px;padding-top:25px;padding-bottom:25px;color:#828282;line-height:1.6;font-size:16px;font-family:Arial,sans-serif" width="480" border="0" cellspacing="0" cellpadding="0" bgcolor="#fff">
+                                            <tbody>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <div>
 
-<p>You can confirm your account email through the link below:</p>
+                                                            <p>Hey there,</p>
 
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+                                                            <p>You're in! Thanks for signing up for an account on JalaOn.com - to keep the dirty spammers out and make sure you're a human, please click the link below to <span class="il">confirm</span> your email
+                                                                address.</p>
+
+                                                            <p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+
+                                                            <p>Thanks!</p>
+
+                                                            <p>Team Jala Media Inc</p>
+
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <table width="580" border="0" cellspacing="0" cellpadding="0" bgcolor="#fff">
+                                            <tbody>
+                                                <tr style="font-size:11px;color:#999999;text-align:right">
+                                                    <td colspan="2">
+                                                        <div style="padding-top:15px;padding-bottom:25px;padding-left:20px;padding-right:20px">
+                                                            © 2015 Jala Media Inc • All Rights Reserved
+                                                            <br>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="color:#fff" colspan="2" height="15">.</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </center>
+            </td>
+        </tr>
+    </tbody>
+</table>
