@@ -1,5 +1,10 @@
 class StaticsController < ApplicationController
+
   def home
+    @service_categories = ServiceCategory.all
+  end
+
+  def aboutme
   end
 
   def help
@@ -8,12 +13,37 @@ class StaticsController < ApplicationController
   def rules
   end
 
-  def works
+  def disclaimer
+  end
+
+  def suggest_service
+  end
+
+  def suggest_service
   end
 
   def contactme
   end
 
-  def aboutme
+  def service_favorite
   end
+
+  def new_service
+  end
+
+  def privacy_policy
+  end
+
+  def cookies_users
+  end
+
+  def jobs
+  end
+
+  def contact_us
+  end
+
+  def mobile_app
+  end
+
 end

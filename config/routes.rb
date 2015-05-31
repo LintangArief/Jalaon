@@ -2,12 +2,11 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { :registrations => "devise/registrations" }
   root 'statics#home'
 
-  get 'statics/home'
-  get 'statics/help'
-  get 'statics/rules'
-  get 'statics/works'
-  get 'statics/contactme'
-  get 'statics/aboutme'
+  # get 'statics/home' => 'statics#home'
+  get 'statics/help' => 'statics#help'
+  get 'statics/rules' => 'statics#ruler'
+  get 'statics/contactme' => 'statics#contactme'
+  get 'statics/aboutme' => 'statics#aboutme'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

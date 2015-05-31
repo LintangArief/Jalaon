@@ -147,7 +147,7 @@ class Devise::RegistrationsController < DeviseController
         u.permit(:first_name, :last_name, :email, :password, :password_confirmation)
     end
     devise_parameter_sanitizer.for(:account_update) do |u|
-      u.permit(:first_name, :last_name, :phone_number, :city, :address_line_1, :address_line_2, :state, :email, :password, :password_confirmation, :current_password)
+      u.permit(:first_name, :last_name, :phone_number, :avatar, :city, :address_line_1, :address_line_2, :state, :email, :password, :password_confirmation, :current_password)
     end
   end
 end
