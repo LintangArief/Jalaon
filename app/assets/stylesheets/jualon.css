@@ -154,3 +154,14 @@ form .form-control {
 .remember-check{
   padding-left: 5px;
 }
+.image-edit{
+  text-align: center;
+  margin: 0 auto;
+  float: none;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 50px;
+}
+.image-box{
+  text-align: center;
+}

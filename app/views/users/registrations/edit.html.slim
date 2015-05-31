@@ -13,11 +13,13 @@
             .form-group
               h4 Welcome #{resource.first_name} #{resource.last_name}
           .col-xs-12.col-sm-12.col-md-12      
-            .form-group
-              - unless resource.avatar
-                = image_tag(resource.avatar.medium_avatar)
+            .form-groups.image-box
+              - if resource.avatar
+                = image_tag(resource.avatar.large_avatar, :class => "image-edit")
               br/
+              = f.label "Choose image", style: "float: left;"
               = f.file_field :avatar, :class=>"form-control input-lg", :id=>"avatar"
+              br/
           .col-xs-12.col-sm-12.col-md-12      
             .form-group
               = f.text_field :phone_number, autofocus: true, :class=>"form-control input-lg", :id=>"phone_number", :placeholder=>"Phone Number *"
