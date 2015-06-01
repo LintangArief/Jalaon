@@ -85,10 +85,10 @@ Rails.application.configure do
     user_name: "lintangarief13@gmail.com",
     password: "dKCnICn7RGgaD69UpfI2bQ"
   }
-  config.middleware.use ExceptionNotification::Rack,
-    :email => {
-      :email_prefix => "JalaOn",
-      :sender_address => %{"Jalaon Error" <admin@creativwire.com>},
-      :exception_recipients => %w{lintangarief13@gmail.com}
-    }
+  # config.middleware.use ExceptionNotification::Rack,
+  #   :email => {
+  #     :email_prefix => "JalaOn",
+  #     :sender_address => %{"Jalaon Error" <admin@creativwire.com>},
+  #     :exception_recipients => %w{lintangarief13@gmail.com}
+  #   }
 end
