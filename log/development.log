@@ -21126,3 +21126,12 @@ ActionController::RoutingError (No route matches [GET] "/assets/twitter-bootstra
   /home/lintangarief/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
 
 
+  [1m[36mUser Exists (3.1ms)[0m  [1mSELECT  1 AS one FROM "users" LIMIT 1[0m
+  [1m[35mService Exists (79.6ms)[0m  SELECT  1 AS one FROM "services" LIMIT 1
+  [1m[36mServiceCategory Exists (1.8ms)[0m  [1mSELECT  1 AS one FROM "service_categories" LIMIT 1[0m
+  [1m[35m (26.0ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (1.6ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mUser Load (37.8ms)[0m  SELECT  "users".* FROM "users" LIMIT 41 OFFSET 0
+  [1m[36m (1.8ms)[0m  [1mSELECT COUNT(*) FROM "service_categories"[0m
+  [1m[35m (1.6ms)[0m  SELECT COUNT(*) FROM "service_categories"
+  [1m[36mServiceCategory Load (1.8ms)[0m  [1mSELECT  "service_categories".* FROM "service_categories" LIMIT 7 OFFSET 0[0m

@@ -90,5 +90,5 @@ Rails.application.configure do
       :email_prefix => "JalaOn",
       :sender_address => %{"Jalaon Error" <admin@creativwire.com>},
       :exception_recipients => %w{lintangarief13@gmail.com}
-  }
+    }
 end
