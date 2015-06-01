@@ -7,7 +7,6 @@ class User < ActiveRecord::Base
 
   mount_uploader :avatar, AvatarUserUploader
   include Amistad::FriendModel
-  searchkick word_middle: [:last_name, :first_name, :city, :state]
   paginates_per 20
 
 end

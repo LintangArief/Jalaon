@@ -6,7 +6,7 @@ class PagesController < ApplicationController
   
   def search_user
     if params[:search].present?
-      @users = User.search params[:search] , page: params[:page], per_page: 10
+      @users = User.where(first_name: params[:search]).order(:first_name).page params[:page]
     else
       @users = User.order(:first_name).page params[:page]
     end

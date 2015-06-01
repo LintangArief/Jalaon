@@ -52,7 +52,7 @@ gem "mini_magick"
 gem 'carrierwave'
 gem "socialization"
 gem 'amistad'
-gem 'searchkick'
+# gem 'searchkick'
 gem 'kaminari'
 gem 'seed_dump'
 gem 'exception_notification'
