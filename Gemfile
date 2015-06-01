@@ -50,3 +50,8 @@ gem 'fog'
 gem "mini_magick"
 # file upload solution
 gem 'carrierwave'
+gem "socialization"
+gem 'amistad'
+gem 'searchkick'
+gem 'kaminari'
+gem 'seed_dump'

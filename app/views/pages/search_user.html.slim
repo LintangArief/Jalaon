@@ -1,0 +1,37 @@
+.container
+  .well.well1.col-xs-12.col-sm-12.col-md-12.col-lg-12
+    .row.rule
+      .col-xs-12.col-sm-12.col-md-12.col-lg-12
+        = form_tag search_user_path, {id: "search-form", class: "search-form navbar-form navbar-left", role: "search"}
+          .col-xs-10.col-sm-10.col-md-10 
+            = text_field_tag "search", params[:search], class: "form-control input-lg width-input-size", placeholder: "Search User"
+          .col-xs-2.col-sm-2.col-md-2
+            = submit_tag "Find Service", :class=>"btn btn-warning btn-block btn-search btn-lg"
+      - @users.each do |user|
+        .col-md-3.text-center.row-listing
+          .panel.panel-danger.panel-pricing
+            .panel-heading
+              - unless user.avatar.file.nil?
+                = image_tag(user.avatar.large_avatar, :class => "image-edit image-user-listing")
+              - else
+                img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSAuIztzH8lswZ0UK-aiXOEBd_4Sayf9i7yEBUpuGdGVq9sUS0t" class="image-edit image-user-listing"
+            .panel-body.text-center
+              p
+                strong Name : #{user.first_name} #{user.last_name}
+            ul.list-group.text-center
+              li.list-group-item
+                i.fa.fa-check
+                |  verified
+                br/
+                | Registered : #{user.created_at.to_date}
+                br/
+                = link_to "View Profile", "#", class: "btn btn-primary btn-block"
+                - if current_user
+                  - if current_user.friend_with? user
+                    = link_to "Un Friend", "#", class: "btn btn-danger btn-block"
+                  - else
+                    = link_to "Add Friend", "#", class: "btn btn-success btn-block"
+                - else
+                  = link_to "add Friend", new_user_session_path, class: "btn bt-success btn-block"
+    .row.rule.text-center
+      = paginate @users

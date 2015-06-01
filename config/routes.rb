@@ -3,11 +3,14 @@ Rails.application.routes.draw do
   root 'statics#home'
 
   # get 'statics/home' => 'statics#home'
-  get 'statics/help' => 'statics#help'
-  get 'statics/rules' => 'statics#ruler'
-  get 'statics/contactme' => 'statics#contactme'
-  get 'statics/aboutme' => 'statics#aboutme'
-
+  get '/help' => 'statics#help'
+  get '/rules' => 'statics#ruler'
+  get '/contactme' => 'statics#contactme'
+  get '/aboutme' => 'statics#aboutme'
+  get '/listing-user' => 'pages#list_user', :as => :listing_user 
+  post '/search' => 'pages#search_user', :as => :search_user
+  get '/dasboard' => 'pages#dasboard', :as => :dasboard
+  get '/profile/:name/:id' => 'pages#profile', :as => :profile
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

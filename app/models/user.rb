@@ -6,4 +6,8 @@ class User < ActiveRecord::Base
   validates :first_name, :last_name, :email, presence: true
 
   mount_uploader :avatar, AvatarUserUploader
+  include Amistad::FriendModel
+  searchkick word_middle: [:last_name, :first_name, :city, :state]
+  paginates_per 20
+
 end
