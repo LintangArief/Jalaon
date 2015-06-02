@@ -44,15 +44,12 @@ end
 gem "slim-rails"
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'devise'
-# for aws cloud storage
 gem 'fog'
-# photo resizing
 gem "mini_magick"
-# file upload solution
 gem 'carrierwave'
 gem "socialization"
 gem 'amistad'
-# gem 'searchkick'
 gem 'kaminari'
 gem 'seed_dump'
 gem 'exception_notification'
+gem 'thin'
