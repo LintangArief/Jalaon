@@ -19,8 +19,6 @@ header#top.navbar.navbar-static-top.bs-docs-nav role="banner"
             = link_to "Create Service", new_user_session_path, :class => "a-header"
         li
           = link_to "Find Service", services_path, :class => "a-header"
-        li
-          = link_to "Browse User", listing_user_path, :class => "a-header"
         - unless current_user
           li
             = link_to "Log In", new_user_session_path, :class => "a-header"
