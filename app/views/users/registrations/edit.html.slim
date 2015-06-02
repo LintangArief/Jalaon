@@ -17,7 +17,7 @@
               - if resource.avatar
                 = image_tag(resource.avatar.large_avatar, :class => "image-edit")
               br/
-              = f.label "Choose image", style: "float: left;"
+              = f.label "Choose image", style: "float: left;", :class=> "text-center"
               = f.file_field :avatar, :class=>"form-control input-lg", :id=>"avatar"
               br/
           .col-xs-12.col-sm-12.col-md-12      

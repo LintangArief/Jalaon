@@ -6,16 +6,16 @@
           h2.label-white Please Sign In
           hr.colorgraph/
           .form-group
-            = f.label :email
+            = f.label :email, :class=> "text-white"
             = f.email_field :email, autofocus: true, :class=> "form-control input-lg", :placeholder=>"Email Address"
           .form-group
-            = f.label :password
+            = f.label :password, :class=> "text-white"
             = f.password_field :password, autocomplete: "off", :class=> "form-control input-lg"
           span.button-checkbox
             button.btn.btn-info.active data-color="info" type="button" 
               - if devise_mapping.rememberable?
                   = f.check_box :remember_me, :class=>"state-icon.glyphicon-check"
-                  = f.label :remember_me, :class=> "remember-check"
+                  = f.label :remember_me, :class=> "remember-check text-center"
             <!-- a. href=""  Forgot Password? -->
             = render "users/shared/links"
           hr.colorgraph/
