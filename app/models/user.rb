@@ -9,4 +9,6 @@ class User < ActiveRecord::Base
   include Amistad::FriendModel
   paginates_per 20
 
+  has_many :services
+
 end

@@ -53,3 +53,4 @@ gem 'kaminari'
 gem 'seed_dump'
 gem 'exception_notification'
 gem 'thin'
+gem "recaptcha", :require => "recaptcha/rails"
