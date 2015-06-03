@@ -7,7 +7,7 @@ class CreateServices < ActiveRecord::Migration
       t.text :description
       t.string :avatar
 
-      t.timestamps null: false
+      t.timestamps
     end
   end
 end

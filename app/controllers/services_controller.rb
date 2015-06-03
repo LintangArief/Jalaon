@@ -4,8 +4,8 @@ class ServicesController < ApplicationController
   # GET /services
   # GET /services.json
   def index
-    @services = Service.all
-    @service_categories = ServiceCategory.all
+    @services = Service.order(:title).page params[:page]
+    @service_categories = ServiceCategory.order(:name)
   end
 
   # GET /services/1
@@ -26,8 +26,7 @@ class ServicesController < ApplicationController
   # POST /services
   # POST /services.json
   def create
-    @service = Service.new(service_params)
-
+    @service = current_user.services.new(service_params)
     respond_to do |format|
       if @service.save
         format.html { redirect_to @service, notice: 'Service was successfully created.' }
@@ -71,6 +70,6 @@ class ServicesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def service_params
-      params.require(:service).permit(:user_id, :service_category_id, :title, :description, :avatar)
+      params.require(:service).permit(:service_category_id, :title, :description, :avatar)
     end
 end

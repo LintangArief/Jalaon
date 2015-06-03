@@ -37,8 +37,8 @@ ActiveRecord::Schema.define(version: 20150602071150) do
     t.string   "title"
     t.text     "description"
     t.string   "avatar"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: :cascade do |t|

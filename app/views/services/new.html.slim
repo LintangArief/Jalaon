@@ -4,9 +4,13 @@
     .col-md-6
       h3 style=("color:white; text-align: center")  Create Your Service In JalaOn,
       hr.colorgraph/
-      = form_for(@service, as: @service, url: new_service_path(@service)) do |f|  
+      = form_for @service do |f|  
         .row
           .col-xs-12.col-sm-12.col-md-12
+            .form-groups.image-box
+              - if @service.avatar
+                = image_tag(@service.avatar.large_avatar, :class => "image-edit")
+          .col-xs-12.col-sm-12.col-md-12      
             .form-group
               = f.label "Title Service *", :class=>"label-white"
               = f.text_field :title, autofocus: true, :class=>"form-control input-lg", :id=>"first_name", :placeholder=>"Title Your Service"
@@ -21,7 +25,7 @@
           .col-xs-12.col-sm-12.col-md-12
             .form-group
               = f.label "Service Category *", :class=>"label-white"
-              = select_tag :kategory_id, options_for_select(@service_categories.map{ |c| [c.name, c.id]}), class:"form-control twitter-typeahead tt-input form-input jualo-kategori"
+              = f.select :service_category_id, options_for_select(@service_categories.map{ |c| [c.name, c.id]}),{}, {:class => "form-control input-lg twitter-typeahead tt-input form-input jualo-kategori"}
         hr.colorgraph/
         .row
           .col-xs-12.col-md-6

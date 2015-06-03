@@ -20,7 +20,17 @@
 .tabs-panel .nav-tabs{
   font-family: 'Roboto Condensed', sans-serif;
 }
-
+img.image-responsive {
+  border-radius: 10%;
+  padding: 0px;
+  margin: 0px;
+  width: 80%;
+}
+.product-col.list .image {
+  padding:0px !important;
+  margin-top: 3%;
+  float: left;
+}
 /* Breadcrumb Styles Starts */
 
   .breadcrumb{

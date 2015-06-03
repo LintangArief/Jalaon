@@ -62,50 +62,34 @@
               button.btn.btn-warning type="button"  Reset    
     .col-md-9
       .row
-        .col-xs-12
-          .product-col.list.clearfix
-            .image
-              img.img-responsive alt="product" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSAuIztzH8lswZ0UK-aiXOEBd_4Sayf9i7yEBUpuGdGVq9sUS0t" /
-            .caption
-              h4
-                a href="product-full.html" Simply Organic Seeds
-              .description
-                | Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-              .price
-                .col-md-12.col-xs-12.col-sm-12
-                  .col-md-1.col-xs-1.col-sm-1
-                  .col-md-3.col-xs-3.col-sm-3 style="text-align: right;"
-                    button.btn.btn-cart.btn-primary data-original-title="Wishlist" title="" type="button" 
-                      i Delivery fee
-                    
-                  .col-md-7.col-xs-7.col-sm-7
-                    button.btn.btn-wishlist data-original-title="Wishlist" title="" type="button" 
-                      i.fa.fa-heart
-                    button.btn.btn-compare data-original-title="Compare" title="" type="button" 
-                      i.fa.fa-bar-chart-o
-                    button.btn.btn-cart type="button" 
-                      | Add to cart
-                      i.fa.fa-shopping-cart
+        - @services.each do |service|
+          .col-xs-12
+            .product-col.list.clearfix
+              .image
+                - unless service.avatar.nil?
+                  = image_tag(service.avatar.large_avatar, :class => "image-responsive")
+                - else
+                  img.img-responsive alt="product" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSAuIztzH8lswZ0UK-aiXOEBd_4Sayf9i7yEBUpuGdGVq9sUS0t" /
+              .caption
+                h4
+                  a href="product-full.html" = service.title
+                .description
+                  = service.description
+                .price
+                  .col-md-12.col-xs-12.col-sm-12
+                    .col-md-1.col-xs-1.col-sm-1
+                    .col-md-3.col-xs-3.col-sm-3 style="text-align: right;"
+                      button.btn.btn-cart.btn-primary data-original-title="Wishlist" title="" type="button" 
+                        i Delivery fee
+                      
+                    .col-md-7.col-xs-7.col-sm-7
+                      button.btn.btn-wishlist data-original-title="Wishlist" title="" type="button" 
+                        i.fa.fa-heart
+                      button.btn.btn-compare data-original-title="Compare" title="" type="button" 
+                        i.fa.fa-bar-chart-o
+                      button.btn.btn-cart type="button" 
+                        | Add to cart
+                        i.fa.fa-shopping-cart
       .row
-        /! Pagination Starts
-        .col-sm-6.pagination-block
-          ul.pagination
-            li
-              a href="#"  «
-            li.active
-              a href="#"  1
-            li
-              a href="#"  2
-            li
-              a href="#"  3
-            li
-              a href="#"  4
-            li
-              a href="#"  5
-            li
-              a href="#"  »
-        /! Pagination Ends
-        /! Results Starts
-        .col-sm-6.results
-          | Showing 1 to 3 of 12 (4 Pages)
-        /! Results Ends
+        .row.rule.text-center
+          = paginate @services
