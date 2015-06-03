@@ -1,21 +1,131 @@
-p#notice = notice
+.main-container
+  .container
+    .row
+      .col-md-12
+        ol.breadcrumb
+          li
+            a href="index.html"  Home
+          li.active Services
+  .container
+    .row
+      .col-sm-9.page-content.col-thin-right
+        .inner.inner-box.ads-details-wrapper
+          h2
+            | #{@service.title}  
+            small.label.label-default.adlistingtype  Verify
+          span.info-row
+            span.date
+              i.icon-clock
+              | Location : 
+            span.item-location
+              i.fa.fa-map-marker
+              |  Indonesia
+          .ads-image
+            h1.pricetag $25
+            .bx-wrapper style="max-width: 100%;" 
+              .bx-viewport style="width: 100%; overflow: hidden; position: relative; height: 402px;"
+                li.bx-clone style="float: left; list-style: none; position: relative; width: 713px;"
+                    img alt="img" src="#{@service.avatar}" /
+          .Ads-Details
+            .list-title
+            .row
+              .ads-details-info.col-md-8
+                .col-md-12
+                  h4 Service Description
+                  p #{@service.description}
+                  .list-title
+                .col-md-12
+                  h4 Product
+                  #bx-pager
+                    a.thumb-item-link.active data-slide-index="0" href="" 
+                      img alt="img" src="#{@service.avatar.large_avatar}" /
+                    a.thumb-item-link.active data-slide-index="1" href="" 
+                      img alt="img" src="#{@service.avatar.large_avatar}" /
+                    a.thumb-item-link.active data-slide-index="2" href="" 
+                      img alt="img" src="#{@service.avatar.large_avatar}" /
+                    a.thumb-item-link.active data-slide-index="0" href="" 
+                      img alt="img" src="#{@service.avatar.large_avatar}" /
+                    a.thumb-item-link.active data-slide-index="1" href="" 
+                      img alt="img" src="#{@service.avatar.large_avatar}" /
+                    a.thumb-item-link.active data-slide-index="2" href="" 
+                      img alt="img" src="#{@service.avatar.large_avatar}" /
+                    a.thumb-item-link.active data-slide-index="1" href="" 
+                      img alt="img" src="#{@service.avatar.large_avatar}" /
+                    a.thumb-item-link.active data-slide-index="2" href="" 
+                      img alt="img" src="#{@service.avatar.large_avatar}" /
+              .col-md-4
+                aside.panel.panel-body.panel-details
+                  ul
+                    li
+                      p.no-margin
+                        strong Price:
+                        | $ 2,45
+                    li
+                      p.no-margin
+                        strong Delivery:
+                        | Fee
+                    li
+                      p.no-margin
+                        strong Location:
+                        | Indonesia
+                    li
+                      p.no-margin
+                        strong Status:
+                        | Verify by Admin
+                    li
+                      p.no-margin
+                        strong Category:
+                        | Makanan dan Minuman
+                .ads-action
+                  ul.list-border
+                    li
+                      a href="#" 
+                        i.fa.fa-user
+                        | Count Feedback
+                    li
+                      a href="#" 
+                        i.fa.fa-heart
+                        | Verify Admin
+                    li
+                      a href="#" 
+                        i.fa.fa-share-alt
+                        | Share ad
 
-p
-  strong User:
-  = @service.user_id
-p
-  strong Service category:
-  = @service.service_category_id
-p
-  strong Title:
-  = @service.title
-p
-  strong Description:
-  = @service.description
-p
-  strong Avatar:
-  = @service.avatar
-
-= link_to 'Edit', edit_service_path(@service)
-'|
-= link_to 'Back', services_path
+            .content-footer.text-left
+              a.btn.btn-default data-toggle="modal" href="#contactAdvertiser" 
+                i.icon-mail-2
+                | Order
+              a.btn.btn-info
+                i.icon-phone-1
+                | Send Message Owner
+      .col-sm-3.page-sidebar-right
+        aside
+          .panel.sidebar-panel.panel-contact-seller
+            .panel-heading Contact Service
+            .panel-content.user-info
+              .panel-body.text-center
+                .seller-info
+                  h3.no-margin #{@service.user.first_name} #{@service.user.last_name}
+                  p
+                    | Location:
+                    strong Indonesia
+                  p
+                    | Joined:
+                    strong 12 Mar 2015
+                .user-ads-action
+                  a.btn.btn-default.btn-block data-toggle="modal" href="#contactAdvertiser" 
+                    i.icon-mail-2
+                    | Send a message
+                  a.btn.btn-info.btn-block
+                    i.icon-phone-1
+                    | Order
+          .panel.sidebar-panel
+            .panel-heading My Service
+            .panel-content
+              .panel-body.text-left
+                ul.list-check
+                  li Service 1
+                  li Service 2
+                  li Service 3
+      
+      

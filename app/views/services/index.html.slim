@@ -72,7 +72,7 @@
                   img.img-responsive alt="product" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSAuIztzH8lswZ0UK-aiXOEBd_4Sayf9i7yEBUpuGdGVq9sUS0t" /
               .caption
                 h4
-                  a href="product-full.html" = service.title
+                  = link_to service.title, service_path(service)
                 .description
                   = service.description
                 .price
