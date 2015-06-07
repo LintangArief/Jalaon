@@ -51,15 +51,6 @@ Service.create!([
   {user_id: 9, service_category_id: 4, title: "Adara", description: ".Dolor esse maxime reprehenderit est labore qui itaque pariatur Qui exercitationem suscipit amet libero", avatar: "1_webp.png", properties: {"Harga"=>"Labore in unde saepe et quia laborum Voluptate irure ut", "Other"=>"Mollit ut eius illo corrupti et at ut in sed obcaecati", "Delivery"=>"1", "Available"=>"Fugiat ut nulla animi et quis consequatur", "Jam Kerja"=>"Sed deserunt voluptas excepturi consectetur ab", "TakeAways"=>"1", "Type Rate"=>"Dolor esse maxime reprehenderit est labore qui itaque pariatur Qui exercitationem suscipit amet libero"}},
   {user_id: 9, service_category_id: 4, title: "Penelope", description: ".Corrupti ea ducimus expedita voluptas odit voluptate Corrupti ea ducimus expedita voluptas odit voluptate Corrupti ea ducimus expedita voluptas odit voluptate", avatar: "10_original.jpg", properties: {"Harga"=>"Tempora qui ullamco provident cupidatat elit blanditiis error alias", "Other"=>"Consequatur sed eligendi aliquip nobis saepe id aut rem sapiente quaerat id voluptate eius est aliqua Qui nisi", "Delivery"=>"0", "Available"=>"Neque aute veritatis suscipit ut accusamus eius autem ipsam illo aut dicta repudiandae tempor lorem exercitationem sint quo eligendi", "Jam Kerja"=>"Et deleniti aut qui accusamus quasi fugit esse tempora aut sit quibusdam est", "TakeAways"=>"1", "Type Rate"=>"Corrupti ea ducimus expedita voluptas odit voluptate"}}
 ])
-ServiceCategory.create!([
-  {name: "Makanan dan Minuman"},
-  {name: "Tranportrasi"},
-  {name: "Les Private"},
-  {name: "Rumah Tangga"},
-  {name: "Reparasi"},
-  {name: "Kesehatan"},
-  {name: "Bahasa"}
-])
 ServiceField.create!([
   {name: "Delivery", field_type: "check_box", required: false, service_category_id: 1},
   {name: "TakeAways", field_type: "check_box", required: false, service_category_id: 1},
