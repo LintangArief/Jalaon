@@ -29,3 +29,4 @@ gem 'exception_notification'
 gem 'thin'
 gem "recaptcha", :require => "recaptcha/rails"
 gem 'activeadmin', github: 'activeadmin'
+gem 'rename'
