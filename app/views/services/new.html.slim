@@ -1,34 +1,78 @@
 .container.container-body style="padding-top:20px;"
-  .row
-    .col-md-3
-    .col-md-6
-      h3 style=("color:white; text-align: center")  Create Your Service In JalaOn,
-      hr.colorgraph/
-      = form_for @service do |f|  
-        .row
-          .col-xs-12.col-sm-12.col-md-12
-            .form-groups.image-box
-              - if @service.avatar
-                = image_tag(@service.avatar.large_avatar, :class => "image-edit")
-          .col-xs-12.col-sm-12.col-md-12      
-            .form-group
-              = f.label "Title Service *", :class=>"label-white"
-              = f.text_field :title, autofocus: true, :class=>"form-control input-lg", :id=>"first_name", :placeholder=>"Title Your Service"
-          .col-xs-12.col-sm-12.col-md-12
-            .form-group
-              = f.label "Description Service *", :class=>"label-white"
-              = f.text_area :description, :class=>"form-control input-lg", :id=>"last_name", :placeholder=>"Description Your Service", rows: "3"
-          .col-xs-12.col-sm-12.col-md-12
-            .form-group
-              = f.label "Logo Service *", :class=>"label-white"
-              = f.file_field :avatar, :class=>"form-control input-lg", :id=>"last_name"
-          .col-xs-12.col-sm-12.col-md-12
-            .form-group
-              = f.label "Service Category *", :class=>"label-white"
-              = f.select :service_category_id, options_for_select(@service_categories.map{ |c| [c.name, c.id]}),{}, {:class => "form-control input-lg twitter-typeahead tt-input form-input jualo-kategori"}
+  .col-md-2
+  .col-md-8
+    .row
+      .col-md-3
+      .col-md-6
+        h3 style=("color:white; text-align: center")  Create Your Service In JalaOn,
         hr.colorgraph/
-        .row
-          .col-xs-12.col-md-6
-            = f.submit "Register", :class=>"btn btn-primary btn-block btn-lg"
-          .col-xs-12.col-md-6
-            a.btn.btn-success.btn-block.btn-lg href="#" Sign In
+        - if @has_service_category == false
+          h4 style=("color:white; text-align: center") Choose Your Category Service
+    .row
+      - if @has_service_category == false
+        .col-md-3
+        .col-md-6
+        .tab-content style="border: none !important; text-align: center;"
+          #men.tab-pane.active
+            ul.nav-list.list-inline
+              li
+                = link_to new_service_path(service_category_id: "1", name: nil), method: :get
+                  img src="http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_Running.png" /
+                  p style="text-align: center; color:white !important;" Makanan Dan Minuman
+              li
+                = link_to new_service_path(service_category_id: "2", name: nil), method: :get
+                  img src="http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_Basketball.png"
+                  p style="text-align: center; color:white !important;" Transportasi
+              li
+                = link_to new_service_path(service_category_id: "3", name: nil), method: :get
+                  img src="http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_Football.png" /
+                  p style="text-align: center; color:white !important;" Les Private
+              li
+                = link_to new_service_path(service_category_id: "4", name: nil), method: :get
+                  img src="http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_Soccer.png" /
+                  p style="text-align: center; color:white !important;" Rumah Tangga
+              li
+                = link_to new_service_path(service_category_id: "5", name: nil), method: :get
+                  img src="http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_MensTraining.png"
+                  p style="text-align: center; color:white !important;" Reparasi
+              li
+                = link_to new_service_path(service_category_id: "6", name: nil), method: :get
+                  img src="http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_WomensTraining.png"
+                  p style="text-align: center; color:white !important;" Kesehatan
+              li
+                = link_to new_service_path(service_category_id: "7", name: nil), method: :get
+                  img src="http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_WomensTraining.png"
+                  p style="text-align: center; color:white !important;" Bahasa
+      - else
+          .row
+            .col-md-2
+            .col-md-8
+              = form_for @service do |f|  
+                .row
+                  .col-xs-12.col-sm-12.col-md-12
+                    .form-groups.image-box
+                      - if @service.avatar
+                        = image_tag(@service.avatar.large_avatar, :class => "image-edit")
+                  .col-xs-12.col-sm-12.col-md-12      
+                    .form-group
+                      = f.label "Title Service *", :class=>"label-white"
+                      = f.text_field :title, autofocus: true, :class=>"form-control input-lg", :id=>"first_name", :placeholder=>"Title Your Service"
+                  .col-xs-12.col-sm-12.col-md-12
+                    .form-group
+                      = f.label "Description Service *", :class=>"label-white"
+                      = f.text_area :description, :class=>"form-control input-lg", :id=>"last_name", :placeholder=>"Description Your Service", rows: "3"
+                  .col-xs-12.col-sm-12.col-md-12
+                    .form-group
+                      = f.label "Logo Service *", :class=>"label-white"
+                      = f.file_field :avatar, :class=>"form-control input-lg", :id=>"last_name"
+                  .col-xs-12.col-sm-12.col-md-12
+                    = f.hidden_field :service_category_id
+                    = f.fields_for :properties, OpenStruct.new(@service.properties) do |builder|
+                      - @service.service_category.fields.sort.each do |field|
+                        = render "services/fields/#{field.field_type}", field: field, f: builder
+                hr.colorgraph/
+                .row
+                  .col-xs-12.col-md-6
+                    = f.submit "Register", :class=>"btn btn-primary btn-block btn-lg"
+                  .col-xs-12.col-md-6
+                    a.btn.btn-success.btn-block.btn-lg href="#" Sign In

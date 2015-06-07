@@ -13,3 +13,22 @@
  *= require_tree .
  *= require_self
  */
+a, a:link, a:visited {
+  text-decoration: none !important;
+}
+input#first_name {
+  width: 100%;
+}
+input#user_email {
+  width: 100%;
+}
+input#user_password {
+  width: 100%;
+}
+
+.width-100{
+  width: 100% !important;
+}
+.text-white{
+  color: white !important;
+}

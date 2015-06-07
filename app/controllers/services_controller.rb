@@ -15,8 +15,20 @@ class ServicesController < ApplicationController
 
   # GET /services/new
   def new
-    @service = Service.new
     @service_categories = ServiceCategory.all
+    @has_service_category = false
+    if params[:service_category_id].nil?
+      @service = Service.new  
+    else
+      @check_service_category = ServiceCategory.where(id: params[:service_category_id])
+      if @check_service_category.count > 0
+        @service = Service.new(service_category_id: params[:service_category_id])
+        @has_service_category = true
+      else
+        @service = Service.new
+        @has_service_category = false
+      end
+    end
   end
 
   # GET /services/1/edit
@@ -70,6 +82,8 @@ class ServicesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def service_params
-      params.require(:service).permit(:service_category_id, :title, :description, :avatar)
+      params.require(:service).permit(:service_category_id, :title, :description, :avatar, properties: [{}]).tap do |whitelisted|
+        whitelisted[:properties] = params[:service][:properties] 
+      end
     end
 end

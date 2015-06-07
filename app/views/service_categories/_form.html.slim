@@ -1,0 +1,17 @@
+= form_for @service_category do |f|
+  - if @service_category.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@service_category.errors.count, "error")} prohibited this service_category from being saved:"
+      ul
+        - @service_category.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.fields_for :fields do |builder|
+      = render 'field_fields', f: builder
+    = link_to_add_fields "Add Field", f, :fields
+
+  .actions = f.submit

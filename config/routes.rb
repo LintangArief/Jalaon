@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+  resources :service_categories
   resources :services
   devise_for :users, :controllers => { :registrations => "devise/registrations" }
   root 'statics#home'
@@ -12,6 +15,8 @@ Rails.application.routes.draw do
   post '/search' => 'pages#search_user', :as => :search_user
   get '/dasboard' => 'pages#dasboard', :as => :dasboard
   get '/profile/:name/:id' => 'pages#profile', :as => :profile
+  match '/add_field' =>  'service_categories#add_field', :via => 'get', :as => :admin_add_field
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

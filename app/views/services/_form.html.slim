@@ -1,3 +1,34 @@
+.container-fluid
+  /! Tab panes
+  .tab-content
+    #men.tab-pane.active
+      ul.nav-list.list-inline
+        li
+          a href="#" 
+            img src="http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_Running.png" /
+            span Running
+        li
+          a href="#" 
+            img src="http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_Basketball.png" /
+            span Basketball
+        li
+          a href="#" 
+            img src="http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_Football.png" /
+            span Football
+        li
+          a href="#" 
+            img src="http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_Soccer.png" /
+            span Soccer
+        li
+          a href="#" 
+            img src="http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_MensTraining.png" /
+            span Men's Training
+        li
+          a href="#" 
+            img src="http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_WomensTraining.png" /
+            span Women's Training
+
+
 = form_for @service do |f|
   - if @service.errors.any?
     #error_explanation
@@ -21,4 +52,7 @@
   .field
     = f.label :avatar
     = f.text_field :avatar
-  .actions = f.submit
+    
+= form_tag new_serviec_path, method: :get do %>
+  = select_tag :service_category_id, options_from_collection_for_select(ServiceCategory.all, :id, :name)
+  = submit_tag "New Service", name: nil
