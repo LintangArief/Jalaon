@@ -53,53 +53,18 @@
                       img alt="img" src="#{@service.avatar.large_avatar}" /
                     a.thumb-item-link.active data-slide-index="2" href="" 
                       img alt="img" src="#{@service.avatar.large_avatar}" /
-                  .list-title
+                  .list-title                
                 .col-md-12
-                  h4 Details
+                  h4 Feedback
+                  .list-title    
+              .col-md-4
+                aside.panel.panel-body.panel-details
                   - @service.properties.each do |name, value|
                     p
                       b = name.humanize
-                        | :
+                        |  : 
                       = value
-                    
-              .col-md-4
-                aside.panel.panel-body.panel-details
-                  ul
-                    li
-                      p.no-margin
-                        strong Price:
-                        | $ 2,45
-                    li
-                      p.no-margin
-                        strong Delivery:
-                        | Fee
-                    li
-                      p.no-margin
-                        strong Location:
-                        | Indonesia
-                    li
-                      p.no-margin
-                        strong Status:
-                        | Verify by Admin
-                    li
-                      p.no-margin
-                        strong Category:
-                        | Makanan dan Minuman
-                .ads-action
-                  ul.list-border
-                    li
-                      a href="#" 
-                        i.fa.fa-user
-                        | Count Feedback
-                    li
-                      a href="#" 
-                        i.fa.fa-heart
-                        | Verify Admin
-                    li
-                      a href="#" 
-                        i.fa.fa-share-alt
-                        | Share ad
-
+                    .list-title
             .content-footer.text-left
               a.btn.btn-default data-toggle="modal" href="#contactAdvertiser" 
                 i.icon-mail-2
