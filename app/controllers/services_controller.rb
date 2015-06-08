@@ -11,6 +11,8 @@ class ServicesController < ApplicationController
   # GET /services/1
   # GET /services/1.json
   def show
+    @product_service = ProductService.new
+    @show_product = @service.product_services
   end
 
   # GET /services/new

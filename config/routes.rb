@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  post 'foto_product_services/create'
+
+  resources :product_services
+
+  put 'product_services/update'
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   resources :service_categories

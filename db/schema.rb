@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150607162937) do
+ActiveRecord::Schema.define(version: 20150608153706) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,26 @@ ActiveRecord::Schema.define(version: 20150607162937) do
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
+  create_table "feedbacks", force: :cascade do |t|
+    t.text     "description"
+    t.integer  "user_id"
+    t.integer  "product_service_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "feedbacks", ["product_service_id"], name: "index_feedbacks_on_product_service_id", using: :btree
+  add_index "feedbacks", ["user_id"], name: "index_feedbacks_on_user_id", using: :btree
+
+  create_table "foto_product_services", force: :cascade do |t|
+    t.integer  "product_service_id"
+    t.string   "avatar"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "foto_product_services", ["product_service_id"], name: "index_foto_product_services_on_product_service_id", using: :btree
+
   create_table "friendships", force: :cascade do |t|
     t.integer "friendable_id"
     t.integer "friend_id"
@@ -58,6 +78,16 @@ ActiveRecord::Schema.define(version: 20150607162937) do
   end
 
   add_index "friendships", ["friendable_id", "friend_id"], name: "index_friendships_on_friendable_id_and_friend_id", unique: true, using: :btree
+
+  create_table "product_services", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.integer  "service_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "product_services", ["service_id"], name: "index_product_services_on_service_id", using: :btree
 
   create_table "service_categories", force: :cascade do |t|
     t.string   "name"
@@ -117,5 +147,9 @@ ActiveRecord::Schema.define(version: 20150607162937) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "feedbacks", "product_services"
+  add_foreign_key "feedbacks", "users"
+  add_foreign_key "foto_product_services", "product_services"
+  add_foreign_key "product_services", "services"
   add_foreign_key "service_fields", "service_categories"
 end
