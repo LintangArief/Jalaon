@@ -79,12 +79,13 @@
                   .list-title    
               .col-md-4
                 aside.panel.panel-body.panel-details
-                  - @service.properties.each do |name, value|
-                    p
-                      b = name.humanize
-                        |  : 
-                      = value
-                    .list-title
+                  - unless @service.properties == nil
+                    - @service.properties.each do |name, value|
+                      p
+                        b = name.humanize
+                          |  : 
+                        = value
+                      .list-title
             .content-footer.text-left
               a.btn.btn-default data-toggle="modal" href="#contactAdvertiser" 
                 i.icon-mail-2
