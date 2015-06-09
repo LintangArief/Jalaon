@@ -76,6 +76,10 @@ class ServicesController < ApplicationController
     end
   end
 
+  def listing
+    @services = current_user.services.page params[:page]
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_service

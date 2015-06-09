@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
+  get '/profile/:id' => 'account#profile', :as => :account
+  get '/profile/edit/:id' => 'account#edit', :as => :edit_account
+  put '/profile/:id' => 'account#update'
+  get '/profile/verify' => 'account#verify', :as => :edit_verify_account
+  put '/update_verify' => 'account#update_verify', :as => :update_verify_account
   post 'foto_product_services/create'
-
+  get '/my-service' => 'services#listing', :as => :my_services
+  get '/setting' => 'account#setting', :as => :setting
   resources :product_services
 
   put 'product_services/update'

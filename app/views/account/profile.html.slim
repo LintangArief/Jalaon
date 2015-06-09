@@ -1,0 +1,120 @@
+br/
+hr/
+.container.target
+  .row
+    .col-sm-10
+      h1 #{@user.first_name.capitalize} #{@user.last_name.capitalize}
+      .col-md-2 style="padding: 0; margin-right: 5px;"
+        - if current_user
+            - if current_user.friend_with? @user
+              = link_to "Un Friend", "#", class: "btn btn-danger btn-block"
+            - else
+              = link_to "Add Friend", "#", class: "btn btn-danger btn-block"
+        - else
+          = link_to "Add Friend", new_user_session_path, class: "btn btn-danger btn-block"     
+      .col-md-2 style="padding: 0;"
+        = link_to "Send Message", "#", class: "btn btn-danger btn-block"
+      br/
+    .col-sm-2
+      - unless @user.avatar.file.nil?
+        = image_tag(@user.avatar.large_avatar, :class => "pull-right img-circle img-responsive")
+      - else
+        img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSAuIztzH8lswZ0UK-aiXOEBd_4Sayf9i7yEBUpuGdGVq9sUS0t" class="image-edit image-user-listing"  
+  br/
+  .col-sm-9 contenteditable="false" style="padding-left: 0px;" 
+      .panel.panel-default.target
+        .panel-heading.panel-red.panel-red contenteditable="false"  Service I Own
+        .panel-body
+          .row
+            br/
+            - @services.each do |service|
+
+              .col-md-4
+                .thumbnail
+                  img alt="300x200" src="#{service.avatar.large_avatar}" /
+                  .caption
+                    = link_to service_path(service)
+                      h4.text-center
+                        = truncate service.description, :length => 25
+                    p.text-center
+                      = truncate service.description, :length => 70
+
+      .panel.panel-default.target
+        .panel-heading.panel-red.panel-red contenteditable="false" Feedback on my Service
+        .panel-body
+          .row
+            .col-md-4
+              .thumbnail
+                img alt="300x200" src="http://lorempixel.com/600/200/people" /
+                .caption
+                  h3
+                    | Rover
+                  p
+                    | Cocker Spaniel who loves treats.
+                  p
+            .col-md-4
+              .thumbnail
+                img alt="300x200" src="http://lorempixel.com/600/200/city" /
+                .caption
+                  h3
+                    | Marmaduke
+                  p
+                    | Is just another friendly dog.
+                  p
+            .col-md-4
+              .thumbnail
+                img alt="300x200" src="http://lorempixel.com/600/200/sports" /
+                .caption
+                  h3
+                    | Rocky
+                  p
+                    | Loves catnip and naps. Not fond of children
+  .row
+    .col-sm-3
+      /! left col
+      ul.list-group
+        li.list-group-item.text-muted contenteditable="false"  Profile
+        li.list-group-item.text-right
+          span.pull-left
+            strong Joined
+          | #{@user.created_at.to_date}
+        li.list-group-item.text-right
+          span.pull-left
+            strong Address :
+          - if @user.state
+            | #{@user.state}
+          - else
+            | -
+        li.list-group-item.text-right
+          span.pull-left
+            strong Status:
+          | Verify
+      ul.list-group
+        li.list-group-item.text-muted
+          b Activity
+          i.fa.fa-dashboard.fa-1x
+        li.list-group-item.text-right
+          span.pull-left
+            strong Friend
+          | #{@user.friends.count}
+        li.list-group-item.text-right
+          span.pull-left
+            strong Likes
+          | 13
+        li.list-group-item.text-right
+          span.pull-left
+            strong Posts
+          | 37
+        li.list-group-item.text-right
+          span.pull-left
+            strong Followers
+          | 78
+      .panel.panel-default
+        
+        li.list-group-item.text-muted Social Media
+        .panel-body
+          i.fa.fa-facebook.fa-2x
+          i.fa.fa-github.fa-2x
+          i.fa.fa-twitter.fa-2x
+          i.fa.fa-pinterest.fa-2x
+          i.fa.fa-google-plus.fa-2x

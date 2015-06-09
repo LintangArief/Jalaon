@@ -11,8 +11,12 @@
  * file per style scope.
  *
  *= require_tree .
+ *= require nprogress
+ *= require nprogress-bootstrap
  *= require_self
  */
+  @import "bootstrap-sprockets";
+  @import "bootstrap";
 a, a:link, a:visited {
   text-decoration: none !important;
 }
@@ -25,7 +29,9 @@ input#user_email {
 input#user_password {
   width: 100%;
 }
-
+.container.container-body {
+  width: 100%;
+}
 .width-100{
   width: 100% !important;
 }
