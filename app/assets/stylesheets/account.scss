@@ -1,3 +1,202 @@
 // Place all the styles related to the Account controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.img-profile {
+    display: inline-block;
+    max-width: 200px;
+}
+
+.social-list > li {
+    padding: 5px 0;
+    border-bottom: 1px dashed #eee;
+}
+
+.social-list > li > i {
+    width: 16px;
+    margin-right: 5px;
+}
+
+.activity-list > .media {
+    border-bottom: 1px dashed #ddd;
+    padding-bottom: 15px;
+    font-size: 14px;
+}
+
+.activity-list > .media:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+}
+
+.activity-list .media-object {
+    width: 28px;
+    vertical-align: middle;
+}
+
+.activity-list .media-body {
+    line-height: 18px;
+}
+
+.activity-list .media-body p {
+    line-height: 21px;
+    font-size: 13px;
+}
+
+.activity-list .media-title {
+    font-size: 15px;
+    margin-bottom: 0;
+}
+
+.activity-list .blog-media {
+    padding-bottom: 0;
+}
+
+.activity-list .blog-media .media-object {
+    width: 120px;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+
+.activity-list .blog-media .media-title {
+    margin: 0;
+}
+
+.activity-list .img-single img {
+    width: 50%;
+}
+
+.uploadphoto-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-top: 20px;
+}
+
+.uploadphoto-list li {
+    width: 20%;
+    float: left;
+}
+
+.uploadphoto-list li a {
+    display: block;
+    margin-right: 5px;
+}
+
+.follower-list {
+    padding: 10px 10px 0 10px;
+}
+
+.follower-list .media {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.follower-list .media:last-child {
+    padding-bottom: 0;
+    border-bottom: 0;
+}
+
+.follower-list .fa {
+    margin-right: 5px;
+    width: 16px;
+    text-align: center;
+}
+
+.follower-list .media-object {
+    margin-right: 10px;
+}
+
+.follower-name {
+    color: #333;
+    margin: 5px 0 0 0;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.events .media {
+    margin-bottom: 20px;
+}
+
+.events .media-object {
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.events-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.events-list .media-body {
+    font-size: 13px;
+}
+
+.event-body small {
+    display: block;
+}
+
+.event-body small .fa {
+    margin-right: 5px;
+    width: 14px;
+    text-align: center;
+}
+
+.event-body p {
+    margin-top: 10px;
+}
+
+.event-title {
+    margin: 0;
+    margin-bottom: 5px;
+    font-size: 16px;
+    line-height: normal;
+}
+
+
+
+/***** 9.6 SEARCH RESULTS *****/
+
+.nav-file-type > li > a {
+    color: #666;
+}
+
+.nav-file-type > li > a > i {
+    width: 16px;
+    margin-right: 5px;
+    color: #333;
+}
+
+.nav-file-type > li.active > a,
+.nav-file-type > li.active > a:hover {
+    background-color: #4e5154;    
+}
+
+.nav-file-type > li.active > a > i {
+    color: #fff;
+}
+
+.results-list .media {
+    border-bottom: 1px solid #eee;
+}
+
+.results-list .media-object {
+    width: 125px;
+    margin-right: 10px;
+}
+
+.results-list .filename {
+    margin: 0;
+    font-size: 16px;
+}
+
+.results-list .media-body {
+    line-height: 18px;
+}
+
+.pagination-search {
+    margin-bottom: 10px;
+    margin-top: 0;
+}

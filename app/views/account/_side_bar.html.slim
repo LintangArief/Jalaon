@@ -12,15 +12,15 @@
                 tr
                   td
                     span.glyphicon.glyphicon-pencil.text-primary
-                    a href="http://www.jquery2dotnet.com"  View Account
+                    = link_to "View Account", account_path(current_user)
                 tr
                   td
                     span.glyphicon.glyphicon-pencil.text-primary
-                    a href="http://www.jquery2dotnet.com"  Edit Account
+                    = link_to "Edit Account", account_path(current_user)
                 tr
                   td
                     span.glyphicon.glyphicon-flash.text-success
-                    a href="http://www.jquery2dotnet.com"  Verify Account
+                    = link_to "Verify Account", edit_verify_account_path(current_user.verify_user.id)
                 tr
                   td
                     span.glyphicon.glyphicon-file.text-info

@@ -1,2 +1,20 @@
-h1 Account#verify
-p Find me in app/views/account/verify.html.slim
+.container style="margin: 5%;"
+  .row
+    = render "side_bar"
+    .col-sm-9.col-md-9
+      .col-md-12 style="margin: 0 auto;"
+        .wrapper
+          = form_for(:verify, as: :verify_name, url: update_verify_account_path, html: { method: :put, :multipart => true}) do |f| 
+            h3.form-signin-heading.text-center Welcome Back! Please Verify your account for get status Verifed
+            hr.colorgraph/
+            br/
+            .col-xs-12.col-sm-12.col-md-12      
+              .form-groups.image-box
+                = f.label "Upload Tanda Pengenal untuk verifikasi", style: "float: left;", :class=> "text-center"
+                = f.file_field :foto_ktp, :class=>"form-control input-lg", :id=>"avatar"
+                br/
+                = f.label "*note : Upload tanda pengenal yang valid"
+                br/
+                = f.label "*note : Proses Verifikasi 2x24 jam"
+                = f.submit "Send", class: "button btn btn-lg btn-primary btn-block"
+            
