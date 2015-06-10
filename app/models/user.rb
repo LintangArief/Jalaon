@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   def check_verify
     checkverify = self.verify_user
     if checkverify == nil
-      VerifyUser.create!(current_user)
+      VerifyUser.create!(self)
     end
   end
 end
