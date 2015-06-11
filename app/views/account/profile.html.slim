@@ -6,7 +6,9 @@
         h4.profile-name.mb5 #{@user.first_name.upcase} #{@user.last_name.upcase}
         div
           i.fa.fa-map-marker
-          |  #{@user.city.upcase}, #{@user.state.upcase}
+          = @user.city.upcase if @user.city != nil
+          |  
+          = @user.state.upcase if @user.state != nil
         div
           i.fa.fa-briefcase
           |  Software Engineer at
