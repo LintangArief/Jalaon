@@ -31,7 +31,12 @@
             .col-md-6.col-xs-6
               button.btn.btn-warning type="button"  Reset    
     .col-md-9
-      .row
+      .row syle="color: black !important"
+        - if @services.count.to_i == 0
+          .col-xs-12.text-center style="min-height: 300px;"
+            h3.text-center Please create your Service
+            i if you want to create Service, please click link below 
+            = link_to "Create Service", new_service_path
         - @services.each do |service|
           .col-xs-12
             .product-col.list.clearfix
@@ -47,13 +52,10 @@
                   = service.description
                 .price
                   .col-md-12.col-xs-12.col-sm-12
-
                     .col-md-12.col-xs-12.col-sm-12 style="text-align: right"
                       button.btn.btn-cart type="button" style="margin-right: 4px"
                         | Delete This Services
-
-                      button.btn.btn-cart type="button" 
-                        | Edit This Services
+                      = link_to "Edit This Services", edit_service_path(service.id), class: 'btn btn-cart'
       .row
         .row.rule.text-center
           = paginate @services

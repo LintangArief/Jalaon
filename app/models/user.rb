@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   paginates_per 20
   has_many :services
   has_one :verify_user
+  acts_as_follower
 
   def check_verify
     checkverify = self.verify_user

@@ -1,5 +1,5 @@
 class ServicesController < ApplicationController
-  before_action :set_service, only: [:show, :edit, :update, :destroy]
+  before_action :set_service, only: [:show, :edit, :update, :destroy, :follow, :unfollow]
 
   # GET /services
   # GET /services.json
@@ -78,6 +78,16 @@ class ServicesController < ApplicationController
 
   def listing
     @services = current_user.services.page params[:page]
+  end
+
+  def follow
+    current_user.follow!(@service)
+    redirect_to @service
+  end
+  
+  def unfollow
+    current_user.unfollow!(@service)
+    redirect_to service_path(@service)
   end
 
   private

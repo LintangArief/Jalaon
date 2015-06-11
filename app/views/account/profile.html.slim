@@ -6,6 +6,7 @@
         h4.profile-name.mb5 #{@user.first_name.upcase} #{@user.last_name.upcase}
         div
           i.fa.fa-map-marker
+
           = @user.city.upcase if @user.city != nil
           |  
           = @user.state.upcase if @user.state != nil
@@ -83,7 +84,7 @@
                         i.fa.fa-map-marker
                         = " Verified" if service.user.verify_user.is_verify == true
                         = " Not Verified" if service.user.verify_user.is_verify == false
-                      p #{service.description}
+                      p =h truncate(service.description, :length => 80)
                   /! media
         #friends.tab-pane
           .follower-list

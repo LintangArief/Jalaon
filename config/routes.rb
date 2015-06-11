@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   post 'foto_product_services/create'
   get '/my-service' => 'services#listing', :as => :my_services
   get '/setting' => 'account#setting', :as => :setting
+  post '/follow/service/:id' => 'services#follow', :as => :follow
+  put '/unfollow/service/:id' => 'services#unfollow', :as => :unfollow
   resources :product_services
 
   put 'product_services/update'

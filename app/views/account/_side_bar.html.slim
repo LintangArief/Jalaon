@@ -11,12 +11,12 @@
               table.table
                 tr
                   td
-                    span.glyphicon.glyphicon-pencil.text-primary
+                    span.glyphicon.glyphicon-flash.text-primary
                     = link_to "View Account", account_path(current_user)
                 tr
                   td
                     span.glyphicon.glyphicon-pencil.text-primary
-                    = link_to "Edit Account", account_path(current_user)
+                    = link_to "Edit Account", edit_account_path(current_user.id)
                 tr
                   td
                     span.glyphicon.glyphicon-flash.text-success

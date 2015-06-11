@@ -83,12 +83,21 @@
                         i Delivery fee
                       
                     .col-md-7.col-xs-7.col-sm-7
-                      button.btn.btn-wishlist data-original-title="Wishlist" title="" type="button" 
-                        i.fa.fa-heart
-                      button.btn.btn-compare data-original-title="Compare" title="" type="button" 
-                        i.fa.fa-bar-chart-o
+                      - if current_user
+                        - if current_user.follows?(service) == false
+                          = link_to follow_path(service.id), method: :post, class: "btn btn-compare"
+                            |  Follow 
+                            i.fa.fa-heart
+                        - else
+                          = link_to unfollow_path(service.id), method: :put, class: "btn btn-compare"
+                            |  UnFollow 
+                            i.fa.fa-heart 
+                      - else
+                        = link_to new_user_registration_path, class: "btn btn-compare"
+                          |  Follow 
+                          i.fa.fa-heart
                       button.btn.btn-cart type="button" 
-                        | Add to cart
+                        | Order 
                         i.fa.fa-shopping-cart
       .row
         .row.rule.text-center

@@ -65,7 +65,7 @@
                     .form-group
                       = f.label "Logo Service *", :class=>"label-white"
                       = f.file_field :avatar, :class=>"form-control input-lg", :id=>"last_name"
-                  .col-xs-12.col-sm-12.col-md-12
+                  .col-xs-12.col-sm-12.col-md-12.label-white
                     = f.hidden_field :service_category_id
                     = f.fields_for :properties, OpenStruct.new(@service.properties) do |builder|
                       - @service.service_category.fields.sort.each do |field|

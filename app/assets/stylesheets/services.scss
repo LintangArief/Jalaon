@@ -1020,7 +1020,8 @@ hr.thin {
 }
 
 #bx-pager {
-  text-align: center;
+  text-align: left;
+  padding: 5px;
 }
 
 .thumb-item-link {
@@ -1028,11 +1029,10 @@ hr.thin {
   display: inline-block;
   float: none;
   height: 70px;
-  margin: 0 2px;
+  margin: 0 7px;
   outline: medium none;
   overflow: hidden;
   position: relative;
-  width: 100px;
 }
 
 .thumb-item-link img {
