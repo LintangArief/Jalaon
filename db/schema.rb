@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150611154358) do
+ActiveRecord::Schema.define(version: 20150613104116) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,14 +51,12 @@ ActiveRecord::Schema.define(version: 20150611154358) do
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "feedbacks", force: :cascade do |t|
-    t.text     "description"
-    t.integer  "user_id"
-    t.integer  "product_service_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.text    "description"
+    t.integer "user_id"
+    t.integer "service_id"
   end
 
-  add_index "feedbacks", ["product_service_id"], name: "index_feedbacks_on_product_service_id", using: :btree
+  add_index "feedbacks", ["service_id"], name: "index_feedbacks_on_service_id", using: :btree
   add_index "feedbacks", ["user_id"], name: "index_feedbacks_on_user_id", using: :btree
 
   create_table "follows", force: :cascade do |t|
@@ -111,6 +109,26 @@ ActiveRecord::Schema.define(version: 20150611154358) do
 
   add_index "mentions", ["mentionable_id", "mentionable_type"], name: "fk_mentionables", using: :btree
   add_index "mentions", ["mentioner_id", "mentioner_type"], name: "fk_mentions", using: :btree
+
+  create_table "message_users", force: :cascade do |t|
+    t.string   "topic"
+    t.text     "body"
+    t.integer  "received_messageable_id"
+    t.string   "received_messageable_type"
+    t.integer  "sent_messageable_id"
+    t.string   "sent_messageable_type"
+    t.boolean  "opened",                     default: false
+    t.boolean  "recipient_delete",           default: false
+    t.boolean  "sender_delete",              default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "ancestry"
+    t.boolean  "recipient_permanent_delete", default: false
+    t.boolean  "sender_permanent_delete",    default: false
+  end
+
+  add_index "message_users", ["ancestry"], name: "index_message_users_on_ancestry", using: :btree
+  add_index "message_users", ["sent_messageable_id", "received_messageable_id"], name: "acts_as_messageable_ids", using: :btree
 
   create_table "product_services", force: :cascade do |t|
     t.string   "title"
@@ -195,7 +213,7 @@ ActiveRecord::Schema.define(version: 20150611154358) do
 
   add_index "verify_users", ["user_id"], name: "index_verify_users_on_user_id", using: :btree
 
-  add_foreign_key "feedbacks", "product_services"
+  add_foreign_key "feedbacks", "services"
   add_foreign_key "feedbacks", "users"
   add_foreign_key "foto_product_services", "product_services"
   add_foreign_key "product_services", "services"

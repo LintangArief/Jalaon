@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/setting' => 'account#setting', :as => :setting
   post '/follow/service/:id' => 'services#follow', :as => :follow
   put '/unfollow/service/:id' => 'services#unfollow', :as => :unfollow
+  post '/feedback' => 'feedbacks#create', :as => :create_feedback
   resources :product_services
 
   put 'product_services/update'

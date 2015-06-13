@@ -12,6 +12,7 @@ class ServicesController < ApplicationController
   # GET /services/1.json
   def show
     @product_service = ProductService.new
+    @feedback = Feedback.new
     @show_product = @service.product_services
   end
 

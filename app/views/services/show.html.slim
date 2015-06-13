@@ -75,8 +75,8 @@
 
                   .list-title                
                 .col-md-12
-                  h4 Feedback
-                  .list-title    
+                  .list-title
+
               .col-md-4
                 aside.panel.panel-body.panel-details
                   - unless @service.properties == nil
@@ -122,5 +122,55 @@
                   li Service 1
                   li Service 2
                   li Service 3
+
+      .col-sm-12.col-md-12.col-xs-12
+        .row
+          .panel.panel-default.widget
+            .panel-heading
+              h3.panel-title
+                | Feedback
+            .panel-body
+              ul.list-group
+                - if current_user
+                  - if current_user.id != @service.user_id
+                    br/
+                    = form_for(:feedback, as: :feedback, url: create_feedback_path, html: { method: :post}) do |f|
+                      = f.label "Your Feedback"
+                      = f.hidden_field :service_id, value: @service.id
+                      = f.hidden_field :user_id, value: current_user.id
+                      br/
+                      = f.text_area :description, :class => "input-lg"
+                      br/
+                      = f.submit "Submit"
+                br/
+                - @service.feedbacks.each do |feedback|                  
+                  li.list-group-item
+                    .row
+                      .col-xs-2.col-md-1
+
+                        - if feedback.user.avatar.file == nil
+                          img.img-circle.img-responsive alt="" src="https://placeholdit.imgix.net/~text?txtsize=10&txt=80%C3%9780&w=80&h=80"
+                        - else
+                          img.img-circle.img-responsive alt="" src="#{feedback.user.avatar.large_avatar}"
+                      .col-xs-10.col-md-11
+                        div
+                          a href="#" 
+                            | By: #{feedback.user.first_name.upcase} #{feedback.user.last_name.upcase}
+                        .comment-text
+                          br/
+                          | #{feedback.description}
+                        br/
+                        - if current_user
+                          - if current_user.id == feedback.user_id
+                            .action
+                              button.btn.btn-primary.btn-xs title="Edit" type="button" 
+                                span.glyphicon.glyphicon-pencil
+                              button.btn.btn-success.btn-xs title="Approved" type="button" 
+                                span.glyphicon.glyphicon-ok
+                              button.btn.btn-danger.btn-xs title="Delete" type="button" 
+                                span.glyphicon.glyphicon-trash
+              a.btn.btn-primary.btn-sm.btn-block href="#" role="button" 
+                span.glyphicon.glyphicon-refresh
+                | More
       
       

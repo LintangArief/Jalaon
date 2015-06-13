@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   include Amistad::FriendModel
   paginates_per 20
   has_many :services
+  has_many :feedbacks
   has_one :verify_user
   acts_as_follower
 
