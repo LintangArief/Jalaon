@@ -72,9 +72,10 @@
                   img.img-responsive alt="product" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSAuIztzH8lswZ0UK-aiXOEBd_4Sayf9i7yEBUpuGdGVq9sUS0t" /
               .caption
                 h4
-                  = link_to service.title, service_path(service)
+                  - title_of_services = truncate(service.title, :length => 80)
+                  = link_to title_of_services, service_path(service)
                 .description
-                  = service.description
+                  = truncate(service.description, :length => 250)
                 .price
                   .col-md-12.col-xs-12.col-sm-12
                     .col-md-1.col-xs-1.col-sm-1

@@ -32,20 +32,21 @@
               .ads-details-info.col-md-8
                 .col-md-12
                   h4 Service Description
-                  p #{@service.description}
+                  p.text-justify #{@service.description}
                   .list-title
                 .col-md-12
                   h4 Product
                   #bx-pager
                     - @show_product.each do |product|
                       h5 style="text-align:left;" #{product.title}
-                      h6 #{product.description}
+                      h6.text-justify #{product.description}
                       - product.foto_product_services.each do |avatars|
                         a.thumb-item-link.active data-slide-index="0" href="" 
                           img alt="img" src="#{avatars.avatar.large_avatar}"
                   - if current_user
                     - if current_user.id == @service.user.id    
                       = link_to "Add Product", "#", :class=>"btn btn-block btn-primary", "data-toggle" => "modal", "data-target" => "#vote"
+                  
                   #vote.modal.fade aria-hidden="true" aria-labelledby="voteLabel" role="dialog" tabindex="-1" 
                     .modal-dialog
                       .panel.panel-danger
@@ -84,6 +85,7 @@
                       p
                         b = name.humanize
                           |  : 
+                          br/
                         = value
                       .list-title
             .content-footer.text-left
@@ -103,10 +105,10 @@
                   h3.no-margin #{@service.user.first_name} #{@service.user.last_name}
                   p
                     | Location:
-                    strong Indonesia
+                    strong #{@service.user.city} #{@service.user.state}
                   p
                     | Joined:
-                    strong 12 Mar 2015
+                    strong #{@service.user.created_at}
                 .user-ads-action
                   a.btn.btn-default.btn-block data-toggle="modal" href="#contactAdvertiser" 
                     i.icon-mail-2
@@ -143,32 +145,35 @@
                       br/
                       = f.submit "Submit"
                 br/
-                - @service.feedbacks.each do |feedback|                  
-                  li.list-group-item
-                    .row
-                      .col-xs-2.col-md-1
+                - if @service.feedbacks != nil
+                  - @service.feedbacks.each do |feedback|                  
+                    li.list-group-item
+                      .row
+                        .col-xs-2.col-md-1
 
-                        - if feedback.user.avatar.file == nil
-                          img.img-circle.img-responsive alt="" src="https://placeholdit.imgix.net/~text?txtsize=10&txt=80%C3%9780&w=80&h=80"
-                        - else
-                          img.img-circle.img-responsive alt="" src="#{feedback.user.avatar.large_avatar}"
-                      .col-xs-10.col-md-11
-                        div
-                          a href="#" 
-                            | By: #{feedback.user.first_name.upcase} #{feedback.user.last_name.upcase}
-                        .comment-text
+                          - if feedback.user.avatar.file == nil
+                            img.img-circle.img-responsive alt="" src="https://placeholdit.imgix.net/~text?txtsize=10&txt=80%C3%9780&w=80&h=80"
+                          - else
+                            img.img-circle.img-responsive alt="" src="#{feedback.user.avatar.large_avatar}"
+                        .col-xs-10.col-md-11
+                          div
+                            a href="#" 
+                              | By: #{feedback.user.first_name.upcase} #{feedback.user.last_name.upcase}
+                          .comment-text
+                            br/
+                            | #{feedback.description}
                           br/
-                          | #{feedback.description}
-                        br/
-                        - if current_user
-                          - if current_user.id == feedback.user_id
-                            .action
-                              button.btn.btn-primary.btn-xs title="Edit" type="button" 
-                                span.glyphicon.glyphicon-pencil
-                              button.btn.btn-success.btn-xs title="Approved" type="button" 
-                                span.glyphicon.glyphicon-ok
-                              button.btn.btn-danger.btn-xs title="Delete" type="button" 
-                                span.glyphicon.glyphicon-trash
+                          - if current_user
+                            - if current_user.id == feedback.user_id
+                              .action
+                                button.btn.btn-primary.btn-xs title="Edit" type="button" 
+                                  span.glyphicon.glyphicon-pencil
+                                button.btn.btn-success.btn-xs title="Approved" type="button" 
+                                  span.glyphicon.glyphicon-ok
+                                button.btn.btn-danger.btn-xs title="Delete" type="button" 
+                                  span.glyphicon.glyphicon-trash
+                - else
+                  h4 Can't Found Feedback for this service
               a.btn.btn-primary.btn-sm.btn-block href="#" role="button" 
                 span.glyphicon.glyphicon-refresh
                 | More
