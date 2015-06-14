@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   post '/unfriends/service/:id' => 'services#un_friend', :as => :unfriend
   post '/cancleinvite/service/:id' => 'services#cancle_friend', :as => :canclefriend
   post '/feedback' => 'feedbacks#create', :as => :create_feedback
+  post '/send-message' => "account#send_message", :as => :send_message
   resources :product_services
 
   put 'product_services/update'

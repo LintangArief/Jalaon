@@ -32,6 +32,14 @@ class AccountController < ApplicationController
 
   end
 
+  def send_message
+    @user = User.find(params[:message][:owner_id])
+    current_user.send_message(@user, params[:message][:body], params[:message][:subject])
+    if params[:message][:type] == "show_service"
+      redirect_to service_path(params[:message][:service_id])
+    end
+  end
+
   private
     def set_account
       @user = User.find(params[:id])

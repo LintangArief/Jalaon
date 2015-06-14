@@ -17,6 +17,15 @@ GIT
       sass-rails
 
 GIT
+  remote: git://github.com/div/mailboxer.git
+  revision: 41c9d8de2e0ad4dc511718074228d40a1ba96ebe
+  branch: rails42-foreigner
+  specs:
+    mailboxer (0.12.4)
+      carrierwave (>= 0.5.8)
+      rails (>= 3.2.0)
+
+GIT
   remote: git://github.com/seyhunak/twitter-bootstrap-rails.git
   revision: c5297b18b8f37afe33d764eb5201c8ddc5902995
   specs:
@@ -235,8 +244,6 @@ GEM
       polyamorous (~> 1.2)
     rdoc (4.2.0)
     recaptcha (0.3.6)
-    rename (1.0.2)
-      rails (>= 3.0.0)
     responders (2.1.0)
       railties (>= 4.2.0, < 5)
     sass (3.4.14)
@@ -310,13 +317,13 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   kaminari
+  mailboxer!
   mini_magick
   nprogress-rails
   pg
   quiet_assets
   rails (= 4.2.1)
   recaptcha
-  rename
   sass-rails (>= 3.2)
   sdoc (~> 0.4.0)
   seed_dump

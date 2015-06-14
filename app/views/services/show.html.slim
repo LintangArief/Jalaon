@@ -131,7 +131,38 @@
                   = link_to "Add Friend", friend_path(@service.id), method: :post, class: "btn btn-success btn-sm"
               - else
                 = link_to "Add Friend", new_user_registration_path, class: "btn btn-success btn-sm"
-              button.btn.btn-danger.btn-sm type="button"  Send Message
+              - if current_user
+                - if current_user.id != @service.user.id
+                  = link_to "Send Message", "#myModal", class: "btn btn-danger btn-sm", "data-toggle"=> "modal"              
+                  /! Modal HTML
+                  #myModal.modal.fade
+                    .modal-dialog
+                      .modal-content
+                        .modal-header
+                          button.close aria-hidden="true" data-dismiss="modal" type="button"  &times;
+                          h4.modal-title Send Message
+                        = form_for :message, url: send_message_path, method: :post do |f|
+                          .modal-body
+                            .modal-body
+                              ul.list-group
+                                li.list-group-item
+                                  = f.hidden_field :owner_id, value: @service.user.id
+                                  = f.hidden_field :type, value: "show_service"
+                                  = f.hidden_field :service_id, value: @service.id
+                                  = f.label "Subject : ", :class => 'control-label', value: "#{@service.title}"
+                                  br/
+                                  = f.text_field :subject, :class => 'text_field input-lg  width-100'
+                                  br/
+                                  = f.label "Content : "
+                                  br/
+                                  = f.text_area :body, :class => 'text_field width-100', rows: "4" 
+                          .modal-footer
+                            = f.submit "Send Message", :class=> "btn btn-danger"
+                            button.btn.btn-default data-dismiss="modal" type="button"  Close
+              - else
+                = link_to "Send Message", new_user_registration_path, class: "btn btn-danger btn-sm"
+
+
             .profile-usermenu
               ul.nav
                 li.active
