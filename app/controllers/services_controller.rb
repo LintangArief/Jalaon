@@ -14,6 +14,10 @@ class ServicesController < ApplicationController
     @product_service = ProductService.new
     @feedback = Feedback.new
     @show_product = @service.product_services
+    @pending = nil
+    if current_user
+      @pending = @service.user.pending_invited_by.map(&:id).include? current_user.id
+    end
   end
 
   # GET /services/new
@@ -89,6 +93,27 @@ class ServicesController < ApplicationController
   def unfollow
     current_user.unfollow!(@service)
     redirect_to service_path(@service)
+  end
+
+  def add_friend
+    @service = Service.find(params[:id])
+    @user = @service.user
+    current_user.invite @user
+    redirect_to @service
+  end
+
+  def cancle_friend
+    @service = Service.find(params[:id])
+    @user = @service.user
+    current_user.remove_friendship @user
+    redirect_to @service  
+  end
+
+  def un_friend
+    @service = Service.find(params[:id])
+    @user = @service.user
+    current_user.remove_friendship @user
+    redirect_to @service
   end
 
   private

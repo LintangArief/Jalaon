@@ -12,7 +12,22 @@
         .inner.inner-box.ads-details-wrapper
           h2
             | #{@service.title}  
-            small.label.label-default.adlistingtype  Verify
+            - if current_user
+              - if current_user.follows?(@service)
+                small.text-right
+                  = link_to unfollow_path(@service.id), method: :put, class: "btn btn-compare"
+                    |  UnFollow 
+                    i.fa.fa-heart
+              - else
+                small.text-right
+                  = link_to follow_path(@service.id), method: :post, class: "btn btn-compare"
+                    |  Follow 
+                    i.fa.fa-heart
+            - else
+              small.text-right
+                = link_to new_user_registration_path, class: "btn btn-compare"
+                  |  Follow 
+                  i.fa.fa-heart
           span.info-row
             span.date
               i.icon-clock
@@ -74,10 +89,8 @@
                             = f.submit "submit", :class => "button.btn.btn-success.btn-vote"
                             button.btn.btn-default.btn-close data-dismiss="modal" type="button"  Cancle
 
-                  .list-title                
                 .col-md-12
-                  .list-title
-
+                
               .col-md-4
                 aside.panel.panel-body.panel-details
                   - unless @service.properties == nil
@@ -96,35 +109,45 @@
                 i.icon-phone-1
                 | Send Message Owner
       .col-sm-3.page-sidebar-right
-        aside
-          .panel.sidebar-panel.panel-contact-seller
-            .panel-heading Contact Service
-            .panel-content.user-info
-              .panel-body.text-center
-                .seller-info
-                  h3.no-margin #{@service.user.first_name} #{@service.user.last_name}
-                  p
-                    | Location:
-                    strong #{@service.user.city} #{@service.user.state}
-                  p
-                    | Joined:
-                    strong #{@service.user.created_at}
-                .user-ads-action
-                  a.btn.btn-default.btn-block data-toggle="modal" href="#contactAdvertiser" 
-                    i.icon-mail-2
-                    | Send a message
-                  a.btn.btn-info.btn-block
-                    i.icon-phone-1
-                    | Order
-          .panel.sidebar-panel
-            .panel-heading My Service
-            .panel-content
-              .panel-body.text-left
-                ul.list-check
-                  li Service 1
-                  li Service 2
-                  li Service 3
-
+        .col-md-12
+          .profile-sidebar
+            .profile-userpic
+              - if @service.user.avatar.file == nil
+                img.img-responsive alt="" src="https://placeholdit.imgix.net/~text?txtsize=10&txt=80%C3%9780&w=80&h=80" /
+              - else
+                img.img-circle.img-responsive alt="" src="#{@service.user.avatar.large_avatar}"
+            .profile-usertitle
+              .profile-usertitle-name
+                | #{@service.user.first_name.upcase} #{@service.user.last_name.upcase}
+              .profile-usertitle-job
+                | Owner
+            .profile-userbuttons
+              - if current_user
+                - if @service.user.friend_with? current_user
+                  = link_to "Remove Friend", unfriend_path(@service.id), method: :post, class: "btn btn-success btn-sm"
+                - elsif @pending == true
+                  = link_to "Cancle Invite", canclefriend_path(@service.id), method: :post, class: "btn btn-success btn-sm"
+                - else  
+                  = link_to "Add Friend", friend_path(@service.id), method: :post, class: "btn btn-success btn-sm"
+              - else
+                = link_to "Add Friend", new_user_registration_path, class: "btn btn-success btn-sm"
+              button.btn.btn-danger.btn-sm type="button"  Send Message
+            .profile-usermenu
+              ul.nav
+                li.active
+                  = link_to account_path(@service.user.id) 
+                    i.glyphicon.glyphicon-home
+                    | Overview
+                - if current_user
+                  - if current_user.id == @service.user.id
+                    li
+                      a href="#"
+                        i.glyphicon.glyphicon-user
+                        | Account Settings
+                li
+                  a href="#" target="_blank" 
+                    i.glyphicon.glyphicon-ok
+                    | Verified User
       .col-sm-12.col-md-12.col-xs-12
         .row
           .panel.panel-default.widget
@@ -150,7 +173,6 @@
                     li.list-group-item
                       .row
                         .col-xs-2.col-md-1
-
                           - if feedback.user.avatar.file == nil
                             img.img-circle.img-responsive alt="" src="https://placeholdit.imgix.net/~text?txtsize=10&txt=80%C3%9780&w=80&h=80"
                           - else
@@ -174,8 +196,9 @@
                                   span.glyphicon.glyphicon-trash
                 - else
                   h4 Can't Found Feedback for this service
-              a.btn.btn-primary.btn-sm.btn-block href="#" role="button" 
-                span.glyphicon.glyphicon-refresh
-                | More
+              - if @service.feedbacks != nil
+                a.btn.btn-primary.btn-sm.btn-block href="#" role="button" 
+                  span.glyphicon.glyphicon-refresh
+                  | More
       
       

@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   get '/setting' => 'account#setting', :as => :setting
   post '/follow/service/:id' => 'services#follow', :as => :follow
   put '/unfollow/service/:id' => 'services#unfollow', :as => :unfollow
+  post '/add_friend/service/:id' => 'services#add_friend', :as => :friend
+  post '/unfriends/service/:id' => 'services#un_friend', :as => :unfriend
+  post '/cancleinvite/service/:id' => 'services#cancle_friend', :as => :canclefriend
   post '/feedback' => 'feedbacks#create', :as => :create_feedback
   resources :product_services
 
