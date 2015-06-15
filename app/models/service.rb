@@ -1,6 +1,4 @@
 class Service < ActiveRecord::Base
-
-
   validates :service_category_id, presence: true
   paginates_per 10
   has_many :product_services
@@ -17,6 +15,4 @@ class Service < ActiveRecord::Base
       end
     end
   end
-
-
 end

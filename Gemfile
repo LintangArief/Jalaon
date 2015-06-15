@@ -24,7 +24,7 @@ gem "socialization"
 gem 'amistad'
 gem 'kaminari'
 gem 'seed_dump'
-gem 'exception_notification'
+
 gem 'thin'
 gem "recaptcha", :require => "recaptcha/rails"
 gem 'activeadmin', github: 'activeadmin'
@@ -32,3 +32,7 @@ gem 'nprogress-rails'
 gem 'bootstrap-sass', '~> 3.3.4'
 gem 'sass-rails', '>= 3.2'
 gem 'mailboxer', :git => 'git://github.com/div/mailboxer.git', :branch => 'rails42-foreigner'
+
+group :production do
+  gem 'exception_notification'
+end
