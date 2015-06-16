@@ -66,7 +66,7 @@
           .col-xs-12
             .product-col.list.clearfix
               .image
-                - unless service.avatar.nil?
+                - unless service.avatar.file.nil?
                   = image_tag(service.avatar.large_avatar, :class => "image-responsive")
                 - else
                   img.img-responsive alt="product" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSAuIztzH8lswZ0UK-aiXOEBd_4Sayf9i7yEBUpuGdGVq9sUS0t" /
