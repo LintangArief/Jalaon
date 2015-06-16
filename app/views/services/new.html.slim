@@ -69,10 +69,32 @@
                     = f.hidden_field :service_category_id
                     = f.fields_for :properties, OpenStruct.new(@service.properties) do |builder|
                       - @service.service_category.fields.sort.each do |field|
-                        = render "services/fields/#{field.field_type}", field: field, f: builder
+                        - if field.name != "Jarak Delivery (Km)"
+                          = render "services/fields/#{field.field_type}", field: field, f: builder
+                        - else 
+                          #km
+                            = render "services/fields/#{field.field_type}", field: field, f: builder
                 hr.colorgraph/
                 .row
                   .col-xs-12.col-md-6
                     = f.submit "Register", :class=>"btn btn-primary btn-block btn-lg"
                   .col-xs-12.col-md-6
                     a.btn.btn-success.btn-block.btn-lg href="#" Sign In
+
+javascript: 
+  $(document).ready(function(){
+    if ($('#service_properties_Delivery')[0].checked == true) {
+      $('#km').show();
+    }else{
+      $('#km').hide();
+    }
+
+    $("#service_properties_Delivery").change(function() {
+      if ($('#service_properties_Delivery')[0].checked == true) {
+        $('#km').show();
+      }else{
+        $('#km').hide();
+      }
+    });
+
+  });

@@ -1,0 +1,23 @@
+.col-xs-12.col-sm-12.col-md-12#basicExample style="padding: 0px;"
+  br/
+  = f.label field.name
+  br/
+  .col-xs-3.col-sm-3.col-md-3 style="padding: 0px;"
+    = f.text_field :jam_kerja_awal, :class=>"form-control time start"
+  .col-xs-3.col-sm-3.col-md-3 style="padding: 0px;"
+    = f.text_field :jam_kerja_akhir, :class=>"form-control time end"
+
+javascript:
+  $('#basicExample .time').timepicker({
+    'showDuration': true,
+    'timeFormat': 'g:ia'
+  });
+
+  $('#basicExample .date').datepicker({
+      'format': 'm/d/yyyy',
+      'autoclose': true
+  });
+
+  // initialize datepair
+  var basicExampleEl = document.getElementById('basicExample');
+  var datepair = new Datepair(basicExampleEl);

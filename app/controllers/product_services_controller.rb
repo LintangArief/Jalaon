@@ -35,6 +35,6 @@ class ProductServicesController < ApplicationController
 
   private
   def params_product_service
-    params.require(:product_service).permit(:title, :description, :service_id)
+    params.require(:product_service).permit(:title, :description, :service_id, :price)
   end
 end

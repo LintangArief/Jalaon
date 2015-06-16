@@ -16,7 +16,11 @@
 //= require turbolinks
 //= require nprogress
 //= require nprogress-turbolinks
+//= require jquery.timepicker.js
+//= require jquery.datepair.js
 //= require_tree .
+
+
 $(document).ready(function() {
     var panels = $('.vote-results');
     var panelsButton = $('.dropdown-results');

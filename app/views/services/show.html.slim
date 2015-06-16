@@ -83,6 +83,11 @@
                                 br/
                                 = f.text_area :description, :class => 'text_field'
                               li.list-group-item
+                                = f.label :price, :class => 'control-label'
+                                br/
+                                = f.text_area :price, :class => 'text_field'
+
+                              li.list-group-item
                                 = file_field_tag "avatar[]", type: :file, multiple: true
                                 = f.hidden_field :service_id, :value => @service.id 
                           .modal-footer
@@ -95,19 +100,61 @@
                 aside.panel.panel-body.panel-details
                   - unless @service.properties == nil
                     - @service.properties.each do |name, value|
-                      p
-                        b = name.humanize
-                          |  : 
-                          br/
-                        = value
-                      .list-title
+                      - if value != "" && value != nil
+                        - if name.humanize != "Jam kerja awal" && name.humanize != "Jam kerja akhir"
+                          p
+                            b = name.humanize
+                              |  :  
+                              br/ 
+                            - if value == "1"
+                              span  Tersedia
+                            - elsif value == "0"
+                              span  Tidak Tersedia
+                            - else
+                              |  #{value}
+                          .list-title
+                        - else
+                          - if name.humanize == "Jam kerja awal"
+                            b Jam Kerja  
+                          = value
+                          - if name.humanize == "Jam kerja awal"
+                            span  - 
+
             .content-footer.text-left
               a.btn.btn-default data-toggle="modal" href="#contactAdvertiser" 
                 i.icon-mail-2
                 | Order
               a.btn.btn-info
                 i.icon-phone-1
-                | Send Message Owner
+                - if current_user.id != @service.user.id
+                    = link_to "Send Message", "#myModal", class: "btn btn-danger btn-sm", "data-toggle"=> "modal"              
+                    /! Modal HTML
+                    #myModal.modal.fade
+                      .modal-dialog
+                        .modal-content
+                          .modal-header
+                            button.close aria-hidden="true" data-dismiss="modal" type="button"  &times;
+                            h4.modal-title Send Message
+                          = form_for :message, url: send_message_path, method: :post do |f|
+                            .modal-body
+                              .modal-body
+                                ul.list-group
+                                  li.list-group-item
+                                    = f.hidden_field :owner_id, value: @service.user.id
+                                    = f.hidden_field :type, value: "show_service"
+                                    = f.hidden_field :service_id, value: @service.id
+                                    = f.label "Subject : ", :class => 'control-label', value: "#{@service.title}"
+                                    br/
+                                    = f.text_field :subject, :class => 'text_field input-lg  width-100'
+                                    br/
+                                    = f.label "Content : "
+                                    br/
+                                    = f.text_area :body, :class => 'text_field width-100', rows: "4" 
+                            .modal-footer
+                              = f.submit "Send Message", :class=> "btn btn-danger"
+                              button.btn.btn-default data-dismiss="modal" type="button"  Close
+                - else
+                  = link_to "Send Message", new_user_registration_path, class: "btn btn-danger btn-sm"
       .col-sm-3.page-sidebar-right
         .col-md-12
           .profile-sidebar
