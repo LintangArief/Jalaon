@@ -154,6 +154,8 @@ GEM
     formtastic (3.1.3)
       actionpack (>= 3.2.13)
     formtastic_i18n (0.4.1)
+    geocomplete_rails (1.6.4)
+      railties (>= 3.1)
     globalid (0.3.5)
       activesupport (>= 4.1.0)
     has_scope (0.6.0)
@@ -316,6 +318,7 @@ DEPENDENCIES
   devise
   exception_notification
   fog
+  geocomplete_rails
   jbuilder (~> 2.0)
   jquery-rails
   jquery-timepicker-rails

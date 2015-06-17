@@ -61,6 +61,10 @@
                     .form-group
                       = f.label "Description Service *", :class=>"label-white"
                       = f.text_area :description, :class=>"form-control input-lg", :id=>"last_name", :placeholder=>"Description Your Service", rows: "3"
+                  .col-xs-6.col-sm-6.col-md-6
+                    .form-group
+                      = f.label "Harga Rata-Rata"
+                      = f.select :rate_price, ["< Rp 50.000", "< Rp 150.000", "< Rp 250.000", "< Rp 350.000", "< Rp 500.000", "< Rp 750.000", "> Rp 1.000.000"], {}, :class=>"form-control input-lg width-100"
                   .col-xs-12.col-sm-12.col-md-12
                     .form-group
                       = f.label "Logo Service *", :class=>"label-white"
@@ -77,24 +81,38 @@
                 hr.colorgraph/
                 .row
                   .col-xs-12.col-md-6
-                    = f.submit "Register", :class=>"btn btn-primary btn-block btn-lg"
+                    = f.submit "Submit", :class=>"btn btn-primary btn-block btn-lg"
                   .col-xs-12.col-md-6
                     a.btn.btn-success.btn-block.btn-lg href="#" Sign In
 
 javascript: 
   $(document).ready(function(){
-    if ($('#service_properties_Delivery')[0].checked == true) {
-      $('#km').show();
-    }else{
-      $('#km').hide();
-    }
-
-    $("#service_properties_Delivery").change(function() {
+    if ($('#service_properties_Delivery').length == 1){
       if ($('#service_properties_Delivery')[0].checked == true) {
         $('#km').show();
       }else{
         $('#km').hide();
       }
-    });
 
+      $("#service_properties_Delivery").change(function() {
+        if ($('#service_properties_Delivery')[0].checked == true) {
+          $('#km').show();
+        }else{
+          $('#km').hide();
+        }
+      })
+    }else{
+      if (document.getElementById('service_properties_OutSide Service').checked == true) {
+        $('#km').show();
+      }else{
+        $('#km').hide();
+      }
+      document.getElementById('service_properties_OutSide Service').addEventListener('change', function(){
+        if (document.getElementById('service_properties_OutSide Service').checked == true) {
+          $('#km').show();
+        }else{
+          $('#km').hide();
+        }
+      })
+    }
   });

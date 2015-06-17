@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require geocomplete
 //= require twitter/bootstrap
 //= require turbolinks
 //= require nprogress

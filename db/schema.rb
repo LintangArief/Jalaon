@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150615154956) do
+ActiveRecord::Schema.define(version: 20150617141627) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -218,6 +218,7 @@ ActiveRecord::Schema.define(version: 20150615154956) do
     t.text    "description"
     t.string  "avatar"
     t.hstore  "properties"
+    t.string  "rate_price"
   end
 
   add_index "services", ["properties"], name: "services_properties", using: :gin
