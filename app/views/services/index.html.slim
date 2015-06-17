@@ -81,8 +81,7 @@
                     .col-md-1.col-xs-1.col-sm-1
                     .col-md-3.col-xs-3.col-sm-3 style="text-align: right;"
                       button.btn.btn-cart.btn-primary data-original-title="Wishlist" title="" type="button" 
-                        i Delivery fee
-                      
+                        i #{service.service_category.name.upcase}
                     .col-md-7.col-xs-7.col-sm-7
                       - if current_user
                         - if current_user.follows?(service) == false
