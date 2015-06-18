@@ -27,7 +27,7 @@ header#top.navbar.navbar-static-top.bs-docs-nav role="banner"
         - else
           li.dropdown
             = link_to "#", :class=>"dropdown-toggle a-header", "data-toggle"=>"dropdown"
-              | #{User.first.first_name.capitalize} #{current_user.last_name}
+              | #{current_user.first_name.capitalize} #{current_user.last_name}
               span.caret
             ul.dropdown-menu style="margin-top: 6%;"
               li

@@ -40,6 +40,28 @@ class AccountController < ApplicationController
     end
   end
 
+  def message
+    @inbox = current_user.mailbox.inbox
+    @send_box = current_user.mailbox.sentbox
+    @trash = current_user.mailbox.trash
+  end
+
+  def sendbox
+    @send_box = current_user.mailbox.sentbox
+  end
+
+  def trash
+    
+  end
+
+  def replay
+  
+  end
+
+  def delete_message
+
+  end
+
   private
     def set_account
       @user = User.find(params[:id])

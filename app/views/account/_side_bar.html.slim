@@ -21,14 +21,6 @@
                   td
                     span.glyphicon.glyphicon-flash.text-success
                     = link_to "Verify Account", edit_verify_account_path(current_user.verify_user.id)
-                tr
-                  td
-                    span.glyphicon.glyphicon-file.text-info
-                    a href="http://www.jquery2dotnet.com"  List Notifications
-                tr
-                  td
-                    span.glyphicon.glyphicon-comment.text-success
-                    a href="http://www.jquery2dotnet.com"  List Message
         .panel.panel-default
           .panel-heading
             h4.panel-title
@@ -51,23 +43,19 @@
             h4.panel-title
               a data-parent="#accordion" data-toggle="collapse" href="#collapseOne" 
                 span.glyphicon.glyphicon-file.text-info
-                | Membership
+                | Activity
           #collapseOne.panel-collapse.collapse.in
             .panel-body
               table.table
                 tr
                   td
                     span.glyphicon.glyphicon-pencil.text-primary
-                    a href="http://www.jquery2dotnet.com"  View Services
+                    = link_to "Messages", show_message_path
+                tr
+                  td
+                    span.glyphicon.glyphicon-pencil.text-primary
+                    a href="http://www.jquery2dotnet.com" My Activity
                 tr
                   td
                     span.glyphicon.glyphicon-flash.text-success
-                    a href="http://www.jquery2dotnet.com"  Manage Ser
-                tr
-                  td
-                    span.glyphicon.glyphicon-file.text-info
-                    a href="http://www.jquery2dotnet.com"  Newsletters
-                tr
-                  td
-                    span.glyphicon.glyphicon-comment.text-success
-                    a href="http://www.jquery2dotnet.com"  Comments
+                    a href="http://www.jquery2dotnet.com" Notification
