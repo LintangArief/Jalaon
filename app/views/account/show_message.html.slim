@@ -1,0 +1,48 @@
+.container style="margin: 5%;"
+  .row
+    = render "side_bar"
+    .col-sm-9.col-md-9
+      /! Nav tabs
+      ul.nav.nav-tabs
+        li.active
+          a data-toggle="tab" href="#inbox" 
+            span.glyphicon.glyphicon-inbox
+            | #{@message.subject}
+        = link_to "Back", show_message_path, class: "btn btn-primary text-right"
+      /! Tab panes
+      .tab-content
+        #inbox.tab-pane.fade.in.active
+          - @message.messages.order(:created_at).each do |message|
+            .list-group
+              p.list-group-item href="#"
+                span.glyphicon.glyphicon-star-empty
+                span.name style="min-width: 120px; display: inline-block;"  #{message.sender.first_name} #{message.sender.last_name}
+                span.text-muted style=("font-size: 11px;")  - #{message.body}
+                span.badge #{message.created_at.to_time}
+          #reply-box
+            = form_for(:reply, as: :reply, url: send_reply_message_path, html: { method: :post}) do |f|
+              = f.label "Your Reply"
+              = f.hidden_field :conversation_id, value: params[:id]
+              = f.hidden_field :user_id, value: current_user.id
+              br/
+              = f.text_area :body, :class => "input-lg"
+              br/
+              = f.submit "Submit"      
+
+= content_for :css_accout
+  <style type="text/css">
+    .nav-tabs .glyphicon:not(.no-margin) { margin-right:10px; }
+    .tab-pane .list-group-item:first-child {border-top-right-radius: 0px;border-top-left-radius: 0px;}
+    .tab-pane .list-group-item:last-child {border-bottom-right-radius: 0px;border-bottom-left-radius: 0px;}
+    .tab-pane .list-group .checkbox { display: inline-block;margin: 0px; }
+    .tab-pane .list-group input[type="checkbox"]{ margin-top: 2px; }
+    .tab-pane .list-group .glyphicon { margin-right:5px; }
+    .tab-pane .list-group .glyphicon:hover { color:#FFBC00; }
+    a.list-group-item.read { color: #222;background-color: #F3F3F3; }
+    hr { margin-top: 5px;margin-bottom: 10px; }
+    .nav-pills>li>a {padding: 5px 10px;}
+
+    .ad { padding: 5px;background: #F5F5F5;color: #222;font-size: 80%;border: 1px solid #E5E5E5; }
+    .ad a.title {color: #15C;text-decoration: none;font-weight: bold;font-size: 110%;}
+    .ad a.url {color: #093;text-decoration: none;}
+  </style>

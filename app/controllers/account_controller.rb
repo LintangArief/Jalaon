@@ -1,6 +1,7 @@
 class AccountController < ApplicationController
   before_action :set_account, only: [:edit, :profile]
   before_action :set_verify, only: [:verify]
+  before_action :set_conversation, only: [:show_message]
 
   def profile
     @services = @user.services
@@ -54,17 +55,42 @@ class AccountController < ApplicationController
     
   end
 
-  def replay
-  
+  def show_message
+
   end
 
-  def delete_message
+  def reply
+    @conversation = current_user.mailbox.conversations.find(params[:reply][:conversation_id])
+    current_user.reply_to_conversation(@conversation, params[:reply][:body])
+    redirect_to detail_message_url(params[:reply][:conversation_id])
+  end
 
+  def move_trash
+
+    @conversation = current_user.mailbox.conversations.find(params[:id])
+    @conversation.move_to_trash(current_user)
+    redirect_to show_message_url
+  end
+
+  def move_untrash
+    @conversation = current_user.mailbox.conversations.find(params[:id])
+    @conversation.untrash(current_user)
+    redirect_to show_message_url
+  end
+
+  def mark_delete
+    @conversation = current_user.mailbox.conversations.find(params[:id])
+    @conversation.mark_as_deleted(current_user)
+    redirect_to show_message_url
   end
 
   private
     def set_account
       @user = User.find(params[:id])
+    end
+
+    def set_conversation
+      @message = current_user.mailbox.conversations.find(params[:id])
     end
 
     def set_verify

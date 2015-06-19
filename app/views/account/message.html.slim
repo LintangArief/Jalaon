@@ -17,40 +17,57 @@
             span.glyphicon.glyphicon-tags
             | Trash
       /! Tab panes
-      .tab-content
+      .tab-content.col-md-12.col-xs-12.col-sm-12
         #inbox.tab-pane.fade.in.active
           - @inbox.each do |inbox|
-            .list-group
-              a.list-group-item href="#"
-                span.glyphicon.glyphicon-star-empty
-                span.name style="min-width: 120px; display: inline-block;"  #{inbox.messages.first.sender.first_name} #{inbox.messages.first.sender.last_name}
-                span #{inbox.subject}
-                span.text-muted style=("font-size: 11px;")  - #{inbox.messages.where("sender_id != #{current_user.id}").last.body}
-                span.badge #{inbox.messages.where("sender_id != #{current_user.id}").last.created_at.to_time}
-                span.pull-right
-                  span.glyphicon.glyphicon-paperclip
+            .list-group.col-md-12.col-xs-12.col-sm-12
+              .col-md-11.col-xs-11.col-sm-11
+                = link_to detail_message_path(inbox.id), class:"list-group-item"
+                  span.glyphicon.glyphicon-star-empty
+                  span.name style="min-width: 120px; display: inline-block;"  #{inbox.messages.where("sender_id != #{current_user.id}").first.sender.first_name} #{inbox.messages.where("sender_id != #{current_user.id}").first.sender.last_name}
+                  span  - #{inbox.subject}
+                  span.text-muted style=("font-size: 11px;")  - #{inbox.messages.where("sender_id != #{current_user.id}").last.body}
+                  span.badge #{inbox.messages.where("sender_id != #{current_user.id}").last.created_at.to_time}
+              .col-md-1.col-xs-1.col-sm-1
+                span.pull-right.margin-10
+                  = link_to move_trash_path(inbox.id), method: :post, class: "btn btn-compare"
+                    span.glyphicon.glyphicon-remove
+                    | Trash
+            br/
         #sendbox.tab-pane.fade.in
           - @send_box.each do |sentbox|
-            .list-group
-              a.list-group-item href="#"
-                span.glyphicon.glyphicon-star-empty
-                span.name style="min-width: 120px; display: inline-block;" To : #{sentbox.receipts.where("receiver_id != #{current_user.id}").first.receiver.first_name} #{sentbox.receipts.where("receiver_id != #{current_user.id}").first.receiver.last_name}
-                span #{sentbox.subject}
-                span.text-muted style=("font-size: 11px;")  - #{sentbox.messages.where(sender_id: current_user.id).last.body}
-                span.badge #{sentbox.messages.where(sender_id: current_user.id).last.created_at}
-                span.pull-right
-                  span.glyphicon.glyphicon-paperclip
+            .list-group.col-md-12.col-xs-12.col-sm-12
+              .col-md-11.col-xs-11.col-sm-11
+                = link_to detail_message_path(sentbox.id), class:"list-group-item"
+                  span.glyphicon.glyphicon-star-empty
+                  span.name style="min-width: 120px; display: inline-block;" To : #{sentbox.receipts.where("receiver_id != #{current_user.id}").first.receiver.first_name} #{sentbox.receipts.where("receiver_id != #{current_user.id}").first.receiver.last_name} 
+                  span  - #{sentbox.subject}
+                  span.text-muted style=("font-size: 11px;")  - #{sentbox.messages.where(sender_id: current_user.id).last.body}
+                  span.badge #{sentbox.messages.where(sender_id: current_user.id).last.created_at}
+              .col-md-1.col-xs-1.col-sm-1
+                span.pull-right.margin-10
+                  = link_to move_trash_path(sentbox.id), method: :post, class: "btn btn-compare"
+                    span.glyphicon.glyphicon-remove
+                    | Trash
+            br/
         #trash.tab-pane.fade.in
-          - @trash.each do |inbox|
-            .list-group     
-              a.list-group-item href="#"
-                span.glyphicon.glyphicon-star-empty
-                span.name style="min-width: 120px; display: inline-block;"  Bhaumik Patel
-                span This is big title
-                span.text-muted style=("font-size: 11px;")  - Hi hello how r u ?
-                span.badge 12:10 AM
-                span.pull-right
-                  span.glyphicon.glyphicon-paperclip
+          - @trash.each do |trash|
+            .list-group.col-md-12.col-xs-12.col-sm-12
+              .col-md-9.col-xs-9.col-sm-9
+                p.list-group-item
+                  span.glyphicon.glyphicon-star-empty
+                  span.name style="min-width: 120px; display: inline-block;" 
+                  span #{trash.subject}
+                  span.badge #{trash.created_at}
+              .col-md-3.col-xs-3.col-sm-3
+                span.pull-right.margin-10
+                  = link_to mark_delete_path(trash.id), method: :post, class: "btn btn-compare"
+                    span.glyphicon.glyphicon-remove
+                    | Delete
+                  = link_to move_untrash_path(trash.id), method: :post, class: "btn btn-compare"
+                    span.glyphicon.glyphicon-refresh
+                    | Restore
+
 
 = content_for :css_accout
   <style type="text/css">

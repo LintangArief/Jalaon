@@ -15,6 +15,12 @@ Rails.application.routes.draw do
   post '/feedback' => 'feedbacks#create', :as => :create_feedback
   post '/send-message' => "account#send_message", :as => :send_message
   get '/account/messages' => "account#message", :as => :show_message
+  get '/account/messages/:id' => "account#show_message", :as => :detail_message
+  post '/reply' => 'account#reply', :as => :send_reply_message
+  post '/mark_delete/:id' => 'account#mark_delete', :as => :mark_delete
+  post '/move_trash/:id' => 'account#move_trash', :as => :move_trash
+  post '/move_untrash/:id' => 'account#move_untrash', :as => :move_untrash
+
   resources :product_services
 
   put 'product_services/update'

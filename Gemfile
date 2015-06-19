@@ -24,14 +24,13 @@ gem "socialization"
 gem 'amistad'
 gem 'kaminari'
 gem 'seed_dump'
-
 gem 'thin'
 gem "recaptcha", :require => "recaptcha/rails"
 gem 'activeadmin', github: 'activeadmin'
 gem 'nprogress-rails'
 gem 'bootstrap-sass', '~> 3.3.4'
 gem 'sass-rails', '>= 3.2'
-gem 'mailboxer', :git => 'git://github.com/div/mailboxer.git', :branch => 'rails42-foreigner'
+gem 'mailboxer', github: 'lacco/mailboxer'
 gem 'jquery-timepicker-rails'
 gem 'geocomplete_rails'
 group :production do
