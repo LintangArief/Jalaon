@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   get '/profile/:id' => 'account#profile', :as => :account
   get '/profile/edit/:id' => 'account#edit', :as => :edit_account
   put '/profile/:id' => 'account#update'
@@ -12,6 +13,11 @@ Rails.application.routes.draw do
   post '/add_friend/service/:id' => 'services#add_friend', :as => :friend
   post '/unfriends/service/:id' => 'services#un_friend', :as => :unfriend
   post '/cancleinvite/service/:id' => 'services#cancle_friend', :as => :canclefriend
+  
+  post '/add_friend/account/:id' => 'account#add_friend', :as => :friend_account
+  post '/unfriends/account/:id' => 'account#un_friend', :as => :unfriend_account
+  post '/cancleinvite/account/:id' => 'account#cancle_friend', :as => :canclefriend_account
+
   post '/feedback' => 'feedbacks#create', :as => :create_feedback
   post '/send-message' => "account#send_message", :as => :send_message
   get '/account/messages' => "account#message", :as => :show_message
@@ -20,7 +26,8 @@ Rails.application.routes.draw do
   post '/mark_delete/:id' => 'account#mark_delete', :as => :mark_delete
   post '/move_trash/:id' => 'account#move_trash', :as => :move_trash
   post '/move_untrash/:id' => 'account#move_untrash', :as => :move_untrash
-
+  get '/notifications' => "activities#index", :as => :notifications
+  resources :activities
   resources :product_services
 
   put 'product_services/update'

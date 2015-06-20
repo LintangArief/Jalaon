@@ -255,13 +255,18 @@
                             img.img-circle.img-responsive alt="" src="https://placeholdit.imgix.net/~text?txtsize=10&txt=80%C3%9780&w=80&h=80"
                           - else
                             img.img-circle.img-responsive alt="" src="#{feedback.user.avatar.large_avatar}"
-                        .col-xs-10.col-md-11
+                        .col-xs-10.col-md-10
                           div
-                            a href="#" 
-                              | By: #{feedback.user.first_name.upcase} #{feedback.user.last_name.upcase}
+                            .col-md-12.col-xs.12
+                              .col-md-8.col-md-8
+                                a href="#" 
+                                  | By: #{feedback.user.first_name.upcase} #{feedback.user.last_name.upcase}
+                              .col-md-4.col-md-4
+                                = link_to "View Profile", account_path(feedback.user.id), :class=> "btn btn-primary"
                           .comment-text
                             br/
-                            | #{feedback.description}
+                            .col-md-12.col-xs-12.col-sm-12
+                              | #{feedback.description}
                           br/
                           - if current_user
                             - if current_user.id == feedback.user_id
@@ -278,5 +283,3 @@
                 a.btn.btn-primary.btn-sm.btn-block href="#" role="button" 
                   span.glyphicon.glyphicon-refresh
                   | More
-      
-      

@@ -1,0 +1,23 @@
+.container style="margin: 5%;"
+  .row
+    = render "account/side_bar"
+    .col-sm-9.col-md-9
+      /! Nav tabs
+      ul.nav.nav-tabs
+        li.active
+          a data-toggle="tab" href="#inbox" 
+            span.glyphicon.glyphicon-inbox
+            | Notifications
+      /! Tab panes
+      .tab-content.col-md-12.col-xs-12.col-sm-12
+        #inbox.tab-pane.fade.in.active
+          - @activities.each do |activity|
+            .list-group.col-md-12.col-xs-12.col-sm-12
+              .col-md-11.col-xs-11.col-sm-11
+                = render_activities activity
+              .col-md-1.col-xs-1.col-sm-1
+                span.pull-right.margin-10
+                  = link_to activity_path(activity.id), data: {:confirm => 'Are you sure?'}, :method => :delete, class: "btn btn-compare"
+                    span.glyphicon.glyphicon-remove
+                    | Trash
+                    

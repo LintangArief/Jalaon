@@ -3,6 +3,10 @@ class User < ActiveRecord::Base
   acts_as_follower
   mount_uploader :avatar, AvatarUserUploader
   include Amistad::FriendModel
+  include PublicActivity::Model
+  tracked
+
+  
   after_save :check_verify
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -13,6 +17,8 @@ class User < ActiveRecord::Base
   has_many :services
   has_many :feedbacks
   has_one :verify_user
+
+
 
   # acts_as_messageable :table_name => "messages"
   def check_verify

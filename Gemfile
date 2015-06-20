@@ -33,6 +33,7 @@ gem 'sass-rails', '>= 3.2'
 gem 'mailboxer', github: 'lacco/mailboxer'
 gem 'jquery-timepicker-rails'
 gem 'geocomplete_rails'
+gem 'public_activity'
 group :production do
   gem 'exception_notification'
 end

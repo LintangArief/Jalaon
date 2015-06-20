@@ -21,3 +21,8 @@
 
 en:
   hello: "Hello world"
+  activity:
+    user:
+      profile: 'has look your profile'
+      update: 'Someone has edited the article'
+      destroy: 'Some user removed an article!'

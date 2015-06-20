@@ -1,11 +1,19 @@
 class AccountController < ApplicationController
-  before_action :set_account, only: [:edit, :profile]
+  before_action :set_account, only: [:edit, :profile, :add_friend, :un_friend, :cancle_friend]
   before_action :set_verify, only: [:verify]
   before_action :set_conversation, only: [:show_message]
 
   def profile
+    if current_user.id != @user.id
+      @user.create_activity key: 'user.profile', owner: current_user, recipient: @user
+    end
+    
     @services = @user.services
     @statusverify = @user.verify_user
+    @pending = nil
+    if current_user
+      @pending = @user.pending_invited_by.map(&:id).include? current_user.id
+    end
   end
 
   def edit
@@ -38,6 +46,8 @@ class AccountController < ApplicationController
     current_user.send_message(@user, params[:message][:body], params[:message][:subject])
     if params[:message][:type] == "show_service"
       redirect_to service_path(params[:message][:service_id])
+    else
+      redirect_to account_path(@user.id)
     end
   end
 
@@ -84,6 +94,21 @@ class AccountController < ApplicationController
     redirect_to show_message_url
   end
 
+  def add_friend
+    current_user.invite @user
+    redirect_to account_url(@user)
+  end
+
+  def cancle_friend
+    current_user.remove_friendship @user
+    redirect_to account_url(@user)
+  end
+
+  def un_friend
+    current_user.remove_friendship @user
+    redirect_to account_url(@user)
+  end
+  
   private
     def set_account
       @user = User.find(params[:id])
