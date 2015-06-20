@@ -7,7 +7,7 @@ class AccountController < ApplicationController
     if current_user.id != @user.id
       @user.create_activity key: 'user.profile', owner: current_user, recipient: @user
     end
-    
+
     @services = @user.services
     @statusverify = @user.verify_user
     @pending = nil
@@ -96,6 +96,9 @@ class AccountController < ApplicationController
 
   def add_friend
     current_user.invite @user
+    if current_user.id != @user.id
+      @user.create_activity key: 'user.add_friend', owner: current_user, recipient: @user
+    end
     redirect_to account_url(@user)
   end
 
@@ -106,6 +109,9 @@ class AccountController < ApplicationController
 
   def un_friend
     current_user.remove_friendship @user
+    if current_user.id != @user.id
+      @user.create_activity key: 'user.un_friend', owner: current_user, recipient: @user
+    end
     redirect_to account_url(@user)
   end
   

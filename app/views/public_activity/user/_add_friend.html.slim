@@ -1,5 +1,5 @@
 = link_to "#{activity.owner.first_name.upcase} #{activity.owner.last_name}", account_path(activity.owner)
-span  Has request Friend With you 
+span  Has view your profiles At 
 - if activity.trackable.created_at > Time.now.beginning_of_day
   ="#{time_ago_in_words(activity.created_at)} ago"
 - else
