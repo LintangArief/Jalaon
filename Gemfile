@@ -34,6 +34,7 @@ gem 'mailboxer', github: 'lacco/mailboxer'
 gem 'jquery-timepicker-rails'
 gem 'geocomplete_rails'
 gem 'public_activity'
+gem 'unread'
 group :production do
   gem 'exception_notification'
 end

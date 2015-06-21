@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   acts_as_messageable
   acts_as_follower
+  acts_as_reader
   mount_uploader :avatar, AvatarUserUploader
   include Amistad::FriendModel
   include PublicActivity::Model
