@@ -10,10 +10,10 @@ class ApplicationController < ActionController::Base
       @unread_message_count = current_user.mailbox.receipts.where(is_read:false).count
     end
   end
-  
+
   def unread_notify
     if current_user
-      @count_notification_unread = Activity.unread_by(current_user).count
+      @count_notification_unread = Activity.where(recipient_id: current_user.id).unread_by(current_user).count
     end
   end
 

@@ -66,7 +66,7 @@ class AccountController < ApplicationController
   end
 
   def show_message
-
+    @message.receipts.where(receiver_id: current_user.id, is_read: false).update_all(is_read: true)    
   end
 
   def reply

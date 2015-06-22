@@ -24,6 +24,10 @@ a, a:link, a:visited {
 input#first_name {
   width: 100%;
 }
+span.badge {
+  text-align: right;
+  float: right;
+}
 input#user_email {
   width: 100%;
 }
