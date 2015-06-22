@@ -49,22 +49,22 @@ header#top.navbar.navbar-static-top.bs-docs-nav role="banner"
               span.glyphicon.glyphicon-inbox
               |  
               span.badge #{@unread_message_count}
+              span.caret
             ul.dropdown-menu style="margin-top: 6%;"
               li
                 = link_to notifications_path
                   span.glyphicon.glyphicon-inbox
                   | View all Message
-              li.divider
           li.dropdown
             = link_to "#", class: "message-notification_#{current_user.id}", "data-toggle"=>"dropdown"
               i.fa.fa-bell.fa-lg
               |  
               span.badge #{@count_notification_unread}
+              span.caret
             ul.dropdown-menu style="margin-top: 6%;"
               li
                 = link_to notifications_path
                   i.fa.fa-bell
                   | View all Notifications
-              li.divider
         li
           = link_to "Help", "#", :class => "a-header"

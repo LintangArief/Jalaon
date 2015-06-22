@@ -21,6 +21,6 @@ test:
 production:
   <<: *default
   database: Jualon_production
-  username: Jualon49203123Jualon
+  username: cybergarage
   host: localhost
   password: 123456
