@@ -10,19 +10,15 @@
           = @user.city.upcase if @user.city != nil
           |  
           = @user.state.upcase if @user.state != nil
-        div
-          i.fa.fa-briefcase
-          |  Software Engineer at
-          a href="#"  Company, Inc.
-        .mb20
         .btn-group
           - if current_user
-            - if @user.friend_with? current_user
-              = link_to "Remove Friend", unfriend_account_path(@user.id), method: :post, class: "button btn btn-primary btn-bordered"
-            - elsif @pending == true
-              = link_to "Cancle Invite", canclefriend_account_path(@user.id), method: :post, class: "button btn btn-primary btn-bordered"
-            - else  
-              = link_to "Add Friend", friend_account_path(@user.id), method: :post, class: "button btn btn-primary btn-bordered"
+            - if current_user != @user
+              - if @user.friend_with? current_user
+                = link_to "Remove Friend", unfriend_account_path(@user.id), method: :post, class: "button btn btn-primary btn-bordered"
+              - elsif @pending == true
+                = link_to "Cancle Invite", canclefriend_account_path(@user.id), method: :post, class: "button btn btn-primary btn-bordered"
+              - else  
+                = link_to "Add Friend", friend_account_path(@user.id), method: :post, class: "button btn btn-primary btn-bordered"
           - else
             = link_to "Add Friend", new_user_registration_path, class: "button btn btn-primary btn-bordered"            
               
@@ -58,10 +54,6 @@
 
       /! text-center
       br/
-      h5.md-title About
-      p.mb30
-        | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat...
-        a href="#"  Show More
       h5.md-title Connect
       ul.list-unstyled.social-list
         li

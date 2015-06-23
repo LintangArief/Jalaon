@@ -38,7 +38,7 @@
 
   var defaults = {
     bounds: true,
-    country: null,
+    country: "id",
     map: false,
     details: false,
     detailsAttribute: "name",
@@ -173,7 +173,8 @@
       var options = {
         types: this.options.types,
         bounds: this.options.bounds === true ? null : this.options.bounds,
-        componentRestrictions: this.options.componentRestrictions
+        componentRestrictions: this.options.componentRestrictions,
+        country: "id"
       };
 
       if (this.options.country){

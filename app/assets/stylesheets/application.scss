@@ -21,12 +21,21 @@
 a, a:link, a:visited {
   text-decoration: none !important;
 }
+a.a-footer-menu:hover, a.a-footer-menu:focus {
+   color: #ce0b10 !important;
+}
 input#first_name {
   width: 100%;
+}
+.div-header.col-xs-12.col-sm-3.btn-div {
+  margin: 0 auto;
 }
 span.badge {
   text-align: right;
   float: right;
+}
+.text-red{
+   color: red !important;
 }
 input#user_email {
   width: 100%;
