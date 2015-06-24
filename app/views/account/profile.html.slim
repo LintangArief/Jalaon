@@ -118,7 +118,7 @@
                   /! media
         #friends.tab-pane
           .follower-list
-            - @user.friends.each do |friend|
+            - @friends.each do |friend|
               .media
                 a.pull-left href="#" 
                   - if friend.avatar.file == nil
@@ -153,135 +153,15 @@
                 /! media-body
         #following.tab-pane
           .activity-list
-            .media
-              a.pull-left href="#" 
-                img.media-object.img-circle alt="" src="images/photos/user2.png" /
-              .media-body
-                strong Chris Anthemum
-                | liked a photos
-                br/
-                small.text-muted Today at 12:30pm
-                ul.uploadphoto-list
-                  li
-                    a data-rel="prettyPhoto" href="images/photos/media5.png" 
-                      img.thumbnail.img-responsive alt="" src="images/photos/media5.png" /
-                  li
-                    a data-rel="prettyPhoto" href="images/photos/media4.png" 
-                      img.thumbnail.img-responsive alt="" src="images/photos/media4.png" /
-            /! media
-            .media
-              a.pull-left href="#" 
-                img.media-object.img-circle alt="" src="images/photos/user1.png" /
-              .media-body
-                strong Ray Sin
-                | is now following to
-                strong Chris Anthemum
-                br/
-                small.text-muted Yesterday at 1:30pm
-              /! media-body
-            /! media
-            .media
-              a.pull-left href="#" 
-                img.media-object.img-circle alt="" src="images/photos/user4.png" /
-              .media-body
-                strong Frank Furter
-                | is now following to
-                strong Ray Sin
-                br/
-                small.text-muted 3 days ago at 1:30pm
-            /! media
-            .media
-              a.pull-left href="#" 
-                img.media-object.img-circle alt="" src="images/photos/user2.png" /
-              .media-body
-                strong Chris Anthemum
-                | liked a photos
-                br/
-                small.text-muted 5 days ago at 12:30pm
-                ul.uploadphoto-list
-                  li
-                    a data-rel="prettyPhoto" href="images/photos/media6.png" 
-                      img.thumbnail.img-responsive alt="" src="images/photos/media6.png" /
-                  li
-                    a data-rel="prettyPhoto" href="images/photos/media7.png" 
-                      img.thumbnail.img-responsive alt="" src="images/photos/media7.png" /
-                  li
-                    a data-rel="prettyPhoto" href="images/photos/media2.png" 
-                      img.thumbnail.img-responsive alt="" src="images/photos/media2.png" /
-              /! media-body
-            /! media
-            .media
-              a.pull-left href="#" 
-                img.media-object.img-circle alt="" src="images/photos/user1.png" /
-              .media-body
-                strong Nusja Nawancali
-                | is now following to
-                  succeed "."   
-                  strong Zaham Sindilmaca
-                br/
-                small.text-muted December 25 at 1:30pm
-              /! media-body
-            /! media
-            .media
-              a.pull-left href="#" 
-                img.media-object.img-circle alt="" src="images/photos/user4.png" /
-              .media-body
-                strong Frank Furter
-                | is now following to
-                  succeed "." do
-                  strong Zaham Sindilmaca
-                br/
-                small.text-muted December 24 at 1:30pm
-              /! media-body
-            /! media
-            .media
-              a.pull-left href="#" 
-                img.media-object.img-circle alt="" src="images/photos/user3.png" /
-              .media-body
-                strong Nusja NawanCali
-                | posted a new blog.
-                br/
-                small.text-muted December 23 at 3:18pm
-                .media.blog-media
-                  a.pull-left href="#" 
-                    img.media-object alt="" src="images/photos/media3.png" /
-                  .media-body
-                    h4.media-title
-                      a href="#"  Ut Enim Ad Minim Veniam
-                    p
-                      | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat...
-                      a href="#"  Read more
-                  /! media-body
-                /! media
-              /! media-body
-            /! media
-            .media
-              a.pull-left href="#" 
-                img.media-object.img-circle alt="" src="images/photos/user4.png" /
-              .media-body
-                strong Mark Zonsion
-                | is now following to
-                  succeed "." do
-                  strong Weno Carasbong
-                br/
-                small.text-muted December 23 at 1:30pm
-              /! media-body
-            /! media
-            .media
-              a.pull-left href="#" 
-                img.media-object.img-circle alt="" src="images/photos/user4.png" /
-              .media-body
-                strong Frank Furter
-                | is now following to
-                  succeed "." do
-                  strong Weno Carasbong
-                br/
-                small.text-muted December 20 at 4:30pm
-              /! media-body
-            /! media
-          /! activity-list
-          button.btn.btn-white.btn-block Show More
-
-        /! tab-pane
-      /! tab-content
-    /! col-sm-9
+            - @followees.each do |service|
+              .media
+                a.pull-left href="#"
+                  - if service.avatar.file == nil
+                    img.media-object.thumbnail alt="100x120" data-src="holder.js/100x120" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAB4CAYAAAAE9le0AAAFmElEQVR4Xu2cZ0tdWxCGx967UYmiftBYEZXEFsWQPy5YwBoVsST2blATazDWe98F+3DugXjnS4aJeTcETpm9ZnyeNWv2+ZKkb9++PQkvNwSSKMSNi1AIhfjyQSHOfFAIhXgj4KwezhAKcUbAWTnsEApxRsBZOewQCnFGwFk57BAKcUbAWTnsEApxRsBZOewQCnFGwFk57BAKcUbAWTnsEApxRsBZOewQCnFGwFk57BAKcUbAWTnsEApxRsBZOewQCnFGwFk57BAKcUbAWTnsEApxRsBZOewQCnFGwFk57BAKcUbAWTnsEApxRsBZOewQCnFGwFk57BAKcUbAWTnsEApxRsBZOewQCnFGwFk57BAKcUbAWTnsEApxRsBZOewQCnFGwFk57JC/Xcj5+bksLi7Kjx8/pKurS/Lz8wOS6+trWV5elqurK8nKypKGhgYpLCwM3x0fH8va2pr8/PlTCgoKpLm5WTIyMp5F+fj4GO7Z2dmR0tJSaW9vj8UfHBzI5uam3N7eSm5urjQ2NkpeXl74Hp/v7e0J7i8rKwvfJSUlmWkz7ZDT01OZn58PwCEgXsjU1FT4rLa2VgAMQN6/fy/39/cyNjYW7gEgAAPgtra2ZyFhPQC/ubmRkpKSmJCLiwuZnJwMsvH59vZ2kNvb2yuob3Z2NuRJT08PYiCkqqrqZQrBTk9NTRVAWV1djQnBzh8ZGZHq6mp58+ZNELK0tCRv374NXbGwsBCAQgQ+Pzo6kg8fPsjc3FxYq6+vL6w7MTERwEH01taW1NTUhHWLiopiQv79f4rl69evQTwkY228//jxo3z+/Fn29/fD2lhvdHRUsrOzpbOz82UKif4q7Mp4IWdnZzI9PS1NTU1SWVkp379/l5mZmfAeu3x9fT3s4JycHNnY2Aj/0D24xsfHpby8PHyHNd+9exeOtegaGhr6j5B4snd3d+H+tLQ06enpkU+fPoUuHRgYCGGoAUdr9N7CiumR9Ssh0VGB2fD69WvBnMGRgzmCDsFuhwDsaLzGbABAnP+7u7thZ6ekpASZ6LD461dCIAPH0+XlpXR0dEhxcXHIiXz9/f1hCXyPDhwcHLRwEXK4EJLYIThWsFshCIDiOwSvMUciQZgxOJYeHh5ikv5PCNbE+pgvra2t8urVq3BLYoegaxETCbKw4kIIjqXh4eHYDME5jicuHD8AEj9D8Prk5CSc83j6+fLlS5g5OPNxbGG3Pyfk6ekpdAKOIsTGH28rKythkEczBKLRhYlr/k4xpkLwSIszGkAPDw+lvr5eMjMzww7F8YDvMYghBBeGNXY+hmv8UxZmRktLS+xoq6uriw3o6NjDoMaFR2xAxboY0DgOAR6DHk9Z0YWjErVhbuApC3MFdUTr/U4J8WubCokGcuIfh6EJ8HiCin6HYKBHv1EwY9AJ0e8QHDOYGXiqwo7HPElOTg4wcT/eY3cnXpgx6Cp0QeLV3d0dfotgRmEuYd2KioqwaV7s7xCrXfYn5zHtkD8ZlFXtFGJFWpmHQpSgrMIoxIq0Mg+FKEFZhVGIFWllHgpRgrIKoxAr0so8FKIEZRVGIVaklXkoRAnKKoxCrEgr81CIEpRVGIVYkVbmoRAlKKswCrEircxDIUpQVmEUYkVamYdClKCswijEirQyD4UoQVmFUYgVaWUeClGCsgqjECvSyjwUogRlFUYhVqSVeShECcoqjEKsSCvzUIgSlFUYhViRVuahECUoqzAKsSKtzEMhSlBWYRRiRVqZh0KUoKzCKMSKtDIPhShBWYVRiBVpZR4KUYKyCqMQK9LKPBSiBGUVRiFWpJV5KEQJyiqMQqxIK/NQiBKUVRiFWJFW5qEQJSirMAqxIq3MQyFKUFZhFGJFWpmHQpSgrMIoxIq0Mg+FKEFZhVGIFWllHgpRgrIK+wfnB9be+cpJWQAAAABJRU5ErkJggg==" style=("width: 100px; height: 120px;") /
+                  - else
+                    img.media-object.thumbnail alt="100x120" src="#{service.avatar.large_avatar}"
+                .media-body
+                  h4.event-title
+                    = link_to "#{service.title}", service_path(service)
+                  small.text-muted
+                  p =h truncate(service.description, :length => 80)

@@ -1,5 +1,5 @@
 class AccountController < ApplicationController
-  before_action :set_account, only: [:edit, :profile, :add_friend, :un_friend, :cancle_friend]
+  before_action :set_account, only: [:edit, :profile, :add_friend, :un_friend, :cancle_friend, :accept_friend]
   before_action :set_verify, only: [:verify]
   before_action :set_conversation, only: [:show_message]
 
@@ -14,6 +14,8 @@ class AccountController < ApplicationController
     if current_user
       @pending = @user.pending_invited_by.map(&:id).include? current_user.id
     end
+    @followees = @user.followees(Service)
+    @friends = @user.friends
   end
 
   def edit
@@ -39,6 +41,10 @@ class AccountController < ApplicationController
 
   def setting
 
+  end
+
+  def my_following_service
+    @followees = current_user.followees(Service)
   end
 
   def send_message
@@ -104,7 +110,7 @@ class AccountController < ApplicationController
 
   def cancle_friend
     current_user.remove_friendship @user
-    redirect_to account_url(@user)
+    redirect_to :back
   end
 
   def un_friend
@@ -112,7 +118,24 @@ class AccountController < ApplicationController
     if current_user.id != @user.id
       @user.create_activity key: 'user.un_friend', owner: current_user, recipient: @user
     end
-    redirect_to account_url(@user)
+    redirect_to :back
+  end
+
+  def accept_friend
+    current_user.approve @user
+    redirect_to :back
+  end
+
+  def my_friends
+    @friends = current_user.friends
+  end
+
+  def pending_friend
+    @friends = current_user.pending_invited_by
+  end
+
+  def request_friend
+    @friends = current_user.pending_invited
   end
   
   private

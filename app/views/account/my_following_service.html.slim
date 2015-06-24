@@ -1,0 +1,29 @@
+.container style="margin: 5%;"
+  .row
+    = render "side_bar"
+    .col-sm-9.col-md-9
+      ul.nav.nav-tabs
+        li.active
+          a data-toggle="tab" href="#inbox" 
+            | My Following Services
+      .tab-content
+        #services.active.tab-pane
+          .events
+            .row
+              - @followees.each do |service|
+                .col-sm-6
+                  .media
+                    a.pull-left href="#"
+                      - if service.avatar.file == nil
+                        img.media-object.thumbnail alt="100x120" data-src="holder.js/100x120" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAB4CAYAAAAE9le0AAAFmElEQVR4Xu2cZ0tdWxCGx967UYmiftBYEZXEFsWQPy5YwBoVsST2blATazDWe98F+3DugXjnS4aJeTcETpm9ZnyeNWv2+ZKkb9++PQkvNwSSKMSNi1AIhfjyQSHOfFAIhXgj4KwezhAKcUbAWTnsEApxRsBZOewQCnFGwFk57BAKcUbAWTnsEApxRsBZOewQCnFGwFk57BAKcUbAWTnsEApxRsBZOewQCnFGwFk57BAKcUbAWTnsEApxRsBZOewQCnFGwFk57BAKcUbAWTnsEApxRsBZOewQCnFGwFk57BAKcUbAWTnsEApxRsBZOewQCnFGwFk57BAKcUbAWTnsEApxRsBZOewQCnFGwFk57BAKcUbAWTnsEApxRsBZOewQCnFGwFk57JC/Xcj5+bksLi7Kjx8/pKurS/Lz8wOS6+trWV5elqurK8nKypKGhgYpLCwM3x0fH8va2pr8/PlTCgoKpLm5WTIyMp5F+fj4GO7Z2dmR0tJSaW9vj8UfHBzI5uam3N7eSm5urjQ2NkpeXl74Hp/v7e0J7i8rKwvfJSUlmWkz7ZDT01OZn58PwCEgXsjU1FT4rLa2VgAMQN6/fy/39/cyNjYW7gEgAAPgtra2ZyFhPQC/ubmRkpKSmJCLiwuZnJwMsvH59vZ2kNvb2yuob3Z2NuRJT08PYiCkqqrqZQrBTk9NTRVAWV1djQnBzh8ZGZHq6mp58+ZNELK0tCRv374NXbGwsBCAQgQ+Pzo6kg8fPsjc3FxYq6+vL6w7MTERwEH01taW1NTUhHWLiopiQv79f4rl69evQTwkY228//jxo3z+/Fn29/fD2lhvdHRUsrOzpbOz82UKif4q7Mp4IWdnZzI9PS1NTU1SWVkp379/l5mZmfAeu3x9fT3s4JycHNnY2Aj/0D24xsfHpby8PHyHNd+9exeOtegaGhr6j5B4snd3d+H+tLQ06enpkU+fPoUuHRgYCGGoAUdr9N7CiumR9Ssh0VGB2fD69WvBnMGRgzmCDsFuhwDsaLzGbABAnP+7u7thZ6ekpASZ6LD461dCIAPH0+XlpXR0dEhxcXHIiXz9/f1hCXyPDhwcHLRwEXK4EJLYIThWsFshCIDiOwSvMUciQZgxOJYeHh5ikv5PCNbE+pgvra2t8urVq3BLYoegaxETCbKw4kIIjqXh4eHYDME5jicuHD8AEj9D8Prk5CSc83j6+fLlS5g5OPNxbGG3Pyfk6ekpdAKOIsTGH28rKythkEczBKLRhYlr/k4xpkLwSIszGkAPDw+lvr5eMjMzww7F8YDvMYghBBeGNXY+hmv8UxZmRktLS+xoq6uriw3o6NjDoMaFR2xAxboY0DgOAR6DHk9Z0YWjErVhbuApC3MFdUTr/U4J8WubCokGcuIfh6EJ8HiCin6HYKBHv1EwY9AJ0e8QHDOYGXiqwo7HPElOTg4wcT/eY3cnXpgx6Cp0QeLV3d0dfotgRmEuYd2KioqwaV7s7xCrXfYn5zHtkD8ZlFXtFGJFWpmHQpSgrMIoxIq0Mg+FKEFZhVGIFWllHgpRgrIKoxAr0so8FKIEZRVGIVaklXkoRAnKKoxCrEgr81CIEpRVGIVYkVbmoRAlKKswCrEircxDIUpQVmEUYkVamYdClKCswijEirQyD4UoQVmFUYgVaWUeClGCsgqjECvSyjwUogRlFUYhVqSVeShECcoqjEKsSCvzUIgSlFUYhViRVuahECUoqzAKsSKtzEMhSlBWYRRiRVqZh0KUoKzCKMSKtDIPhShBWYVRiBVpZR4KUYKyCqMQK9LKPBSiBGUVRiFWpJV5KEQJyiqMQqxIK/NQiBKUVRiFWJFW5qEQJSirMAqxIq3MQyFKUFZhFGJFWpmHQpSgrMIoxIq0Mg+FKEFZhVGIFWllHgpRgrIK+wfnB9be+cpJWQAAAABJRU5ErkJggg==" style=("width: 100px; height: 120px;") /
+                      - else
+                        img.media-object.thumbnail alt="100x120" src="#{service.avatar.large_avatar}"
+                    .media-body
+                      h4.event-title
+                        = link_to "#{service.title}", service_path(service)
+                      small.text-muted
+                        i.fa.fa-map-marker
+                        = " Verified" if service.user.verify_user.is_verify == true
+                        = " Not Verified" if service.user.verify_user.is_verify == false
+                      p =h truncate(service.description, :length => 80)
+                  /! media

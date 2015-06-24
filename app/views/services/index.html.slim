@@ -53,6 +53,17 @@
             label.checkbox
               input name="type_rate" type="radio" value="br2" /
               |  > Rp. 1.000.000
+        .list-group-item
+          | Service Categories
+        .list-group-item
+          .filter-group
+            label.checkbox
+                input checked="checked" name="filter1" type="radio" value="br1" /
+                |  All
+            - ServiceCategory.all.each do |service|
+              label.checkbox
+                input name="filter1" type="radio" value="br1" /
+                |  #{service.name}
         br/
         .col-md-12.col-xs-12 style="margin-top: 3%;"
             .col-md-6.col-xs-6

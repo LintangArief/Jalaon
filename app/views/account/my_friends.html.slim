@@ -1,0 +1,43 @@
+.container style="margin: 5%;"
+  .row
+    = render "side_bar"
+    .col-sm-9.col-md-9
+      ul.nav.nav-tabs
+        li.active
+          a data-toggle="tab" href="#inbox" 
+            | Friends
+      .tab-content
+        .follower-list
+          - @friends.each do |friend|
+            .media
+              a.pull-left href="#" 
+                - if friend.avatar.file == nil
+                  img.media-object.img-circle alt="100x100" data-src="holder.js/100x100" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAE70lEQVR4Xu2cV0tkWxBGyxwxYGQU9cGsiIqKEf3nggEUHQOiYg4zJsyiMuZ7vw2n6WluS71MUeP9Dgjddp1d5Vq7dp1+MeXq6upDeLkhkEIhblyEQijElw8KceaDQijEGwFn9XCGUIgzAs7KYYdQiDMCzsphh1CIMwLOymGHUIgzAs7KYYdQiDMCzsphh1CIMwLOymGHUIgzAs7KYYdQiDMCzsphh1CIMwLOymGHUIgzAs7KYYdQiDMCzsphh1CIMwLOymGHUIgzAs7KYYdQiDMCzsphh1CIMwLOymGHUIgzAs7KYYdQiDMCzsphh1CIMwLOymGHUIgzAs7KYYf834Xc3t7K6uqqPD4+Sl9fnxQUFAQkDw8Psr6+Lvf395KTkyNNTU1SVFQUPjs/P5ft7W15enqSwsJCaW1tlaysrE9Rvr+/h3sODw+ltLRUOjs7Y/Gfrbe3tyc/f/4U3F9eXi7Nzc2SkpJips20Qy4vL2V5eTkAh4B4IXNzc+F3dXV1cnx8HIAMDQ3J6+urTE9Ph3sACMAAuKOj41NIWO/5+Vl+/folJSUlMSEvLy9J10N9i4uLIU9mZmYQAyHV1dVfUwh2Znp6utzd3cnW1lZMCHb+5OSk1NTUSGNjYxCytrYmPT09oStWVlYCUIjA709PT2VsbEyWlpbCWoODg2Hd2dnZAA6i9/f3pba2NqxbXFwcE3J2dpZ0vY2NDTk6OgprY72pqSnJzc2V7u7urykk+qsODg5+E3JzcyPz8/PS0tIiVVVVcn19Ld+/fw/vsct3dnZkYGBA8vLyZHd3N/yge3DNzMxIRUVF+AySe3t7w7EWXePj478JQYclWw9HJrp0ZGQk3I4acLRG7y2smB5ZyYRERwVmw7dv3wRzBkcO5gg6BLsdAnBs4TVmQ39/v+Tn58uPHz8EOzstLS3IRIfFX4lCcG+y9SAE+YaHh8MSOL7QgaOjoxYuQg4XQhI75N9/qiYLCwtheANQ/I7Ga+zySBBmDI6lt7e3mKTPhCR2SPx6iR2CrsUMigRZWHEhBMfSxMREbIbgHAccHD8AEj9D8Pri4iKc83j62dzcDDMHZz6Ora6urk87JHGGxK+HTsMgj2YIRKMLE9f8k2JMheCRFmc0gJ6cnEhDQ4NkZ2dLWVlZOB7wOQYxhODCsMbOx3CNf8rCzGhra4sdbfX19eFzwI2OPYDHhUdsQMW6GNCIS7ZeNLvwlJWRkRHqiNb7kxLi1zYVEg3kxD8OQxPg8QQVfQ/BQI++o2DGoBOi7yHt7e1hZuCp6uPjIxxVqampYQjjfrzH7k68MGOw7n+tBwG4MF8wl7BuZWVl2DRf9nuI1S77m/OYdsjfDMqqdgqxIq3MQyFKUFZhFGJFWpmHQpSgrMIoxIq0Mg+FKEFZhVGIFWllHgpRgrIKoxAr0so8FKIEZRVGIVaklXkoRAnKKoxCrEgr81CIEpRVGIVYkVbmoRAlKKswCrEircxDIUpQVmEUYkVamYdClKCswijEirQyD4UoQVmFUYgVaWUeClGCsgqjECvSyjwUogRlFUYhVqSVeShECcoqjEKsSCvzUIgSlFUYhViRVuahECUoqzAKsSKtzEMhSlBWYRRiRVqZh0KUoKzCKMSKtDIPhShBWYVRiBVpZR4KUYKyCqMQK9LKPBSiBGUVRiFWpJV5KEQJyirsH+F4oBavRa+SAAAAAElFTkSuQmCC" style=("width: 80px; height: 80px;") /
+                - else
+                  img.media-object.img-circle alt="#{friend.first_name} | Jalaon" src="#{friend.avatar.large_avatar}" style=("width: 80px; height: 80px;") /
+              .media-body
+                h3.follower-name #{friend.first_name.upcase} #{friend.last_name.upcase}
+                div
+                  i.fa.fa-map-marker
+                  | San Francisco, California, USA
+                div
+                  i.fa.fa-briefcase
+                  | Software Engineer at
+                  a href="#"  SomeCompany, Inc.
+                .mb20
+                .btn-toolbar
+                  .btn-group
+                    button.btn.btn-dark.btn-xs
+                      i.fa.fa-envelope-o
+                      | Send Message
+                  /! btn-group
+                  .btn-group
+                    button.btn.btn-white.btn-xs
+                      i.fa.fa-check
+                      | Following
+                    button.btn.btn-white.btn-xs
+                      i.fa.fa-check
+                      | Followers
+                  /! btn-group
+                /! btn-toolbar
+              /! media-bod

@@ -8,6 +8,12 @@ Rails.application.routes.draw do
   post 'foto_product_services/create'
   get '/my-service' => 'services#listing', :as => :my_services
   get '/setting' => 'account#setting', :as => :setting
+  get '/dashboard/friends' => 'account#my_friends', :as=> :friends
+
+  get '/dashboard/friends/my-request' => 'account#request_friend', :as => :request_friend
+  get '/dashboard/friends/friend-request' => 'account#pending_friend', :as=> :pending_friend
+  post '/friends/approve/:id' => "account#accept_friend", :as=> :accept_friend
+  get '/dasboard/services/followed' => "account#my_following_service", :as=>:my_following_service
   post '/follow/service/:id' => 'services#follow', :as => :follow
   put '/unfollow/service/:id' => 'services#unfollow', :as => :unfollow
   post '/add_friend/service/:id' => 'services#add_friend', :as => :friend

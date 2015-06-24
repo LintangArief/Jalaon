@@ -21,10 +21,28 @@
                   td
                     span.glyphicon.glyphicon-flash.text-success
                     = link_to "Verify Account", edit_verify_account_path(current_user.verify_user.id)
+        .panel.panel-default
+          .panel-heading
+            h4.panel-title
+              a data-parent="#accordion" data-toggle="collapse" href="#collapseOne" 
+                span.glyphicon.glyphicon-file.text-info
+                | Friendships
+          #collapseOne.panel-collapse.collapse.in
+            .panel-body
+              table.table
+                tr
+                  td
+                    span.glyphicon.glyphicon-flash.text-primary
+                    = link_to "My Friends", friends_path
                 tr
                   td
                     span.glyphicon.glyphicon-flash.text-success
-                    = link_to "Friends", "#"
+                    = link_to "Friend Request", pending_friend_path
+                tr
+                  td
+                    span.glyphicon.glyphicon-pencil.text-primary
+                    = link_to "My Friend Request", request_friend_path
+                
         .panel.panel-default
           .panel-heading
             h4.panel-title
@@ -41,7 +59,7 @@
                 tr
                   td
                     span.glyphicon.glyphicon-flash.text-success
-                    = link_to "Followed Services", "#"
+                    = link_to "Followed Services", my_following_service_path
         .panel.panel-default
           .panel-heading
             h4.panel-title
