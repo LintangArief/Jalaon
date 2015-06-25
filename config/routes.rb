@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   get '/setting' => 'account#setting', :as => :setting
   get '/dashboard/friends' => 'account#my_friends', :as=> :friends
 
-  get '/dashboard/friends/my-request' => 'account#request_friend', :as => :request_friend
-  get '/dashboard/friends/friend-request' => 'account#pending_friend', :as=> :pending_friend
+  get '/dashboard/friends/friend-request' => 'account#request_friend', :as => :request_friend
+
   post '/friends/approve/:id' => "account#accept_friend", :as=> :accept_friend
   get '/dasboard/services/followed' => "account#my_following_service", :as=>:my_following_service
   post '/follow/service/:id' => 'services#follow', :as => :follow

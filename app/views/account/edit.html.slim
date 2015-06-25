@@ -1,5 +1,13 @@
-.container style="margin: 5%;"
+#main-container.container style="padding-top:20px; padding-bottom: 20px;"
   .row
+    .col-md-12  
+      ol.breadcrumb
+        li
+          a href="index.html"  Home
+        li 
+          = link_to "Dasboard", setting_path
+        li.active Edit Account
+    br/
     = render "side_bar"
     .col-sm-9.col-md-9
       .col-md-12 style="margin: 0 auto;"

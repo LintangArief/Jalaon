@@ -1,5 +1,13 @@
-.container style="margin: 5%;"
+#main-container.container style="padding-top:20px; padding-bottom: 20px;"
   .row
+    .col-md-12  
+      ol.breadcrumb
+        li
+          a href="index.html"  Home
+        li 
+          = link_to "Dasboard", setting_path
+        li.active My Friends
+    br/
     = render "side_bar"
     .col-sm-9.col-md-9
       ul.nav.nav-tabs
@@ -7,7 +15,7 @@
           a data-toggle="tab" href="#inbox" 
             | Friends
       .tab-content
-        .follower-list
+        .follower-list  
           - @friends.each do |friend|
             .media
               a.pull-left href="#" 
@@ -17,27 +25,10 @@
                   img.media-object.img-circle alt="#{friend.first_name} | Jalaon" src="#{friend.avatar.large_avatar}" style=("width: 80px; height: 80px;") /
               .media-body
                 h3.follower-name #{friend.first_name.upcase} #{friend.last_name.upcase}
-                div
-                  i.fa.fa-map-marker
-                  | San Francisco, California, USA
-                div
-                  i.fa.fa-briefcase
-                  | Software Engineer at
-                  a href="#"  SomeCompany, Inc.
                 .mb20
                 .btn-toolbar
                   .btn-group
-                    button.btn.btn-dark.btn-xs
-                      i.fa.fa-envelope-o
-                      | Send Message
-                  /! btn-group
-                  .btn-group
-                    button.btn.btn-white.btn-xs
-                      i.fa.fa-check
-                      | Following
-                    button.btn.btn-white.btn-xs
-                      i.fa.fa-check
-                      | Followers
-                  /! btn-group
-                /! btn-toolbar
-              /! media-bod
+                    = link_to canclefriend_account_path(friend.id), method: :post, class: "button btn btn-primary btn-bordered btn-sm"
+                      | Remove Friend
+                    = link_to account_path(friend.id), method: :post, class: "button btn btn-primary btn-bordered btn-sm"
+                      | View Profil

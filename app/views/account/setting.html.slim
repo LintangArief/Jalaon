@@ -1,33 +1,39 @@
-.container style="margin: 5%;"
+#main-container.container style="padding-top:20px; padding-bottom: 20px;"
   .row
+    .col-md-12  
+      ol.breadcrumb
+        li
+          a href="index.html"  Home
+        li.active Dasboard
+    br/
     = render "side_bar"
     .col-sm-9.col-md-9
       .well
         .row style="margin-top: 10px; border: 0px; border-bottom: 1px !important;"
           .col-md-2.margin-zero
-            a.thumbnail href="http://critterapp.pagodabox.com/others/admin" 
-              img alt="" src="#{current_user.avatar.large_avatar}" /
+            a.thumbnail href="#" 
+              - unless current_user.avatar.file.nil?
+                img alt="" src="#{current_user.avatar.large_avatar}" /
+              - else
+                img.img-responsive alt="product" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSAuIztzH8lswZ0UK-aiXOEBd_4Sayf9i7yEBUpuGdGVq9sUS0t" /
           .col-md-9
             h4.text-black #{current_user.first_name} #{current_user.last_name}
             br/
-            br/
-            p.text-gray.margin-bottom-zero
-              i First Last Name
-            span.badge.badge-info 15 followers
+            span.badge.badge-info #{current_user.friends.count} Friends
             br/
         .row.well.well-center style="border: 0px solid #e3e3e3; border-bottom: 1px solid #e3e3e3; margin-top: 5px;"
           .col-md-12
             .col-md-12.col-xs-12
-              h4.text-black All Time Statistics
+              h4.text-black Statistics
               hr
             .col-md-3.border-left.border-right
-              p.bold-font 100
+              p.bold-font #{current_user.services.count}
               h5.text-black 
                 i Service Count
             .col-md-3.border-right
-              p.bold-font 100
+              p.bold-font #{current_user.followees(Service).count}
               h5.text-black 
-                i Feedback Count
+                i Following Service
         br/
         .row.well.well-center style="border: 0px solid #e3e3e3; border-bottom: 1px solid #e3e3e3; margin-top: 5px;"
           .col-md-12
@@ -41,7 +47,10 @@
                   - current_user.services.each do |service|
                     .col-md-4
                       .thumbnail
-                        img alt="300x200" src="#{service.avatar.large_avatar}" /
+                        - unless service.avatar.file.nil?
+                          img.img-responsive alt="300x200" src="#{service.avatar.large_avatar}" /
+                        - else
+                          img.img-responsive alt="product" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSAuIztzH8lswZ0UK-aiXOEBd_4Sayf9i7yEBUpuGdGVq9sUS0t" /  
                         .caption
                           = link_to service_path(service)
                             h4.text-center

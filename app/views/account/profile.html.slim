@@ -1,5 +1,13 @@
 .container style="margin: 0 auto; margin-top: 5%; margin-bottom: 5%;"
   .row
+    .col-md-12  
+      ol.breadcrumb
+        li
+          a href="index.html"  Home
+        li 
+          = link_to "Profile", setting_path
+        li.active #{@user.first_name.upcase} #{@user.last_name.upcase}
+    br/
     .col-sm-4.col-md-3
       .text-center
         img.img-circle.img-offline.img-responsive.img-profile alt="" src="#{@user.avatar.large_avatar}" /

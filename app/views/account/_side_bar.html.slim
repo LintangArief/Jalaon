@@ -7,10 +7,10 @@
                 span.glyphicon.glyphicon-file.text-info
                 | Accounts
           #collapseOne.panel-collapse.collapse.in
-            .panel-body
-              table.table
+            .panel-body.padding-2
+              table.table style="margin-bottom: 0;"
                 tr
-                  td
+                  td style="border: none;"
                     span.glyphicon.glyphicon-flash.text-primary
                     = link_to "View Account", account_path(current_user)
                 tr
@@ -28,20 +28,16 @@
                 span.glyphicon.glyphicon-file.text-info
                 | Friendships
           #collapseOne.panel-collapse.collapse.in
-            .panel-body
-              table.table
+            .panel-body.padding-2
+              table.table style="margin-bottom: 0;"
                 tr
-                  td
+                  td style="border: none;"
                     span.glyphicon.glyphicon-flash.text-primary
                     = link_to "My Friends", friends_path
                 tr
                   td
-                    span.glyphicon.glyphicon-flash.text-success
-                    = link_to "Friend Request", pending_friend_path
-                tr
-                  td
                     span.glyphicon.glyphicon-pencil.text-primary
-                    = link_to "My Friend Request", request_friend_path
+                    = link_to "Friend Request", request_friend_path
                 
         .panel.panel-default
           .panel-heading
@@ -50,10 +46,10 @@
                 span.glyphicon.glyphicon-file.text-info
                 | Services
           #collapseOne.panel-collapse.collapse.in
-            .panel-body
-              table.table
+            .panel-body.padding-2
+              table.table style="margin-bottom: 0;"
                 tr
-                  td
+                  td style="border: none;"
                     span.glyphicon.glyphicon-pencil.text-primary
                     = link_to "View Services", services_path
                 tr
@@ -67,10 +63,10 @@
                 span.glyphicon.glyphicon-file.text-info
                 | Activity
           #collapseOne.panel-collapse.collapse.in
-            .panel-body
-              table.table
+            .panel-body.padding-2
+              table.table style="margin-bottom: 0;"
                 tr
-                  td
+                  td style="border: none;"
                     span.glyphicon.glyphicon-pencil.text-primary
                     = link_to "Messages", show_message_path
                 tr

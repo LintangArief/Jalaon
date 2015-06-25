@@ -130,12 +130,9 @@ class AccountController < ApplicationController
     @friends = current_user.friends
   end
 
-  def pending_friend
-    @friends = current_user.pending_invited_by
-  end
-
   def request_friend
     @friends = current_user.pending_invited
+    @friendspending = current_user.pending_invited_by
   end
   
   private
