@@ -28,8 +28,8 @@
                     .mb20
                     .btn-toolbar
                       .btn-group
-                        = link_to account_path(friend.id), method: :post, class: "button btn btn-primary btn-bordered btn-sm"
-                          | View Profil 
+                        = link_to account_path(friend.id), class: "button btn btn-primary btn-bordered btn-sm"
+                          | View Profile 
                         = link_to canclefriend_account_path(friend.id), method: :post, class: "button btn btn-primary btn-bordered btn-sm"
                           i.fa.fa-check
                           | Remove Friend
