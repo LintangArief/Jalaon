@@ -1,7 +1,7 @@
 class StaticsController < ApplicationController
 
   def home
-    @service_categories = ServiceCategory.all
+    @service_categories = ServiceCategory.show_all
   end
 
   def aboutme

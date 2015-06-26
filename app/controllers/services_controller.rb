@@ -5,7 +5,7 @@ class ServicesController < ApplicationController
   # GET /services.json
   def index
     @services = Service.order(:title).page params[:page]
-    @service_categories = ServiceCategory.order(:name)
+    @service_categories = ServiceCategory.show_all
   end
 
   # GET /services/1
