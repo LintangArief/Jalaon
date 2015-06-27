@@ -8,6 +8,7 @@ class Service < ActiveRecord::Base
   mount_uploader :avatar, AvatarServiceUploader
   validate :validate_properties
   acts_as_followable
+
   def validate_properties
     service_category.fields.each do |field|
       if field.required? && properties[field.name].blank?

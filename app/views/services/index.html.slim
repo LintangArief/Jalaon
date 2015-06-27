@@ -8,58 +8,59 @@
     .col-md-3
       h3.side-heading Service Options
       .list-group
-        .list-group-item
-          #custom-search-input
-            .input-group.col-md-12
-              = text_field_tag 'q', nil, placeholder: 'Area Service ..', class:"form-control twitter-typeahead tt-input form-input width-100 jualo-search seachtext"
-            br/
-            .input-group.col-md-12
-              select.form-control name="sort" 
-                option selected="selected" value=""  Choose Category : ...
-                - @service_categories.each do |category|
-                  option value="#{category.id}" 
-                    | #{category.name.upcase}
-            br/
-            .input-group.col-md-12
-              = text_field_tag :que, nil, placeholder: 'Service yang Dicari ..', class:"input search-query form-control"
-            br/
-            .input-group.col-md-12
-              select.form-control name="sort" 
-                option selected="selected" value=""  Sort by: ...
-                option value="default" 
-                  | Services Newers
-                option value="rating_desc" 
-                  | Services Low Price
-                option value="minimum_order_amount_asc" 
-                  | Services High Price
-            br/
-            .input-group.col-md-12
-              select.form-control name="sort" 
-                option selected="selected" value=""  Sort Rate: ...
-                option value="default" 
-                  | < Rp. 50.000
-                option value="rating_desc" 
-                  | < Rp. 150.000
-                option value="minimum_order_amount_asc" 
-                  | < Rp. 250.000
-                option value="default" 
-                  | < Rp. 350.000
-                option value="rating_desc" 
-                  | < Rp. 500.000
-                option value="minimum_order_amount_asc" 
-                  | < Rp. 750.000
-                option value="default" 
-                  | < Rp. 1.000.000
-                option value="rating_desc" 
-                  | > Rp. 1.000.000     
-        br/
-        .col-md-12.col-xs-12 style="margin-top: 3%;"
-            .col-md-6.col-xs-6
-              button.btn.btn-warning.btn-block type="button"  Filter
-            .col-md-6.col-xs-6
-              button.btn.btn-warning.btn-block type="button"  Reset    
+        = form_tag services_path, enforce_utf8: false, :method => 'get' do
+          .list-group-item
+            #custom-search-input
+              .input-group.col-md-12
+                = text_field_tag :address_1, nil, placeholder: 'Area Service ..', class:"form-control twitter-typeahead tt-input form-input width-100 jualo-search seachtext"
+              br/
+              .input-group.col-md-12
+                = select_tag :service_category_id, options_for_select(@service_categories.map{ |c| [c.name, c.id]}), class:"form-control"
+              br/
+              .input-group.col-md-12
+                = text_field_tag :title, nil, placeholder: 'Service yang Dicari ..', class:"input search-query form-control"
+              br/
+              .input-group.col-md-12
+                select.form-control name="sort" 
+                  option selected="selected" value=""  Sort by: ...
+                  option value="default" 
+                    | Services Newers
+                  option value="rating_desc" 
+                    | Services Low Price
+                  option value="minimum_order_amount_asc" 
+                    | Services High Price
+              br/
+              .input-group.col-md-12
+                select.form-control name="sort" 
+                  option selected="selected" value=""  Sort Rate: ...
+                  option value="default" 
+                    | < Rp. 50.000
+                  option value="rating_desc" 
+                    | < Rp. 150.000
+                  option value="minimum_order_amount_asc" 
+                    | < Rp. 250.000
+                  option value="default" 
+                    | < Rp. 350.000
+                  option value="rating_desc" 
+                    | < Rp. 500.000
+                  option value="minimum_order_amount_asc" 
+                    | < Rp. 750.000
+                  option value="default" 
+                    | < Rp. 1.000.000
+                  option value="rating_desc" 
+                    | > Rp. 1.000.000     
+          br/
+          .col-md-12.col-xs-12 style="margin-top: 3%;"
+              .col-md-6.col-xs-6
+                = submit_tag "Filter", :class=>"btn btn-warning btn-block btn-block btn-lg"
+              .col-md-6.col-xs-6
+                = link_to "Reset", services_path, class: "btn btn-warning btn-block"
     .col-md-9
-      .row
+
+      - if @services.nil?      
+        .row
+          h4.text-center Silahkan isikan Details Service yang Dicari  
+      - else
         - @services.each do |service|
           .col-xs-12
             .product-col.list.clearfix
@@ -97,9 +98,9 @@
                       // button.btn.btn-cart type="button" 
                       //  | Order 
                       //  i.fa.fa-shopping-cart
-      .row
-        .row.rule.text-center
-          = paginate @services
+        .row
+          .row.rule.text-center
+            = paginate @services
 = content_for :js_place
   = javascript_include_tag 'http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false'
   = javascript_include_tag 'jquery.geocomplete.js'

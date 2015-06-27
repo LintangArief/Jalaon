@@ -325,6 +325,7 @@ DEPENDENCIES
   exception_notification
   fog
   geocomplete_rails
+  has_scope
   jbuilder (~> 2.0)
   jquery-rails
   jquery-timepicker-rails

@@ -4,7 +4,7 @@ class ServicesController < ApplicationController
   # GET /services
   # GET /services.json
   def index
-    @services = Service.order(:title).page params[:page]
+    @services ||= find_products
     @service_categories = ServiceCategory.show_all
   end
 
@@ -125,6 +125,20 @@ class ServicesController < ApplicationController
     def service_params
       params.require(:service).permit(:service_category_id, :title, :description, :rate_price, :avatar, :properties).tap do |whitelisted|
         whitelisted[:properties] = params[:service][:properties] 
+      end
+    end
+
+    def find_products
+      params.reject! {|key,val| key == "controller" || key == "action" || key == "commit"}
+      if params.any? { |(key, value)| key == "address_1" || key == "service_category_id" || key == "title" }
+        services = Service.all
+        services = services.where("title LIKE ?", "%#{params[:title]}%") if params[:title].present?
+        if params[:service_category_id] != "0"
+          services = services.where(service_category_id: params[:service_category_id]) if params[:service_category_id].present?
+        end      
+        services.page params[:page]
+      else
+        services = nil
       end
     end
 end

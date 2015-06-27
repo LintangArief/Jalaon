@@ -35,6 +35,7 @@ gem 'jquery-timepicker-rails'
 gem 'geocomplete_rails'
 gem 'public_activity'
 gem 'unread'
+gem 'has_scope'
 group :production do
   gem 'exception_notification'
 end
