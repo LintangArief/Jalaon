@@ -7,7 +7,7 @@
             = link_to "Home", root_path
           li
             = link_to "Services", services_path
-          li.active {@service.title}
+          li.active #{@service.service_category.name}
   .container
     .row
       .col-sm-9.page-content.col-thin-right

@@ -52,7 +52,7 @@
           br/
           .col-md-12.col-xs-12 style="margin-top: 3%;"
               .col-md-6.col-xs-6
-                = submit_tag "Filter", :class=>"btn btn-warning btn-block btn-block btn-lg"
+                = submit_tag "Search", :class=>"btn btn-warning btn-block btn-block"
               .col-md-6.col-xs-6
                 = link_to "Reset", services_path, class: "btn btn-warning btn-block"
     .col-md-9
@@ -64,7 +64,7 @@
         - @services.each do |service|
           .col-xs-12
             .product-col.list.clearfix
-              .image
+              .image style="margin-right: 50px !important;"
                 - unless service.avatar.file.nil?
                   = image_tag(service.avatar.large_avatar, :class => "image-responsive")
                 - else
@@ -77,11 +77,11 @@
                   = truncate(service.description, :length => 250)
                 .price
                   .col-md-12.col-xs-12.col-sm-12
-                    .col-md-1.col-xs-1.col-sm-1
-                    .col-md-3.col-xs-3.col-sm-3 style="text-align: right;"
-                      button.btn.btn-cart.btn-primary data-original-title="Wishlist" title="" type="button" 
-                        i #{service.service_category.name.upcase}
-                    .col-md-7.col-xs-7.col-sm-7
+                    .col-md-2.col-xs-1.col-sm-1
+                    .col-md-3.col-xs-3.col-sm-3 style="text-align: left; margin-right: 10px;"
+                      button.btn.btn-cart.btn-block data-original-title="Wishlist" title="" type="button" 
+                        i style="font-size: 0.9em;" #{service.service_category.name.upcase}
+                    .col-md-6.col-xs-6.col-sm-6
                       - if current_user
                         - if current_user.follows?(service) == false
                           = link_to follow_path(service.id), method: :post, class: "btn btn-compare"
@@ -109,3 +109,4 @@ javascript:
   $(document).ready(function(){
     $(".seachtext").geocomplete();
   });
+  

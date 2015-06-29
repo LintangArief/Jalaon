@@ -13,6 +13,10 @@ group :development, :test do
   gem "better_errors"
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'rspec-rails', '~> 3.0.0'
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'database_cleaner'
 end
 gem "slim-rails"
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
@@ -33,9 +37,11 @@ gem 'sass-rails', '>= 3.2'
 gem 'mailboxer', github: 'lacco/mailboxer'
 gem 'jquery-timepicker-rails'
 gem 'geocomplete_rails'
+gem 'geocoder'
+
 gem 'public_activity'
 gem 'unread'
-gem 'has_scope'
+gem 'friendly_id', '~> 5.1.0' 
 group :production do
   gem 'exception_notification'
 end

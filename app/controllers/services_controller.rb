@@ -123,7 +123,7 @@ class ServicesController < ApplicationController
     end
     # Never trust parameters from the scary internet, only allow the white list through.
     def service_params
-      params.require(:service).permit(:service_category_id, :title, :description, :rate_price, :avatar, :properties).tap do |whitelisted|
+      params.require(:service).permit(:service_category_id, :title, :description, :rate_price, :avatar, :address, :latitude, :longitude, :properties).tap do |whitelisted|
         whitelisted[:properties] = params[:service][:properties] 
       end
     end
