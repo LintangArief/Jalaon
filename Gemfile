@@ -39,6 +39,7 @@ gem 'jquery-timepicker-rails'
 gem 'geocomplete_rails'
 gem 'geocoder'
 
+
 gem 'public_activity'
 gem 'unread'
 gem 'friendly_id', '~> 5.1.0' 
