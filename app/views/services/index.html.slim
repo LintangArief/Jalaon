@@ -13,6 +13,13 @@
             #custom-search-input
               .input-group.col-md-12
                 = text_field_tag :address_1, nil, placeholder: 'Area Service ..', class:"form-control twitter-typeahead tt-input form-input width-100 jualo-search seachtext"
+                = link_to " Auto Detect Location", "javascript:void(0)", class: "detect"
+                #myModal.modal.fade
+                  .modal-dialog
+                    .modal-content
+                      .modal-header
+                        button.close aria-hidden="true" data-dismiss="modal" type="button"  &times;
+                        h6.modal-title Please Turn on your Location Sharing for Use Auto Detect Location
               br/
               .input-group.col-md-12
                 = select_tag :service_category_id, options_for_select(@service_categories.map{ |c| [c.name, c.id]}), class:"form-control"
@@ -108,5 +115,44 @@
 javascript:
   $(document).ready(function(){
     $(".seachtext").geocomplete();
+    function showPosition(position) {
+      var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+      var geocoder = geocoder = new google.maps.Geocoder();
+      geocoder.geocode({ 'latLng': latlng }, function (results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+            if (results[1]) {
+                $('.seachtext').val(results[1].formatted_address)
+            }
+        }
+      });
+    }
+    function showError(error) {
+      switch(error.code) {
+        case error.PERMISSION_DENIED:
+          $('#myModal').modal('toggle');
+          break;
+        case error.POSITION_UNAVAILABLE:
+          bootstrap_alert.warning('Location information is unavailable.');
+          break;
+        case error.TIMEOUT:
+          bootstrap_alert.warning('The request to get user location timed out.');          
+          break;
+        case error.UNKNOWN_ERROR:
+          bootstrap_alert.warning('An unknown error occurred.');
+          break;
+      }
+    }
+    $(".detect").click(function(){
+      if (navigator.geolocation) {
+        var optn = {
+          enableHighAccuracy : true,
+          timeout : Infinity,
+          maximumAge : 0
+        };
+        navigator.geolocation.getCurrentPosition(showPosition, showError, optn);
+      } else {
+        alert('Geolocation is not supported in your browser');
+      }
+    })
   });
   
