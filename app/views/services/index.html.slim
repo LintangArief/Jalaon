@@ -5,6 +5,8 @@
         li
           a href="index.html"  Home
         li.active List Service
+    .col-md-12
+      #my_map style="height: 300px;"
     .col-md-3
       h3.side-heading Service Options
       .list-group
@@ -12,7 +14,7 @@
           .list-group-item
             #custom-search-input
               .input-group.col-md-12
-                = text_field_tag :address_1, nil, placeholder: 'Area Service ..', class:"form-control twitter-typeahead tt-input form-input width-100 jualo-search seachtext"
+                = text_field_tag :address_1, params[:address_1], placeholder: 'Area Service ..', class:"form-control twitter-typeahead tt-input form-input width-100 jualo-search seachtext", data: {address: params[:address_1] } 
                 = link_to " Auto Detect Location", "javascript:void(0)", class: "detect"
                 #myModal.modal.fade
                   .modal-dialog
@@ -114,7 +116,19 @@
 
 javascript:
   $(document).ready(function(){
-    $(".seachtext").geocomplete();
+
+    $(".seachtext").geocomplete({
+      map: "#my_map",
+      mapOptions: {
+        zoom: 10
+      },
+      markerOptions: {
+        draggable: true
+      },
+      details: "#my_form",
+      location: $('.seachtext').data('address')
+    });
+
     function showPosition(position) {
       var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
       var geocoder = geocoder = new google.maps.Geocoder();
