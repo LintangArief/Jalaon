@@ -1,6 +1,5 @@
 class ServicesController < ApplicationController
   before_action :set_service, only: [:show, :edit, :update, :destroy, :follow, :unfollow]
-
   # GET /services
   # GET /services.json
   def index
@@ -123,7 +122,7 @@ class ServicesController < ApplicationController
     end
     # Never trust parameters from the scary internet, only allow the white list through.
     def service_params
-      params.require(:service).permit(:service_category_id, :title, :description, :rate_price, :avatar, :address, :latitude, :longitude, :properties).tap do |whitelisted|
+      params.require(:service).permit(:service_category_id, :title, :description, :rate_price, :avatar, :address, :latitude, :longitude, :properties, :product_services_attributes => [:title, :description, :price, :avatar, "_destroy"], :foto_product_services_attributes => [:avatar]).tap do |whitelisted|
         whitelisted[:properties] = params[:service][:properties] 
       end
     end

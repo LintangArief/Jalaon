@@ -15,6 +15,9 @@
                     .div-header.col-xs-12.col-sm-3.search-left.form-group.form-group-lg
                       = text_field_tag :address_1, nil, placeholder: 'Area Service ..', class:"form-control twitter-typeahead tt-input form-input width-100 jualo-search seachtext"
                       = link_to "Auto Detect Location", "javascript:void(0)", class: "detect"
+                      .details
+                        = hidden_field_tag :latitude, nil, "data-geo" => "lat"
+                        = hidden_field_tag :longitude, nil, "data-geo" => "lng"
                       #myModal.modal.fade
                         .modal-dialog
                           .modal-content
@@ -86,11 +89,9 @@
   = javascript_include_tag 'jquery.geocomplete.js'
 
 javascript:
-  $(document).ready(function(){
-    $(".seachtext").geocomplete();
     function showPosition(position) {
       var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-      var geocoder = geocoder = new google.maps.Geocoder();
+      var geocoder = new google.maps.Geocoder();
       geocoder.geocode({ 'latLng': latlng }, function (results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
             if (results[1]) {
@@ -99,6 +100,7 @@ javascript:
         }
       });
     }
+
     function showError(error) {
       switch(error.code) {
         case error.PERMISSION_DENIED:
@@ -115,6 +117,8 @@ javascript:
           break;
       }
     }
+
+  $(document).ready(function(){
     $(".detect").click(function(){
       if (navigator.geolocation) {
         var optn = {
@@ -127,4 +131,11 @@ javascript:
         alert('Geolocation is not supported in your browser');
       }
     })
+  });
+
+  $(document).ready(function(){
+    $(".seachtext").geocomplete({
+      details: ".details",
+      detailsAttribute: "data-geo"
+    });
   });

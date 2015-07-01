@@ -47,7 +47,7 @@
           .row
             .col-md-2
             .col-md-8
-              = form_for @service do |f|  
+              = form_for @service, :html => {:multipart => true} do |f|  
                 .row
                   .col-xs-12.col-sm-12.col-md-12
                     .form-groups.image-box
@@ -65,9 +65,9 @@
                     .form-group
                       = f.label "lokasi service *"
                       = f.text_field :address, placeholder: '..', class: "form-control twitter-typeahead tt-input form-input width-100 jualo-search seachtext"
-                      .details
-                        = f.hidden_field :latitude, "data-geo" => "lat"
-                        = f.hidden_field :longitude, "data-geo" => "lng"
+                    .details
+                      = f.hidden_field :latitude, "data-geo" => "lat"
+                      = f.hidden_field :longitude, "data-geo" => "lng"
 
                   .col-xs-6.col-sm-6.col-md-6
                     .form-group
@@ -86,6 +86,12 @@
                         - else 
                           #km
                             = render "services/fields/#{field.field_type}", field: field, f: builder
+                  .col-xs-12.col-sm-12.col-md-12.label-white
+                    br/
+                    = f.fields_for :product_services, ProductService.new(service_id: @service.id), as: @product_service do |builder|
+                      = render 'field_product', f: builder
+                    = link_to_add_fields_products "Add product", f, :product_services
+                  
                 hr.colorgraph/
                 .row
                   .col-xs-12.col-md-6

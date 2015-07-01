@@ -6,6 +6,7 @@ class Service < ActiveRecord::Base
   validates :service_category_id, presence: true
   paginates_per 10
   has_many :product_services
+  accepts_nested_attributes_for :product_services, allow_destroy: true
   has_many :feedbacks
   belongs_to :user
   belongs_to :service_category

@@ -1,0 +1,21 @@
+fieldset
+  ul.list-group
+    li.list-group-item
+      = f.label :title, :class => 'control-label'
+      br/
+      = f.text_field :title, :class => 'text_field input-lg width-100'
+
+    li.list-group-item
+      = f.label :description, :class => 'control-label'
+      br/
+      = f.text_area :description, :class => 'text_field input-lg width-100'
+    li.list-group-item
+      = f.label :price, :class => 'control-label'
+      br/
+      = f.text_field :price, :class => 'text_field input-lg width-100'
+    li.list-group-item
+      = f.fields_for :foto_product_services, FotoProductService.new(product_service_id: @product_service) do |builder|
+        = builder.file_field "avatar[]", type: :file, multiple: true
+    li.list-group-item
+      = f.hidden_field :_destroy
+      = link_to '[remove]', '#', class: 'remove_fields'

@@ -15,6 +15,8 @@
             #custom-search-input
               .input-group.col-md-12
                 = text_field_tag :address_1, params[:address_1], placeholder: 'Area Service ..', class:"form-control twitter-typeahead tt-input form-input width-100 jualo-search seachtext", data: {address: params[:address_1] } 
+                = hidden_field_tag :latitude, nil, "data-geo" => "lat"
+                = hidden_field_tag :longitude, nil, "data-geo" => "lng"               
                 = link_to " Auto Detect Location", "javascript:void(0)", class: "detect"
                 #myModal.modal.fade
                   .modal-dialog
@@ -125,10 +127,10 @@ javascript:
       markerOptions: {
         draggable: true
       },
-      details: "#my_form",
+      details: ".details",
+      detailsAttribute: "data-geo",
       location: $('.seachtext').data('address')
     });
-
     function showPosition(position) {
       var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
       var geocoder = geocoder = new google.maps.Geocoder();
