@@ -48,6 +48,12 @@
             .col-md-2
             .col-md-8
               = form_for @service, :html => {:multipart => true} do |f|  
+                - if @service.errors.any?
+                  #error_explanation
+                    h2 = "#{pluralize(@service.errors.count, "error")} prohibited this service_category from being saved:"
+                    ul
+                      - @service.errors.full_messages.each do |message|
+                        li = message
                 .row
                   .col-xs-12.col-sm-12.col-md-12
                     .form-groups.image-box
@@ -88,7 +94,7 @@
                             = render "services/fields/#{field.field_type}", field: field, f: builder
                   .col-xs-12.col-sm-12.col-md-12.label-white
                     br/
-                    = f.fields_for :product_services, ProductService.new(service_id: @service.id), as: @product_service do |builder|
+                    = f.fields_for :product_services do |builder|
                       = render 'field_product', f: builder
                     = link_to_add_fields_products "Add product", f, :product_services
                   

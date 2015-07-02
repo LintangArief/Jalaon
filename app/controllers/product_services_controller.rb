@@ -4,11 +4,11 @@ class ProductServicesController < ApplicationController
     @productservice = @service.product_services.new(params_product_service)
     if @productservice.save
       # to handle multiple images upload on create
-      if params[:avatar]
-        params[:avatar].each { |avatar|
-          @productservice.foto_product_services.create(avatar: avatar)
-        }
-      end
+      # if params[:avatar]
+      #   params[:avatar].each { |avatar|
+      #     @productservice.foto_product_services.create(avatar: avatar)
+      #   }
+      # end
       flash[:notice] = "Your Product / Portofolio has been created."
       redirect_to @service
     else 

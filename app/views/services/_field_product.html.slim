@@ -14,8 +14,9 @@ fieldset
       br/
       = f.text_field :price, :class => 'text_field input-lg width-100'
     li.list-group-item
-      = f.fields_for :foto_product_services, FotoProductService.new(product_service_id: @product_service) do |builder|
-        = builder.file_field "avatar[]", type: :file, multiple: true
+      = f.fields_for :foto_product_services do |builder|
+        = render 'field_foto', f: builder
+      = link_to_add_fields_foto "Add Foto", f, :foto_product_services
     li.list-group-item
       = f.hidden_field :_destroy
       = link_to '[remove]', '#', class: 'remove_fields'

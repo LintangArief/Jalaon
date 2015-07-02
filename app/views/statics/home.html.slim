@@ -13,6 +13,8 @@
               .col-xs-12.col-sm-12
                   = form_tag services_path, options: {:id => 'anID'}, enforce_utf8: false, :method => 'get' do
                     .div-header.col-xs-12.col-sm-3.search-left.form-group.form-group-lg
+                      = select_tag :distance, options_for_select(["Default Distance", "< 5 miles", "< 10 miles", "< 20 miles"]), class:"form-control twitter-typeahead tt-input form-input jualo-search"
+                    .div-header.col-xs-12.col-sm-2.search-left.form-group.form-group-lg
                       = text_field_tag :address_1, nil, placeholder: 'Area Service ..', class:"form-control twitter-typeahead tt-input form-input width-100 jualo-search seachtext"
                       = link_to "Auto Detect Location", "javascript:void(0)", class: "detect"
                       .details
@@ -24,13 +26,13 @@
                             .modal-header
                               button.close aria-hidden="true" data-dismiss="modal" type="button"  &times;
                               h6.modal-title Please Turn on your Location Sharing for Use Auto Detect Location
-                    .div-header.col-xs-12.col-sm-3.div-right.form-group.form-group-lg
+                    .div-header.col-xs-12.col-sm-2.div-right.form-group.form-group-lg
                       = select_tag :service_category_id, options_for_select(@service_categories.map{ |c| [c.name, c.id]}), class:"form-control twitter-typeahead tt-input form-input jualo-search"
                       br/
                       
                     .div-header.col-xs-12.col-sm-3.search-left.form-group.form-group-lg
                       = text_field_tag :title, nil, placeholder: 'Service yang Dicari..', class:"form-control form-input jualo-search width-100"
-                    .div-header.col-xs-12.col-sm-3.btn-div
+                    .div-header.col-xs-12.col-sm-2.btn-div
                       = submit_tag "Find Service", :class=>"btn btn-warning btn-block btn-search btn-lg"
 
     .row.rule

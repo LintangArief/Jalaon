@@ -7,6 +7,8 @@
         li.active List Service
     .col-md-12
       #my_map style="height: 300px;"
+      br/
+      br/
     .col-md-3
       h3.side-heading Service Options
       .list-group
@@ -14,16 +16,7 @@
           .list-group-item
             #custom-search-input
               .input-group.col-md-12
-                = text_field_tag :address_1, params[:address_1], placeholder: 'Area Service ..', class:"form-control twitter-typeahead tt-input form-input width-100 jualo-search seachtext", data: {address: params[:address_1] } 
-                = hidden_field_tag :latitude, nil, "data-geo" => "lat"
-                = hidden_field_tag :longitude, nil, "data-geo" => "lng"               
-                = link_to " Auto Detect Location", "javascript:void(0)", class: "detect"
-                #myModal.modal.fade
-                  .modal-dialog
-                    .modal-content
-                      .modal-header
-                        button.close aria-hidden="true" data-dismiss="modal" type="button"  &times;
-                        h6.modal-title Please Turn on your Location Sharing for Use Auto Detect Location
+                = select_tag :distance, options_for_select(["Default Distance", "< 5 miles", "< 10 miles", "< 20 miles"]), class:"form-control"
               br/
               .input-group.col-md-12
                 = select_tag :service_category_id, options_for_select(@service_categories.map{ |c| [c.name, c.id]}), class:"form-control"
@@ -67,51 +60,75 @@
               .col-md-6.col-xs-6
                 = link_to "Reset", services_path, class: "btn btn-warning btn-block"
     .col-md-9
-
-      - if @services.nil?      
-        .row
+      row
+        br/
+        br/
+        br/
+        = form_tag services_path, enforce_utf8: false, :method => 'get' do
+          .input-group.col-md-12
+            .col-md-12
+              .col-md-10
+                - loc = "Jakarta"
+                = text_field_tag :address_1, params[:address_1], placeholder: 'Area Service ..', class:"form-control twitter-typeahead tt-input form-input width-100 jualo-search seachtext m-top", data: {address: params[:address_1] || loc }
+              
+                = hidden_field_tag :latitude, nil, "data-geo" => "lat"
+                = hidden_field_tag :longitude, nil, "data-geo" => "lng" 
+              .col-md-2
+                = submit_tag "Search", class: "btn btn-block btn-danger"
+            .col-md-12
+              = link_to "  Auto Detect Location", "javascript:void(0)", class: "detect"
+              #myModal.modal.fade
+                  .modal-dialog
+                    .modal-content
+                      .modal-header
+                        button.close aria-hidden="true" data-dismiss="modal" type="button"  &times;
+                        h6.modal-title Please Turn on your Location Sharing for Use Auto Detect Location
+        - if @services.nil?
           h4.text-center Silahkan isikan Details Service yang Dicari  
-      - else
-        - @services.each do |service|
-          .col-xs-12
-            .product-col.list.clearfix
-              .image style="margin-right: 50px !important;"
-                - unless service.avatar.file.nil?
-                  = image_tag(service.avatar.large_avatar, :class => "image-responsive")
-                - else
-                  img.img-responsive alt="product" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSAuIztzH8lswZ0UK-aiXOEBd_4Sayf9i7yEBUpuGdGVq9sUS0t" /
-              .caption
-                h4
-                  - title_of_services = truncate(service.title, :length => 80)
-                  = link_to title_of_services, service_path(service)
-                .description
-                  = truncate(service.description, :length => 250)
-                .price
-                  .col-md-12.col-xs-12.col-sm-12
-                    .col-md-2.col-xs-1.col-sm-1
-                    .col-md-3.col-xs-3.col-sm-3 style="text-align: left; margin-right: 10px;"
-                      button.btn.btn-cart.btn-block data-original-title="Wishlist" title="" type="button" 
-                        i style="font-size: 0.9em;" #{service.service_category.name.upcase}
-                    .col-md-6.col-xs-6.col-sm-6
-                      - if current_user
-                        - if current_user.follows?(service) == false
-                          = link_to follow_path(service.id), method: :post, class: "btn btn-compare"
+        - else
+          - @services.each do |service|
+            .col-xs-12
+              .product-col.list.clearfix
+                .image style="margin-right: 50px !important;"
+                  - unless service.avatar.file.nil?
+                    = image_tag(service.avatar.large_avatar, :class => "image-responsive")
+                  - else
+                    img.img-responsive alt="product" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSAuIztzH8lswZ0UK-aiXOEBd_4Sayf9i7yEBUpuGdGVq9sUS0t" /
+                .caption
+                  h4
+                    - title_of_services = truncate(service.title, :length => 80)
+                    = link_to title_of_services, service_path(service)
+                  .description
+                    = truncate(service.description, :length => 250)
+                  .price
+                    .col-md-12.col-xs-12.col-sm-12
+                      .col-md-2.col-xs-1.col-sm-1
+                      .col-md-3.col-xs-3.col-sm-3 style="text-align: left; margin-right: 10px;"
+                        button.btn.btn-cart.btn-block data-original-title="Wishlist" title="" type="button" 
+                          i style="font-size: 0.9em;" #{service.service_category.name.upcase}
+                      .col-md-6.col-xs-6.col-sm-6
+                        - if current_user
+                          - if current_user.follows?(service) == false
+                            = link_to follow_path(service.id), method: :post, class: "btn btn-compare"
+                              |  Follow 
+                              i.fa.fa-heart
+                          - else
+                            = link_to unfollow_path(service.id), method: :put, class: "btn btn-compare"
+                              |  UnFollow 
+                              i.fa.fa-heart 
+                        - else
+                          = link_to new_user_registration_path, class: "btn btn-compare"
                             |  Follow 
                             i.fa.fa-heart
-                        - else
-                          = link_to unfollow_path(service.id), method: :put, class: "btn btn-compare"
-                            |  UnFollow 
-                            i.fa.fa-heart 
-                      - else
-                        = link_to new_user_registration_path, class: "btn btn-compare"
-                          |  Follow 
-                          i.fa.fa-heart
-                      // button.btn.btn-cart type="button" 
-                      //  | Order 
-                      //  i.fa.fa-shopping-cart
-        .row
-          .row.rule.text-center
-            = paginate @services
+                        // button.btn.btn-cart type="button" 
+                        //  | Order 
+                        //  i.fa.fa-shopping-cart
+          .row
+            .row.rule.text-center
+              = paginate @services
+br/
+br/
+br/
 = content_for :js_place
   = javascript_include_tag 'http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false'
   = javascript_include_tag 'jquery.geocomplete.js'
@@ -131,6 +148,8 @@ javascript:
       detailsAttribute: "data-geo",
       location: $('.seachtext').data('address')
     });
+
+
     function showPosition(position) {
       var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
       var geocoder = geocoder = new google.maps.Geocoder();

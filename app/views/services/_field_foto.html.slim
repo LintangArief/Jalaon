@@ -1,0 +1,7 @@
+fieldset
+  ul.list-group
+    li.list-group-item
+      = f.file_field :avatar, type: :file
+    li.list-group-item
+      = f.hidden_field :_destroy
+      = link_to '[remove]', '#', class: 'remove_fields'
