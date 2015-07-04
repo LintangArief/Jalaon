@@ -68,8 +68,10 @@
           .input-group.col-md-12
             .col-md-12
               .col-md-10
-                - loc = "Jakarta"
-                = text_field_tag :address_1, params[:address_1], placeholder: 'Area Service ..', class:"form-control twitter-typeahead tt-input form-input width-100 jualo-search seachtext m-top", data: {address: params[:address_1] || loc }
+                - if params[:address_1].present?
+                  = text_field_tag :address_1, params[:address_1], placeholder: 'Area Service ..', class:"form-control twitter-typeahead tt-input form-input width-100 jualo-search seachtext m-top", data: {address: params[:address_1]}
+                - else
+                  = text_field_tag :address_1, params[:address_1], placeholder: 'Area Service ..', class:"form-control twitter-typeahead tt-input form-input width-100 jualo-search seachtext m-top", data: {address: "jakarta"}
               
                 = hidden_field_tag :latitude, nil, "data-geo" => "lat"
                 = hidden_field_tag :longitude, nil, "data-geo" => "lng" 

@@ -13,7 +13,7 @@
               .col-xs-12.col-sm-12
                   = form_tag services_path, options: {:id => 'anID'}, enforce_utf8: false, :method => 'get' do
                     .div-header.col-xs-12.col-sm-3.search-left.form-group.form-group-lg
-                      = select_tag :distance, options_for_select(["Default Distance", "< 5 miles", "< 10 miles", "< 20 miles"]), class:"form-control twitter-typeahead tt-input form-input jualo-search"
+                      = select_tag :dstn, options_for_select([["Default Distance", 5], ["< 5 km",3], ["< 10 km",6], ["< 20 km",12]]), class:"form-control twitter-typeahead tt-input form-input jualo-search"
                     .div-header.col-xs-12.col-sm-2.search-left.form-group.form-group-lg
                       = text_field_tag :address_1, nil, placeholder: 'Area Service ..', class:"form-control twitter-typeahead tt-input form-input width-100 jualo-search seachtext"
                       = link_to "Auto Detect Location", "javascript:void(0)", class: "detect"

@@ -142,6 +142,7 @@ class ServicesController < ApplicationController
       if params.any? { |(key, value)| key == "address_1" || key == "service_category_id" || key == "title" }
         services = Service.all
         services = services.where("title LIKE ?", "%#{params[:title]}%") if params[:title].present?
+        services = Service.near(params[:address_1], params[:dstn], :order => 'distance') if params[:address_1].present?
         if params[:service_category_id] != "0"
           services = services.where(service_category_id: params[:service_category_id]) if params[:service_category_id].present?
         end      
