@@ -97,7 +97,8 @@ javascript:
       geocoder.geocode({ 'latLng': latlng }, function (results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
             if (results[1]) {
-                $('.seachtext').val(results[1].formatted_address)
+                console.log(a=results)
+                $('.seachtext').val(results[0].formatted_address)
             }
         }
       });

@@ -39,7 +39,7 @@
   var defaults = {
     bounds: true,
     country: "id",
-    map: false,
+    map: true,
     details: false,
     detailsAttribute: "name",
     autoselect: true,
@@ -171,7 +171,7 @@
       var selected = false;
 
       var options = {
-        types: this.options.types,
+        types: ['geocode'],
         bounds: this.options.bounds === true ? null : this.options.bounds,
         componentRestrictions: this.options.componentRestrictions,
         country: "id"
