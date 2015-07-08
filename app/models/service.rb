@@ -6,6 +6,7 @@ class Service < ActiveRecord::Base
   has_many :product_services, :dependent => :destroy
   accepts_nested_attributes_for :product_services, allow_destroy: true
   has_many :feedbacks, :dependent => :destroy 
+  belongs_to :rate_price
   belongs_to :user
   belongs_to :service_category
   mount_uploader :avatar, AvatarServiceUploader

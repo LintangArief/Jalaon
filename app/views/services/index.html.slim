@@ -28,7 +28,7 @@
                   = select_tag :sv, options_for_select([["Sort By: ", 0], ["Ascending",1], ["Descending",2]]), class:"form-control twitter-typeahead tt-input form-input jualo-search"
                 br/
                 .input-group.col-md-12
-                  = select_tag :sp, options_for_select([["Sort Rate: ", 0], ["< Rp. 50.000", 1], ["< Rp. 150.000", 2], ["< Rp. 250.000", 3], ["< Rp. 350.000", 4], ["< Rp. 500.000", 5], ["< Rp. 750.000", 6], ["< Rp. 1.000.000", 7], ["> Rp. 1.000.000", 8]]), class:"form-control twitter-typeahead tt-input form-input jualo-search"
+                  = select_tag :rate_price, options_for_select(@rate_prices.map{ |c| ["#{c.operator} #{c.rate}", c.id]}), class:"form-control twitter-typeahead tt-input form-input jualo-search"
                 .details
                   = hidden_field_tag :latitude, nil, "data-geo" => "lat"
                   = hidden_field_tag :longitude, nil, "data-geo" => "lng"

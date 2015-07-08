@@ -56,6 +56,7 @@ Rails.application.routes.draw do
   get '/profile/:name/:id' => 'pages#profile', :as => :profile
   match '/add_field' =>  'service_categories#add_field', :via => 'get', :as => :admin_add_field
 
+  resources :carts
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150628161238) do
+ActiveRecord::Schema.define(version: 20150708154840) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,6 +66,22 @@ ActiveRecord::Schema.define(version: 20150628161238) do
 
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "cart_items", force: :cascade do |t|
+    t.integer  "owner_id"
+    t.string   "owner_type"
+    t.integer  "quantity"
+    t.integer  "item_id"
+    t.string   "item_type"
+    t.float    "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "carts", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "feedbacks", force: :cascade do |t|
     t.text    "description"
@@ -211,6 +227,13 @@ ActiveRecord::Schema.define(version: 20150628161238) do
 
   add_index "product_services", ["service_id"], name: "index_product_services_on_service_id", using: :btree
 
+  create_table "rate_prices", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "operator"
+    t.decimal  "rate"
+  end
+
   create_table "read_marks", force: :cascade do |t|
     t.integer  "readable_id"
     t.string   "readable_type", null: false
@@ -244,10 +267,10 @@ ActiveRecord::Schema.define(version: 20150628161238) do
     t.text    "description"
     t.string  "avatar"
     t.hstore  "properties"
-    t.string  "rate_price"
     t.string  "address"
     t.float   "latitude"
     t.float   "longitude"
+    t.integer "rate_price_id",       default: 1
   end
 
   add_index "services", ["properties"], name: "services_properties", using: :gin

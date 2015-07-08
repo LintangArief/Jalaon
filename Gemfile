@@ -43,6 +43,8 @@ gem 'geocoder'
 gem 'public_activity'
 gem 'unread'
 gem 'friendly_id', '~> 5.1.0' 
+gem 'acts_as_shopping_cart', '~> 0.2.1'
+
 group :production do
   gem 'exception_notification'
 end

@@ -1,6 +1,35 @@
     .col-sm-3.col-md-3
       #accordion.panel-group
         .panel.panel-default
+          #collapseOne.panel-collapse.collapse.in
+            .panel-body.padding-2
+              table.table style="margin-bottom: 0;"
+                tr
+                  td style="border: none;"
+                    span.glyphicon.glyphicon-pencil.text-primary
+                    = link_to "My Carts", carts_path
+        .panel.panel-default
+          .panel-heading
+            h4.panel-title
+              a data-parent="#accordion" data-toggle="collapse" href="#collapseOne" 
+                span.glyphicon.glyphicon-file.text-info
+                | Payments
+          #collapseOne.panel-collapse.collapse.in
+            .panel-body.padding-2
+              table.table style="margin-bottom: 0;"
+                tr
+                  td style="border: none;"
+                    span.glyphicon.glyphicon-pencil.text-primary
+                    = link_to "Deposit", carts_path
+                tr
+                  td style="border: none;"
+                    span.glyphicon.glyphicon-pencil.text-primary
+                    = link_to "Balance", carts_path
+                tr
+                  td style="border: none;"
+                    span.glyphicon.glyphicon-pencil.text-primary
+                    = link_to "Withdraw", carts_path
+        .panel.panel-default
           .panel-heading
             h4.panel-title
               a data-parent="#accordion" data-toggle="collapse" href="#collapseOne" 

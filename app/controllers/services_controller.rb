@@ -6,6 +6,7 @@ class ServicesController < ApplicationController
   # GET /services.json
   def index
     @services ||= find_products
+    @rate_prices = RatePrice.all
     @service_categories = ServiceCategory.show_all
   end
 
@@ -23,6 +24,7 @@ class ServicesController < ApplicationController
     @product_service = ProductService.new
     @feedback = Feedback.new
     @show_product = @service.product_services
+    @rate_price = @service.rate_price
     @pending = nil
     if current_user
       @pending = @service.user.pending_invited_by.map(&:id).include? current_user.id
@@ -32,6 +34,7 @@ class ServicesController < ApplicationController
   # GET /services/new
   def new
     @service_categories = ServiceCategory.all
+    @rate_prices = RatePrice.all
     @has_service_category = false
     if params[:service_category_id].nil?
       @service = Service.new  
@@ -142,10 +145,24 @@ class ServicesController < ApplicationController
       if params.any? { |(key, value)| key == "address_1" || key == "service_category_id" || key == "title" }
         services = Service.all
         services = services.where("title LIKE ?", "%#{params[:title]}%") if params[:title].present?
-        services = services.near([params[:latitude], params[:longitude]], params[:dstn], :order => 'distance') if params[:address_1].present?
+        services = services.near([params[:latitude], params[:longitude]], params[:dstn], :order => 'distance') if params[:latitude].present?
         if params[:service_category_id] != "0"
           services = services.where(service_category_id: params[:service_category_id]) if params[:service_category_id].present?
-        end      
+        end
+        if params[:sv].present?
+          if params[:sv] == "2"
+            services = services.order("title DESC")
+          end
+        end
+        if params[:sp].present?
+          if params[:sp] == "1"
+            services = services.order("title DESC")
+          elsif params[:sp] == "2"
+            services = services.order("title DESC")
+          else
+            services = services.order("title DESC")
+          end
+        end
         services.page params[:page]
       else
         services = nil
