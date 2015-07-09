@@ -1,71 +1,76 @@
     .col-sm-3.col-md-3
       #accordion.panel-group
         .panel.panel-default
+          .panel-heading
+            h4.panel-title
+              a data-parent="#accordion" data-toggle="collapse" href="#collapseOne" 
+                span.glyphicon.glyphicon-usd
+                | Transactions / Payment
           #collapseOne.panel-collapse.collapse.in
             .panel-body.padding-2
               table.table style="margin-bottom: 0;"
                 tr
                   td style="border: none;"
-                    span.glyphicon.glyphicon-pencil.text-primary
-                    = link_to "My Carts", carts_path
+                    span.glyphicon.glyphicon-retweet
+                    = link_to " Deposit", carts_path
+                tr
+                  td style="border: none;"
+                    span.glyphicon.glyphicon-gift
+                    = link_to " Withdraw", carts_path
+                tr
+                  td style="border: none;"
+                    span.glyphicon.glyphicon-briefcase
+                    = link_to " Balance Credit", carts_path
+                tr
+                  td style="border: none;"
+                    span.glyphicon.glyphicon-usd
+                    = link_to " Billing Payment", carts_path
+                tr
+                  td style="border: none;"
+                    span.glyphicon.glyphicon-shopping-cart
+                    = link_to " Current Transaction", carts_path
+                tr
+                  td style="border: none;"
+                    span.glyphicon.glyphicon-leaf
+                    = link_to " History Transaction", carts_path
+
         .panel.panel-default
           .panel-heading
             h4.panel-title
               a data-parent="#accordion" data-toggle="collapse" href="#collapseOne" 
-                span.glyphicon.glyphicon-file.text-info
-                | Payments
-          #collapseOne.panel-collapse.collapse.in
-            .panel-body.padding-2
-              table.table style="margin-bottom: 0;"
-                tr
-                  td style="border: none;"
-                    span.glyphicon.glyphicon-pencil.text-primary
-                    = link_to "Deposit", carts_path
-                tr
-                  td style="border: none;"
-                    span.glyphicon.glyphicon-pencil.text-primary
-                    = link_to "Balance", carts_path
-                tr
-                  td style="border: none;"
-                    span.glyphicon.glyphicon-pencil.text-primary
-                    = link_to "Withdraw", carts_path
-        .panel.panel-default
-          .panel-heading
-            h4.panel-title
-              a data-parent="#accordion" data-toggle="collapse" href="#collapseOne" 
-                span.glyphicon.glyphicon-file.text-info
+                span.glyphicon.glyphicon-user
                 | Accounts
           #collapseOne.panel-collapse.collapse.in
             .panel-body.padding-2
               table.table style="margin-bottom: 0;"
                 tr
                   td style="border: none;"
-                    span.glyphicon.glyphicon-flash.text-primary
+                    span.glyphicon.glyphicon-eye-open
                     = link_to "View Account", account_path(current_user)
                 tr
                   td
-                    span.glyphicon.glyphicon-pencil.text-primary
+                    span.glyphicon.glyphicon-ok
                     = link_to "Edit Account", edit_account_path(current_user.id)
                 tr
                   td
-                    span.glyphicon.glyphicon-flash.text-success
+                    span.glyphicon.glyphicon-ok
                     = link_to "Verify Account", edit_verify_account_path(current_user.verify_user.id)
         .panel.panel-default
           .panel-heading
             h4.panel-title
               a data-parent="#accordion" data-toggle="collapse" href="#collapseOne" 
-                span.glyphicon.glyphicon-file.text-info
+                span.glyphicon.glyphicon-star-empty
                 | Friendships
           #collapseOne.panel-collapse.collapse.in
             .panel-body.padding-2
               table.table style="margin-bottom: 0;"
                 tr
                   td style="border: none;"
-                    span.glyphicon.glyphicon-flash.text-primary
+                    span.glyphicon.glyphicon-user
                     = link_to "My Friends", friends_path
                 tr
                   td
-                    span.glyphicon.glyphicon-pencil.text-primary
+                    span.glyphicon.glyphicon-user
                     = link_to "Friend Request", request_friend_path
                 
         .panel.panel-default

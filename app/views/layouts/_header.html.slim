@@ -27,6 +27,7 @@ header#top.navbar.navbar-static-top.bs-docs-nav role="banner"
         - else
           li.dropdown
             = link_to "#", :class=>"dropdown-toggle a-header", "data-toggle"=>"dropdown"
+              span.glyphicon.glyphicon-user
               | #{current_user.first_name.capitalize} #{current_user.last_name}
               span.caret
             ul.dropdown-menu style="margin-top: 6%;"
@@ -70,8 +71,28 @@ header#top.navbar.navbar-static-top.bs-docs-nav role="banner"
                   | View all Notifications
           li.dropdown
             a.dropdown-toggle aria-expanded="false" data-toggle="dropdown" href="#" role="button" 
-              span.glyphicon.glyphicon-shopping-cart
-              | 7 - Items
-
+              span.glyphicon.glyphicon-usd
+              | 7 - Order
+              span.caret
+            ul.dropdown-menu style="margin-top: 6%;"
+              li
+                = link_to carts_path
+                  span.glyphicon.glyphicon-shopping-cart
+                  |  Current Transaction
+                = link_to notifications_path
+                  span.glyphicon.glyphicon-retweet
+                  |  Deposit
+                = link_to notifications_path
+                  span.glyphicon.glyphicon-gift
+                  |  Withdraw
+                = link_to notifications_path
+                  span.glyphicon.glyphicon-briefcase
+                  |  Balance Credit
+                = link_to notifications_path
+                  span.glyphicon.glyphicon-usd
+                  |  Billing Payment
+                = link_to notifications_path
+                  span.glyphicon.glyphicon-leaf
+                  |  History Transaction            
         li
           = link_to "Help", "#", :class => "a-header"
