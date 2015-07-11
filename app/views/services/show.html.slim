@@ -53,17 +53,24 @@
                   .list-title
                 .col-md-12
                   h4 Product
-                  #bx-pager
-                    - @show_product.each do |product|
-                      h5 style="text-align:left;" #{product.title}
-                      h6.text-justify #{product.description}
-                      - product.foto_product_services.each do |avatars|
-                        a.thumb-item-link.active data-slide-index="0" href="" 
-                          img alt="img" src="#{avatars.avatar.large_avatar}"
                   - if current_user
                     - if current_user.id == @service.user.id    
                       = link_to "Add Product", "#", :class=>"btn btn-block btn-primary", "data-toggle" => "modal", "data-target" => "#vote"
-                  
+                  #bx-pager
+                    .col-md-12
+                      table.table
+                        tbody
+                          - @show_product.each do |product|
+                            tr.active
+                              td
+                                h5 style="text-align:left;" #{product.title}
+                              td
+                                button.btn.btn-block.btn-primary Order
+                            tr
+                              td
+                                - product.foto_product_services.each do |avatars|
+                                  a.thumb-item-link.active data-slide-index="0" href="" 
+                                    img alt="img" src="#{avatars.avatar.large_avatar}"
                   #vote.modal.fade aria-hidden="true" aria-labelledby="voteLabel" role="dialog" tabindex="-1" 
                     .modal-dialog
                       .panel.panel-danger
