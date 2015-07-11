@@ -1,27 +1,30 @@
 .container
   .wrapper
     .row
-      #my_map
-    .row
       .col-xs-12.col-sm-12
         h2.content-desc Cari Service di Sekitar Anda
     .row
-      .col-xs-12.col-sm-12
-        .container
+      .col-xs-1.col-sm-1
+      .col-xs-10.col-sm-10
           div.navbar.navbar-default
-            .col-xs-12.col-sm-12
+            .col-xs-1.col-sm-1
+            .col-xs-10.col-sm-10
               .col-xs-12.col-sm-12
                 = form_tag services_path, options: {:id => 'anID'}, enforce_utf8: false, :method => 'get' do
                   .col-md-12
+                    .div-header.col-xs-12.col-sm-12.col-md-12.search-left.form-group style="padding-bottom: 0px !important;margin-bottom: 0px !important;margin-top: 10px;"
+                      span.glyphicon.glyphicon-map-marker
+                      span.location Semua Lokasi 
+                      span |  
+                      span = link_to "Pilih lokasi terdekat", "#advance", "data-toggle" => "modal", "data-target" => "#advance"
+                    .
                     .div-header.col-xs-12.col-sm-5.search-left.form-group
                       = text_field_tag :title, nil, placeholder: 'Service yang Dicari..', class:"form-control form-input jualo-search width-100"
-                    .div-header.col-xs-12.col-sm-3.search-left.form-group
+                    .div-header.col-xs-12.col-sm-5.search-left.form-group
                       = select_tag :service_category_id, options_for_select(@service_categories.map{ |c| [c.name, c.id]}), class:"form-control form-input jualo-search width-100"
                     .div-header.col-xs-12.col-sm-2.btn-div
                       = submit_tag "Find Service", :class=>"btn btn-warning btn-block btn-search"
-                    .div-header.col-xs-12.col-sm-2.btn-div
-                      = link_to "Search Advance", "#advance", :class=> "btn btn-warning btn-block btn-search", "data-toggle" => "modal", "data-target" => "#advance"
-                    #advance.modal.fade.search_ads_animate.animated.fadeInLeftBig aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" style=("overflow: hidden; display: none;") tabindex="-1" 
+                    #advance.modal.fade.search_ads_animate.animated.fadeInLeftBig aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" 
                       .modal-dialog
                         .modal-content style="padding: 10px;"
                           = form_tag services_path, options: {:id => 'anID'}, enforce_utf8: false, :method => 'get' do 
@@ -30,28 +33,23 @@
                               table.table
                                 tbody
                                   tr
-                                    td Title Service
-                                    td
-                                      = text_field_tag :title, nil, placeholder: 'Service yang Dicari..', class:"form-control form-input jualo-search width-100"
-                                  tr
-                                    td Category Service
-                                    td
-                                      = select_tag :service_category_id, options_for_select(@service_categories.map{ |c| [c.name, c.id]}), class:"form-control form-input jualo-search width-100"
-                                  tr
                                     td Location
                                     td
                                       = text_field_tag :address_1, nil, placeholder: 'Area Service ..', class:"form-control twitter-typeahead tt-input form-input width-100 jualo-search seachtext"
                                       = link_to "Auto Detect Location", "javascript:void(0)", class: "detect"
                                       .details
-                                      = hidden_field_tag :latitude, nil, "data-geo" => "lat"
-                                      = hidden_field_tag :longitude, nil, "data-geo" => "lng"
+                                        = hidden_field_tag :latitude, nil, "data-geo" => "lat", class: "lat"
+                                        = hidden_field_tag :longitude, nil, "data-geo" => "lng", class: "lng"
                                   tr
                                     td Distance
                                     td
-                                      = select_tag :dstn, options_for_select([["Default Distance", 5], ["< 5 km",3], ["< 10 km",6], ["< 20 km",12]]), class:"form-control twitter-typeahead tt-input form-input jualo-search"
+                                      = select_tag :dstn, options_for_select([["Default Distance", 5], ["< 5 km",3], ["< 10 km",6], ["< 20 km",12]]), class:"form-control twitter-typeahead tt-input form-input jualo-search dstnc"
                             .modal-footer
-                              = submit_tag "Search", :class => "button btn btn-primary"
-                              button.btn.btn-danger.btn-close data-dismiss="modal" type="button" Close
+                              = link_to "Pilih", "#", :class => "button btn btn-primary pilih", "data-dismiss" => "modal"
+                              button.btn.btn-danger.btn-close.cancle data-dismiss="modal" type="button" Cancle
+                              = content_for :js_place
+                                = javascript_include_tag 'http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false'
+                                = javascript_include_tag 'jquery.geocomplete.js'
 
     .row.rule
       .col-md-3.text-center
@@ -104,11 +102,10 @@
               i.fa.fa-check
               |  Cara yang sangat mudah dan praktis untuk mencari service terbaik pilihan Anda!
 
-= content_for :js_place
-  = javascript_include_tag 'http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false'
-  = javascript_include_tag 'jquery.geocomplete.js'
+
 
 javascript:
+  $(document).ready(function(){
     function showPosition(position) {
       var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
       var geocoder = new google.maps.Geocoder();
@@ -139,7 +136,6 @@ javascript:
       }
     }
 
-  $(document).ready(function(){
     $(".detect").click(function(){
       if (navigator.geolocation) {
         var optn = {
@@ -152,11 +148,20 @@ javascript:
         alert('Geolocation is not supported in your browser');
       }
     })
-  });
 
-  $(document).ready(function(){
     $(".seachtext").geocomplete({
       details: ".details",
       detailsAttribute: "data-geo"
     });
+
+    $('.pilih').click(function(){
+      $('.location').text(document.getElementsByClassName('seachtext')[0].value)
+    })
+
+    $('.cancle').click(function(){
+      $('.seachtext')[0].value = ""
+      $('.location').text("Semua Lokasi ")
+      $('.lat')[0].value= ""
+      $('.lng')[0].value= ""
+    })
   });
