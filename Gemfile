@@ -8,7 +8,6 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
-gem 'rails_12factor'
 gem "slim-rails"
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'devise'
@@ -33,7 +32,6 @@ gem 'public_activity'
 gem 'unread'
 gem 'friendly_id', '~> 5.1.0' 
 gem 'acts_as_shopping_cart', '~> 0.2.1'
-gem 'therubyracer'
 group :production do
   gem 'exception_notification'
 end
