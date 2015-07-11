@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.2.2'
 gem 'rails', '4.2.1'
 gem 'pg'
 gem 'uglifier', '>= 1.3.0'
@@ -7,17 +8,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
-group :development, :test do
-  gem 'byebug'
-  gem "quiet_assets"
-  gem "better_errors"
-  gem 'web-console', '~> 2.0'
-  gem 'spring'
-  gem 'rspec-rails', '~> 3.0.0'
-  gem 'factory_girl_rails'
-  gem 'capybara'
-  gem 'database_cleaner'
-end
+gem 'rails_12factor'
 gem "slim-rails"
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'devise'
@@ -38,13 +29,22 @@ gem 'mailboxer', github: 'lacco/mailboxer'
 gem 'jquery-timepicker-rails'
 gem 'geocomplete_rails'
 gem 'geocoder'
-
-
 gem 'public_activity'
 gem 'unread'
 gem 'friendly_id', '~> 5.1.0' 
 gem 'acts_as_shopping_cart', '~> 0.2.1'
-
+gem 'therubyracer'
 group :production do
   gem 'exception_notification'
+end
+group :development, :test do
+  gem 'byebug'
+  gem "quiet_assets"
+  gem "better_errors"
+  gem 'web-console', '~> 2.0'
+  gem 'spring'
+  gem 'rspec-rails', '~> 3.0.0'
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'database_cleaner'
 end
