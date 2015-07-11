@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150709161702) do
+ActiveRecord::Schema.define(version: 20150711163915) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -243,13 +243,6 @@ ActiveRecord::Schema.define(version: 20150709161702) do
 
   add_index "product_services", ["service_id"], name: "index_product_services_on_service_id", using: :btree
 
-  create_table "rate_prices", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "operator"
-    t.decimal  "rate"
-  end
-
   create_table "read_marks", force: :cascade do |t|
     t.integer  "readable_id"
     t.string   "readable_type", null: false
@@ -286,7 +279,6 @@ ActiveRecord::Schema.define(version: 20150709161702) do
     t.string  "address"
     t.float   "latitude"
     t.float   "longitude"
-    t.integer "rate_price_id",       default: 1
   end
 
   add_index "services", ["properties"], name: "services_properties", using: :gin

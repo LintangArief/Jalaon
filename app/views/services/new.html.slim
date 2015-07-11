@@ -74,11 +74,6 @@
                     .details
                       = f.hidden_field :latitude, "data-geo" => "lat"
                       = f.hidden_field :longitude, "data-geo" => "lng"
-
-                  .col-xs-6.col-sm-6.col-md-6
-                    .form-group
-                      = f.label "Harga Rata-Rata"
-                      = select_tag :rate_price, options_for_select(@rate_prices.map{ |c| ["#{c.operator} #{c.rate}", c.id]}), class:"form-control"
                   .col-xs-12.col-sm-12.col-md-12
                     .form-group
                       = f.label "Logo Service *", :class=>"label-white"
