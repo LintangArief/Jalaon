@@ -6,7 +6,6 @@ class ServicesController < ApplicationController
   # GET /services.json
   def index
     @services ||= find_products
-    @rate_prices = RatePrice.all
     @service_categories = ServiceCategory.show_all
   end
 
@@ -24,7 +23,6 @@ class ServicesController < ApplicationController
     @product_service = ProductService.new
     @feedback = Feedback.new
     @show_product = @service.product_services
-    @rate_price = @service.rate_price
     @pending = nil
     if current_user
       @pending = @service.user.pending_invited_by.map(&:id).include? current_user.id
@@ -34,7 +32,6 @@ class ServicesController < ApplicationController
   # GET /services/new
   def new
     @service_categories = ServiceCategory.all
-    @rate_prices = RatePrice.all
     @has_service_category = false
     if params[:service_category_id].nil?
       @service = Service.new  

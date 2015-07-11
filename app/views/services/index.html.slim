@@ -26,9 +26,6 @@
                 br/
                 .input-group.col-md-12
                   = select_tag :sv, options_for_select([["Sort By: ", 0], ["Ascending",1], ["Descending",2]]), class:"form-control twitter-typeahead tt-input form-input jualo-search"
-                br/
-                .input-group.col-md-12
-                  = select_tag :rate_price, options_for_select(@rate_prices.map{ |c| ["#{c.operator} #{c.rate}", c.id]}), class:"form-control twitter-typeahead tt-input form-input jualo-search"
                 .details
                   = hidden_field_tag :latitude, nil, "data-geo" => "lat"
                   = hidden_field_tag :longitude, nil, "data-geo" => "lng"
