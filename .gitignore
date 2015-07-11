@@ -13,20 +13,10 @@
 
 # Ignore all logfiles and tempfiles.
 /log/*.log
-/tmp
 /public
 /public/uploads
-/db/schema.rb
 /config/database.yml
-
+/tmp/*
 /test
-/tmp
-/config/database.yml
-/db/schema.rb
-
-/test
-/test
-/tmp
-/config/database.yml
 /db/schema.rb
 public/assets/
