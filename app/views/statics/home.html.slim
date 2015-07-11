@@ -17,9 +17,10 @@
                       span.location Semua Lokasi 
                       span |  
                       span = link_to "Pilih lokasi terdekat", "#advance", "data-toggle" => "modal", "data-target" => "#advance"
-                    .
+                      
                     .div-header.col-xs-12.col-sm-5.search-left.form-group
                       = text_field_tag :title, nil, placeholder: 'Service yang Dicari..', class:"form-control form-input jualo-search width-100"
+                      
                     .div-header.col-xs-12.col-sm-5.search-left.form-group
                       = select_tag :service_category_id, options_for_select(@service_categories.map{ |c| [c.name, c.id]}), class:"form-control form-input jualo-search width-100"
                     .div-header.col-xs-12.col-sm-2.btn-div
