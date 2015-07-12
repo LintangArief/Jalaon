@@ -12,7 +12,57 @@
     .col-sm-9.col-md-9
       ul.nav.nav-tabs
         li.active
-          a data-toggle="tab" href="#inbox" 
-            | History Payments
-      .tab-content
-        .follower-list 
+          a data-toggle="tab" href="#friend-request" 
+            | Deposite
+        li
+          a data-toggle="tab" href="#my-friend-requests" 
+            span.glyphicon.glyphicon-tags
+            | Withdraw
+        li
+          a data-toggle="tab" href="#transaction" 
+            span.glyphicon.glyphicon-tags
+            | Transaction
+      .tab-content.col-md-12
+        #friend-request.tab-pane.fade.in.active
+          .jsPaymentListWidget.col-md-12 style="margin-top: 20px;"
+            .oTableHeader
+              h4 History your Deposit :
+              table.oTable.col-md-12
+                tbody
+                  tr
+                    th colspan="2" Bank Name
+                    th Owner
+                    th.col1of6 Number Account
+                    th 
+                tbody
+                  tr
+                    td.oNull.text-center colspan="5"  No history Deposit set up yet
+        #my-friend-requests.tab-pane.fade.in
+          .jsPaymentListWidget.col-md-12 style="margin-top: 20px;"
+            .oTableHeader
+              h4 History your Withdraw :
+              table.oTable.col-md-12
+                tbody
+                  tr
+                    th colspan="2" Bank Name
+                    th Owner
+                    th.col1of6 Number Account
+                    th 
+                tbody
+                  tr
+                    td.oNull.text-center colspan="5"  No history withdraw set up yet
+        #transaction.tab-pane.fade.in
+          .jsPaymentListWidget.col-md-12 style="margin-top: 20px;"
+            .oTableHeader
+              h4 History your Transaction :
+              table.oTable.col-md-12
+                tbody
+                  tr
+                    th colspan="2" Bank Name
+                    th Owner
+                    th.col1of6 Number Account
+                    th 
+                tbody
+                  tr
+                    td.oNull.text-center colspan="5"  No history Transaction set up yet
+
