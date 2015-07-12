@@ -1,3 +1,134 @@
 // Place all the styles related to the Payments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.oBtnSecondary, .oMenuButton .oMtnAction {
+  color: #5bbc2e;
+  background: #fff;
+  border: 2px solid #e0e0e0;
+  height: 35px;
+  vertical-align: middle;
+  line-height: 20px;
+  font-weight: 400!important;
+}
+.oTable {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+.oTable td{
+  border: 1px solid #e0e0e0;
+  border-top-width: 0;
+  border-left-width: 0;
+  border-right-width: 0;
+  padding: 8px 11px 7px;
+  background-color: #fff;
+}
+.oTable tbody tr:last-child td{
+  border-bottom-width: 1px;
+}
+.oTable th{
+  color: #494949;
+  padding: 6px 15px 6px 11px;
+  font-weight: 400!important;
+  font-family: "Gotham Bold";
+}
+
+.col, .oMain, .oSide {
+  padding: 0 12px;
+}
+.oBreadcrumbBar, .oTableHeader {
+  margin-bottom: 20px;
+}
+.oTable td, .oTablePastHires td, .oNewRateTable td, .oReportTable td {
+  border: 1px solid #e0e0e0;
+  border-top-width: 0;
+  border-left-width: 0;
+  border-right-width: 0;
+  padding: 8px 11px 7px;
+  background-color: #fff;
+}
+.oPos {
+  color: #999;
+}
+.oMega, .oTxtMega {
+  font-size: 22px!important;
+}
+
+.oTable tbody tr:last-child td:last-child, .oTablePastHires tbody tr:last-child td:last-child, .oNewRateTable tbody tr:last-child td:last-child, .oReportTable tbody tr:last-child td:last-child {
+  -moz-border-radius-bottomright: 2px;
+  -webkit-border-bottom-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+.oTable tbody tr:last-child td:first-child, .oTablePastHires tbody tr:last-child td:first-child, .oNewRateTable tbody tr:last-child td:first-child, .oReportTable tbody tr:last-child td:first-child {
+  -moz-border-radius-bottomleft: 2px;
+  -webkit-border-bottom-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+.oTable tbody tr:first-child td:last-child, .oTablePastHires tbody tr:first-child td:last-child, .oNewRateTable tbody tr:first-child td:last-child, .oReportTable tbody tr:first-child td:last-child {
+  -moz-border-radius-topright: 2px;
+  -webkit-border-top-right-radius: 2px;
+  border-top-right-radius: 2px;
+}
+.oTable tbody tr:first-child td:first-child, .oTablePastHires tbody tr:first-child td:first-child, .oNewRateTable tbody tr:first-child td:first-child, .oReportTable tbody tr:first-child td:first-child {
+  -moz-border-radius-topleft: 2px;
+  -webkit-border-top-left-radius: 2px;
+  border-top-left-radius: 2px;
+}
+.oTable tbody tr:last-child td, .oTablePastHires tbody tr:last-child td, .oNewRateTable tbody tr:last-child td, .oReportTable tbody tr:last-child td {
+  border-bottom-width: 1px;
+}
+.oTable tbody tr:first-child td, .oTablePastHires tbody tr:first-child td, .oNewRateTable tbody tr:first-child td, .oReportTable tbody tr:first-child td {
+  border-top-width: 1px;
+}
+.oTable td:last-child, .oTablePastHires td:last-child, .oNewRateTable td:last-child, .oReportTable td:last-child {
+  border-right-width: 1px;
+}
+.oTable td:first-child, .oTablePastHires td:first-child, .oNewRateTable td:first-child, .oReportTable td:first-child {
+  border-left-width: 1px;
+}
+.txtCenter, table .txtCenter td, table .txtCenter th, .data .txtCenter th, .data .txtCenter td, table thead th.txtCenter, table tbody td.txtCenter {
+  text-align: center!important;
+}
+.oTable td, .oTablePastHires td, .oNewRateTable td, .oReportTable td {
+  border: 1px solid #e0e0e0;
+  border-top-width: 0;
+  border-left-width: 0;
+  border-right-width: 0;
+  padding: 8px 11px 7px;
+  background-color: #fff;
+}
+
+.ib, .inlineBlock {
+  display: inline-block;
+}
+.nowrap {
+  white-space: nowrap;
+}
+.oBtnJumbo {
+  margin-bottom: 20px;
+  display: block;
+  font-size: 18px;
+  padding: 12px 24px;
+  font-weight: 400;
+  height: 50px;
+}
+.oBtnPrimary, .oBtnVisitorPrimary {
+  color: #fff;
+  background: #5bbc2e;
+  height: 35px;
+  vertical-align: middle;
+}
+.oBtn, .oMenuButton .oMtnAction, .oMenuButton .oMtnClear {
+  cursor: pointer;
+  border: 0;
+  display: inline-block;
+  font: 14px "Gotham Medium";
+  line-height: 24px;
+  border-radius: 2px;
+  outline: 0;
+  background-clip: padding-box;
+  padding: 5px 14px;
+  white-space: nowrap;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: always;
+}

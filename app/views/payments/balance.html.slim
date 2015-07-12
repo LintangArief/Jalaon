@@ -1,0 +1,32 @@
+#main-container.container style="padding-top:20px; padding-bottom: 20px;"
+  .row
+    .col-md-12  
+      ol.breadcrumb
+        li
+          = link_to "Home", root_path
+        li 
+          = link_to "Dasboard", setting_path
+        li.active Balance Card
+    br/
+    = render "account/side_bar"
+    .col-sm-9.col-md-9
+      ul.nav.nav-tabs
+        li.active
+          a data-toggle="tab" href="#inbox" 
+            | Balance Card
+      .tab-content.col-md-12
+        .follower-list 
+          .oMain
+            .jsPaymentListWidget.col-md-12
+              .oTableHeader.oTxtMega
+                | Your Balance :
+                span.oPos
+                  |  IDR. 0.00
+                br/  
+              table.oTable.col-md-12
+                  tbody
+                    tr
+                      td.txtCenter
+                        button.oBtn.oBtnPrimary.oBtnJumbo.jsAddMethod.nowrap.ib style="margin-right: 10px;" Withdraw
+                        button.oBtn.oBtnPrimary.oBtnJumbo.jsAddMethod.nowrap.ib Deposite
+                        p.oMute May take up to 24 hours to activate your Withdraw / Deposite

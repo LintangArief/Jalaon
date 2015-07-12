@@ -1,0 +1,34 @@
+#main-container.container style="padding-top:20px; padding-bottom: 20px;"
+  .row
+    .col-md-12  
+      ol.breadcrumb
+        li
+          = link_to "Home", root_path
+        li 
+          = link_to "Dasboard", setting_path
+        li.active Biling Payment
+    br/
+    = render "account/side_bar"
+    .col-sm-9.col-md-9
+      ul.nav.nav-tabs
+        li.active
+          a data-toggle="tab" href="#inbox" 
+            | Billing Payment
+      .tab-content.col-md-12
+        .follower-list 
+          .oMain
+            .jsPaymentListWidget.col-md-12
+              br/
+              button.oBtn.oBtnPrimary.oBtnJumbo.jsAddMethod.nowrap.ib  Add Billing Method
+              table.oTable.col-md-12
+                tbody
+                  tr
+                    th colspan="2" Bank Name
+                    th Owner
+                    th.col1of6 Number Account
+                    th 
+                tbody
+                  tr
+                    td.oNull.text-center colspan="5"  No billing methods set up yet
+          br/
+          br/

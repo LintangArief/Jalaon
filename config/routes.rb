@@ -57,6 +57,17 @@ Rails.application.routes.draw do
   match '/add_field' =>  'service_categories#add_field', :via => 'get', :as => :admin_add_field
 
   resources :carts
+
+  resources :payments do
+    collection do
+      get 'billing'
+      get 'withdraw'
+      get 'history'
+      get 'deposit'
+      get 'balance'
+      get 'transaction'
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

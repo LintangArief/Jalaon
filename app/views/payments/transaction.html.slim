@@ -1,0 +1,18 @@
+#main-container.container style="padding-top:20px; padding-bottom: 20px;"
+  .row
+    .col-md-12  
+      ol.breadcrumb
+        li
+          = link_to "Home", root_path
+        li 
+          = link_to "Dasboard", setting_path
+        li.active Current Transaction
+    br/
+    = render "account/side_bar"
+    .col-sm-9.col-md-9
+      ul.nav.nav-tabs
+        li.active
+          a data-toggle="tab" href="#inbox" 
+            | Current transaction
+      .tab-content
+        .follower-list 
