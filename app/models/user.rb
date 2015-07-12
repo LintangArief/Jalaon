@@ -18,7 +18,8 @@ class User < ActiveRecord::Base
   has_many :services
   has_many :feedbacks
   has_one :verify_user
-
+  has_many :deposits
+  has_many :withdraws
 
 
   # acts_as_messageable :table_name => "messages"

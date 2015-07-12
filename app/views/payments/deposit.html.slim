@@ -37,32 +37,52 @@
                     table.oTable.col-md-12
                       tbody
                         tr
-                          th colspan="2" Bank Name
-                          th Owner
-                          th.col1of6 Number Account
+                          th Date
+                          th Request Money
+                          th Status
                           th 
+                          th
                       tbody
-                        tr
-                          td.oNull.text-center colspan="5"  No billing methods set up yet
+                        - if @list_deposit.nil?
+                          tr
+                            td.oNull.text-center colspan="5"  No billing methods set up yet
+                        - else
+
+                          - @list_deposit.each do |deposit|
+                            - status = nil
+                            - if deposit.status = 1
+                              - status = "Pending"
+                            - else
+                              - status = "Success"
+                            tr
+                              td = deposit.created_at.to_date
+                              td = deposit.money
+                              td = status
+                              - if deposit.status = 1
+                                td = link_to "Confirmation Deposit", "#", class: "btn btn-primary"
+                                td = link_to "Cancle Deposit", "#", class: "btn btn-danger"
+                              - else
+                                td = link_to "Delete", "#", class: "btn btn-danger"
+                        
               br/
               br/
 #deposit.modal.fade aria-hidden="true" aria-labelledby="voteLabel" role="dialog" tabindex="-1" 
   .modal-dialog
     .modal-content
+        = form_for(:deposit, url: create_deposit_payments_path) do |f|
           .modal-header.panel-danger TopUp your Balance
           .modal-body
             .col-md-12
-              = form_tag Service.new do
-                ul.list-group
-                  li.list-group-item
-                    = label_tag "Request Top Up Balance (*)"
-                    br/
-                    = text_field_tag :title, nil, placeholde: "Example : 200000",  :class => 'text_field width-100 input-lg', type: "number"
+              ul.list-group
+                li.list-group-item
+                  = f.label "Request Top Up Balance (*)"
+                  br/
+                  = f.text_field :money, placeholde: "Example : 200000",  :class => 'text_field width-100 input-lg', type: "number"
 
-                  li.list-group-item
-                    = label_tag "Current Password (*)"
-                    br/
-                    = text_field_tag :price, nil, type: "password", :class => ' width-100 input-lg'
+                li.list-group-item
+                  = f.label "Current Password (*)"
+                  br/
+                  = f.text_field :password, type: "password", :class => ' width-100 input-lg'
           .modal-footer
-            = submit_tag "Request", :class => "button btn btn-success"
+            = f.submit "Request", :class => "button btn btn-success"
             button.btn.btn-danger.btn-close data-dismiss="modal" type="button"  Cancle

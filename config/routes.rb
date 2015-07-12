@@ -66,6 +66,7 @@ Rails.application.routes.draw do
       get 'deposit'
       get 'balance'
       get 'transaction'
+      post 'create_deposit'
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.

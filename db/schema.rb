@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150711163915) do
+ActiveRecord::Schema.define(version: 20150712155344) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -98,6 +98,16 @@ ActiveRecord::Schema.define(version: 20150711163915) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "deposits", force: :cascade do |t|
+    t.integer  "user_id"
+    t.decimal  "money"
+    t.integer  "status",     default: 1
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "deposits", ["user_id"], name: "index_deposits_on_user_id", using: :btree
 
   create_table "feedbacks", force: :cascade do |t|
     t.text    "description"
@@ -328,7 +338,18 @@ ActiveRecord::Schema.define(version: 20150711163915) do
 
   add_index "verify_users", ["user_id"], name: "index_verify_users_on_user_id", using: :btree
 
+  create_table "withdraws", force: :cascade do |t|
+    t.integer  "user_id"
+    t.decimal  "money"
+    t.integer  "status",     default: 1
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "withdraws", ["user_id"], name: "index_withdraws_on_user_id", using: :btree
+
   add_foreign_key "billings", "bank_names"
+  add_foreign_key "deposits", "users"
   add_foreign_key "feedbacks", "services"
   add_foreign_key "feedbacks", "users"
   add_foreign_key "foto_product_services", "product_services"
@@ -338,4 +359,5 @@ ActiveRecord::Schema.define(version: 20150711163915) do
   add_foreign_key "product_services", "services"
   add_foreign_key "service_fields", "service_categories"
   add_foreign_key "verify_users", "users"
+  add_foreign_key "withdraws", "users"
 end

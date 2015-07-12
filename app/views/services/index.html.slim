@@ -16,6 +16,33 @@
             .list-group-item
               #custom-search-input
                 .input-group.col-md-12
+                  = link_to "Ganti lokasi", "#advance", "data-toggle" => "modal", "data-target" => "#advance", class: "btn btn-block btn-danger"
+                  #advance.modal.fade.search_ads_animate.animated.fadeInLeftBig aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" 
+                      .modal-dialog
+                        .modal-content style="padding: 10px;"
+                          = form_tag services_path, options: {:id => 'anID'}, enforce_utf8: false, :method => 'get' do 
+                            .modal-body
+                              h4 Search Advanced                           
+                              table.table
+                                tbody
+                                  tr
+                                    td Location
+                                    td
+                                      - if params[:address_1].present?
+                                        = text_field_tag :address_1, params[:address_1], placeholder: 'Area Service ..', class:"form-control twitter-typeahead tt-input form-input width-100 jualo-search seachtext m-top", data: {address: params[:address_1]}
+                                      - else
+                                        = text_field_tag :address_1, params[:address_1], placeholder: 'Area Service ..', class:"form-control twitter-typeahead tt-input form-input width-100 jualo-search seachtext m-top", data: {address: "jakarta"}
+                                      = link_to "Auto Detect Location", "javascript:void(0)", class: "detect"
+                                      .details
+                                        = hidden_field_tag :latitude, nil, "data-geo" => "lat", class: "lat"
+                                        = hidden_field_tag :longitude, nil, "data-geo" => "lng", class: "lng"
+                            .modal-footer
+                              = link_to "Pilih", "#", :class => "button btn btn-primary pilih", "data-dismiss" => "modal"
+                              button.btn.btn-danger.btn-close.cancle data-dismiss="modal" type="button" Cancle
+                              = content_for :js_place
+                                = javascript_include_tag 'http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false'
+                                = javascript_include_tag 'jquery.geocomplete.js' 
+                .input-group.col-md-12
                   = select_tag :dstn, options_for_select([["Default Distance", 5], ["< 5 km",3], ["< 10 km",6], ["< 20 km",12]]), class:"form-control twitter-typeahead tt-input form-input jualo-search"
                 br/
                 .input-group.col-md-12
@@ -42,18 +69,6 @@
           br/
           .input-group.col-md-12
               .col-md-12
-                .col-md-10
-                  - if params[:address_1].present?
-                    = text_field_tag :address_1, params[:address_1], placeholder: 'Area Service ..', class:"form-control twitter-typeahead tt-input form-input width-100 jualo-search seachtext m-top", data: {address: params[:address_1]}
-                  - else
-                    = text_field_tag :address_1, params[:address_1], placeholder: 'Area Service ..', class:"form-control twitter-typeahead tt-input form-input width-100 jualo-search seachtext m-top", data: {address: "jakarta"}
-                  .details
-                    = hidden_field_tag :latitude, nil, "data-geo" => "lat"
-                    = hidden_field_tag :longitude, nil, "data-geo" => "lng"
-                .col-md-2
-                  = submit_tag "Search", class: "btn btn-block btn-danger"
-              .col-md-12
-                = link_to "  Auto Detect Location", "javascript:void(0)", class: "detect"
                 #myModal.modal.fade
                     .modal-dialog
                       .modal-content
