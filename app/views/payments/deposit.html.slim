@@ -27,9 +27,8 @@
                   tbody
                     tr
                       td.txtCenter
-                        button.oBtn.oBtnPrimary.oBtnJumbo.jsAddMethod.nowrap.ib Set up Payments
+                        = link_to "Top Up Balance", "#deposit", class: "btn  oBtn oBtnPrimary oBtnJumbo jsAddMethod nowrap ib", "data-toggle" => "modal", "data-target" => "#deposit"
                         p.oMute May take up to 24 hours to activate your deposite
-
               hr/
               table.oTable.col-md-12
                 .jsPaymentListWidget.col-md-12 style="margin-top: 20px;"
@@ -47,3 +46,23 @@
                           td.oNull.text-center colspan="5"  No billing methods set up yet
               br/
               br/
+#deposit.modal.fade aria-hidden="true" aria-labelledby="voteLabel" role="dialog" tabindex="-1" 
+  .modal-dialog
+    .modal-content
+          .modal-header.panel-danger TopUp your Balance
+          .modal-body
+            .col-md-12
+              = form_tag Service.new do
+                ul.list-group
+                  li.list-group-item
+                    = label_tag "Request Top Up Balance (*)"
+                    br/
+                    = text_field_tag :title, nil, placeholde: "Example : 200000",  :class => 'text_field width-100 input-lg', type: "number"
+
+                  li.list-group-item
+                    = label_tag "Current Password (*)"
+                    br/
+                    = text_field_tag :price, nil, type: "password", :class => ' width-100 input-lg'
+          .modal-footer
+            = submit_tag "Request", :class => "button btn btn-success"
+            button.btn.btn-danger.btn-close data-dismiss="modal" type="button"  Cancle
