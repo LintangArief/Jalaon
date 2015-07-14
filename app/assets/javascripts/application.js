@@ -11,9 +11,12 @@
 // about supported directives.
 //
 //= require jquery
+//= require autonumeric
 //= require jquery_ujs
+//= require jquery-ui/datepicker
 //= require geocomplete
 //= require twitter/bootstrap
+//= require bootstrap-filestyle
 //= require turbolinks
 //= require nprogress
 //= require nprogress-turbolinks

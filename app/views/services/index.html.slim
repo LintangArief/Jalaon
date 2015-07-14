@@ -142,18 +142,19 @@ javascript:
       location: $('.seachtext').data('address')
     });
 
-
     function showPosition(position) {
       var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-      var geocoder = geocoder = new google.maps.Geocoder();
+      var geocoder = new google.maps.Geocoder();
       geocoder.geocode({ 'latLng': latlng }, function (results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
             if (results[1]) {
-                $('.seachtext').val(results[1].formatted_address)
+                console.log(a=results)
+                $('.seachtext').val(results[0].formatted_address)
             }
         }
       });
     }
+
     function showError(error) {
       switch(error.code) {
         case error.PERMISSION_DENIED:
@@ -170,6 +171,7 @@ javascript:
           break;
       }
     }
+    
     $(".detect").click(function(){
       if (navigator.geolocation) {
         var optn = {

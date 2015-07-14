@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150712155344) do
+ActiveRecord::Schema.define(version: 20150714193801) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -99,12 +99,31 @@ ActiveRecord::Schema.define(version: 20150712155344) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "confirmation_deposits", force: :cascade do |t|
+    t.integer  "deposit_id"
+    t.integer  "user_id"
+    t.integer  "bank_name_id"
+    t.datetime "date_transfer"
+    t.string   "no_credit"
+    t.string   "name_owner_credit"
+    t.decimal  "money"
+    t.string   "attach"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "confirmation_deposits", ["bank_name_id"], name: "index_confirmation_deposits_on_bank_name_id", using: :btree
+  add_index "confirmation_deposits", ["deposit_id"], name: "index_confirmation_deposits_on_deposit_id", using: :btree
+  add_index "confirmation_deposits", ["user_id"], name: "index_confirmation_deposits_on_user_id", using: :btree
+
   create_table "deposits", force: :cascade do |t|
     t.integer  "user_id"
     t.decimal  "money"
     t.integer  "status",     default: 1
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.string   "token"
+    t.boolean  "trash",      default: false
   end
 
   add_index "deposits", ["user_id"], name: "index_deposits_on_user_id", using: :btree
@@ -349,6 +368,9 @@ ActiveRecord::Schema.define(version: 20150712155344) do
   add_index "withdraws", ["user_id"], name: "index_withdraws_on_user_id", using: :btree
 
   add_foreign_key "billings", "bank_names"
+  add_foreign_key "confirmation_deposits", "bank_names"
+  add_foreign_key "confirmation_deposits", "deposits"
+  add_foreign_key "confirmation_deposits", "users"
   add_foreign_key "deposits", "users"
   add_foreign_key "feedbacks", "services"
   add_foreign_key "feedbacks", "users"

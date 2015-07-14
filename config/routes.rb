@@ -67,6 +67,11 @@ Rails.application.routes.draw do
       get 'balance'
       get 'transaction'
       post 'create_deposit'
+      post 'update_confirmation_deposit'
+      post 'trash_deposit'
+    end
+    member do
+      get 'edit_confirmation_deposit'
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.

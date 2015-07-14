@@ -1,0 +1,57 @@
+.modal-dialog
+    .modal-content
+      = form_for(:confirmation_deposits, url: update_confirmation_deposit_payments_path) do |f|
+        br/
+        ul.list-group
+          li.list-group-item.col-md-12
+            .col-md-12
+            label Confirmation Type : Deposit
+          li.list-group-item.col-md-12
+            .col-md-6
+              label Deposit ID :
+              b
+                = @deposit.token
+              = hidden_field_tag :deposit_token, @deposit.token
+          li.list-group-item.col-md-12
+            .col-md-6
+              label Tanggal Transfer(*) :
+              = f.text_field :date_transfer, class: "form-control width-100", id: "date_transfer1", value: @confirmation_deposit.date_transfer.strftime("%m/%d/%y")
+            .col-md-6
+              label Nama Bank (*):
+              = f.select :bank_name_id, options_for_select(@list_bank.map{ |c| [c.name, c.id]}),{}, {class:"form-control form-input width-100"}
+            .col-md-6
+              label No. Pemilik Rekening (*)
+              = f.text_field :no_credit, class: "form-control width-100", value: @confirmation_deposit.no_credit
+            .col-md-6
+              label Nama. Pemilik Rekening (*)
+              = f.text_field :name_owner_credit, class: "form-control width-100", value: @confirmation_deposit.name_owner_credit
+          li.list-group-item.col-md-12
+            .col-md-6
+              label Jumlah Dana (*)
+              = f.text_field :money,:class => 'text_field width-100', data: {autonumeric: {aSign: 'Rp ', mDec: 2}}, value: @confirmation_deposit.money
+          li.list-group-item.col-md-12
+            .col-md-12
+              label Bukti Pembayaran (optional)
+              = f.file_field :attach, :class => 'input-lg filestyle', "data-icon"=>"false"
+          li.list-group-item.col-md-12
+            .col-md-12
+              = f.label "Current Password (*)"
+              br/
+              = text_field_tag :password, nil, type: "password", :class => ' width-100 input-lg'
+          li.list-group-item.col-md-12
+            .col-md-12
+              = f.submit "Submit", class: "btn btn-success" 
+
+
+javascript:
+  $(document).ready(function(){
+    $(":file").filestyle({
+    })
+    $('#date_transfer1').datepicker({
+        format: "mm/dd/yyyy",
+        clearBtn: true,
+        orientation: "bottom right",
+        calendarWeeks: true,
+        autoclose: true
+    });
+  })

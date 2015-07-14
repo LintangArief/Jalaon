@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
   has_one :verify_user
   has_many :deposits
   has_many :withdraws
-
+  has_many :confirmation_deposits
 
   # acts_as_messageable :table_name => "messages"
   def check_verify

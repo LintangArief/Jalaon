@@ -79,6 +79,8 @@ GEM
     arbre (1.0.3)
       activesupport (>= 3.0.0)
     arel (6.0.2)
+    autonumeric-rails (1.9.37)
+      jquery-rails (>= 2.0.2)
     autoprefixer-rails (5.2.1)
       execjs
       json
@@ -89,6 +91,7 @@ GEM
       rack (>= 0.9.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bootstrap-filestyle-rails (1.1.2)
     bootstrap-sass (3.3.5.1)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.3.0)
@@ -427,7 +430,9 @@ DEPENDENCIES
   activeadmin!
   acts_as_shopping_cart (~> 0.2.1)
   amistad
+  autonumeric-rails
   better_errors
+  bootstrap-filestyle-rails
   bootstrap-sass (~> 3.3.4)
   byebug
   capybara
@@ -444,6 +449,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   jquery-timepicker-rails
+  jquery-ui-rails
   kaminari
   mailboxer!
   mini_magick

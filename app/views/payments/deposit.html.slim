@@ -13,59 +13,112 @@
       ul.nav.nav-tabs
         li.active
           a data-toggle="tab" href="#inbox" 
+            span.glyphicon.glyphicon-inbox
             | Deposit
-      .tab-content.col-md-12
-        .follower-list 
-          .oMain
-            .jsPaymentListWidget.col-md-12
-              .oTableHeader.oTxtMega
-                | Your Balance :
-                span.oPos
-                  |  IDR. 0.00
-                br/  
-              table.oTable.col-md-12
-                  tbody
-                    tr
-                      td.txtCenter
-                        = link_to "Top Up Balance", "#deposit", class: "btn  oBtn oBtnPrimary oBtnJumbo jsAddMethod nowrap ib", "data-toggle" => "modal", "data-target" => "#deposit"
-                        p.oMute May take up to 24 hours to activate your deposite
-              hr/
-              table.oTable.col-md-12
-                .jsPaymentListWidget.col-md-12 style="margin-top: 20px;"
-                  .oTableHeader
-                    h4 History your Deposite :
-                    table.oTable.col-md-12
+        li
+          a data-toggle="tab" href="#sendbox" 
+            span.glyphicon.glyphicon-user
+            | Confirmation Deposit
+      .tab-content.col-md-12.col-xs-12.col-sm-12
+        #inbox.tab-pane.fade.in.active
+          .panel-content
+            .list-group.col-md-12.col-xs-12.col-sm-12
+              .oMain
+                .jsPaymentListWidget.col-md-12
+                  .oTableHeader.oTxtMega
+                    | Your Balance :
+                    span.oPos
+                      |  IDR. 0.00
+                    br/  
+                  table.oTable.col-md-12
                       tbody
                         tr
-                          th Date
-                          th Request Money
-                          th Status
-                          th 
-                          th
-                      tbody
-                        - if @list_deposit.nil?
+                          td.txtCenter
+                            = link_to "Top Up Balance", "#deposit", class: "btn  oBtn oBtnPrimary oBtnJumbo jsAddMethod nowrap ib", "data-toggle" => "modal", "data-target" => "#deposit"
+                            p.oMute May take up to 24 hours to activate your deposite
+                  hr/
+                  table.oTable.col-md-12
+                    .jsPaymentListWidget.col-md-12 style="margin-top: 20px;"
+                      .oTableHeader
+                        h4 History your Deposite :
+                        tbody
                           tr
-                            td.oNull.text-center colspan="5"  No billing methods set up yet
-                        - else
-
-                          - @list_deposit.each do |deposit|
-                            - status = nil
-                            - if deposit.status = 1
-                              - status = "Pending"
-                            - else
-                              - status = "Success"
+                            th Deposit ID#
+                            th Deposit Date
+                            th Top up
+                            th Status
+                            th 
+                            th
+                        tbody
+                          - if @list_deposit.nil?
                             tr
-                              td = deposit.created_at.to_date
-                              td = deposit.money
-                              td = status
-                              - if deposit.status = 1
-                                td = link_to "Confirmation Deposit", "#", class: "btn btn-primary"
-                                td = link_to "Cancle Deposit", "#", class: "btn btn-danger"
+                              td.oNull.text-center colspan="6"  No billing methods set up yet
+                          - else
+                            - @list_deposit.each do |deposit|
+                              - status = nil
+                              - if deposit.status == 1
+                                - status = "Menunggu Transfer"
+                              - elsif deposit.status == 2
+                                - status = "Menunggu Pengisian"
                               - else
-                                td = link_to "Delete", "#", class: "btn btn-danger"
-                        
+                                - status = "Success"
+                              tr
+                                td = deposit.token
+                                td = deposit.created_at.to_date
+                                td = number_to_currency(deposit.money, unit: "Rp. ")
+                                td = status
+                                - if deposit.status == 1
+                                  td = link_to "Cancel Deposit", trash_deposit_payments_path(id: deposit.id), class: "btn btn-danger", method: :post
+                                - elsif deposit.status == 2
+                                  td = link_to "Edit Confirmation Data", edit_confirmation_deposit_payment_path(id: deposit.token), class: "btn btn-danger", remote: true, class: 'static-popup-link'
+
+                                - else
+                                  td = link_to "Delete", "#", class: "btn btn-danger"       
+                  br/
+                  br/
+        #sendbox.tab-pane.fade.in
+          .list-group.col-md-12.col-xs-12.col-sm-12
+            = form_for(:confirmation_deposits, url: update_confirmation_deposit_payments_path) do |f|
               br/
-              br/
+              ul.list-group
+                li.list-group-item.col-md-12
+                  .col-md-12
+                  label Confirmation Type : Deposit
+                li.list-group-item.col-md-12
+                  .col-md-3
+                    label Deposit ID (*) 
+                    = text_field_tag :deposit_token, nil, class: "form-control width-100"
+                li.list-group-item.col-md-12
+                  .col-md-6
+                    label Tanggal Transfer(*) :
+                    = f.text_field :date_transfer, class: "form-control width-100", id: "date_transfer"
+                  .col-md-6
+                    label Nama Bank (*):
+                    = f.select :bank_name_id, options_for_select(@list_bank.map{ |c| [c.name, c.id]}),{}, {class:"form-control form-input width-100"}
+                  .col-md-6
+                    label No. Pemilik Rekening (*)
+                    = f.text_field :no_credit, class: "form-control width-100"
+                  .col-md-6
+                    label Nama. Pemilik Rekening (*)
+                    = f.text_field :name_owner_credit, class: "form-control width-100"
+                li.list-group-item.col-md-12
+                  .col-md-6
+                    label Jumlah Dana (*)
+                    = f.text_field :money,:class => 'text_field width-100', data: {autonumeric: {aSign: 'Rp ', mDec: 2}}
+                li.list-group-item.col-md-12
+                  .col-md-12
+                    h4 Konfirmasi di atas jam 21.00 atau di Hari Libur? (optional)
+                    p Untuk pembayaran yang dilakukan diatas jam 21.00WIB atau pada hari libur di atas jam 17.00WIB, silahkan mengupload bukti transfer melalui form dibawah ini agar pembayaran Anda dapat diproses segera.
+                    = f.file_field :attach, :class => 'input-lg filestyle', "data-icon"=>"false"
+                li.list-group-item.col-md-12
+                  .col-md-12
+                    = f.label "Current Password (*)"
+                    br/
+                    = text_field_tag :password, nil, type: "password", :class => ' width-100 input-lg'
+                li.list-group-item.col-md-12
+                  .col-md-12
+                    = f.submit "Submit", class: "btn btn-success"
+
 #deposit.modal.fade aria-hidden="true" aria-labelledby="voteLabel" role="dialog" tabindex="-1" 
   .modal-dialog
     .modal-content
@@ -77,7 +130,7 @@
                 li.list-group-item
                   = f.label "Request Top Up Balance (*)"
                   br/
-                  = f.text_field :money, placeholde: "Example : 200000",  :class => 'text_field width-100 input-lg', type: "number"
+                  = f.text_field :money, :class => 'text_field width-100 input-lg', data: {autonumeric: {aSign: 'Rp ', mDec: 2}}
 
                 li.list-group-item
                   = f.label "Current Password (*)"
@@ -85,4 +138,19 @@
                   = f.text_field :password, type: "password", :class => ' width-100 input-lg'
           .modal-footer
             = f.submit "Request", :class => "button btn btn-success"
-            button.btn.btn-danger.btn-close data-dismiss="modal" type="button"  Cancle
+            button.btn.btn-danger.btn-close data-dismiss="modal" type="button"  Cancel
+
+#myModal.modal.fade aria-hidden="true" aria-labelledby="voteLabel" role="dialog" tabindex="-1"
+javascript:
+  $(document).ready(function(){
+    $(":file").filestyle({
+    })
+    $('#date_transfer').datepicker({
+        format: "yyyy/mm/dd",
+        clearBtn: true,
+        orientation: "bottom right",
+        calendarWeeks: true,
+        autoclose: true
+    });
+
+  })

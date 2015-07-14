@@ -1,44 +1,59 @@
-rate_price = RatePrice.find_by(rate: 50000)
-if rate_price.blank?
-  rate_price = RatePrice.create!(rate: 50000, operator: "<", )
+bank_name = BankName.find_by(name: "Bank Mandiri")
+if bank_name.blank?
+  bank_name = BankName.create!(name: "Bank Mandiri")
 end
 
-rate_price = RatePrice.find_by(rate: 100000)
-if rate_price.blank?
-  rate_price = RatePrice.create!(rate: 100000, operator: "<", )
+bank_name = BankName.find_by(name: "Bank Rakyat Indonesia")
+if bank_name.blank?
+  bank_name = BankName.create!(name: "Bank Rakyat Indonesia" )
 end
 
-rate_price = RatePrice.find_by(rate: 150000)
-if rate_price.blank?
-  rate_price = RatePrice.create!(rate: 150000, operator: "<", )
+bank_name = BankName.find_by(name: "Bank Central Asia")
+if bank_name.blank?
+  bank_name = BankName.create!(name: "Bank Central Asia")
 end
 
-rate_price = RatePrice.find_by(rate: 250000)
-if rate_price.blank?
-  rate_price = RatePrice.create!(rate: 250000, operator: "<", )
+bank_name = BankName.find_by(name: "BNI")
+if bank_name.blank?
+  bank_name = BankName.create!(name: "BNI")
 end
 
-rate_price = RatePrice.find_by(rate: 350000)
-if rate_price.blank?
-  rate_price = RatePrice.create!(rate: 350000, operator: "<", )
+bank_name = BankName.find_by(name: "CIMB Niaga")
+if bank_name.blank?
+  bank_name = BankName.create!(name: "CIMB Niaga")
 end
 
-rate_price = RatePrice.find_by(rate: 500000)
-if rate_price.blank?
-  rate_price = RatePrice.create!(rate: 500000, operator: "<", )
+bank_name = BankName.find_by(name: "Bank Mega")
+if bank_name.blank?
+  bank_name = BankName.create!(name: "Bank Mega")
 end
 
-rate_price = RatePrice.find_by(rate: 750000)
-if rate_price.blank?
-  rate_price = RatePrice.create!(rate: 750000, operator: "<", )
+bank_name = BankName.find_by(name: "Bank Permata")
+if bank_name.blank?
+  bank_name = BankName.create!(name: "Bank Permata")
 end
 
-rate_price = RatePrice.find_by(rate: 1000000)
-if rate_price.blank?
-  rate_price = RatePrice.create!(rate: 1000000, operator: "<", )
+bank_name = BankName.find_by(name: "Bank Panin")
+if bank_name.blank?
+  bank_name = BankName.create!(name: "Bank Panin")
 end
 
-rate_price = RatePrice.find_by(rate: 1000000)
-if rate_price.blank?
-  rate_price = RatePrice.create!(rate: 1000000, operator: ">", )
+bank_name = BankName.find_by(name: "BII")
+if bank_name.blank?
+  bank_name = BankName.create!(name: "BII")
+end
+
+bank_name = BankName.find_by(name: "Bank Danamon")
+if bank_name.blank?
+  bank_name = BankName.create!(name: "Bank Danamon")
+end
+
+bank_name = BankName.find_by(name: "BTN")
+if bank_name.blank?
+  bank_name = BankName.create!(name: "BTN")
+end
+
+bank_name = BankName.find_by(name: "Bank Bukopin")
+if bank_name.blank?
+  bank_name = BankName.create!(name: "Bank Bukopin")
 end
