@@ -104,7 +104,7 @@
                 li.list-group-item.col-md-12
                   .col-md-6
                     label Jumlah Dana (*)
-                    = f.text_field :money,:class => 'text_field width-100', data: {autonumeric: {aSign: 'Rp ', mDec: 2}}
+                    = f.text_field :money,:class => 'text_field width-100', id: "money", data: {autonumeric: {aSign: 'Rp ', mDec: 2}}
                 li.list-group-item.col-md-12
                   .col-md-12
                     h4 Konfirmasi di atas jam 21.00 atau di Hari Libur? (optional)
@@ -130,7 +130,7 @@
                 li.list-group-item
                   = f.label "Request Top Up Balance (*)"
                   br/
-                  = f.text_field :money, :class => 'text_field width-100 input-lg', data: {autonumeric: {aSign: 'Rp ', mDec: 2}}
+                  = f.text_field :money, :class => 'text_field width-100 input-lg', id: "money1", data: {autonumeric: {aSign: 'Rp ', mDec: 2}}
 
                 li.list-group-item
                   = f.label "Current Password (*)"
@@ -152,5 +152,4 @@ javascript:
         calendarWeeks: true,
         autoclose: true
     });
-
   })
