@@ -37,7 +37,7 @@ class PaymentsController < ApplicationController
     if current_user.valid_password?(params[:deposit][:password])
       @deposit = current_user.deposits.new(param_deposit)
       if @deposit.save
-        @deposit.confirmation_deposits.new(user_id: @deposit.user_id).save
+        ConfirmationDeposit.new(deposit_id:@deposit.id, user_id: @deposit.user_id).save
         redirect_to :back, notice: "Your Deposit has been save and Please go to your email to check next phase"
       else
         redirect_to :back, notice: "Your Deposit can't save and Please fill with input valid"
