@@ -38,7 +38,7 @@ class PaymentsController < ApplicationController
       @deposit = current_user.deposits.new(param_deposit)
       if @deposit.save
         ConfirmationDeposit.new(deposit_id:@deposit.id, user_id: @deposit.user_id).save
-        redirect_to :back, notice: "Your Deposit has been save and Please go to your email to check next phase"
+        redirect_to :back, notice: "Terima Kasih, Deposit anda akan kami proses maksimum 1x 24jam. Mohon di isi confirmation deposit setelah anda selesai melakukan transfer"
       else
         redirect_to :back, notice: "Your Deposit can't save and Please fill with input valid"
       end
