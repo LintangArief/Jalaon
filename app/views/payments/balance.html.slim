@@ -27,47 +27,6 @@
                   tbody
                     tr
                       td.txtCenter
-                        = link_to "Request Withdraw", "", class: "btn  oBtn oBtnPrimary oBtnJumbo jsAddMethod nowrap ib margin-right-10", "data-toggle" => "modal", "data-target" => "#withdraw"
-                        = link_to "Top Up Balance", "#deposit", class: "btn  oBtn oBtnPrimary oBtnJumbo jsAddMethod nowrap ib", "data-toggle" => "modal", "data-target" => "#deposit"
+                        = link_to "Request Withdraw", withdraw_payments_path, class: "btn  oBtn oBtnPrimary oBtnJumbo jsAddMethod nowrap ib margin-right-10"
+                        = link_to "Top Up Balance", deposit_payments_path, class: "btn  oBtn oBtnPrimary oBtnJumbo jsAddMethod nowrap ib"
                         p.oMute May take up to 24 hours to activate your Withdraw / Deposite
-
-#withdraw.modal.fade aria-hidden="true" aria-labelledby="voteLabel" role="dialog" tabindex="-1" 
-  .modal-dialog
-    .modal-content
-          .modal-header.panel-danger Withdraw Balance
-          .modal-body
-            .col-md-12
-              = form_tag Service.new do
-                ul.list-group
-                  li.list-group-item
-                    = label_tag "Request Withdraw (*)"
-                    br/
-                    = text_field_tag :title, nil, placeholde: "Example : 200000",  :class => 'text_field width-100 input-lg', type: "number"
-
-                  li.list-group-item
-                    = label_tag "Current Password (*)"
-                    br/
-                    = text_field_tag :price, nil, type: "password", :class => ' width-100 input-lg'
-          .modal-footer
-            = submit_tag "Request", :class => "button btn btn-success"
-            button.btn.btn-danger.btn-close data-dismiss="modal" type="button"  Cancle
-#deposit.modal.fade aria-hidden="true" aria-labelledby="voteLabel" role="dialog" tabindex="-1" 
-  .modal-dialog
-    .modal-content
-          .modal-header.panel-danger TopUp your Balance
-          .modal-body
-            .col-md-12
-              = form_tag Service.new do
-                ul.list-group
-                  li.list-group-item
-                    = label_tag "Request Top Up Balance (*)"
-                    br/
-                    = text_field_tag :title, nil, placeholde: "Example : 200000",  :class => 'text_field width-100 input-lg', type: "number"
-
-                  li.list-group-item
-                    = label_tag "Current Password (*)"
-                    br/
-                    = text_field_tag :price, nil, type: "password", :class => ' width-100 input-lg'
-          .modal-footer
-            = submit_tag "Request", :class => "button btn btn-success"
-            button.btn.btn-danger.btn-close data-dismiss="modal" type="button"  Cancle

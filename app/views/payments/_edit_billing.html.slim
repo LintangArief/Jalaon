@@ -1,0 +1,25 @@
+.modal-dialog
+  .modal-content
+    .modal-header
+      h5 Add Your Bank Data
+    .modal-body
+      = form_for(@billing, url: update_billing_payments_path(id: @billing.id), method: :post) do |f|
+        ul.list-group
+          li.list-group-item.col-md-12
+            .col-md-6
+              label Nama Bank (*):
+              = f.select :bank_name_id, options_for_select(@list_bank.map{ |c| [c.name, c.id]}),{}, {class:"form-control form-input width-100"}
+            .col-md-6
+              label No. Pemilik Rekening (*)
+              = f.text_field :account_number, class: "form-control width-100", value: @billing.account_number
+            .col-md-12
+              label Nama. Pemilik Rekening (*)
+              = f.text_field :owner, class: "form-control width-100", value: @billing.owner
+          li.list-group-item.col-md-12
+            .col-md-12
+              = f.label "Current Password (*)"
+              br/
+              = text_field_tag :password, nil, type: "password", :class => ' width-100 input-lg'
+          li.list-group-item.col-md-12
+            .col-md-12
+              = f.submit "Submit", class: "btn btn-success" 

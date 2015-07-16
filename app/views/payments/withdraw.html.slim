@@ -38,32 +38,113 @@
                     table.oTable.col-md-12
                       tbody
                         tr
-                          th colspan="2" Bank Name
-                          th Owner
-                          th.col1of6 Number Account
-                          th 
+                          th Bank Name
+                          th Account Number
+                          th Account Name
+                          th Date Paid
+                          th Request Paid
+                          th Status
+                          th
                       tbody
-                        tr
-                          td.oNull.text-center colspan="5"  No hostory withdraw set up yet
+                        - if @withdraws.nil?
+                          tr
+                            td.oNull.text-center colspan="5"  No hostory withdraw set up yet
+                        - else
+                          - @withdraws.each do |withdraw|
+                            - status = nil
+                            - if withdraw.status == 1
+                              - status = "Status"
+                            - else
+                              - status = "Pending"
+                            tr
+                              - if withdraw.billing_id.nil?
+                                td.oNull = withdraw.bank_name.name
+                                td.oNull = h truncate(withdraw.account_number, :length => 12)
+                                td.oNull = h truncate(withdraw.account_name, :length => 13)
+                                td.oNull = withdraw.created_at.strftime("%Y/%m/%d")
+                              - else
+                                td.oNull = withdraw.billing.bank_name.name
+                                td.oNull = withdraw.billing.account_number
+                                td.oNull = withdraw.billing.owner
+                                td.oNull = withdraw.billing.created_at.strftime("%Y/%m/%d")
+                              td.oNull = number_to_currency(withdraw.money, unit: "Rp. ")
+                              td.oNull #{status}
+                              td.oNull
+                                .col-md-6
+                                  = link_to "", edit_withdraw_payment_path(id: withdraw.id), remote: true, :class=>"btn btn-block btn-success glyphicon glyphicon-pencil"
+                                .col-md-6
+                                  = link_to "", "#", :class=>"btn btn-block btn-danger glyphicon glyphicon-trash"
+
               br/
               br/
 #withdraw.modal.fade aria-hidden="true" aria-labelledby="voteLabel" role="dialog" tabindex="-1" 
   .modal-dialog
     .modal-content
-          .modal-header.panel-danger Withdraw Balance
-          .modal-body
-            .col-md-12
-              = form_tag Service.new do
-                ul.list-group
-                  li.list-group-item
-                    = label_tag "Request Withdraw (*)"
-                    br/
-                    = text_field_tag :title, nil, placeholde: "Example : 200000",  :class => 'text_field width-100 input-lg', type: "number"
+      = form_for(:withdraw, url: create_withdraw_payments_path) do |f|
+        .modal-header.panel-danger Withdraw Balance
+        .modal-body
+          .col-md-12        
+            ul.list-group
+              li.list-group-item.col-md-12
+                label Request Paid
+                = f.text_field :money,:class => 'text_field width-100', id: "money", data: {autonumeric: {aSign: 'Rp ', mDec: 2}}
+              li.list-group-item.col-md-12
+                label Choose Your Bank
+                = select_tag :choose_bank, options_for_select([["Select Bank",0],["Select From Account",1], ["Other Bank",2]]), class:"form-control form-input width-100", id: "select_bank"
+              .current-bank-info
+                li.list-group-item.col-md-12              
+                  label Your Bank
+                  = f.select :billing_id, options_for_select(@billings.map{ |c| ["#{c.bank_name.name} - #{c.account_number}", c.id]}),{}, {class:"form-control form-input width-100"}
+              .bank-info  
+                li.list-group-item.col-md-12
+                  h5 Bank Information
+                  ul.list-group
+                    li.list-group-item.col-md-12
+                      label Bank Name
+                      = f.select :bank_name_id, options_for_select(@list_bank.map{ |c| [c.name, c.id]}),{}, {class:"form-control form-input width-100"}
+                    li.list-group-item.col-md-12
+                      label Account Name
+                      = f.text_field :account_name, class: "form-control width-100"
+                    li.list-group-item.col-md-12
+                      label Account Number
+                      = f.text_field :account_number, class: "form-control width-100"
+        .modal-footer
+          br/
+          .list-group-item.col-md-12
+            = f.label "Current Password (*)"
+            br/
+            = text_field_tag :password, nil, type: "password", :class => ' width-100 input-lg'
+          = f.submit "Request", :class => "button btn btn-success"
+          button.btn.btn-danger.btn-close data-dismiss="modal" type="button"  Cancle
+#myModal.modal.fade aria-hidden="true" aria-labelledby="voteLabel" role="dialog" tabindex="-1" 
 
-                  li.list-group-item
-                    = label_tag "Current Password (*)"
-                    br/
-                    = text_field_tag :price, nil, type: "password", :class => ' width-100 input-lg'
-          .modal-footer
-            = submit_tag "Request", :class => "button btn btn-success"
-            button.btn.btn-danger.btn-close data-dismiss="modal" type="button"  Cancle
+javascript:
+  $(document).ready(function(){
+    $('#withdraw_billing_id').val("");
+    $('#withdraw_bank_name_id').val("");
+    $('#withdraw_account_name').val("");
+    $('#withdraw_account_number').val("");
+    $('#password').val("");
+    $('.current-bank-info').hide();
+    $('.bank-info').hide();
+    $('#select_bank').change(function(){
+      if ($('#select_bank').val() == "1"){
+        $('.bank-info').hide();
+        $('.current-bank-info').show();
+        $('#withdraw_bank_name_id').val("");
+        $('#withdraw_account_name').val("");
+        $('#withdraw_account_number').val("");
+      }else if($('#select_bank').val() == "2"){
+        $('.current-bank-info').hide();
+        $('.bank-info').show();
+        $('#withdraw_billing_id').val("");
+      }else{
+        $('.current-bank-info').hide();
+        $('.bank-info').hide();
+        $('#withdraw_billing_id').val("");
+        $('#withdraw_bank_name_id').val("");
+        $('#withdraw_account_name').val("");
+        $('#withdraw_account_number').val("");
+      };
+    });
+  });

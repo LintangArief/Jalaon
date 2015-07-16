@@ -31,6 +31,7 @@
   padding: 6px 15px 6px 11px;
   font-weight: 400!important;
   font-family: "Gotham Bold";
+  font-size: 12px;
 }
 
 .col, .oMain, .oSide {
@@ -134,4 +135,7 @@
 }
 .margin-right-10{
   margin-right: 10px !important; 
+}
+td.oNull {
+  font-size: 10px;
 }

@@ -1,0 +1,92 @@
+.modal-dialog
+  .modal-content
+    = form_for(@withdraw, url: update_withdraw_payments_path(id: @withdraw.id), method: :post) do |f|
+      .modal-header.panel-danger Withdraw Balance
+      .modal-body
+        .col-md-12        
+          ul.list-group
+            li.list-group-item.col-md-12
+              label Request Paid
+              = f.text_field :money,:class => 'text_field width-100', id: "money1", data: {autonumeric: {aSign: 'Rp ', mDec: 2}}, value: @withdraw.money
+            li.list-group-item.col-md-12
+              label Choose Your Bank
+              = select_tag :choose_bank, options_for_select([["Select Bank",0],["Select From Account",1], ["Other Bank",2]]), class:"form-control form-input width-100", id: "select_bank1"
+            .current-bank-info1
+              li.list-group-item.col-md-12              
+                label Your Bank
+                = f.select :billing_id, options_for_select(@billings.map{ |c| ["#{c.bank_name.name} - #{c.account_number}", c.id]}),{}, {class:"form-control form-input width-100", id: "withdraw_billing_id1"}
+            .bank-info1
+              li.list-group-item.col-md-12
+                h5 Bank Information
+                ul.list-group
+                  li.list-group-item.col-md-12
+                    label Bank Name
+                    = f.select :bank_name_id, options_for_select(@list_bank.map{ |c| [c.name, c.id]}),{}, {class:"form-control form-input width-100", id: "withdraw_bank_name_id1"}
+                  li.list-group-item.col-md-12
+                    label Account Name
+                    = f.text_field :account_name, class: "form-control width-100", value: @withdraw.account_name, id: "withdraw_account_name1"
+                  li.list-group-item.col-md-12
+                    label Account Number
+                    = f.text_field :account_number, class: "form-control width-100", value: @withdraw.account_number, id: "withdraw_account_number1"
+      .modal-footer
+        br/
+        .list-group-item.col-md-12
+          = f.label "Current Password (*)"
+          br/
+          = text_field_tag :password, nil, type: "password", :class => ' width-100 input-lg'
+        = f.submit "Request", :class => "button btn btn-success btn-send", id: "password1"
+        button.btn.btn-danger.btn-close data-dismiss="modal" type="button"  Cancle
+
+javascript:
+  $(document).ready(function(){
+    $('#withdraw_billing_id1').val("");
+    $('#withdraw_bank_name_id1').val("");
+    $('#withdraw_account_name1').val("");
+    $('#withdraw_account_number1').val("");
+    $('#password1').val("");
+    $('.current-bank-info1').hide();
+    $('.bank-info1').hide();
+
+    $('#select_bank1').change(function(){
+      if ($('#select_bank1').val() == "1"){
+        $('.bank-info1').hide();
+        $('.current-bank-info1').show();
+        $('#withdraw_bank_name_id1').val("");
+        $('#withdraw_account_name1').val("");
+        $('#withdraw_account_number1').val("");
+      }else if($('#select_bank1').val() == "2"){
+        $('.current-bank-info1').hide();
+        $('.bank-info1').show();
+        $('#withdraw_billing_id1').val("");
+      }else{
+        $('.current-bank-info1').hide();
+        $('.bank-info1').hide();
+        $('#withdraw_billing_id1').val("");
+        $('#withdraw_bank_name_id1').val("");
+        $('#withdraw_account_name1').val("");
+        $('#withdraw_account_number1').val("");
+      };
+    });
+
+    $('.btn-send').click(function(){
+      if ($('#select_bank1').val() == "1"){
+        $('.bank-info1').hide();
+        $('.current-bank-info1').show();
+        $('#withdraw_bank_name_id1').val("");
+        $('#withdraw_account_name1').val("");
+        $('#withdraw_account_number1').val("");
+      }else if($('#select_bank1').val() == "2"){
+        $('.current-bank-info1').hide();
+        $('.bank-info1').show();
+        $('#withdraw_billing_id1').val("");
+      }else{
+        $('.current-bank-info1').hide();
+        $('.bank-info1').hide();
+        $('#withdraw_billing_id1').val("");
+        $('#withdraw_bank_name_id1').val("");
+        $('#withdraw_account_name1').val("");
+        $('#withdraw_account_number1').val("");
+      };
+    })
+
+  });

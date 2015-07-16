@@ -68,10 +68,16 @@ Rails.application.routes.draw do
       get 'transaction'
       post 'create_deposit'
       post 'update_confirmation_deposit'
+      post 'update_billing'
+      post 'update_withdraw'
       post 'trash_deposit'
+      post 'create_billing'
+      post 'create_withdraw'
     end
     member do
       get 'edit_confirmation_deposit'
+      get 'edit_billing'
+      get 'edit_withdraw'
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.

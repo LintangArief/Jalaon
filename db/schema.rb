@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150714193801) do
+ActiveRecord::Schema.define(version: 20150716160240) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,6 +67,15 @@ ActiveRecord::Schema.define(version: 20150714193801) do
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
+  create_table "balances", force: :cascade do |t|
+    t.integer  "user_id"
+    t.decimal  "money"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "balances", ["user_id"], name: "index_balances_on_user_id", using: :btree
+
   create_table "bank_names", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -75,10 +84,12 @@ ActiveRecord::Schema.define(version: 20150714193801) do
 
   create_table "billings", force: :cascade do |t|
     t.integer  "bank_name_id"
-    t.integer  "account_number"
+    t.integer  "string"
     t.string   "owner"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.integer  "user_id",        null: false
+    t.string   "account_number"
   end
 
   add_index "billings", ["bank_name_id"], name: "index_billings_on_bank_name_id", using: :btree
@@ -360,13 +371,21 @@ ActiveRecord::Schema.define(version: 20150714193801) do
   create_table "withdraws", force: :cascade do |t|
     t.integer  "user_id"
     t.decimal  "money"
-    t.integer  "status",     default: 1
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.integer  "billing_id"
+    t.integer  "bank_name_id"
+    t.string   "account_name"
+    t.boolean  "has_billing",    default: false
+    t.boolean  "status",         default: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.string   "account_number"
   end
 
+  add_index "withdraws", ["bank_name_id"], name: "index_withdraws_on_bank_name_id", using: :btree
+  add_index "withdraws", ["billing_id"], name: "index_withdraws_on_billing_id", using: :btree
   add_index "withdraws", ["user_id"], name: "index_withdraws_on_user_id", using: :btree
 
+  add_foreign_key "balances", "users"
   add_foreign_key "billings", "bank_names"
   add_foreign_key "confirmation_deposits", "bank_names"
   add_foreign_key "confirmation_deposits", "deposits"
@@ -381,5 +400,7 @@ ActiveRecord::Schema.define(version: 20150714193801) do
   add_foreign_key "product_services", "services"
   add_foreign_key "service_fields", "service_categories"
   add_foreign_key "verify_users", "users"
+  add_foreign_key "withdraws", "bank_names"
+  add_foreign_key "withdraws", "billings"
   add_foreign_key "withdraws", "users"
 end

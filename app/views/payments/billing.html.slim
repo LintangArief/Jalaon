@@ -19,16 +19,56 @@
           .oMain
             .jsPaymentListWidget.col-md-12
               br/
-              button.oBtn.oBtnPrimary.oBtnJumbo.jsAddMethod.nowrap.ib  Add Billing Method
+              = link_to "Add Billing Method", "#billing", class: "btn  oBtn oBtnPrimary oBtnJumbo jsAddMethod nowrap ib", "data-toggle" => "modal", "data-target" => "#billing"  
               table.oTable.col-md-12
                 tbody
                   tr
-                    th colspan="2" Bank Name
-                    th Owner
+                    th Bank Name
+                    th Name Account
                     th.col1of6 Number Account
                     th 
                 tbody
-                  tr
-                    td.oNull.text-center colspan="5"  No billing methods set up yet
+                  - if @list_billing.nil?
+                    tr
+                      td.oNull.text-center colspan="5"  No billing methods set up yet
+                  - else
+                    - @list_billing.each do |bil|
+                      tr
+                        td.oNull #{bil.bank_name.name}
+                        td.oNull #{bil.owner}
+                        td.oNull #{bil.account_number}
+                        td.oNull
+                          .col-md-6
+                            = link_to "Edit", edit_billing_payment_path(id: bil.id), remote: true, :class=>"btn btn-block btn-success"
+                          .col-md-6
+                            = link_to "Delete", "#", :class=>"btn btn-block btn-danger"
           br/
-          br/
+          br
+
+#billing.modal.fade aria-hidden="true" aria-labelledby="voteLabel" role="dialog" tabindex="-1" 
+  .modal-dialog
+    .modal-content
+      .modal-header
+        h5 Add Your Bank Data
+      .modal-body
+        = form_for(@billing, url: create_billing_payments_path) do |f|
+          ul.list-group
+            li.list-group-item.col-md-12
+              .col-md-6
+                label Nama Bank (*):
+                = f.select :bank_name_id, options_for_select(@list_bank.map{ |c| [c.name, c.id]}),{}, {class:"form-control form-input width-100"}
+              .col-md-6
+                label No. Pemilik Rekening (*)
+                = f.text_field :account_number, class: "form-control width-100"
+              .col-md-12
+                label Nama. Pemilik Rekening (*)
+                = f.text_field :owner, class: "form-control width-100"
+            li.list-group-item.col-md-12
+              .col-md-12
+                = f.label "Current Password (*)"
+                br/
+                = text_field_tag :password, nil, type: "password", :class => ' width-100 input-lg'
+            li.list-group-item.col-md-12
+              .col-md-12
+                = f.submit "Submit", class: "btn btn-success" 
+#edit_billing.modal.fade aria-hidden="true" aria-labelledby="voteLabel" role="dialog" tabindex="-1" 

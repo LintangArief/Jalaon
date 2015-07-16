@@ -21,6 +21,8 @@ class User < ActiveRecord::Base
   has_many :deposits
   has_many :withdraws
   has_many :confirmation_deposits
+  has_many :billing
+  has_one :balance
 
   # acts_as_messageable :table_name => "messages"
   def check_verify
@@ -29,16 +31,11 @@ class User < ActiveRecord::Base
       VerifyUser.create!(user_id: self.id)
     end
   end
+
   def name
     return false
   end
-  #Returning the email address of the model if an email should be sent for this object (Message or Notification).
-  #If no mail has to be sent, return nil.
   def mailboxer_email(object)
-    #Check if an email should be sent for that object
-    #if true
     return false
-    #if false
-    #return nil
   end
 end
