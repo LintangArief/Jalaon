@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
 
   
   after_save :check_verify
+  after_save :create_balance
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -32,9 +33,17 @@ class User < ActiveRecord::Base
     end
   end
 
+  def create_balance
+    check_balance = self.balance
+    if check_balance == nil
+      Balance.create!(user_id: self.id)
+    end
+  end
+
   def name
     return false
   end
+  
   def mailboxer_email(object)
     return false
   end
