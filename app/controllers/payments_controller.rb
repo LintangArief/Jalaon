@@ -15,7 +15,7 @@ class PaymentsController < ApplicationController
   end
 
   def history
-  
+    
   end
 
   def deposit
@@ -24,7 +24,7 @@ class PaymentsController < ApplicationController
   end
 
   def transaction
-  
+    
   end
   
   def balance
@@ -54,13 +54,12 @@ class PaymentsController < ApplicationController
   end
 
   def edit_confirmation_deposit
-    @deposit = Deposit.find_by(token: params[:id])
+    @deposit = current_user.deposits.find_by(token: params[:id])
     @confirmation_deposit = @deposit.confirmation_deposit
     @list_bank = BankName.all
   end
 
   def edit_billing
-    @billing = current_user.billings.find(params[:id])
     @list_bank = BankName.all
   end
 
@@ -147,7 +146,7 @@ class PaymentsController < ApplicationController
 
   private
     def set_billing
-      @billing = current_user.billings.find(params[:id])
+      @billing = current_user.billing.find(params[:id])
     end
 
     def set_withdraw

@@ -28,7 +28,7 @@
                   .oTableHeader.oTxtMega
                     | Your Balance :
                     span.oPos
-                      |  IDR. 0.00
+                      |  #{number_to_currency(current_user.balance.money, unit: "Rp. ")}
                     br/  
                   table.oTable.col-md-12
                       tbody
