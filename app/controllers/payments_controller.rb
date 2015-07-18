@@ -1,7 +1,7 @@
 class PaymentsController < ApplicationController
   before_action :set_billing, only: [:edit_billing, :update_billing]
   before_action :set_withdraw, only: [:edit_withdraw, :update_withdraw]
-  before_filter :check_balance if current_user
+  before_filter :check_balance
 
   def billing
     @billing = current_user.billing.new
