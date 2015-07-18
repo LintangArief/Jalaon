@@ -28,6 +28,12 @@
                   li.list-group-item.col-md-12
                     label Account Number
                     = f.text_field :account_number, class: "form-control width-100", value: @withdraw.account_number, id: "withdraw_account_number1"
+                  li.list-group-item.col-md-6
+                    label Branch
+                    = f.text_field :branch, class: "form-control width-100", value: @withdraw.branch, id: "withdraw_branch1"
+                  li.list-group-item.col-md-6
+                    label City
+                    = f.text_field :city, class: "form-control width-100", value: @withdraw.city, id: "withdraw_city1"
       .modal-footer
         br/
         .list-group-item.col-md-12
@@ -43,6 +49,8 @@ javascript:
     $('#withdraw_bank_name_id1').val("");
     $('#withdraw_account_name1').val("");
     $('#withdraw_account_number1').val("");
+    $('#withdraw_branch1').val("");
+    $('#withdraw_city1').val("");
     $('#password1').val("");
     $('.current-bank-info1').hide();
     $('.bank-info1').hide();
@@ -54,6 +62,8 @@ javascript:
         $('#withdraw_bank_name_id1').val("");
         $('#withdraw_account_name1').val("");
         $('#withdraw_account_number1').val("");
+        $('#withdraw_branch1').val("");
+        $('#withdraw_city1').val("");
       }else if($('#select_bank1').val() == "2"){
         $('.current-bank-info1').hide();
         $('.bank-info1').show();
@@ -65,6 +75,8 @@ javascript:
         $('#withdraw_bank_name_id1').val("");
         $('#withdraw_account_name1').val("");
         $('#withdraw_account_number1').val("");
+        $('#withdraw_branch1').val("");
+        $('#withdraw_city1').val("");
       };
     });
 
@@ -75,6 +87,8 @@ javascript:
         $('#withdraw_bank_name_id1').val("");
         $('#withdraw_account_name1').val("");
         $('#withdraw_account_number1').val("");
+        $('#withdraw_branch1').val("");
+        $('#withdraw_city1').val("");
       }else if($('#select_bank1').val() == "2"){
         $('.current-bank-info1').hide();
         $('.bank-info1').show();
@@ -86,6 +100,8 @@ javascript:
         $('#withdraw_bank_name_id1').val("");
         $('#withdraw_account_name1').val("");
         $('#withdraw_account_number1').val("");
+        $('#withdraw_branch1').val("");
+        $('#withdraw_city1').val("");
       };
     })
 

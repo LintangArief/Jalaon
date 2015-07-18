@@ -65,7 +65,7 @@
                               td
                                 h5 style="text-align:left;" #{product.title}
                               td
-                                button.btn.btn-block.btn-primary Order
+                                = link_to "Order", add_cart_cart_path(product_id: product.id), :class=> "btn btn-block btn-primary", method: :post
                             tr
                               td
                                 - product.foto_product_services.each do |avatars|

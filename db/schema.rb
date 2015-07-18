@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150716182019) do
+ActiveRecord::Schema.define(version: 20150718100053) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -90,6 +90,8 @@ ActiveRecord::Schema.define(version: 20150716182019) do
     t.datetime "updated_at",     null: false
     t.integer  "user_id",        null: false
     t.string   "account_number"
+    t.string   "branch"
+    t.string   "city"
   end
 
   add_index "billings", ["bank_name_id"], name: "index_billings_on_bank_name_id", using: :btree
@@ -108,6 +110,8 @@ ActiveRecord::Schema.define(version: 20150716182019) do
   create_table "carts", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.integer  "service_id"
   end
 
   create_table "confirmation_deposits", force: :cascade do |t|
@@ -272,6 +276,20 @@ ActiveRecord::Schema.define(version: 20150716182019) do
   add_index "message_users", ["ancestry"], name: "index_message_users_on_ancestry", using: :btree
   add_index "message_users", ["sent_messageable_id", "received_messageable_id"], name: "acts_as_messageable_ids", using: :btree
 
+  create_table "orders", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "service_id"
+    t.integer  "product_service_id"
+    t.integer  "quantity"
+    t.boolean  "status"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "orders", ["product_service_id"], name: "index_orders_on_product_service_id", using: :btree
+  add_index "orders", ["service_id"], name: "index_orders_on_service_id", using: :btree
+  add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
+
   create_table "product_services", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
@@ -379,6 +397,8 @@ ActiveRecord::Schema.define(version: 20150716182019) do
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
     t.string   "account_number"
+    t.string   "branch"
+    t.string   "city"
   end
 
   add_index "withdraws", ["bank_name_id"], name: "index_withdraws_on_bank_name_id", using: :btree
@@ -397,6 +417,9 @@ ActiveRecord::Schema.define(version: 20150716182019) do
   add_foreign_key "mailboxer_conversation_opt_outs", "mailboxer_conversations", column: "conversation_id", name: "mb_opt_outs_on_conversations_id"
   add_foreign_key "mailboxer_notifications", "mailboxer_conversations", column: "conversation_id", name: "notifications_on_conversation_id"
   add_foreign_key "mailboxer_receipts", "mailboxer_notifications", column: "notification_id", name: "receipts_on_notification_id"
+  add_foreign_key "orders", "product_services"
+  add_foreign_key "orders", "services"
+  add_foreign_key "orders", "users"
   add_foreign_key "product_services", "services"
   add_foreign_key "service_fields", "service_categories"
   add_foreign_key "verify_users", "users"

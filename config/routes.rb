@@ -56,7 +56,11 @@ Rails.application.routes.draw do
   get '/profile/:name/:id' => 'pages#profile', :as => :profile
   match '/add_field' =>  'service_categories#add_field', :via => 'get', :as => :admin_add_field
 
-  resources :carts
+  resources :carts do
+    member do
+      post 'add_cart'
+    end
+  end
 
   resources :payments do
     collection do

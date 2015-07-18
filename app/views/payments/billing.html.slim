@@ -63,6 +63,12 @@
               .col-md-12
                 label Nama. Pemilik Rekening (*)
                 = f.text_field :owner, class: "form-control width-100"
+              .col-md-6
+                label Branch (*)
+                = f.text_field :branch, class: "form-control width-100"
+              .col-md-6
+                label City (*)
+                = f.text_field :city, class: "form-control width-100"
             li.list-group-item.col-md-12
               .col-md-12
                 = f.label "Current Password (*)"

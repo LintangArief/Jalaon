@@ -158,7 +158,7 @@ class PaymentsController < ApplicationController
     end
 
     def param_withdraw
-      params.require(:withdraw).permit(:billing_id, :bank_name_id, :account_number, :account_name, :has_billing, :status, :money)
+      params.require(:withdraw).permit(:billing_id, :bank_name_id, :account_number, :account_name, :has_billing, :status, :money, :branch, :city)
     end
 
     def params_confirmation_deposit
@@ -166,7 +166,7 @@ class PaymentsController < ApplicationController
     end
 
     def param_billing
-      params.require(:billing).permit(:bank_name_id, :account_number, :owner)
+      params.require(:billing).permit(:bank_name_id, :account_number, :owner, :branch, :city)
     end
 
 end

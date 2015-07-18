@@ -24,6 +24,7 @@ class User < ActiveRecord::Base
   has_many :confirmation_deposits
   has_many :billing
   has_one :balance
+  has_many :carts
 
   # acts_as_messageable :table_name => "messages"
   def check_verify
