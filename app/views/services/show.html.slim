@@ -65,7 +65,11 @@
                               td
                                 h5 style="text-align:left;" #{product.title}
                               td
-                                = link_to "Order", add_cart_cart_path(product_id: product.id), :class=> "btn btn-block btn-primary", method: :post
+                                - if current_user
+                                  - unless current_user.id == @service.user_id
+                                    = link_to "Order", add_cart_cart_path(product_id: product.id), :class=> "btn btn-block btn-primary", method: :post
+                                - else
+                                  = link_to "Order", new_user_session_path, :class=> "btn btn-block btn-primary", method: :post
                             tr
                               td
                                 - product.foto_product_services.each do |avatars|

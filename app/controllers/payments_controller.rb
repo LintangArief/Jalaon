@@ -1,6 +1,7 @@
 class PaymentsController < ApplicationController
   before_action :set_billing, only: [:edit_billing, :update_billing]
   before_action :set_withdraw, only: [:edit_withdraw, :update_withdraw]
+  before_filter :check_balance if current_user
 
   def billing
     @billing = current_user.billing.new
@@ -167,5 +168,11 @@ class PaymentsController < ApplicationController
 
     def param_billing
       params.require(:billing).permit(:bank_name_id, :account_number, :owner, :branch, :city)
+    end
+
+    def check_balance
+      if current_user.balance.nil?
+        Balance.new(user_id: current_user.id).save
+      end 
     end
 end
