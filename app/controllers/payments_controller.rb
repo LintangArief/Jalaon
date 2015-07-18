@@ -168,5 +168,4 @@ class PaymentsController < ApplicationController
     def param_billing
       params.require(:billing).permit(:bank_name_id, :account_number, :owner, :branch, :city)
     end
-
 end

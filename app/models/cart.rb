@@ -3,4 +3,11 @@ class Cart < ActiveRecord::Base
   belongs_to :user
   belongs_to :cart
   belongs_to :service
+  def taxes
+    0
+  end
+
+  def tax_pct
+    0
+  end
 end
