@@ -25,11 +25,6 @@
             .list-group.col-md-12.col-xs-12.col-sm-12
               .oMain
                 .jsPaymentListWidget.col-md-12
-                  .oTableHeader.oTxtMega
-                    | Your Balance :
-                    span.oPos
-                      |  #{number_to_currency(current_user.balance.money, unit: "Rp. ")}
-                    br/  
                   table.oTable.col-md-12
                       tbody
                         tr
@@ -39,6 +34,8 @@
                              | - Mohon Isi Pengajuan Deposit untuk melakukan Penambahan Balance
                              br/
                              | - Mohon Transfer Ke rekening Sistem Jalaon dengan No. xxxxxx atas Nama xxxxxx
+                             br/
+                             | - Minimum Top Up Balance adalah Rp.50000
                   hr/
                   table.oTable.col-md-12
                     .jsPaymentListWidget.col-md-12 style="margin-top: 20px;"
@@ -107,17 +104,17 @@
                 li.list-group-item.col-md-12
                   .col-md-6
                     label Jumlah Dana (*)
-                    = f.text_field :money,:class => 'text_field width-100', id: "money", data: {autonumeric: {aSign: 'Rp ', mDec: 2}}
+                    = f.text_field :money, :class => 'text_field width-100', id: "money", data: {autonumeric: {aSign: 'Rp ', mDec: 2}}
                 li.list-group-item.col-md-12
                   .col-md-12
                     h4 Konfirmasi di atas jam 21.00 atau di Hari Libur? (optional)
                     p Untuk pembayaran yang dilakukan diatas jam 21.00WIB atau pada hari libur di atas jam 17.00WIB, silahkan mengupload bukti transfer melalui form dibawah ini agar pembayaran Anda dapat diproses segera.
-                    = f.file_field :attach, :class => 'input-lg filestyle', "data-icon"=>"false"
+                    = f.file_field :attach, :class => 'input-lg filestyle', "data-icon"=>"false", :autocomplete => 'off'
                 li.list-group-item.col-md-12
                   .col-md-12
                     = f.label "Current Password (*)"
                     br/
-                    = text_field_tag :password, nil, type: "password", :class => ' width-100 input-lg'
+                    = text_field_tag :password, nil, type: "password", :class => ' width-100 input-lg', :autocomplete => 'off'
                 li.list-group-item.col-md-12
                   .col-md-12
                     = f.submit "Submit", class: "btn btn-success"
@@ -133,12 +130,12 @@
                 li.list-group-item
                   = f.label "Request Top Up Balance (*)"
                   br/
-                  = f.text_field :money, :class => 'text_field width-100 input-lg', id: "money1", data: {autonumeric: {aSign: 'Rp ', mDec: 2}}
+                  = f.text_field :money, :class => 'text_field width-100 input-lg', data: {autonumeric: {aSign: 'Rp ', mDec: 2}}, :autocomplete => 'off'
 
                 li.list-group-item
                   = f.label "Current Password (*)"
                   br/
-                  = f.text_field :password, type: "password", :class => ' width-100 input-lg'
+                  = f.text_field :password, type: "password", :class => ' width-100 input-lg', :autocomplete => 'off'
           .modal-footer
             = f.submit "Request", :class => "button btn btn-success"
             button.btn.btn-danger.btn-close data-dismiss="modal" type="button"  Cancel

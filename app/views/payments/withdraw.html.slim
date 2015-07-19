@@ -28,7 +28,9 @@
                     tr
                       td.txtCenter
                         = link_to "Request Withdraw", "", class: "btn  oBtn oBtnPrimary oBtnJumbo jsAddMethod nowrap ib", "data-toggle" => "modal", "data-target" => "#withdraw"
-                        p.oMute May take up to 24 hours to activate your withdraw
+                        p.oMute Mohon Isi Request Withdraw untuk melakukan Penarikan Balance
+                        p.oMute Proses Penarikan Balance Akan Diproses Selambat-Lambarnya 1x24 Jam
+                        p.oMute  - Minimum Top Up Balance adalah Rp.50000
 
               hr/
               table.oTable.col-md-12
@@ -87,7 +89,7 @@
             ul.list-group
               li.list-group-item.col-md-12
                 label Request Paid
-                = f.text_field :money,:class => 'text_field width-100', id: "money", data: {autonumeric: {aSign: 'Rp ', mDec: 2}}
+                = f.text_field :money,:class => 'text_field width-100', data: {autonumeric: {aSign: 'Rp ', mDec: 2}}
               li.list-group-item.col-md-12
                 label Choose Your Bank
                 = select_tag :choose_bank, options_for_select([["Select Bank",0],["Select From Account",1], ["Other Bank",2]]), class:"form-control form-input width-100", id: "select_bank"
@@ -113,13 +115,13 @@
                       = f.text_field :branch, class: "form-control width-100"
                     li.list-group-item.col-md-6
                       label City
-                      = f.text_field :city, class: "form-control width-100"
+                      = f.text_field :city, class: "form-control width-100", :autocomplete => 'off'
         .modal-footer
           br/
           .list-group-item.col-md-12
             = f.label "Current Password (*)"
             br/
-            = text_field_tag :password, nil, type: "password", :class => ' width-100 input-lg'
+            = text_field_tag :password, nil, type: "password", :class => ' width-100 input-lg', :autocomplete => 'off'
           = f.submit "Request", :class => "button btn btn-success"
           button.btn.btn-danger.btn-close data-dismiss="modal" type="button"  Cancle
 #myModal.modal.fade aria-hidden="true" aria-labelledby="voteLabel" role="dialog" tabindex="-1" 

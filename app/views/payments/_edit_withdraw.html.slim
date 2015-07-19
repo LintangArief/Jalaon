@@ -33,14 +33,14 @@
                     = f.text_field :branch, class: "form-control width-100", value: @withdraw.branch, id: "withdraw_branch1"
                   li.list-group-item.col-md-6
                     label City
-                    = f.text_field :city, class: "form-control width-100", value: @withdraw.city, id: "withdraw_city1"
+                    = f.text_field :city, class: "form-control width-100", value: @withdraw.city, id: "withdraw_city1", :autocomplete => 'off'
       .modal-footer
         br/
         .list-group-item.col-md-12
           = f.label "Current Password (*)"
           br/
-          = text_field_tag :password, nil, type: "password", :class => ' width-100 input-lg'
-        = f.submit "Request", :class => "button btn btn-success btn-send", id: "password1"
+          = text_field_tag :password, nil, type: "password", :class => ' width-100 input-lg', :autocomplete => 'off'
+        = f.submit "Submit", :class => "button btn btn-success btn-send"
         button.btn.btn-danger.btn-close data-dismiss="modal" type="button"  Cancle
 
 javascript:

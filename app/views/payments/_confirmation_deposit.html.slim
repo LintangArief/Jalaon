@@ -24,20 +24,20 @@
               = f.text_field :no_credit, class: "form-control width-100", value: @confirmation_deposit.no_credit
             .col-md-6
               label Nama. Pemilik Rekening (*)
-              = f.text_field :name_owner_credit, class: "form-control width-100", value: @confirmation_deposit.name_owner_credit
+              = f.text_field :name_owner_credit, class: "form-control width-100", value: @confirmation_deposit.name_owner_credit, :autocomplete => 'off'
           li.list-group-item.col-md-12
             .col-md-6
               label Jumlah Dana (*)
-              = f.text_field :money,:class => 'text_field width-100', data: {autonumeric: {aSign: 'Rp ', mDec: 2}}, value: @confirmation_deposit.money
+              = f.text_field :money,:class => 'text_field width-100', data: {autonumeric: {aSign: 'Rp ', mDec: 2}}, value: @confirmation_deposit.money, id: "money", :autocomplete => 'off'
           li.list-group-item.col-md-12
             .col-md-12
               label Bukti Pembayaran (optional)
-              = f.file_field :attach, :class => 'input-lg filestyle', "data-icon"=>"false"
+              = f.file_field :attach, :class => 'input-lg filestyle', "data-icon"=>"false", :autocomplete => 'off'
           li.list-group-item.col-md-12
             .col-md-12
               = f.label "Current Password (*)"
               br/
-              = text_field_tag :password, nil, type: "password", :class => ' width-100 input-lg'
+              = text_field_tag :password, nil, type: "password", :class => ' width-100 input-lg', :autocomplete => 'off'
           li.list-group-item.col-md-12
             .col-md-12
               = f.submit "Submit", class: "btn btn-success" 
