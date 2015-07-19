@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150718100053) do
+ActiveRecord::Schema.define(version: 20150719160143) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -113,6 +113,17 @@ ActiveRecord::Schema.define(version: 20150718100053) do
     t.integer  "user_id"
     t.integer  "service_id"
   end
+
+  create_table "complaint_services", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.integer  "service_id"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "complaint_services", ["service_id"], name: "index_complaint_services_on_service_id", using: :btree
 
   create_table "confirmation_deposits", force: :cascade do |t|
     t.integer  "deposit_id"
@@ -407,6 +418,7 @@ ActiveRecord::Schema.define(version: 20150718100053) do
 
   add_foreign_key "balances", "users"
   add_foreign_key "billings", "bank_names"
+  add_foreign_key "complaint_services", "services"
   add_foreign_key "confirmation_deposits", "bank_names"
   add_foreign_key "confirmation_deposits", "deposits"
   add_foreign_key "confirmation_deposits", "users"
