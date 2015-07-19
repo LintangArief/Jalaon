@@ -12,27 +12,27 @@
                 tr
                   td style="border: none;"
                     span.glyphicon.glyphicon-retweet
-                    = link_to " Deposit", deposit_payments_path
+                    = link_to " Deposit", deposit_payments_path, data: { no_turbolink: true }
                 tr
                   td style="border: none;"
                     span.glyphicon.glyphicon-gift
-                    = link_to " Withdraw", withdraw_payments_path
+                    = link_to " Withdraw", withdraw_payments_path, data: { no_turbolink: true }
                 tr
                   td style="border: none;"
                     span.glyphicon.glyphicon-briefcase
-                    = link_to " Balance Credit", balance_payments_path
+                    = link_to " Balance Credit", balance_payments_path, data: { no_turbolink: true }
                 tr
                   td style="border: none;"
                     span.glyphicon.glyphicon-usd
-                    = link_to " Billing Payment", billing_payments_path
+                    = link_to " Billing Payment", billing_payments_path, data: { no_turbolink: true }
                 tr
                   td style="border: none;"
                     span.glyphicon.glyphicon-shopping-cart
-                    = link_to " Current Transaction", carts_path
+                    = link_to " Current Transaction", carts_path, data: { no_turbolink: true }
                 tr
                   td style="border: none;"
                     span.glyphicon.glyphicon-leaf
-                    = link_to " History Transaction", history_payments_path
+                    = link_to " History Transaction", history_payments_path, data: { no_turbolink: true }
 
         .panel.panel-default
           .panel-heading
