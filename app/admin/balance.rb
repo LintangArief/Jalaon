@@ -13,5 +13,14 @@ ActiveAdmin.register Balance do
 #   permitted
 # end
 
-
+  index do
+    selectable_column
+    id_column
+    column 'Owner' do |usr|
+      user = User.find(usr.user_id)
+      link_to "#{user.first_name} #{user.last_name}", admin_user_path(usr.user_id)
+    end
+    column "Balance", :money
+    column "Terdaftar", :created_at    
+  end
 end

@@ -13,5 +13,18 @@ ActiveAdmin.register Billing do
 #   permitted
 # end
 
+  index do
+    selectable_column
+    id_column
+    column "Nama Account", :owner
+    column :created_at
+    column :account_number
+    column :branch
+    column :city
+    column "User" do |usr|
+      user = User.find(usr.user_id)
+      link_to "#{user.first_name} #{user.last_name}", admin_user_path(usr.user_id)
+    end
+  end
 
 end

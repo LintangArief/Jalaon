@@ -42,9 +42,14 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   resources :service_categories
   resources :services
-  devise_for :users, :controllers => { :registrations => "devise/registrations" }
+  
+  devise_for :users, :controllers => { :registrations => "devise/registrations", :omniauth_callbacks => "devise/omniauth_callbacks" } do
+    get 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
+  end
+  
   root 'statics#home'
-
+  
+  
   # get 'statics/home' => 'statics#home'
   get '/help' => 'statics#help'
   get '/rules' => 'statics#ruler'

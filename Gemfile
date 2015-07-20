@@ -35,6 +35,7 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'acts_as_shopping_cart', '~> 0.2.1'
 gem 'autonumeric-rails'
 gem 'bootstrap-filestyle-rails'
+gem 'omniauth-facebook'
 group :production do
   gem 'exception_notification'
 end

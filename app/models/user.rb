@@ -13,18 +13,22 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :confirmable
-  validates :first_name, :last_name, :email, presence: true
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable, :omniauthable, :omniauth_providers => [:facebook]
+  validates :email,
+          :presence => true, 
+          :uniqueness => {:case_sensitive => false },
+          :if => 'provider.blank?'
+
   paginates_per 20
-  has_many :services
-  has_many :feedbacks
-  has_one :verify_user
-  has_many :deposits
-  has_many :withdraws
-  has_many :confirmation_deposits
-  has_many :billing
-  has_one :balance
-  has_many :carts
+  has_many :services, :dependent => :destroy
+  has_many :feedbacks, :dependent => :destroy
+  has_one :verify_user, :dependent => :destroy
+  has_many :deposits, :dependent => :destroy
+  has_many :withdraws, :dependent => :destroy
+  has_many :confirmation_deposits, :dependent => :destroy
+  has_many :billing, :dependent => :destroy
+  has_one :balance, :dependent => :destroy
+  has_many :carts, :dependent => :destroy
 
   # acts_as_messageable :table_name => "messages"
   def check_verify
@@ -48,4 +52,29 @@ class User < ActiveRecord::Base
   def mailboxer_email(object)
     return false
   end
+
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|  
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0,20]
+      user.first_name = auth.info.name
+      user.avatar = auth.info.image
+      user.confirmation_token = nil
+      user.confirmed_at = Time.now.utc
+    end
+  end
+
+  def self.new_with_session(params, session)
+    super.tap do |user|
+      if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
+        user.email = data["email"] if user.email.blank?
+      end
+    end
+    asd
+  end
+
+  def email_required?
+    super && provider.blank?
+  end
+
 end
