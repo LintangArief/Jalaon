@@ -36,10 +36,11 @@
                     = f.text_field :city, class: "form-control width-100", value: @withdraw.city, id: "withdraw_city1", :autocomplete => 'off'
       .modal-footer
         br/
-        .list-group-item.col-md-12
-          = f.label "Current Password (*)"
-          br/
-          = text_field_tag :password, nil, type: "password", :class => ' width-100 input-lg', :autocomplete => 'off'
+        - if current_user.current_password?
+          .list-group-item.col-md-12
+            = f.label "Current Password (*)"
+            br/
+            = text_field_tag :password, nil, type: "password", :class => ' width-100 input-lg', :autocomplete => 'off'
         = f.submit "Submit", :class => "button btn btn-success btn-send"
         button.btn.btn-danger.btn-close data-dismiss="modal" type="button"  Cancle
 

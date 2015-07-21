@@ -41,7 +41,19 @@ class PaymentsController < ApplicationController
   end
 
   def create_deposit
-    if current_user.valid_password?(params[:deposit][:password])
+    if current_user.provider.nil?
+      if current_user.valid_password?(params[:deposit][:password])
+        @deposit = current_user.deposits.new(param_deposit)
+        if @deposit.save
+          ConfirmationDeposit.new(deposit_id:@deposit.id, user_id: @deposit.user_id).save
+          redirect_to :back, notice: "Terima Kasih, Deposit anda akan kami proses maksimum 1x24jam. Mohon di isi confirmation deposit setelah anda selesai melakukan transfer"
+        else
+          redirect_to :back, notice: "Your Deposit can't save and Please fill with input valid"
+        end
+      else
+        redirect_to :back, notice: "Please Make Sure Your Password is Valid"
+      end
+    else
       @deposit = current_user.deposits.new(param_deposit)
       if @deposit.save
         ConfirmationDeposit.new(deposit_id:@deposit.id, user_id: @deposit.user_id).save
@@ -49,8 +61,6 @@ class PaymentsController < ApplicationController
       else
         redirect_to :back, notice: "Your Deposit can't save and Please fill with input valid"
       end
-    else
-      redirect_to :back, notice: "Please Make Sure Your Password is Valid"
     end
   end
 
@@ -70,7 +80,21 @@ class PaymentsController < ApplicationController
   end
 
   def update_confirmation_deposit
-    if current_user.valid_password?(params[:password])
+    if current_user.provider.nil?
+      if current_user.valid_password?(params[:password])
+        @deposit = Deposit.find_by(token: params[:deposit_token])
+        change_param = params_confirmation_deposit
+        change_param["date_transfer"] = Date.strptime(params_confirmation_deposit[:date_transfer], "%m/%d/%Y").strftime("%Y/%m/%d %H:%M:%S")
+        if @deposit.confirmation_deposit.update_attributes(change_param)
+          @deposit.update_attributes(status: 2)
+          redirect_to deposit_payments_url, notice: "Terima Kasih Sudah melakukan Konfirmasi Transfer, Deposit anda akan kami proses maksimum 1x24jam."
+        else
+          redirect_to deposit_payments_url, notice: "Your Confirmation can't save and Please fill with input valid"
+        end
+      else
+        redirect_to deposit_payments_url, notice: "Please Make Sure Your Password is Valid"
+      end
+    else
       @deposit = Deposit.find_by(token: params[:deposit_token])
       change_param = params_confirmation_deposit
       change_param["date_transfer"] = Date.strptime(params_confirmation_deposit[:date_transfer], "%m/%d/%Y").strftime("%Y/%m/%d %H:%M:%S")
@@ -80,26 +104,46 @@ class PaymentsController < ApplicationController
       else
         redirect_to deposit_payments_url, notice: "Your Confirmation can't save and Please fill with input valid"
       end
-    else
-      redirect_to deposit_payments_url, notice: "Please Make Sure Your Password is Valid"
     end
   end
 
   def update_billing
-    if current_user.valid_password?(params[:password])
+    if current_user.provider.nil?
+      if current_user.valid_password?(params[:password])
+        if @billing.update_attributes(param_billing)
+          redirect_to billing_payments_url, notice: "Terima Kasih. Proses Penggantian Data Bank Berhasil."
+        else
+          redirect_to billing_payments_url, notice: "Your data Billing can't update and Please fill with input valid"
+        end
+      else
+        redirect_to billing_payments_url, notice: "Please Make Sure Your Password is Valid"
+      end
+    else
       if @billing.update_attributes(param_billing)
         redirect_to billing_payments_url, notice: "Terima Kasih. Proses Penggantian Data Bank Berhasil."
       else
         redirect_to billing_payments_url, notice: "Your data Billing can't update and Please fill with input valid"
       end
-    else
-      redirect_to billing_payments_url, notice: "Please Make Sure Your Password is Valid"
     end
   end
 
   def update_withdraw
-    if current_user.valid_password?(params[:password])
-      set_params = param_withdraw
+    if current_user.provider.nil?
+      if current_user.valid_password?(params[:password])
+        set_params = param_withdraw
+        if set_params[:billing_id].nil?
+          set_params[:billing_id] = nil
+        end
+        if @withdraw.update_attributes(set_params)
+          redirect_to withdraw_payments_url, notice: "Terima Kasih. Proses Update Data WithDraw Berhasil."
+        else
+          redirect_to withdraw_payments_url, notice: "Your data Withdraw can't update and Please fill with input valid"
+        end
+      else
+        redirect_to withdraw_payments_url, notice: "Please Make Sure Your Password is Valid"
+      end
+    else
+     set_params = param_withdraw
       if set_params[:billing_id].nil?
         set_params[:billing_id] = nil
       end
@@ -108,9 +152,7 @@ class PaymentsController < ApplicationController
       else
         redirect_to withdraw_payments_url, notice: "Your data Withdraw can't update and Please fill with input valid"
       end
-    else
-      redirect_to withdraw_payments_url, notice: "Please Make Sure Your Password is Valid"
-    end
+    end  
   end
 
   def trash_deposit
@@ -120,28 +162,46 @@ class PaymentsController < ApplicationController
   end
 
   def create_billing
-    if current_user.valid_password?(params[:password])
+    if current_user.provider.nil?
+      if current_user.valid_password?(params[:password])
+        @billing = current_user.billing.new(param_billing)
+        if @billing.save
+          redirect_to billing_payments_url, notice: "Terima Kasih Sudah menambahkan data Billing anda."
+        else
+          redirect_to billing_payments_url, notice: "Your Confirmation can't save and Please fill with input valid"
+        end
+      else
+        redirect_to billing_payments_url, notice: "Please Make Sure Your Password is Valid"
+      end
+    else
       @billing = current_user.billing.new(param_billing)
       if @billing.save
         redirect_to billing_payments_url, notice: "Terima Kasih Sudah menambahkan data Billing anda."
       else
         redirect_to billing_payments_url, notice: "Your Confirmation can't save and Please fill with input valid"
       end
-    else
-      redirect_to billing_payments_url, notice: "Please Make Sure Your Password is Valid"
     end
   end
 
   def create_withdraw
-    if current_user.valid_password?(params[:password])
+    if current_user.provider.nil?
+      if current_user.valid_password?(params[:password])
+        @withdraw = current_user.withdraws.new(param_withdraw)
+        if @withdraw.save
+          redirect_to withdraw_payments_url, notice: "Terima Kasi sudah melakukan Withdraw, Harap menunggu proses konfirmasi dan pengiriman dalam jangka 1x24 Jam."
+        else
+          redirect_to withdraw_payments_url, notice: "Your request for Withdraw cant'n save, please fill with valid input"
+        end
+      else
+        redirect_to withdraw_payments_url, notice: "Please Make Sure Your Password is Valid"
+      end
+    else
       @withdraw = current_user.withdraws.new(param_withdraw)
       if @withdraw.save
         redirect_to withdraw_payments_url, notice: "Terima Kasi sudah melakukan Withdraw, Harap menunggu proses konfirmasi dan pengiriman dalam jangka 1x24 Jam."
       else
         redirect_to withdraw_payments_url, notice: "Your request for Withdraw cant'n save, please fill with valid input"
       end
-    else
-      redirect_to withdraw_payments_url, notice: "Please Make Sure Your Password is Valid"
     end
   end
 

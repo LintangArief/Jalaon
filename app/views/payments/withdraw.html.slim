@@ -118,10 +118,11 @@
                       = f.text_field :city, class: "form-control width-100", :autocomplete => 'off'
         .modal-footer
           br/
-          .list-group-item.col-md-12
-            = f.label "Current Password (*)"
-            br/
-            = text_field_tag :password, nil, type: "password", :class => ' width-100 input-lg', :autocomplete => 'off'
+          - if current_user.current_password?
+            .list-group-item.col-md-12
+              = f.label "Current Password (*)"
+              br/
+              = text_field_tag :password, nil, type: "password", :class => ' width-100 input-lg', :autocomplete => 'off'
           = f.submit "Request", :class => "button btn btn-success"
           button.btn.btn-danger.btn-close data-dismiss="modal" type="button"  Cancle
 #myModal.modal.fade aria-hidden="true" aria-labelledby="voteLabel" role="dialog" tabindex="-1" 

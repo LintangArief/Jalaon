@@ -33,11 +33,12 @@
             .col-md-12
               label Bukti Pembayaran (optional)
               = f.file_field :attach, :class => 'input-lg filestyle', "data-icon"=>"false", :autocomplete => 'off'
-          li.list-group-item.col-md-12
-            .col-md-12
-              = f.label "Current Password (*)"
-              br/
-              = text_field_tag :password, nil, type: "password", :class => ' width-100 input-lg', :autocomplete => 'off'
+          - if current_user.current_password?
+            li.list-group-item.col-md-12
+              .col-md-12
+                = f.label "Current Password (*)"
+                br/
+                = text_field_tag :password, nil, type: "password", :class => ' width-100 input-lg', :autocomplete => 'off'
           li.list-group-item.col-md-12
             .col-md-12
               = f.submit "Submit", class: "btn btn-success" 
