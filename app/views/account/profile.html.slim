@@ -6,18 +6,18 @@
           a href="index.html"  Home
         li 
           = link_to "Profile", setting_path
-        li.active #{@user.first_name.upcase} #{@user.last_name.upcase}
+        li.active #{@user.first_name} #{@user.last_name}
     br/
     .col-sm-4.col-md-3
       .text-center
         img.img-circle.img-offline.img-responsive.img-profile alt="" src="#{@user.avatar.large_avatar}" /
-        h4.profile-name.mb5 #{@user.first_name.upcase} #{@user.last_name.upcase}
+        h4.profile-name.mb5 #{@user.first_name} #{@user.last_name}
         div
           i.fa.fa-map-marker
 
-          = @user.city.upcase if @user.city != nil
+          = @user.city if @user.city != nil
           |  
-          = @user.state.upcase if @user.state != nil
+          = @user.state if @user.state != nil
         .btn-group
           - if current_user
             - if current_user != @user

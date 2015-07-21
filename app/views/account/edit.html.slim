@@ -21,10 +21,16 @@
                   h4 Welcome #{@user.first_name} #{@user.last_name}
               .col-xs-12.col-sm-12.col-md-12      
                 .form-groups.image-box
-                  - if @user.avatar.file != nil
+                  - if @user.avatar.file != nil and @user.remote_image_url.nil?
                     = image_tag(@user.avatar.large_avatar, :class => "image-edit")
+                  - if @user.avatar.file.nil? and @user.remote_image_url != nil
+                    = image_tag(@user.remote_image_url, :class => "image-edit")
                   br/
-                  = f.label "Choose image", style: "float: left;", :class=> "text-center"
+                  = f.label style: "float: left;", :class=> "text-center"
+                    span style="float: left;"
+                      | Chose Image 
+                      - if @user.avatar.file.nil? and @user.remote_image_url != nil
+                        | Current You used avatar from facebook. 
                   = f.file_field :avatar, :class=>"form-control input-lg", :id=>"avatar"
                   br/
               .col-xs-12.col-sm-12.col-md-12      
@@ -54,9 +60,10 @@
               .col-xs-12.col-sm-6.col-md-6
                 .form-group
                   = f.text_field :instagram, :class=>"form-control input-lg", :id=>"city", :placeholder=>"Link Instagram *"
-              .col-xs-12.col-sm-12.col-md-12
-                .form-group        
-                  = f.password_field :current_password, autocomplete: "off", :class=>"form-control input-lg", :placeholder=>"Current Password *"
+              - if f.object.current_password?
+                .col-xs-12.col-sm-12.col-md-12
+                  .form-group        
+                    = f.password_field :current_password, autocomplete: "off", :class=>"form-control input-lg", :placeholder=>"Current Password *"
             hr.colorgraph/
             .row
               .col-xs-12.col-md-6

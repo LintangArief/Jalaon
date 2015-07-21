@@ -50,7 +50,6 @@ class Devise::RegistrationsController < DeviseController
   def update
     self.resource = resource_class.to_adapter.get!(send(:"current_#{resource_name}").to_key)
     prev_unconfirmed_email = resource.unconfirmed_email if resource.respond_to?(:unconfirmed_email)
-
     resource_updated = update_resource(resource, account_update_params)
     yield resource if block_given?
     if resource_updated
@@ -63,7 +62,7 @@ class Devise::RegistrationsController < DeviseController
       respond_with resource, location: after_update_path_for(resource)
     else
       clean_up_passwords resource
-      respond_with resource
+      redirect_to edit_account_path(resource.id), notice: "Harap Pastikan Pengisian Data Benar"
     end
   end
 
@@ -97,7 +96,11 @@ class Devise::RegistrationsController < DeviseController
   # By default we want to require a password checks on update.
   # You can overwrite this method in your own RegistrationsController.
   def update_resource(resource, params)
-    resource.update_with_password(params)
+    if resource.provider.nil?
+      resource.update_with_password(params)
+    else
+      resource.update_without_password(params)
+    end  
   end
   def build_resource(hash=nil)
     self.resource = resource_class.new_with_session(hash || {}, session)
