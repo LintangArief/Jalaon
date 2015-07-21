@@ -70,7 +70,6 @@ class User < ActiveRecord::Base
         user.email = data["email"] if user.email.blank?
       end
     end
-    asd
   end
 
   def email_required?
