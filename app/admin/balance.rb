@@ -1,5 +1,5 @@
 ActiveAdmin.register Balance do
-  menu parent: "Transaction", label: "Balance Users"
+  menu parent: "Payment", label: "Data Balance Users"
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #

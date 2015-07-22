@@ -1,5 +1,5 @@
 ActiveAdmin.register Deposit do
-  menu parent: "Transaction" 
+  menu parent: "Payment" , label: "Data Deposit"
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
@@ -12,6 +12,10 @@ ActiveAdmin.register Deposit do
 #   permitted << :other if resource.something?
 #   permitted
 # end
+  scope :all, :default => true
+  scope :pendding_transfer
+  scope "Pending Pengisian", :pendding_balance
+  scope :success
 
   index do
     selectable_column

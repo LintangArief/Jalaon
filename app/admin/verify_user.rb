@@ -1,5 +1,8 @@
 ActiveAdmin.register VerifyUser do
-  menu parent: "People", label: "Verifikasi User"
+  menu parent: "People", label: "Data Request Verifikasi"
+
+  scope "Pending Verifikasi", :pending
+  scope "Success Verifikasi", :success
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #

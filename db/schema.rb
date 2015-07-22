@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150721093842) do
+ActiveRecord::Schema.define(version: 20150722084640) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -140,6 +140,16 @@ ActiveRecord::Schema.define(version: 20150721093842) do
   add_index "confirmation_deposits", ["bank_name_id"], name: "index_confirmation_deposits_on_bank_name_id", using: :btree
   add_index "confirmation_deposits", ["deposit_id"], name: "index_confirmation_deposits_on_deposit_id", using: :btree
   add_index "confirmation_deposits", ["user_id"], name: "index_confirmation_deposits_on_user_id", using: :btree
+
+  create_table "coupons", force: :cascade do |t|
+    t.string   "token"
+    t.decimal  "money"
+    t.datetime "start_at"
+    t.datetime "end_at"
+    t.integer  "limit_user"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "deposits", force: :cascade do |t|
     t.integer  "user_id"

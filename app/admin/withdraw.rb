@@ -1,5 +1,8 @@
 ActiveAdmin.register Withdraw do
-  menu parent: "Transaction"
+  menu parent: "Payment", label: "Data Withdraw"
+  scope :all, :default => true
+  scope :pendding
+  scope :success
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #

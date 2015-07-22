@@ -1,5 +1,5 @@
 ActiveAdmin.register Feedback do
-  menu parent: "MainService"  
+  menu parent: "MainService", label: "Data Feedback"  
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #

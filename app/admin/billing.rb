@@ -1,5 +1,5 @@
 ActiveAdmin.register Billing do
-  menu parent: "Transaction", label: "Billing Credit"
+  menu parent: "Payment", label: "Data Billing Credit"
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #

@@ -1,5 +1,5 @@
 ActiveAdmin.register Cart do
-  menu parent: "Transaction", label: "Current Transaction"
+  menu parent: "Transaction", label: "Data Transaction"
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
@@ -16,7 +16,7 @@ ActiveAdmin.register Cart do
   index do
     selectable_column
     id_column
-    column "Pemilik Cart" do |usr|
+    column "Costumers" do |usr|
       user = User.find(usr.user_id)
       link_to "#{user.first_name} #{user.last_name}", admin_user_path(usr.user_id)
     end
