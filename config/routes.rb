@@ -82,6 +82,7 @@ Rails.application.routes.draw do
       post 'trash_deposit'
       post 'create_billing'
       post 'create_withdraw'
+      post 'order_coupon'
     end
     member do
       get 'edit_confirmation_deposit'

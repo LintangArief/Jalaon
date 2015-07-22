@@ -205,6 +205,59 @@ class PaymentsController < ApplicationController
     end
   end
 
+  def order_coupon
+    if current_user
+      coupon = Coupon.find_by(token: params[:coupon][:token])
+      if current_user.provider.nil?
+        if current_user.valid_password?(params[:password])
+          if coupon.nil?
+            redirect_to :back, notice: "Can't Found Coupon Code"
+          else
+            if coupon.start_at < Date.today and coupon.end_at > Date.today
+              if coupon.order_coupons.where(user_id: current_user.id).count == 0
+                price = coupon.money
+                balance = current_user.balance
+                if balance.update_attributes(money: balance.money + coupon.money)
+                  coupon.order_coupons.new(user_id: current_user.id).save
+                  redirect_to :back, notice: "Thanks, Your coupon managed in-process, please check your balance"
+                else
+                  redirect_to :back, notice: "Problem with update Balance"
+                end
+              else
+                redirect_to :back, notice: "Sorry, you've been wearing the previous coupon code"
+              end
+            else
+              redirect_to :back, notice: "Sorry, Code Coupon is expired"
+            end
+          end
+        else
+          redirect_to :back, notice: "Please Check Your Current Password is valid"
+        end
+      else
+        if coupon.nil?
+          redirect_to :back, notice: "Can't Found Coupon Code"
+        else
+          if coupon.start_at < Date.today and coupon.end_at > Date.today
+            if  coupon.order_coupons.where(user_id: User.first.id).nil?
+              price = coupon.money
+              balance = current_user.balance
+              if balance.update_attributes(money: balance.money + coupon.money)
+                coupon.order_coupons.new(user_id: current_user.id).save
+                redirect_to :back, notice: "Thanks, Your coupon managed in-process, please check your balance"
+              else
+                redirect_to :back, notice: "Problem with update Balance"
+              end
+            else
+              redirect_to :back, notice: "Sorry, you've been wearing the previous coupon code"
+            end
+          else
+            redirect_to :back, notice: "Sorry, Code Coupon is expired"
+          end
+        end
+      end  
+    end
+  end
+
   private
     def set_billing
       @billing = current_user.billing.find(params[:id])
@@ -228,6 +281,10 @@ class PaymentsController < ApplicationController
 
     def param_billing
       params.require(:billing).permit(:bank_name_id, :account_number, :owner, :branch, :city)
+    end
+
+    def param_coupon
+
     end
 
     def check_balance

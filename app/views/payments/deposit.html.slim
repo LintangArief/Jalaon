@@ -19,6 +19,10 @@
           a data-toggle="tab" href="#sendbox" 
             span.glyphicon.glyphicon-user
             | Confirmation Deposit
+        li
+          a data-toggle="tab" href="#coupon" 
+            span.glyphicon.glyphicon-user
+            | Coupon
       .tab-content.col-md-12.col-xs-12.col-sm-12
         #inbox.tab-pane.fade.in.active
           .panel-content
@@ -119,6 +123,25 @@
                 li.list-group-item.col-md-12
                   .col-md-12
                     = f.submit "Submit", class: "btn btn-success"
+        #coupon.tab-pane.fade.in
+          .list-group.col-md-12.col-xs-12.col-sm-12
+            = form_for(:coupon, url: order_coupon_payments_path) do |f|
+              br/
+              ul.list-group
+                li.list-group-item.col-md-12
+                    .col-md-12
+                      = f.label "Code Coupon (*)"
+                      br/
+                      = f.text_field :token, :class => ' width-100 input-lg', :autocomplete => 'off'
+                - if current_user.current_password?
+                  li.list-group-item.col-md-12
+                    .col-md-12
+                      = f.label "Current Password (*)"
+                      br/
+                      = text_field_tag :password, nil, type: "password", :class => ' width-100 input-lg', :autocomplete => 'off'
+                li.list-group-item.col-md-12
+                  .col-md-12
+                    = f.submit "Generate", class: "btn btn-success"
 
 #deposit.modal.fade aria-hidden="true" aria-labelledby="voteLabel" role="dialog" tabindex="-1" 
   .modal-dialog

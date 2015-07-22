@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150722151934) do
+ActiveRecord::Schema.define(version: 20150722154445) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -296,6 +296,16 @@ ActiveRecord::Schema.define(version: 20150722151934) do
   add_index "message_users", ["ancestry"], name: "index_message_users_on_ancestry", using: :btree
   add_index "message_users", ["sent_messageable_id", "received_messageable_id"], name: "acts_as_messageable_ids", using: :btree
 
+  create_table "order_coupons", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "coupon_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "order_coupons", ["coupon_id"], name: "index_order_coupons_on_coupon_id", using: :btree
+  add_index "order_coupons", ["user_id"], name: "index_order_coupons_on_user_id", using: :btree
+
   create_table "orders", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "service_id"
@@ -441,6 +451,8 @@ ActiveRecord::Schema.define(version: 20150722151934) do
   add_foreign_key "mailboxer_conversation_opt_outs", "mailboxer_conversations", column: "conversation_id", name: "mb_opt_outs_on_conversations_id"
   add_foreign_key "mailboxer_notifications", "mailboxer_conversations", column: "conversation_id", name: "notifications_on_conversation_id"
   add_foreign_key "mailboxer_receipts", "mailboxer_notifications", column: "notification_id", name: "receipts_on_notification_id"
+  add_foreign_key "order_coupons", "coupons"
+  add_foreign_key "order_coupons", "users"
   add_foreign_key "orders", "product_services"
   add_foreign_key "orders", "services"
   add_foreign_key "orders", "users"

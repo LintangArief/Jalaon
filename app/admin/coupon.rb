@@ -1,5 +1,6 @@
 ActiveAdmin.register Coupon do
   menu parent: "Payment", label: "Data Coupon"
+  permit_params :token, :money, :start_at, :end_at, :limit_user
   index do
     selectable_column
     column "Code Coupon", :token
@@ -10,3 +11,4 @@ ActiveAdmin.register Coupon do
     column "Created At", :created_at
   end
 end
+
