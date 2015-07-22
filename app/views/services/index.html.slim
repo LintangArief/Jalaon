@@ -43,7 +43,7 @@
                                 = javascript_include_tag 'http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false'
                                 = javascript_include_tag 'jquery.geocomplete.js' 
                 .input-group.col-md-12
-                  = select_tag :dstn, options_for_select([["Default Distance", 5], ["< 5 km",3], ["< 10 km",6], ["< 20 km",12]]), class:"form-control twitter-typeahead tt-input form-input jualo-search"
+                  = select_tag :dstn, options_for_select([["< 5 km",3], ["< 10 km",6], ["< 20 km",12]]), class:"form-control twitter-typeahead tt-input form-input jualo-search"
                 br/
                 .input-group.col-md-12
                   = select_tag :service_category_id, options_for_select(@service_categories.map{ |c| [c.name, c.id]}), class:"form-control"
