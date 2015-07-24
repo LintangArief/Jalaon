@@ -43,6 +43,10 @@
                 = link_to new_service_path(service_category_id: "7", name: nil), method: :get
                   img src="http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_WomensTraining.png"
                   p style="text-align: center; color:white !important;" Bahasa
+              li
+                = link_to new_service_path(service_category_id: ServiceCategory.last.id, name: nil), method: :get
+                  img src="http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_WomensTraining.png"
+                  p style="text-align: center; color:white !important;" Other Services
       - else
           .row
             .col-md-2
