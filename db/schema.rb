@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150722154445) do
+ActiveRecord::Schema.define(version: 20150724181827) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(version: 20150722154445) do
 
   create_table "billings", force: :cascade do |t|
     t.integer  "bank_name_id"
+    t.integer  "string"
     t.string   "owner"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
@@ -276,26 +277,6 @@ ActiveRecord::Schema.define(version: 20150722154445) do
   add_index "mentions", ["mentionable_id", "mentionable_type"], name: "fk_mentionables", using: :btree
   add_index "mentions", ["mentioner_id", "mentioner_type"], name: "fk_mentions", using: :btree
 
-  create_table "message_users", force: :cascade do |t|
-    t.string   "topic"
-    t.text     "body"
-    t.integer  "received_messageable_id"
-    t.string   "received_messageable_type"
-    t.integer  "sent_messageable_id"
-    t.string   "sent_messageable_type"
-    t.boolean  "opened",                     default: false
-    t.boolean  "recipient_delete",           default: false
-    t.boolean  "sender_delete",              default: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "ancestry"
-    t.boolean  "recipient_permanent_delete", default: false
-    t.boolean  "sender_permanent_delete",    default: false
-  end
-
-  add_index "message_users", ["ancestry"], name: "index_message_users_on_ancestry", using: :btree
-  add_index "message_users", ["sent_messageable_id", "received_messageable_id"], name: "acts_as_messageable_ids", using: :btree
-
   create_table "order_coupons", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "coupon_id"
@@ -306,20 +287,6 @@ ActiveRecord::Schema.define(version: 20150722154445) do
   add_index "order_coupons", ["coupon_id"], name: "index_order_coupons_on_coupon_id", using: :btree
   add_index "order_coupons", ["user_id"], name: "index_order_coupons_on_user_id", using: :btree
 
-  create_table "orders", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "service_id"
-    t.integer  "product_service_id"
-    t.integer  "quantity"
-    t.boolean  "status"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-  end
-
-  add_index "orders", ["product_service_id"], name: "index_orders_on_product_service_id", using: :btree
-  add_index "orders", ["service_id"], name: "index_orders_on_service_id", using: :btree
-  add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
-
   create_table "product_services", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
@@ -327,6 +294,8 @@ ActiveRecord::Schema.define(version: 20150722154445) do
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
     t.integer  "price",       default: 0
+    t.boolean  "takeaway"
+    t.boolean  "delivery"
   end
 
   add_index "product_services", ["service_id"], name: "index_product_services_on_service_id", using: :btree
@@ -342,8 +311,9 @@ ActiveRecord::Schema.define(version: 20150722154445) do
 
   create_table "service_categories", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.boolean  "has_product"
   end
 
   create_table "service_fields", force: :cascade do |t|
@@ -367,6 +337,7 @@ ActiveRecord::Schema.define(version: 20150722154445) do
     t.string  "address"
     t.float   "latitude"
     t.float   "longitude"
+    t.integer "rate_price"
   end
 
   add_index "services", ["properties"], name: "services_properties", using: :gin
@@ -453,9 +424,6 @@ ActiveRecord::Schema.define(version: 20150722154445) do
   add_foreign_key "mailboxer_receipts", "mailboxer_notifications", column: "notification_id", name: "receipts_on_notification_id"
   add_foreign_key "order_coupons", "coupons"
   add_foreign_key "order_coupons", "users"
-  add_foreign_key "orders", "product_services"
-  add_foreign_key "orders", "services"
-  add_foreign_key "orders", "users"
   add_foreign_key "product_services", "services"
   add_foreign_key "service_fields", "service_categories"
   add_foreign_key "verify_users", "users"

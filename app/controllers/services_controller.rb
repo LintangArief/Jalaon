@@ -39,6 +39,7 @@ class ServicesController < ApplicationController
     else
       @check_service_category = ServiceCategory.where(id: params[:service_category_id])
       if @check_service_category.count > 0
+        @service_category = @check_service_category.first
         @service = Service.new(service_category_id: params[:service_category_id])
         @has_service_category = true
       else

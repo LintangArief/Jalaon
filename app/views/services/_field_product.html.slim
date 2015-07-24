@@ -12,7 +12,19 @@ fieldset
     li.list-group-item
       = f.label :price, :class => 'control-label'
       br/
-      = f.text_field :price, :class => 'text_field input-lg width-100'
+      = f.text_field :price, :class => 'text_field input-lg form-control width-100', id: "money", data: {autonumeric: {aSign: 'Rp ', mDec: 2}}
+    li.list-group-item
+      = f.check_box :takeaway
+      - if @service_category == ServiceCategory.last
+        = f.label "Take Away (Optional)"
+      - else
+        = f.label "Take Away"
+    li.list-group-item
+      = f.check_box :delivery
+      - if @service_category == ServiceCategory.last
+        = f.label "Delivery (Optional)"
+      - else
+        = f.label "Delivery"
     li.list-group-item
       = f.fields_for :foto_product_services do |builder|
         = render 'field_foto', f: builder

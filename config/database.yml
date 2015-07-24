@@ -7,20 +7,20 @@ default: &default
 
 development:
   <<: *default
-  database: Jualon_development
+  database: jalaon_development
   username: cybergarage
   password: 123456
   host: localhost
 
 test:
   <<: *default
-  database: Jualon_test
+  database: jalaon_test
   username: cybergarage
   password: 123456
   host: localhost
 production:
   <<: *default
-  database: Jualon_production
+  database: jalaon_production
   username: cybergarage
   host: localhost
   password: 123456

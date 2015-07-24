@@ -1,0 +1,5 @@
+.col-xs-12.col-sm-12.col-md-12 style="padding: 0px;"
+  br/
+  = f.label field.name
+  br/
+  = f.text_field field.name, :class => 'text_field input-lg form-control width-100', id: "money", data: {autonumeric: {aSign: 'Rp ', mDec: 2}}
