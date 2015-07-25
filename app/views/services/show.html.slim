@@ -46,12 +46,29 @@
           .Ads-Details
             .list-title
             .row
-              .ads-details-info.col-md-8
+              .col-md-12
+                aside.panel.panel-body.panel-details
+                  - unless @service.properties == nil
+                    - @service.properties.each do |name, value|
+                      - if value != "" && value != nil
+                          p
+                            b = name.humanize
+                              |  : 
+                            - if value == "1"
+                              span  Tersedia
+                            - elsif value == "0"
+                              span  Tidak Tersedia
+                            - else
+                              |  #{value}
+              .ads-details-info.col-md-12
+                .list-title
                 .col-md-12
                   h4 Service Description
                   p.text-justify #{@service.description}
                   .list-title
-                .col-md-12
+                - if @service.service_category.has_product
+                  - if @service.product_services.count > 0
+                    .col-md-12
                   h4 Product
                   - if current_user
                     - if current_user.id == @service.user.id    
@@ -106,32 +123,8 @@
                           .modal-footer
                             = f.submit "submit", :class => "button.btn.btn-success.btn-vote"
                             button.btn.btn-default.btn-close data-dismiss="modal" type="button"  Cancle
-
                 .col-md-12
-                
-              .col-md-4
-                aside.panel.panel-body.panel-details
-                  - unless @service.properties == nil
-                    - @service.properties.each do |name, value|
-                      - if value != "" && value != nil
-                        - if name.humanize != "Jam kerja awal" && name.humanize != "Jam kerja akhir"
-                          p
-                            b = name.humanize
-                              |  :  
-                              br/ 
-                            - if value == "1"
-                              span  Tersedia
-                            - elsif value == "0"
-                              span  Tidak Tersedia
-                            - else
-                              |  #{value}
-                          .list-title
-                        - else
-                          - if name.humanize == "Jam kerja awal"
-                            b Jam Kerja  
-                          = value
-                          - if name.humanize == "Jam kerja awal"
-                            span  - 
+
 
             .content-footer.text-left
               a.btn.btn-default data-toggle="modal" href="#contactAdvertiser" 
