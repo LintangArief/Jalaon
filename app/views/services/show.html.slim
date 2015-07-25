@@ -40,8 +40,8 @@
           .ads-image
             h1.pricetag Verify
             .bx-wrapper style="max-width: 100%;" 
-              .bx-viewport style="width: 100%; overflow: hidden; position: relative; height: 402px;"
-                li.bx-clone style="float: left; list-style: none; position: relative; width: 713px;"
+              .bx-viewport style="width: 100%; overflow: hidden; position: relative;"
+                li.bx-clone style="float: left; list-style: none; position: relative; width: 100%;"
                     img alt="img" src="#{@service.avatar}" /
           .Ads-Details
             .list-title
@@ -69,32 +69,46 @@
                 - if @service.service_category.has_product
                   - if @service.product_services.count > 0
                     .col-md-12
-                  h4 Product
-                  - if current_user
-                    - if current_user.id == @service.user.id    
-                      = link_to "Add Product", "#", :class=>"btn btn-block btn-primary", "data-toggle" => "modal", "data-target" => "#vote"
-                  #bx-pager
-                    .col-md-12
-                      table.table
-                        tbody
-                          - @show_product.each do |product|
-                            tr.active
-                              td
-                                .col-md-6
-                                  h5 style="text-align:left;" #{product.title}
-                                .col-md-6
-                                  h5 style="text-align:left;" Harga : #{product.price}
-                              td
-                                - if current_user
-                                  - unless current_user.id == @service.user_id
-                                    = link_to "Order", add_cart_cart_path(product_id: product.id), :class=> "btn btn-block btn-primary", method: :post
-                                - else
-                                  = link_to "Order", new_user_session_path, :class=> "btn btn-block btn-primary", method: :post
-                            tr
-                              td
-                                - product.foto_product_services.each do |avatars|
-                                  a.thumb-item-link.active data-slide-index="0" href="" 
-                                    img alt="img" src="#{avatars.avatar.large_avatar}"
+                      h4 Product
+                      - if current_user
+                        - if current_user.id == @service.user.id    
+                          = link_to "Add Product", "#", :class=>"btn btn-block btn-primary", "data-toggle" => "modal", "data-target" => "#vote"
+                      #bx-pager
+                        .col-md-12
+                          = form_tag do
+                            table.table
+                              .col-md-4
+                                th Title
+                              .col-md-2
+                                th Harga
+                              .col-md-2
+                                th Pesan
+                              .col-md-2
+                                th Quantity
+                              tbody
+                                - @show_product.each do |product|
+                                  tr.active
+                                    .col-md-4
+                                      td
+                                        h5 style="text-align:left;" #{product.title}
+                                    .col-md-2
+                                      td  
+                                        h5 style="text-align:left;" 
+                                          = number_to_currency(product.price, unit: "Rp. ")
+                                    .col-md-2
+                                      td
+                                        = check_box_tag "product_ids[]", product.id
+                                    .col-md-2
+                                      td
+                                        = select_tag :service_category_id, options_for_select(Array.new(5){ |i| [(i+1).to_s + " - " + number_to_currency(((i+1)*product.price), unit: "Rp. ").to_s, i+1] }), class:"form-control form-input jualo-search width-100"
+                                    
+
+                                  tr
+                                    td
+                                      - product.foto_product_services.each do |avatars|
+                                        a.thumb-item-link.active data-slide-index="0" href="" 
+                                          img alt="img" src="#{avatars.avatar.large_avatar}"
+
                   #vote.modal.fade aria-hidden="true" aria-labelledby="voteLabel" role="dialog" tabindex="-1" 
                     .modal-dialog
                       .panel.panel-danger
