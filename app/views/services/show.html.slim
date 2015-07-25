@@ -171,7 +171,7 @@
                 img.img-circle.img-responsive alt="" src="#{@service.user.avatar.large_avatar}"
             .profile-usertitle
               .profile-usertitle-name
-                | #{@service.user.first_name.upcase} #{@service.user.last_name.upcase}
+                | #{@service.user.first_name} #{@service.user.last_name}
               .profile-usertitle-job
                 | Owner
             .profile-userbuttons
@@ -266,7 +266,7 @@
                             .col-md-12.col-xs.12
                               .col-md-8.col-md-8
                                 a href="#" 
-                                  | By: #{feedback.user.first_name.upcase} #{feedback.user.last_name.upcase}
+                                  | By: #{feedback.user.first_name} #{feedback.user.last_name}
                               .col-md-4.col-md-4
                                 = link_to "View Profile", account_path(feedback.user.id), :class=> "btn btn-primary"
                           .comment-text
