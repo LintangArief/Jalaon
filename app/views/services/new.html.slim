@@ -110,37 +110,6 @@
 
 javascript: 
   $(document).ready(function(){
-    if ($('#service_properties_Delivery').length == 1){
-      if ($('#service_properties_Delivery')[0].checked == true) {
-        $('#km').show();
-      }else{
-        $('#km').hide();
-      }
-
-      $("#service_properties_Delivery").change(function() {
-        if ($('#service_properties_Delivery')[0].checked == true) {
-          $('#km').show();
-        }else{
-          $('#km').hide();
-        }
-      })
-    }else{
-      if (document.getElementById('service_properties_OutSide Service').checked == true) {
-        $('#km').show();
-      }else{
-        $('#km').hide();
-      }
-      document.getElementById('service_properties_OutSide Service').addEventListener('change', function(){
-        if (document.getElementById('service_properties_OutSide Service').checked == true) {
-          $('#km').show();
-        }else{
-          $('#km').hide();
-        }
-      })
-    }
-  });
-
-  $(document).ready(function(){
     function showPosition(position) {
       var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
       var geocoder = new google.maps.Geocoder();
