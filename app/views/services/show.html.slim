@@ -111,6 +111,7 @@
                                   h4.text-right
                                     | Total : Rp.
                                     strong.text-total 0
+                                    = hidden_field_tag "hidetotal", 0, class: "hidetotal"
                                 .col-xs-3
                                   button.btn.btn-success.btn-block type="button" 
                                     | Request Services
@@ -317,19 +318,27 @@ javascript:
         console.log($(this).val())
         $('.quantity'+$(this).val()).prop('disabled',false);
       }else{
-        $('.quantity'+$(this).val()).prop('disabled',true);
+        if ($('.quantity'+$(this).val()).val() > 0){
+          var q = $('.quantity'+$(this).val()).val()
+          var down = $('.quantity'+$(this).val()).data('unit-price');
+          st = $('.hidetotal').val() - (down * q)
+          $('.text-total').text(st.formatMoney(2, '.', ','))
+          $('.quantity'+$(this).val()).val(0)
+          $('.quantity'+$(this).val()).prop('disabled',true);
+        }
       }
     })
   
     var st = 0;
     $('.text-total').text(st)
-    $('.cart-variant--quantity_input').on("change", function () {      
+    $('.cart-variant--quantity_input').bind("change paste keyup", function () {      
         var st = 0;
         $('.cart-row').each(function () {
             var i = $('.cart-variant--quantity_input', this);
             var up = $(i).data('unit-price');
             var q = $(i).val();
             st = st + (up * q);
+            $('.hidetotal').val(st)
         });
         $('.text-total').text(st.formatMoney(2, '.', ','))
     });
