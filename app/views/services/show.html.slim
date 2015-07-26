@@ -68,46 +68,52 @@
                   .list-title
                 - if @service.service_category.has_product
                   - if @service.product_services.count > 0
-                    .col-md-12
-                      h4 Product
-                      - if current_user
-                        - if current_user.id == @service.user.id    
-                          = link_to "Add Product", "#", :class=>"btn btn-block btn-primary", "data-toggle" => "modal", "data-target" => "#vote"
-                      #bx-pager
-                        .col-md-12
-                          = form_tag do
-                            table.table
-                              .col-md-4
-                                th Title
-                              .col-md-2
-                                th Harga
-                              .col-md-2
-                                th Pesan
-                              .col-md-2
-                                th Quantity
-                              tbody
-                                - @show_product.each do |product|
-                                  tr.active
-                                    .col-md-4
-                                      td
-                                        h5 style="text-align:left;" #{product.title}
-                                    .col-md-2
-                                      td  
-                                        h5 style="text-align:left;" 
+                    .col-md-12.cart-row
+                      .col-xs-12.col-md-12
+                        = form_tag do
+                          .panel.panel-info
+                            .panel-heading
+                              .panel-title
+                                .row
+                                  .col-xs-6
+                                    th Product
+                                  .col-xs-2
+                                    th Price
+                                  .col-xs-2
+                                    th Quantity
+                                  .col-xs-2
+                                    th Enable Order
+                            .panel-body
+                              - @show_product.each do |product|
+                                .row
+                                  .col-xs-6
+                                    h4.product-name
+                                      strong #{product.title}
+                                    h4
+                                      small #{product.description}
+                                  .col-xs-2
+                                      h6
+                                        strong
                                           = number_to_currency(product.price, unit: "Rp. ")
-                                    .col-md-2
-                                      td
-                                        = check_box_tag "product_ids[]", product.id
-                                    .col-md-2
-                                      td
-                                        = select_tag :service_category_id, options_for_select(Array.new(5){ |i| [(i+1).to_s + " - " + number_to_currency(((i+1)*product.price), unit: "Rp. ").to_s, i+1] }), class:"form-control form-input jualo-search width-100"
-                                    
-
-                                  tr
-                                    td
-                                      - product.foto_product_services.each do |avatars|
+                                          = hidden_field_tag "product_price_ids[]", "#{product.price}, #{product.id}"
+                                  .calculate
+                                    .col-xs-2
+                                      = text_field_tag "product_quantity_ids[]", 0,class: "form-control width-100 cart-variant--quantity_input quantity#{product.id}", type: "number", min: "0", "data-unit-price" => product.price, disabled: true
+                                    .col-xs-2
+                                      = check_box_tag "product_ids[]", product.id, false, class: "text-center enable-cart", "data-unit-id" => product.id
+                                  .col-xs-12
+                                    - product.foto_product_services.each do |avatars|
                                         a.thumb-item-link.active data-slide-index="0" href="" 
                                           img alt="img" src="#{avatars.avatar.large_avatar}"
+                            .panel-footer
+                              .row.text-center
+                                .col-xs-9
+                                  h4.text-right
+                                    | Total : Rp.
+                                    strong.text-total 0
+                                .col-xs-3
+                                  button.btn.btn-success.btn-block type="button" 
+                                    | Request Services
 
                   #vote.modal.fade aria-hidden="true" aria-labelledby="voteLabel" role="dialog" tabindex="-1" 
                     .modal-dialog
@@ -144,10 +150,9 @@
 
 
             .content-footer.text-left
-              a.btn.btn-default data-toggle="modal" href="#contactAdvertiser" 
-                i.icon-mail-2
-                | Order
-              i.icon-phone-1
+              - if current_user
+                - if current_user.id == @service.user.id    
+                  = link_to "Add Product", "#", :class=>"btn btn-primary", "data-toggle" => "modal", "data-target" => "#vote"
               - if current_user
                 - if current_user.id != @service.user.id
                     = link_to "Send Message", "#myModal", class: "btn btn-danger btn-sm", "data-toggle"=> "modal"              
@@ -181,6 +186,14 @@
       .col-sm-3.page-sidebar-right
         .col-md-12
           .profile-sidebar
+            .profile-userbuttons
+              - if current_user
+                - if current_user.id != @service.user.id
+                    = link_to "Request Services", "#"
+                - else
+                    = link_to "Request Services", "#", class: "btn btn-block  btn-primary"
+
+          .profile-sidebar
             .profile-userpic
               - if @service.user.avatar.file == nil
                 img.img-responsive alt="" src="https://placeholdit.imgix.net/~text?txtsize=10&txt=80%C3%9780&w=80&h=80" /
@@ -192,15 +205,6 @@
               .profile-usertitle-job
                 | Owner
             .profile-userbuttons
-              - if current_user
-                - if @service.user.friend_with? current_user
-                  = link_to "Remove Friend", unfriend_path(@service.id), method: :post, class: "btn btn-success btn-sm"
-                - elsif @pending == true
-                  = link_to "Cancle Invite", canclefriend_path(@service.id), method: :post, class: "btn btn-success btn-sm"
-                - else  
-                  = link_to "Add Friend", friend_path(@service.id), method: :post, class: "btn btn-success btn-sm"
-              - else
-                = link_to "Add Friend", new_user_registration_path, class: "btn btn-success btn-sm"
               - if current_user
                 - if current_user.id != @service.user.id
                   = link_to "Send Message", "#myModal", class: "btn btn-danger btn-sm", "data-toggle"=> "modal"              
@@ -231,8 +235,6 @@
                             button.btn.btn-default data-dismiss="modal" type="button"  Close
               - else
                 = link_to "Send Message", new_user_registration_path, class: "btn btn-danger btn-sm"
-
-
             .profile-usermenu
               ul.nav
                 li.active
@@ -306,3 +308,29 @@
                 a.btn.btn-primary.btn-sm.btn-block href="#" role="button" 
                   span.glyphicon.glyphicon-refresh
                   | More
+
+
+javascript:
+  $(document).ready(function(){
+    $('#product_ids_').click(function(){
+      if ($(this).is(":checked")){
+        console.log($(this).val())
+        $('.quantity'+$(this).val()).prop('disabled',false);
+      }else{
+        $('.quantity'+$(this).val()).prop('disabled',true);
+      }
+    })
+  
+    var st = 0;
+    $('.text-total').text(st)
+    $('.cart-variant--quantity_input').on("change", function () {      
+        var st = 0;
+        $('.cart-row').each(function () {
+            var i = $('.cart-variant--quantity_input', this);
+            var up = $(i).data('unit-price');
+            var q = $(i).val();
+            st = st + (up * q);
+        });
+        $('.text-total').text(st.formatMoney(2, '.', ','))
+    });
+  });
