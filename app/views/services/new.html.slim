@@ -92,12 +92,13 @@
                         - else 
                           #km
                             = render "services/fields/#{field.field_type}", field: field, f: builder
-                  - if @service_category.has_product == true
-                    .col-xs-12.col-sm-12.col-md-12.label-white
-                      br/
-                      = f.fields_for :product_services do |builder|
-                        = render 'field_product', f: builder
-                      = link_to_add_fields_products "Add Product", f, :product_services
+                  - if @service_category
+                    - if @service_category.has_product == true
+                      .col-xs-12.col-sm-12.col-md-12.label-white
+                        br/
+                        = f.fields_for :product_services do |builder|
+                          = render 'field_product', f: builder
+                        = link_to_add_fields_products "Add Product", f, :product_services
                   
                 hr.colorgraph/
                 .row
