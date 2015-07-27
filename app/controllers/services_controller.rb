@@ -24,6 +24,7 @@ class ServicesController < ApplicationController
     @product_service = ProductService.new
     @feedback = Feedback.new
     @show_product = @service.product_services
+    @service_category = ServiceCategory.find(@service.service_category_id)
     @pending = nil
     if current_user
       @pending = @service.user.pending_invited_by.map(&:id).include? current_user.id

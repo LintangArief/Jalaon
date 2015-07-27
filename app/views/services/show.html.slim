@@ -151,6 +151,10 @@
 
 
             .content-footer.text-left
+              - if @service_category.has_product == false
+                - if current_user
+                  - if @service.user != current_user
+                    = link_to "Request Service", "#", :class=>"btn btn-primary"                
               - if current_user
                 - if current_user.id == @service.user.id    
                   = link_to "Add Product", "#", :class=>"btn btn-primary", "data-toggle" => "modal", "data-target" => "#vote"
