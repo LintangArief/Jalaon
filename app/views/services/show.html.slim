@@ -100,7 +100,7 @@
                                     .col-xs-2
                                       = text_field_tag "product_quantity_ids[]", 0,class: "form-control width-100 cart-variant--quantity_input quantity#{product.id}", type: "number", min: "0", "data-unit-price" => product.price, disabled: true
                                     .col-xs-2
-                                      = check_box_tag "product_ids[]", product.id, false, class: "text-center enable-cart", "data-unit-id" => product.id
+                                      = check_box_tag "product_ids[]", product.id, false, class: "text-center enable-cart product_ids_", "data-unit-id" => product.id
                                   .col-xs-12
                                     - product.foto_product_services.each do |avatars|
                                         a.thumb-item-link.active data-slide-index="0" href="" 
@@ -313,7 +313,7 @@
 
 javascript:
   $(document).ready(function(){
-    $('#product_ids_').click(function(){
+    $('.product_ids_').click(function(){
       if ($(this).is(":checked")){
         console.log($(this).val())
         $('.quantity'+$(this).val()).prop('disabled',false);
@@ -324,6 +324,8 @@ javascript:
           st = $('.hidetotal').val() - (down * q)
           $('.text-total').text(st.formatMoney(2, '.', ','))
           $('.quantity'+$(this).val()).val(0)
+          $('.quantity'+$(this).val()).prop('disabled',true);
+        }else{
           $('.quantity'+$(this).val()).prop('disabled',true);
         }
       }
