@@ -68,7 +68,7 @@
                   .list-title
                 - if @service.service_category.has_product
                   - if @service.product_services.count > 0
-                    .col-md-12.cart-row
+                    .col-md-12
                       .col-xs-12.col-md-12
                         = form_tag do
                           .panel.panel-info
@@ -85,7 +85,7 @@
                                     th Enable Order
                             .panel-body
                               - @show_product.each do |product|
-                                .row
+                                .row.cart-row
                                   .col-xs-6
                                     h4.product-name
                                       strong #{product.title}
