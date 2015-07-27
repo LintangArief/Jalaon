@@ -5,6 +5,20 @@
             h4.panel-title
               a data-parent="#accordion" data-toggle="collapse" href="#collapseOne" 
                 span.glyphicon.glyphicon-usd
+                | Order
+          #collapse1.panel-collapse
+            .panel-body.padding-2
+              table.table style="margin-bottom: 0;"
+                tr
+                  td style="border: none;"
+                    span.glyphicon.glyphicon-retweet
+                    = link_to "Request Order", request_order_carts_path, data: { no_turbolink: true }
+
+        .panel.panel-default
+          .panel-heading
+            h4.panel-title
+              a data-parent="#accordion" data-toggle="collapse" href="#collapseOne" 
+                span.glyphicon.glyphicon-usd
                 | Transactions / Payment
           #collapse1.panel-collapse
             .panel-body.padding-2

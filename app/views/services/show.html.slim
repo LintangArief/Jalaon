@@ -70,7 +70,7 @@
                   - if @service.product_services.count > 0
                     .col-md-12
                       .col-xs-12.col-md-12
-                        = form_tag do
+                        = form_tag add_cart_cart_path do
                           .panel.panel-info
                             .panel-heading
                               .panel-title
@@ -95,10 +95,11 @@
                                       h6
                                         strong
                                           = number_to_currency(product.price, unit: "Rp. ")
-                                          = hidden_field_tag "product_price_ids[]", "#{product.price}, #{product.id}"
+                                          = hidden_field_tag "product_price_ids[]", "#{product.price}"
+                                          = hidden_field_tag "has_product", true
                                   .calculate
                                     .col-xs-2
-                                      = text_field_tag "product_quantity_ids[]", 0,class: "form-control width-100 cart-variant--quantity_input quantity#{product.id}", type: "number", min: "0", "data-unit-price" => product.price, disabled: true
+                                      = text_field_tag "product_quantity_ids[]", 0, class: "form-control width-100 cart-variant--quantity_input quantity#{product.id}", type: "number", min: "0", "data-unit-price" => product.price, disabled: true
                                     .col-xs-2
                                       = check_box_tag "product_ids[]", product.id, false, class: "text-center enable-cart product_ids_", "data-unit-id" => product.id
                                   .col-xs-12
@@ -113,9 +114,7 @@
                                     strong.text-total 0
                                     = hidden_field_tag "hidetotal", 0, class: "hidetotal"
                                 .col-xs-3
-                                  button.btn.btn-success.btn-block type="button" 
-                                    | Request Services
-
+                                  = submit_tag "Request Service", class: "btn btn-success btn-block"
                   #vote.modal.fade aria-hidden="true" aria-labelledby="voteLabel" role="dialog" tabindex="-1" 
                     .modal-dialog
                       .panel.panel-danger

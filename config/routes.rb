@@ -62,6 +62,9 @@ Rails.application.routes.draw do
   match '/add_field' =>  'service_categories#add_field', :via => 'get', :as => :admin_add_field
 
   resources :carts do
+    collection do
+      get 'request_order'
+    end
     member do
       post 'add_cart'
     end

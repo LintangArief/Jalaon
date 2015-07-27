@@ -1,0 +1,139 @@
+#main-container.container style="padding-top:20px; padding-bottom: 20px;"
+  .row
+    .col-md-12
+      ol.breadcrumb
+        li
+          a href="index.html"  Home
+        li.active 
+          = link_to "Dasboard", setting_path
+        li.active Request Order
+    br/
+    = render "account/side_bar"
+    .col-sm-9.col-md-9
+      ul.nav.nav-tabs
+        li.active
+          a data-toggle="tab" href="#friend-request" 
+            | Request Services
+        li
+          a data-toggle="tab" href="#my-friend-requests" 
+            span.glyphicon.glyphicon-tags
+            | My Request Service
+      .tab-content
+        #friend-request.tab-pane.fade.in.active
+          .follower-list
+            - @request.each do |cart|
+              - if cart.cart_items.count > 0
+                .col-md-12
+                  .col-md-10
+                    h4
+                      span.glyphicon.glyphicon-tags
+                      |  #{cart.service.title.upcase}
+                    - if cart.status == 1
+                      - status = "Menunggu Konfirmasi Pemilik Services"
+                    - elsif cart.status == 2
+                      - status = "Menunggu Persetujuan User"
+                    - else
+                      - status = nil
+                    h6
+                      span = status
+                  .col-md-2
+                    h5.span.text-right 
+                    = link_to 'Reject Request', cart, data: {:confirm => 'Are you sure?'}, :method => :delete, class: "btn btn-primary"
+                table.table.table-hover
+                  thead
+                    tr
+                      th Product
+                      th
+                      th Quantity
+                      th.text-center Price
+                      th
+                      th.text-center Tersedia
+                  tbody
+                    - cart.cart_items.each do |item|
+                      - product = ProductService.find(item.item_id)
+                      tr
+                        td.col-sm-8.col-md-6
+                          .media
+                            a.thumbnail.pull-left href="#" 
+                              - if product.foto_product_services.count == 0
+                                img.media-object src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png" style=("width: 72px; height: 72px;") /
+                              - else
+                                img alt="img" src="#{product.foto_product_services.first.avatar.large_avatar}"
+                        td.col-sm-8.col-md-6
+                            .media-body
+                              h4.media-heading
+                                strong = link_to product.title, "#"
+                        td.col-sm-1.col-md-1 style=("text-align: center") 
+                          | #{item.quantity}
+                        td.col-sm-1.col-md-1.text-center
+                          | #{item.price}
+                        td.col-sm-1.col-md-1
+                        td.col-sm-1.col-md-1 style="text-align: center;"
+                          = check_box_tag "ready_ids[]", item.id, false, class: "text-center enable-cart item_ids_", "data-unit-id" => item.id, style: "text-align: center !important; vertical-align: middle;"
+                    tr
+                      td  
+                      td  
+                      td
+                      td
+                      td
+                      td
+                        .col-md-12 style="margin: 5px"
+                          button.btn.btn-success.btn-block type="button" 
+                            | Send Konfirmasi
+                            span.glyphicon.glyphicon-play        
+
+              
+        #my-friend-requests.tab-pane.fade.in
+          .follower-list
+            - @my_request.each do |cart|
+              - if cart.cart_items.count > 0
+                .col-md-12
+                  .col-md-10
+                    h4
+                      span.glyphicon.glyphicon-tags
+                      |  #{cart.service.title.upcase}
+                    - if cart.status == 1
+                      - status = "Menunggu Konfirmasi Pemilik Services"
+                    - elsif cart.status == 2
+                      - status = "Menunggu Persetujuan User"
+                    - else
+                      - status = nil
+                    h6
+                      span = status
+                  .col-md-2
+                    h5.span.text-right 
+                    = link_to 'Cancle Request', cart, data: {:confirm => 'Are you sure?'}, :method => :delete, class: "btn btn-primary"
+                table.table.table-hover
+                  thead
+                    tr
+                      th Product
+                      th
+                      th Quantity
+                      th.text-center Price
+                      th
+                      th.text-center 
+
+                  tbody
+                    - cart.cart_items.each do |item|
+                      - product = ProductService.find(item.item_id)
+                      tr
+                        td.col-sm-8.col-md-6
+                          .media
+                            a.thumbnail.pull-left href="#" 
+                              - if product.foto_product_services.count == 0
+                                img.media-object src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png" style=("width: 72px; height: 72px;") /
+                              - else
+                                img alt="img" src="#{product.foto_product_services.first.avatar.large_avatar}"
+                        td.col-sm-8.col-md-6
+                            .media-body
+                              h4.media-heading
+                                strong = link_to product.title, "#"
+                        td.col-sm-1.col-md-1 style=("text-align: center") 
+                          | #{item.quantity}
+                        td.col-sm-1.col-md-1.text-center
+                          | #{item.price}
+                        td.col-sm-1.col-md-1
+                        td.col-sm-1.col-md-1
+                          button.btn.btn-danger type="button" 
+                            span.glyphicon.glyphicon-remove
+                            | Remove     

@@ -41,10 +41,10 @@
                     td.col-sm-8.col-md-6
                       .media
                         a.thumbnail.pull-left href="#" 
-                          - if product.foto_product_services.first.avatar.nil?
+                          - if product.foto_product_services.count == 0
                             img.media-object src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png" style=("width: 72px; height: 72px;") /
                           - else
-                            img alt="img" src="#{product.foto_product_services.first.avatar.large_avatar}"                        
+                            img alt="img" src="#{product.foto_product_services.first.avatar.large_avatar}"
                     td.col-sm-8.col-md-6
                         .media-body
                           h4.media-heading

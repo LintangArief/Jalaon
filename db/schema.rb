@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150724181827) do
+ActiveRecord::Schema.define(version: 20150727154243) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -107,11 +107,22 @@ ActiveRecord::Schema.define(version: 20150724181827) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "cart_requests", force: :cascade do |t|
+    t.integer  "cart_id"
+    t.integer  "status",     default: 1
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "cart_requests", ["cart_id"], name: "index_cart_requests_on_cart_id", using: :btree
+
   create_table "carts", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.integer  "user_id"
     t.integer  "service_id"
+    t.boolean  "has_product", default: false
+    t.integer  "status",      default: 1
   end
 
   create_table "complaint_services", force: :cascade do |t|
@@ -411,6 +422,7 @@ ActiveRecord::Schema.define(version: 20150724181827) do
 
   add_foreign_key "balances", "users"
   add_foreign_key "billings", "bank_names"
+  add_foreign_key "cart_requests", "carts"
   add_foreign_key "complaint_services", "services"
   add_foreign_key "confirmation_deposits", "bank_names"
   add_foreign_key "confirmation_deposits", "deposits"
