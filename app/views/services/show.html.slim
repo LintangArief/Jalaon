@@ -79,10 +79,12 @@
                                     th Product
                                   .col-xs-2
                                     th Price
-                                  .col-xs-2
-                                    th Quantity
-                                  .col-xs-2
-                                    th Enable Order
+                                  - if current_user
+                                    - if current_user != @service.user  
+                                      .col-xs-2
+                                        th Quantity
+                                      .col-xs-2
+                                        th Enable Order
                             .panel-body
                               - @show_product.each do |product|
                                 .row.cart-row
@@ -97,24 +99,28 @@
                                           = number_to_currency(product.price, unit: "Rp. ")
                                           = hidden_field_tag "product_price_ids[]", "#{product.price}"
                                           = hidden_field_tag "has_product", true
-                                  .calculate
-                                    .col-xs-2
-                                      = text_field_tag "product_quantity_ids[]", 0, class: "form-control width-100 cart-variant--quantity_input quantity#{product.id}", type: "number", min: "0", "data-unit-price" => product.price, disabled: true
-                                    .col-xs-2
-                                      = check_box_tag "product_ids[]", product.id, false, class: "text-center enable-cart product_ids_", "data-unit-id" => product.id
+                                  - if current_user
+                                    - if current_user != @service.user
+                                      .calculate
+                                        .col-xs-2
+                                          = text_field_tag "product_quantity_ids[]", 0, class: "form-control width-100 cart-variant--quantity_input quantity#{product.id}", type: "number", min: "0", "data-unit-price" => product.price, disabled: true
+                                        .col-xs-2
+                                          = check_box_tag "product_ids[]", product.id, false, class: "text-center enable-cart product_ids_", "data-unit-id" => product.id
                                   .col-xs-12
                                     - product.foto_product_services.each do |avatars|
                                         a.thumb-item-link.active data-slide-index="0" href="" 
                                           img alt="img" src="#{avatars.avatar.large_avatar}"
-                            .panel-footer
-                              .row.text-center
-                                .col-xs-9
-                                  h4.text-right
-                                    | Total : Rp.
-                                    strong.text-total 0
-                                    = hidden_field_tag "hidetotal", 0, class: "hidetotal"
-                                .col-xs-3
-                                  = submit_tag "Request Service", class: "btn btn-success btn-block"
+                            - if current_user
+                              - if current_user != @service.user
+                                .panel-footer
+                                  .row.text-center
+                                    .col-xs-9
+                                      h4.text-right
+                                        | Total : Rp.
+                                        strong.text-total 0
+                                        = hidden_field_tag "hidetotal", 0, class: "hidetotal"
+                                    .col-xs-3
+                                      = submit_tag "Request Service", class: "btn btn-success btn-block"
                   #vote.modal.fade aria-hidden="true" aria-labelledby="voteLabel" role="dialog" tabindex="-1" 
                     .modal-dialog
                       .panel.panel-danger
@@ -193,8 +199,6 @@
             .profile-userbuttons
               - if current_user
                 - if current_user.id != @service.user.id
-                    = link_to "Request Services", "#"
-                - else
                     = link_to "Request Services", "#", class: "btn btn-block  btn-primary"
 
           .profile-sidebar
