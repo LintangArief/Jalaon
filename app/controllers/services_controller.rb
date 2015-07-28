@@ -2,7 +2,6 @@ class ServicesController < ApplicationController
   before_action :set_service, only: [:show, :edit, :update, :destroy, :follow, :unfollow, :check_owner]
   before_action :authenticate_user!, only: [:new, :edit, :destroy, :follow, :unfollow]
   before_action :check_owner, only: [:edit, :destroy]
-  before_action :setting_cart, only: [:show]
   # GET /services
   # GET /services.json
   def index
@@ -166,18 +165,6 @@ class ServicesController < ApplicationController
         services.page params[:page]
       else
         services = nil
-      end
-    end
-
-    def setting_cart
-      if current_user
-        @cart = nil
-        check_cart = current_user.carts.find_by(service_id: params[:id])
-        if check_cart.nil?
-          @cart = current_user.carts.create(service_id: params[:id])
-        else
-          @cart = check_cart
-        end
       end
     end
 end
