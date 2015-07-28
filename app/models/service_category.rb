@@ -1,5 +1,6 @@
 class ServiceCategory < ActiveRecord::Base
   has_many :fields, class_name: "ServiceField"
+  has_one :request_category
   accepts_nested_attributes_for :fields, allow_destroy: true
 
   def self.show_all

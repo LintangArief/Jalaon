@@ -27,7 +27,6 @@ class User < ActiveRecord::Base
   has_many :confirmation_deposits, :dependent => :destroy
   has_many :billing, :dependent => :destroy
   has_one :balance, :dependent => :destroy
-  has_many :carts, :dependent => :destroy
   has_many :order_coupons
 
   scope :not_verify, ->{joins(:verify_user).where("verify_users.is_verify = false").all}

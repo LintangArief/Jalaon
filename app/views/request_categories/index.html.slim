@@ -1,0 +1,21 @@
+h1 Listing request_categories
+
+table
+  thead
+    tr
+      th Service category
+      th
+      th
+      th
+
+  tbody
+    - @request_categories.each do |request_category|
+      tr
+        td = request_category.service_category
+        td = link_to 'Show', request_category
+        td = link_to 'Edit', edit_request_category_path(request_category)
+        td = link_to 'Destroy', request_category, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Request category', new_request_category_path

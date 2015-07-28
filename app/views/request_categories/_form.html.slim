@@ -1,0 +1,19 @@
+= form_for @request_category do |f|
+  - if @request_category.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@request_category.errors.count, "error")} prohibited this request_category from being saved:"
+      ul
+        - @request_category.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    .field
+      label "Service Kategory"
+      = f.select :service_category_id, options_for_select(ServiceCategory.all.map{ |c| [c.name, c.id]}), class:"form-control form-input jualo-search width-100"
+  
+  .field
+    = f.fields_for :fields do |builder|
+      = render 'field_fields', f: builder
+    = link_to_add_fields "Add Field", f, :fields
+  
+  .actions = f.submit

@@ -6,11 +6,11 @@ class Service < ActiveRecord::Base
   has_many :product_services, :dependent => :destroy
   accepts_nested_attributes_for :product_services, allow_destroy: true
   has_many :feedbacks, :dependent => :destroy
-  has_many :carts, :dependent => :destroy
   belongs_to :user
   belongs_to :service_category
   mount_uploader :avatar, AvatarServiceUploader
   validate :validate_properties
+  has_many :requests
   acts_as_followable
 
   def validate_properties

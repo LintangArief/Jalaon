@@ -1,0 +1,2 @@
+module RequestCategoryHelper
+end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150727154243) do
+ActiveRecord::Schema.define(version: 20150728162121) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -95,35 +95,6 @@ ActiveRecord::Schema.define(version: 20150727154243) do
   end
 
   add_index "billings", ["bank_name_id"], name: "index_billings_on_bank_name_id", using: :btree
-
-  create_table "cart_items", force: :cascade do |t|
-    t.integer  "owner_id"
-    t.string   "owner_type"
-    t.integer  "quantity"
-    t.integer  "item_id"
-    t.string   "item_type"
-    t.float    "price"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "cart_requests", force: :cascade do |t|
-    t.integer  "cart_id"
-    t.integer  "status",     default: 1
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-  end
-
-  add_index "cart_requests", ["cart_id"], name: "index_cart_requests_on_cart_id", using: :btree
-
-  create_table "carts", force: :cascade do |t|
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
-    t.integer  "user_id"
-    t.integer  "service_id"
-    t.boolean  "has_product", default: false
-    t.integer  "status",      default: 1
-  end
 
   create_table "complaint_services", force: :cascade do |t|
     t.string   "name"
@@ -320,6 +291,50 @@ ActiveRecord::Schema.define(version: 20150727154243) do
 
   add_index "read_marks", ["user_id", "readable_type", "readable_id"], name: "index_read_marks_on_user_id_and_readable_type_and_readable_id", using: :btree
 
+  create_table "request_categories", force: :cascade do |t|
+    t.integer  "service_category_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  add_index "request_categories", ["service_category_id"], name: "index_request_categories_on_service_category_id", using: :btree
+
+  create_table "request_fields", force: :cascade do |t|
+    t.string   "name"
+    t.string   "field_type"
+    t.boolean  "required"
+    t.integer  "request_category_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  add_index "request_fields", ["request_category_id"], name: "index_request_fields_on_request_category_id", using: :btree
+
+  create_table "request_products", force: :cascade do |t|
+    t.integer  "request_id"
+    t.integer  "product_service_id"
+    t.integer  "quantity"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "request_products", ["product_service_id"], name: "index_request_products_on_product_service_id", using: :btree
+  add_index "request_products", ["request_id"], name: "index_request_products_on_request_id", using: :btree
+
+  create_table "requests", force: :cascade do |t|
+    t.integer  "request_category_id"
+    t.integer  "user_id"
+    t.integer  "service_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.hstore   "properties"
+  end
+
+  add_index "requests", ["properties"], name: "requests_properties", using: :gin
+  add_index "requests", ["request_category_id"], name: "index_requests_on_request_category_id", using: :btree
+  add_index "requests", ["service_id"], name: "index_requests_on_service_id", using: :btree
+  add_index "requests", ["user_id"], name: "index_requests_on_user_id", using: :btree
+
   create_table "service_categories", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at",  null: false
@@ -422,7 +437,6 @@ ActiveRecord::Schema.define(version: 20150727154243) do
 
   add_foreign_key "balances", "users"
   add_foreign_key "billings", "bank_names"
-  add_foreign_key "cart_requests", "carts"
   add_foreign_key "complaint_services", "services"
   add_foreign_key "confirmation_deposits", "bank_names"
   add_foreign_key "confirmation_deposits", "deposits"
@@ -437,6 +451,13 @@ ActiveRecord::Schema.define(version: 20150727154243) do
   add_foreign_key "order_coupons", "coupons"
   add_foreign_key "order_coupons", "users"
   add_foreign_key "product_services", "services"
+  add_foreign_key "request_categories", "service_categories"
+  add_foreign_key "request_fields", "request_categories"
+  add_foreign_key "request_products", "product_services"
+  add_foreign_key "request_products", "requests"
+  add_foreign_key "requests", "request_categories"
+  add_foreign_key "requests", "services"
+  add_foreign_key "requests", "users"
   add_foreign_key "service_fields", "service_categories"
   add_foreign_key "verify_users", "users"
   add_foreign_key "withdraws", "bank_names"

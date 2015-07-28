@@ -35,7 +35,11 @@
                     - else
                       - status = nil
                     h6
-                      span = status
+                      span Status : #{status}
+                    h6
+                      span Request By : #{cart.user.first_name} #{cart.user.last_name}
+                    h6
+                      span Request Date : #{cart.created_at.to_date}
                   .col-md-2
                     h5.span.text-right 
                     = link_to 'Reject Request', cart, data: {:confirm => 'Are you sure?'}, :method => :delete, class: "btn btn-primary"
@@ -99,7 +103,13 @@
                     - else
                       - status = nil
                     h6
-                      span = status
+                      span Status : #{status}
+                    h6
+                      span Owner Service : #{cart.service.user.first_name} #{cart.service.user.last_name}
+                    h6
+                      span Request Date : #{cart.created_at.to_date}
+                    h6
+                      span Total Price : #{cart.total}
                   .col-md-2
                     h5.span.text-right 
                     = link_to 'Cancle Request', cart, data: {:confirm => 'Are you sure?'}, :method => :delete, class: "btn btn-primary"

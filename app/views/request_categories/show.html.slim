@@ -1,0 +1,9 @@
+p#notice = notice
+
+p
+  strong Service category:
+  = @request_category.service_category
+
+= link_to 'Edit', edit_request_category_path(@request_category)
+'|
+= link_to 'Back', request_categories_path
