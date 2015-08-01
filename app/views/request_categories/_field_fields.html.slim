@@ -1,5 +1,5 @@
 fieldset
-  = f.select :field_type, %w{text_field check_box type_services date_pair type_rate price}
+  = f.select :field_type, %w{text_field text_area_field number_field check_box_field date_pair complete_date_pair_field location_pair_field}
   = f.text_field :name, placeholder: 'field_name'
   = f.check_box :required
   = f.label :required

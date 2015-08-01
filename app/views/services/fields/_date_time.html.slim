@@ -1,0 +1,18 @@
+.col-xs-12.col-sm-12.col-md-12#basicExample style="padding: 0px;"
+  .col-xs-3.col-sm-3.col-md-3 style="padding: 0px;"
+    label Tanggal
+    = f.text_field :date_request, class: "form-control width-100", id: "date_transfer1", value: @confirmation_deposit.date_transfer.strftime("%m/%d/%y")
+
+
+javascript:
+  $(document).ready(function(){
+    $(":file").filestyle({
+    })
+    $('#date_transfer1').datepicker({
+        format: "mm/dd/yyyy",
+        clearBtn: true,
+        orientation: "bottom right",
+        calendarWeeks: true,
+        autoclose: true
+    });
+  })

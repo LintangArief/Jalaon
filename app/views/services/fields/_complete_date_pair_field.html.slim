@@ -1,0 +1,29 @@
+.col-xs-12.col-sm-12.col-md-12#basicExample style="padding: 0px;"
+  br/
+  .col-xs-6.col-sm-6.col-md-6 style="padding: 0px; margin-right: 3%"
+    label Tanggal
+    = f.text_field :date_request, class: "form-control width-100", id: "date_transfer1"
+  .col-xs-3.col-sm-3.col-md-3 style="padding: 0px; margin-right: 3%;"
+    label Jam Buka
+    = f.text_field :time_request, :class=>"form-control time start"
+    
+javascript:
+  $('#basicExample .time').timepicker({
+    'showDuration': true,
+    'timeFormat': 'g:ia'
+  });
+  $('#date_transfer1').datepicker({
+      format: "mm/dd/yyyy",
+      clearBtn: true,
+      orientation: "bottom right",
+      calendarWeeks: true,
+      autoclose: true
+  });
+
+  // initialize datepair
+  var basicExampleEl = document.getElementById('basicExample');
+  var datepair = new Datepair(basicExampleEl);
+
+
+
+
