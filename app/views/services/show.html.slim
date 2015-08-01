@@ -175,7 +175,24 @@
               - if @service_category.has_product == false
                 - if current_user
                   - if @service.user != current_user
-                    = link_to "Request Service", "#", :class=>"btn btn-primary"                
+                    = form_for @request_service, method: :post do |f|
+                      = link_to "Request Service", "#myRequests", :class=>"btn btn-primary", "data-toggle" => "modal"
+                      #myRequests.modal.fade aria-hidden="true" aria-labelledby="voteLabel" role="dialog" tabindex="-1"
+                        .modal-dialog
+                          .panel.panel-danger
+                            .panel-heading
+                              button.close aria-hidden="true" data-dismiss="modal" type="button"  ×
+                              h4#voteLabel.panel-title
+                                span.glyphicon.glyphicon-arrow-right
+                                | Request Services
+                              .modal-body
+                                = f.hidden_field :request_category_id
+                                = f.fields_for :properties, OpenStruct.new(@request_service.properties) do |builder|
+                                  - @service.service_category.request_category.fields.sort.each do |field|
+                                      = render "services/fields/#{field.field_type}", field: field, f: builder
+                              .modal-footer
+                                = f.submit "submit", :class => "button.btn.btn-success.btn-vote"
+                                button.btn.btn-default.btn-close data-dismiss="modal" type="button" Cancel
               - if current_user
                 - if current_user.id == @service.user.id    
                   = link_to "Add Product", "#", :class=>"btn btn-primary", "data-toggle" => "modal", "data-target" => "#vote"
