@@ -75,7 +75,7 @@ Rails.application.routes.draw do
   get '/dasboard' => 'pages#dasboard', :as => :dasboard
   get '/profile/:name/:id' => 'pages#profile', :as => :profile
   match '/add_field' =>  'service_categories#add_field', :via => 'get', :as => :admin_add_field
-  
+  post '/request_service' => 'services#request_service', :as => :requests
   resources :payments do
     collection do
       get 'billing'

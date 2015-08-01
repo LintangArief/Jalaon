@@ -20,6 +20,15 @@ class ServicesController < ApplicationController
   # GET /services/1
   # GET /services/1.json
   def show
+    if current_user
+      if current_user != @service.user
+        @request_service = @service.requests.new
+      else
+        @request_service = @service.requests.new(user_id: current_user.id)
+      end
+    else
+      @request_service = @service.requests.new
+    end
     @product_service = ProductService.new
     @feedback = Feedback.new
     @show_product = @service.product_services
@@ -28,6 +37,10 @@ class ServicesController < ApplicationController
     if current_user
       @pending = @service.user.pending_invited_by.map(&:id).include? current_user.id
     end
+  end
+
+  def request_service
+    asd
   end
 
   # GET /services/new

@@ -70,7 +70,7 @@
                   - if @service.product_services.count > 0
                     .col-md-12
                       .col-xs-12.col-md-12
-                        = form_tag add_cart_cart_path do
+                        = form_for @request_service, method: :post do |f|
                           .panel.panel-info
                             .panel-heading
                               .panel-title
@@ -116,12 +116,28 @@
                                 .col-xs-3
                                   - if current_user
                                     - if current_user != @service.user
-                                      = submit_tag "Request Service", class: "btn btn-success btn-block"
-                                    - if current_user == @service.user
+                                      = link_to "Request Service", "#myRequest", class: "btn btn-success btn-block", "data-toggle" => "modal"
+                                      #myRequest.modal.fade aria-hidden="true" aria-labelledby="voteLabel" role="dialog" tabindex="-1"
+                                        .modal-dialog
+                                          .panel.panel-danger
+                                            .panel-heading
+                                              button.close aria-hidden="true" data-dismiss="modal" type="button"  ×
+                                              h4#voteLabel.panel-title
+                                                span.glyphicon.glyphicon-arrow-right
+                                                | Request Services
+                                              .modal-body
+                                                = f.hidden_field :request_category_id
+                                                = f.fields_for :properties, OpenStruct.new(@request_service.properties) do |builder|
+                                                  - @service.service_category.request_category.fields.sort.each do |field|
+                                                      = render "services/fields/#{field.field_type}", field: field, f: builder
+                                              .modal-footer
+                                                = f.submit "submit", :class => "button.btn.btn-success.btn-vote"
+                                                button.btn.btn-default.btn-close data-dismiss="modal" type="button"  Cancle
+                                    - else
                                       = link_to "Request Service", "#", class: "btn btn-success btn-block"
                                   - else
                                     = link_to "Request Service", new_user_session_path, class: "btn btn-success btn-block"
-                  #vote.modal.fade aria-hidden="true" aria-labelledby="voteLabel" role="dialog" tabindex="-1" 
+                  #vote.modal.fade aria-hidden="true" aria-labelledby="voteLabel" role="dialog" tabindex="-1"
                     .modal-dialog
                       .panel.panel-danger
                         .panel-heading
@@ -215,7 +231,7 @@
             .profile-userbuttons
               - if current_user
                 - if current_user.id != @service.user.id
-                  = link_to "Send Message", "#myModal", class: "btn btn-danger btn-sm", "data-toggle"=> "modal"              
+                  = link_to "Send Message", "#myModal", class: "btn btn-danger btn-sm", "data-toggle"=> "modal"
                   /! Modal HTML
                   #myModal.modal.fade
                     .modal-dialog
