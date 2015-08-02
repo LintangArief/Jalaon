@@ -1,5 +1,6 @@
 .col-xs-12.col-sm-12.col-md-12 style="padding: 0px;"
-  br/
-  = f.label field.name
-  br/
-  = f.text_area field.name, :class=>"form-control input-lg width-100"
+  div class= "#{field.name}"
+    br/
+    = f.label field.name
+    br/
+    = f.text_area field.name, :class=>"form-control input-lg width-100"
