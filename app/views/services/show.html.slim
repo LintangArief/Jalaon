@@ -116,7 +116,7 @@
                                 .col-xs-3
                                   - if current_user
                                     - if current_user != @service.user
-                                      = link_to "Request Service", "#myRequest", class: "btn btn-success btn-block btn-request", "data-toggle" => "modal"
+                                      = link_to "Request Service", "#myRequest", class: "btn btn-success btn-block btn-request request", "data-toggle" => "modal"
                                       #myRequest.modal.fade aria-hidden="true" aria-labelledby="voteLabel" role="dialog" tabindex="-1"
                                         .modal-dialog style="padding:10px; background:white;"
                                           .modal-header
@@ -147,9 +147,9 @@
                                             = f.submit "submit", :class => "button btn btn-success btn-vote"
                                             button.btn.btn-danger.btn-close data-dismiss="modal" type="button"  Cancle
                                     - else
-                                      = link_to "Request Service", "#", class: "btn btn-success btn-block"
+                                      = link_to "Request Service", "#", class: "btn btn-success btn-block request"
                                   - else
-                                    = link_to "Request Service", new_user_session_path, class: "btn btn-success btn-block"
+                                    = link_to "Request Service", new_user_session_path, class: "btn btn-success btn-block request"
                   #vote.modal.fade aria-hidden="true" aria-labelledby="voteLabel" role="dialog" tabindex="-1"
                     .modal-dialog
                       .panel.panel-danger
@@ -189,7 +189,7 @@
                 - if current_user
                   - if @service.user != current_user
                     = form_for @request_service, method: :post do |f|
-                      = link_to "Request Service", "#myRequests", :class=>"btn btn-primary", "data-toggle" => "modal"
+                      = link_to "Request Service", "#myRequests", :class=>"btn btn-primary request", "data-toggle" => "modal"
                       #myRequests.modal.fade aria-hidden="true" aria-labelledby="voteLabel" role="dialog" tabindex="-1"
                         .modal-dialog
                           .panel.panel-danger
@@ -245,7 +245,7 @@
             .profile-userbuttons
               - if current_user
                 - if current_user.id != @service.user.id
-                    = link_to "Request Services", "#", class: "btn btn-block  btn-primary"
+                    = link_to "Request Services", "#", class: "btn btn-block btn-primary toggle-service"
 
           .profile-sidebar
             .profile-userpic
@@ -413,21 +413,50 @@ javascript:
         $('.text-total').text(st.formatMoney(2, '.', ','));
         $('.total-harga').text(st.formatMoney(2, '.', ','));
     });
-    $('.Delivery').hide();
-    $('.Rumah').hide();
-    $('input[name="request[properties][Delivery]"]').change(function(){
-        if($(this).is(":checked")){
-          $('.Delivery').show();
-        }else{
-          $('.Delivery').hide();
-        }
-    });
-    
-    $('input[name="request[properties][Datang Ke Rumah]"]').change(function(){
-      if ($(this).is(":checked")){
-        $('.Rumah').show();
+
+    $('.Alamat').hide();
+    $('.Metode').change(function(){
+      if ($('.Metode').val() == "Datang Ke Rumah"){
+        $('.Alamat').show();
+      }else if ($('.Metode').val() == "Delivery"){
+        $('.Alamat').show();
       }else{
-        $('.Rumah').hide();
-      }
+        $('.Alamat').hide();
+      };
     });
+
+    if ($('.Metode').val() == "Datang Ke Rumah"){
+      $('.Alamat').show();
+    }else if ($('.Metode').val() == "Delivery"){
+      $('.Alamat').show();
+    }else{
+      $('.Alamat').hide();
+    }
+
+    $('.toggle-service').click(function(){
+      $('.request').click();
+      countChecked = [];
+      jQuery.map($('.product_ids_'), function(item, i){
+        if($(item).is(":checked")){
+          countChecked.push(item);
+        }
+      });
+      if (countChecked.length == 0 ){
+        alert("Please Select Your Request Product")
+      };
+    })
+
+    $('.request').click(function(){
+      countChecked = [];
+      jQuery.map($('.product_ids_'), function(item, i){
+        if($(item).is(":checked")){
+          countChecked.push(item);
+        }
+      });
+      if (countChecked.length == 0 ){
+        if ($('.product_ids_').length > 0){
+          alert("Please Select Your Request Product")
+        }
+      };
+    })
   });
