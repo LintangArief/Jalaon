@@ -22,12 +22,12 @@ class ServicesController < ApplicationController
   def show
     if current_user
       if current_user != @service.user
-        @request_service = @service.requests.new
+        @request = @service.requests.new
       else
-        @request_service = @service.requests.new(user_id: current_user.id)
+        @request = @service.requests.new(user_id: current_user.id)
       end
     else
-      @request_service = @service.requests.new
+      @request = @service.requests.new
     end
     @product_service = ProductService.new
     @feedback = Feedback.new
@@ -37,10 +37,6 @@ class ServicesController < ApplicationController
     if current_user
       @pending = @service.user.pending_invited_by.map(&:id).include? current_user.id
     end
-  end
-
-  def request_service
-    asd
   end
 
   # GET /services/new

@@ -28,6 +28,7 @@ class User < ActiveRecord::Base
   has_many :billing, :dependent => :destroy
   has_one :balance, :dependent => :destroy
   has_many :order_coupons
+  has_many :requests
 
   scope :not_verify, ->{joins(:verify_user).where("verify_users.is_verify = false").all}
   scope :success_verify, -> {joins(:verify_user).where("verify_users.is_verify = true").all}

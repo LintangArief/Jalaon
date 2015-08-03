@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   resources :request_categories
-  resources :request_categories
   get '/profile/:id' => 'account#profile', :as => :account
   get '/profile/edit/:id' => 'account#edit', :as => :edit_account
   put '/profile/:id' => 'account#update'
@@ -44,7 +43,7 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   resources :service_categories
   resources :services
-  resources :request
+  resources :requests
 
   devise_for :users, :controllers => { :registrations => "devise/registrations", :omniauth_callbacks => "devise/omniauth_callbacks" } do
     get 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
@@ -75,7 +74,6 @@ Rails.application.routes.draw do
   get '/dasboard' => 'pages#dasboard', :as => :dasboard
   get '/profile/:name/:id' => 'pages#profile', :as => :profile
   match '/add_field' =>  'service_categories#add_field', :via => 'get', :as => :admin_add_field
-  post '/request_service' => 'services#request_service', :as => :requests
   resources :payments do
     collection do
       get 'billing'
