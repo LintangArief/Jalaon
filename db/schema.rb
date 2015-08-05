@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150728162121) do
+ActiveRecord::Schema.define(version: 20150805160716) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -123,6 +123,26 @@ ActiveRecord::Schema.define(version: 20150728162121) do
   add_index "confirmation_deposits", ["bank_name_id"], name: "index_confirmation_deposits_on_bank_name_id", using: :btree
   add_index "confirmation_deposits", ["deposit_id"], name: "index_confirmation_deposits_on_deposit_id", using: :btree
   add_index "confirmation_deposits", ["user_id"], name: "index_confirmation_deposits_on_user_id", using: :btree
+
+  create_table "confirmation_request_products", force: :cascade do |t|
+    t.integer  "request_product_id"
+    t.integer  "quantity_available"
+    t.integer  "status"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "confirmation_request_products", ["request_product_id"], name: "index_confirmation_request_products_on_request_product_id", using: :btree
+
+  create_table "confirmation_requests", force: :cascade do |t|
+    t.integer  "request_id"
+    t.decimal  "delivery_fee"
+    t.integer  "status"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "confirmation_requests", ["request_id"], name: "index_confirmation_requests_on_request_id", using: :btree
 
   create_table "coupons", force: :cascade do |t|
     t.string   "token"
@@ -441,6 +461,8 @@ ActiveRecord::Schema.define(version: 20150728162121) do
   add_foreign_key "confirmation_deposits", "bank_names"
   add_foreign_key "confirmation_deposits", "deposits"
   add_foreign_key "confirmation_deposits", "users"
+  add_foreign_key "confirmation_request_products", "request_products"
+  add_foreign_key "confirmation_requests", "requests"
   add_foreign_key "deposits", "users"
   add_foreign_key "feedbacks", "services"
   add_foreign_key "feedbacks", "users"
