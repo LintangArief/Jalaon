@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-
-  resources :request_categories
+  root 'statics#home'
   get '/profile/:id' => 'account#profile', :as => :account
   get '/profile/edit/:id' => 'account#edit', :as => :edit_account
   put '/profile/:id' => 'account#update'
@@ -10,9 +9,7 @@ Rails.application.routes.draw do
   get '/my-service' => 'services#listing', :as => :my_services
   get '/setting' => 'account#setting', :as => :setting
   get '/dashboard/friends' => 'account#my_friends', :as=> :friends
-
   get '/dashboard/friends/friend-request' => 'account#request_friend', :as => :request_friend
-
   post '/friends/approve/:id' => "account#accept_friend", :as=> :accept_friend
   get '/dasboard/services/followed' => "account#my_following_service", :as=>:my_following_service
   post '/follow/service/:id' => 'services#follow', :as => :follow
@@ -20,7 +17,6 @@ Rails.application.routes.draw do
   post '/add_friend/service/:id' => 'services#add_friend', :as => :friend
   post '/unfriends/service/:id' => 'services#un_friend', :as => :unfriend
   post '/cancleinvite/service/:id' => 'services#cancle_friend', :as => :canclefriend
-  
   post '/add_friend/account/:id' => 'account#add_friend', :as => :friend_account
   post '/unfriends/account/:id' => 'account#un_friend', :as => :unfriend_account
   post '/cancleinvite/account/:id' => 'account#cancle_friend', :as => :canclefriend_account
@@ -36,34 +32,35 @@ Rails.application.routes.draw do
   get '/notifications' => "activities#index", :as => :notifications
   resources :activities
   resources :product_services
-
+  resources :request_categories
   put 'product_services/update'
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   resources :service_categories
   resources :services
-  resources :requests
-
+  resources :requests do
+    collection do
+    end
+    member do
+      get 'show_order', path: 'order'
+      get 'show_request', path: 'request'
+      post 'cancle_request_product', path: 'cancle'
+    end
+  end
   devise_for :users, :controllers => { :registrations => "devise/registrations", :omniauth_callbacks => "devise/omniauth_callbacks" } do
     get 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
   end
-  
-  root 'statics#home'
-
   resources :carts do
-    
     collection do
       get 'request_order'
     end
-    
     member do
       post 'add_cart'
-    end
 
+    end
   end
 
-  
   # get 'statics/home' => 'statics#home'
   get '/help' => 'statics#help'
   get '/rules' => 'statics#ruler'

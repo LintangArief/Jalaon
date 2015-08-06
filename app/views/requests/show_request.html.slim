@@ -1,0 +1,87 @@
+#main-container.container style="padding-top:20px; padding-bottom: 20px;"
+  .row
+    .col-md-12
+      ol.breadcrumb
+        li
+          a href="index.html"  Home
+        li.active 
+          = link_to "Dasboard", setting_path
+        li.active 
+          = link_to "Request To Me", requests_path
+        li.active = @request.service.title.upcase
+    br/
+    = render "account/side_bar"
+    .col-sm-9.col-md-9
+      ul.nav.nav-tabs
+        li.active
+          a data-toggle="tab" href="#friend-request" 
+            | Request To Me / #{@request.service.title.upcase}
+      .tab-content
+        #friend-request.tab-pane.fade.in.active
+          .follower-list
+            .col-md-12
+              .col-md-10
+                h4
+                  span.glyphicon.glyphicon-tags
+                  |  #{@request.service.title.upcase}
+                - if @request.confirmation_request.status == 1
+                  - status = "Menunggu Konfirmasi Pemilik Services"
+                - elsif @request.confirmation_request.status == 2
+                  - status = "Menunggu Persetujuan User"
+                - else
+                  - status = nil
+                h6
+                  span Status : #{status}
+                h6
+                  span Request By : #{@request.user.first_name} #{@request.user.last_name}
+                h6
+                  span Request Date : #{@request.created_at.to_date}
+            - if @request.request_products.count > 0
+              table.table.table-hover
+                thead
+                  tr
+                    th Product
+                    th
+                    th Quantity
+                    th.text-center Price
+                    th
+                    th.text-center Tersedia
+                - price = 0
+                tbody
+                  - @request.request_products.each do |item|
+                    - product = ProductService.find(item.product_service_id)
+                    tr
+                      td.col-sm-8.col-md-6
+                        .media
+                          a.thumbnail.pull-left href="#" 
+                            - if product.foto_product_services.count == 0
+                              img.media-object src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png" style=("width: 72px; height: 72px;") /
+                            - else
+                              img alt="img" src="#{product.foto_product_services.first.avatar.large_avatar}"
+                      td.col-sm-8.col-md-6
+                          .media-body
+                            h4.media-heading
+                              strong = link_to product.title, "#"
+                      td.col-sm-1.col-md-1 style=("text-align: center") 
+                        | #{item.quantity}
+                      td.col-sm-1.col-md-1.text-center
+                        | #{item.product_service.price}
+                      - price += item.quantity * item.product_service.price
+                      td.col-sm-1.col-md-1
+                        = link_to "Edit Quantity", "#", class: "btn btn-danger", method: :post
+                      td.col-sm-1.col-md-1 style="text-align: center;"
+                        = check_box_tag "ready_ids[]", item.id, false, class: "text-center enable-cart item_ids_", "data-unit-id" => item.id, style: "text-align: center !important; vertical-align: middle;"
+                  tr
+                    td
+                    td
+                    td colspan=3
+                      span Total : 
+                      span = number_to_currency(price, unit: "Rp. ")
+                    td
+                      .col-md-12 style="margin: 5px"
+                        button.btn.btn-success.btn-block type="button" 
+                          | Confirmation
+                          span.glyphicon.glyphicon-play
+                        button.btn.btn-success.btn-block type="button" 
+                          | Reject Request
+                          span.glyphicon.glyphicon-play
