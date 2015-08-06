@@ -38,9 +38,16 @@ class RequestsController < ApplicationController
     end
   end
 
+  def index
+    my_service_ids = current_user.services.map(&:id)
+    @current_request = current_user.requests.joins(:confirmation_request).where(confirmation_requests: {status: [1,2,3]})
+    @order_request = current_user.requests.joins(:confirmation_request).where(confirmation_requests: {status: [1,2,3]}, service_id: my_service_ids)
+  end
+
   def request_params
     params.require(:request).permit(:request_category_id, :user_id, :service_id, :properties).tap do |whitelisted|
       whitelisted[:properties] = params[:request][:properties]
     end
   end
 end
+
