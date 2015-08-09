@@ -96,7 +96,7 @@
                                       h6
                                         strong
                                           = number_to_currency(product.price, unit: "Rp. ")
-                                          = hidden_field_tag "product_price_ids[]", "#{product.price}"
+                                          = hidden_field_tag "product_price_ids[]", "#{product.price}", class: "price#{product.id}"
                                           = hidden_field_tag "has_product", true
                                   .calculate
                                     .col-xs-2
@@ -127,13 +127,15 @@
                                               - if @service.service_category.has_product == true
                                                 .col-md-12.col-xs-12.detail_requests style="text-align: left;"
                                                   .col-md-12.col-xs-12
-                                                    table#orderProducts
-                                                  .col-md-12.col-xs-12 style="border-bottom: 1px solid gainsboro; padding-bottom: 10px;"
+                                                    h5 Products
+                                                    table#orderProducts class="table" style="width: 100%;"
+                                                  .col-md-12.col-xs-12 style="border-bottom: 1px solid gainsboro; padding-bottom: 15px;"
                                                     .col-md-6
                                                       span Total Pembayaran :
                                                     .col-md-6
                                                       span Rp. 
                                                       span.total-harga.text-left
+                                                    br/
                                                   hr/
                                                   .col-md-12.col-xs-12
                                                     = f.hidden_field :request_category_id, :value => @service.service_category.request_category.id
@@ -391,8 +393,10 @@ javascript:
           var row = table.insertRow(0);
           var cell1 = row.insertCell(0);
           var cell2 = row.insertCell(1);
+          var cell3 = row.insertCell(2);
           cell1.innerHTML = $("#title-"+item.value).text();
-          cell2.innerHTML = $(".quantity"+item.value).val();
+          cell2.innerHTML = $(".price"+item.value).val();
+          cell3.innerHTML = $(".quantity"+item.value).val();
         }
       });
       if (countChecked.length == 0 ){
