@@ -38,7 +38,7 @@
               h6
                 span Request Date : #{request.created_at.to_date}
               = link_to 'Details Request', show_order_request_path(id: request.id), class: "btn btn-primary"
-              = link_to 'Reject Request', request, data: {:confirm => 'Are you sure?'}, :method => :delete, class: "btn btn-primary"
+              = link_to 'Cancel Request', request, data: {:confirm => 'Are you sure?'}, :method => :delete, class: "btn btn-primary"
         #my-friend-requests.tab-pane.fade.in
             .follower-list
               - @order_request.each do |request|
@@ -60,5 +60,5 @@
                       span Request Date : #{request.created_at.to_date}
                 th
                   = link_to 'Details Request', show_request_request_path(id: request.id), class: "btn btn-primary"
-                  = link_to 'Reject Request', request, data: {:confirm => 'Are you sure?'}, :method => :delete, class: "btn btn-primary"
+                  = link_to 'Cancel Request', request, data: {:confirm => 'Are you sure?'}, :method => :delete, class: "btn btn-primary"
                 hr/
