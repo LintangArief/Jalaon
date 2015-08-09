@@ -88,7 +88,8 @@
                                 .row.cart-row
                                   .col-xs-6
                                     h4.product-name
-                                      strong #{product.title}
+                                      strong
+                                        div id="title-#{product.id}" #{product.title}
                                     h4
                                       small #{product.description}
                                   .col-xs-2
@@ -126,11 +127,7 @@
                                               - if @service.service_category.has_product == true
                                                 .col-md-12.col-xs-12.detail_requests style="text-align: left;"
                                                   .col-md-12.col-xs-12
-                                                    .col-md-6
-                                                      span Total Request :
-                                                    .col-md-6
-                                                      span.total-request
-                                                      span  Product
+                                                    table#orderProducts
                                                   .col-md-12.col-xs-12 style="border-bottom: 1px solid gainsboro; padding-bottom: 10px;"
                                                     .col-md-6
                                                       span Total Pembayaran :
@@ -390,6 +387,12 @@ javascript:
       jQuery.map($('.product_ids_'), function(item, i){
         if($(item).is(":checked")){
           countChecked.push(item);
+          var table = document.getElementById("orderProducts");
+          var row = table.insertRow(0);
+          var cell1 = row.insertCell(0);
+          var cell2 = row.insertCell(1);
+          cell1.innerHTML = $("#title-"+item.value).text();
+          cell2.innerHTML = $(".quantity"+item.value).val();
         }
       });
       if (countChecked.length == 0 ){
