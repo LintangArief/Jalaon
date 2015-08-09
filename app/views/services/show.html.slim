@@ -386,10 +386,11 @@ javascript:
 
     $('.request').click(function(){
       countChecked = [];
+      var table = document.getElementById("orderProducts");
+      table.innerHTML = ""
       jQuery.map($('.product_ids_'), function(item, i){
         if($(item).is(":checked")){
           countChecked.push(item);
-          var table = document.getElementById("orderProducts");
           var row = table.insertRow(0);
           var cell1 = row.insertCell(0);
           var cell2 = row.insertCell(1);
