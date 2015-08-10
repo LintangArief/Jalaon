@@ -85,6 +85,9 @@ GEM
       execjs
       json
     bcrypt (3.1.10)
+    best_in_place (3.0.3)
+      actionpack (>= 3.2)
+      railties (>= 3.2)
     better_errors (2.1.1)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
@@ -458,6 +461,7 @@ DEPENDENCIES
   acts_as_shopping_cart (~> 0.2.1)
   amistad
   autonumeric-rails
+  best_in_place
   better_errors
   bootstrap-filestyle-rails
   bootstrap-sass (~> 3.3.4)

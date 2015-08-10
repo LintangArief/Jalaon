@@ -37,6 +37,7 @@ gem 'autonumeric-rails'
 gem 'bootstrap-filestyle-rails'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
+gem 'best_in_place'
 # gem 'therubyracer'
 group :production do
   gem 'exception_notification'

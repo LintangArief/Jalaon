@@ -4,9 +4,9 @@
       ol.breadcrumb
         li
           a href="index.html"  Home
-        li.active 
+        li.active
           = link_to "Dasboard", setting_path
-        li.active 
+        li.active
           = link_to "Request To Me", requests_path
         li.active = @request.service.title.upcase
     br/
@@ -63,7 +63,7 @@
                             h4.media-heading
                               strong = link_to product.title, "#"
                       td.col-sm-1.col-md-1 style=("text-align: center") 
-                        | #{item.quantity}
+                        = item.quantity
                       td.col-sm-1.col-md-1.text-center
                         | #{item.product_service.price}
                       - price += item.quantity * item.product_service.price
@@ -83,5 +83,5 @@
                           | Confirmation
                           span.glyphicon.glyphicon-play
                         button.btn.btn-success.btn-block type="button" 
-                          | Reject Request
+                          | Cancel Request
                           span.glyphicon.glyphicon-play
