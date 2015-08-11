@@ -14,7 +14,6 @@
 //= require autonumeric
 //= require jquery_ujs
 //= require jquery-ui/datepicker
-//= require geocomplete
 //= require twitter/bootstrap
 //= require bootstrap-filestyle
 //= require turbolinks
@@ -22,6 +21,7 @@
 //= require nprogress-turbolinks
 //= require jquery.timepicker.js
 //= require jquery.datepair.js
+//= require geocomplete
 //= require_tree .
 
 Number.prototype.formatMoney = function(c, d, t){

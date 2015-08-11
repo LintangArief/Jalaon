@@ -297,6 +297,10 @@
                   span.glyphicon.glyphicon-refresh
                   | More
 
+= content_for :js_place
+  = javascript_include_tag 'http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false'
+  = javascript_include_tag 'jquery.geocomplete.js'
+
 
 javascript:
   $(document).ready(function(){
@@ -352,19 +356,25 @@ javascript:
     $('.Metode').change(function(){
       if ($('.Metode').val() == "Datang Ke Rumah"){
         $('.Alamat').show();
+        $('.Delivery').show();
       }else if ($('.Metode').val() == "Delivery"){
         $('.Alamat').show();
+        $('.Delivery').show();
       }else{
         $('.Alamat').hide();
+        $('.Delivery').hide();
       };
     });
 
     if ($('.Metode').val() == "Datang Ke Rumah"){
       $('.Alamat').show();
+      $('.Delivery').show();
     }else if ($('.Metode').val() == "Delivery"){
       $('.Alamat').show();
+      $('.Delivery').show();
     }else{
       $('.Alamat').hide();
+      $('.Delivery').hide();
     }
 
     $('.toggle-service').click(function(){
@@ -413,4 +423,57 @@ javascript:
         }
       };
     })
+  });
+
+  $(document).ready(function(){
+    function showPosition(position) {
+      var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+      var geocoder = new google.maps.Geocoder();
+      geocoder.geocode({ 'latLng': latlng }, function (results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+            if (results[1]) {
+                console.log(a=results)
+                $('.seachtext').val(results[0].formatted_address)
+            }
+        }
+      });
+    }
+
+    function showError(error) {
+      switch(error.code) {
+        case error.PERMISSION_DENIED:
+          $('#myModal').modal('toggle');
+          break;
+        case error.POSITION_UNAVAILABLE:
+          bootstrap_alert.warning('Location information is unavailable.');
+          break;
+        case error.TIMEOUT:
+          bootstrap_alert.warning('The request to get user location timed out.');
+          break;
+        case error.UNKNOWN_ERROR:
+          bootstrap_alert.warning('An unknown error occurred.');
+          break;
+      }
+    }
+
+    $(".detect").click(function(){
+      if (navigator.geolocation) {
+        var optn = {
+          enableHighAccuracy : true,
+          timeout : Infinity,
+          maximumAge : 0
+        };
+        navigator.geolocation.getCurrentPosition(showPosition, showError, optn);
+      } else {
+        alert('Geolocation is not supported in your browser');
+      }
+    })
+    $(".seachtext").geocomplete({
+      details: ".details",
+      detailsAttribute: "data-geo"
+    });
+    $(".seachtext2").geocomplete({
+      details: ".end_details",
+      detailsAttribute: "data-geo"
+    });
   });
