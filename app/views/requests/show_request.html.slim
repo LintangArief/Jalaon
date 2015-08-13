@@ -45,7 +45,6 @@
                     th Quantity
                     th.text-center Price
                     th
-                    th.text-center Tersedia
                 - price = 0
                 tbody
                   - @request.request_products.each do |item|
@@ -67,10 +66,6 @@
                       td.col-sm-1.col-md-1.text-center
                         | #{item.product_service.price}
                       - price += item.quantity * item.product_service.price
-                      td.col-sm-1.col-md-1
-                        = link_to "Edit Quantity", "#", class: "btn btn-danger", method: :post
-                      td.col-sm-1.col-md-1 style="text-align: center;"
-                        = check_box_tag "ready_ids[]", item.id, false, class: "text-center enable-cart item_ids_", "data-unit-id" => item.id, style: "text-align: center !important; vertical-align: middle;"
                   tr
                     td
                     td
@@ -80,8 +75,32 @@
                     td
                       .col-md-12 style="margin: 5px"
                         button.btn.btn-success.btn-block type="button" 
-                          | Confirmation
-                          span.glyphicon.glyphicon-play
-                        button.btn.btn-success.btn-block type="button" 
                           | Cancel Request
                           span.glyphicon.glyphicon-play
+              = form_for @request do |f|
+                h4 Confirmation Request
+                table.table.table-hover
+                  thead
+                    tr
+                      th Product
+                      th Jumlah Tersedia
+                      th.text-center Tidak Tersedia?
+                  tbody
+                    - @request.request_products.each do |item|
+                      - product = ProductService.find(item.product_service_id)
+                      tr
+                        td
+                          .media-body
+                            h4.media-heading
+                              strong = link_to product.title, "#"
+                        td
+                          .media-body
+                            h4.media-heading
+                              strong = text_field_tag :quantity, item.quantity, name: "quantity[#{item.id}]"
+                        td.col-sm-1.col-md-1 style="text-align: center;"
+                          = check_box_tag "ready_ids[]", item.id, false, class: "text-center enable-cart item_ids_", "data-unit-id" => item.id, style: "text-align: center !important; vertical-align: middle;"
+
+                = f.fields_for :confirmation_properties do |builder|
+                  - @request.request_category.confirmation_fields.each do |field|
+                    = render "/services/fields/#{field.field_type}", field: field, f: builder
+                = f.submit "Confirmation"

@@ -109,9 +109,9 @@
                     h6
                       span Request Date : #{cart.created_at.to_date}
                     h6
-                      span Total Price : #{cart.total}
+                      span Total : #{cart.total}
                   .col-md-2
-                    h5.span.text-right 
+                    h5.span.text-right
                     = link_to 'Cancle Request', cart, data: {:confirm => 'Are you sure?'}, :method => :delete, class: "btn btn-primary"
                 table.table.table-hover
                   thead

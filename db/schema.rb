@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150805160716) do
+ActiveRecord::Schema.define(version: 20150813160117) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -319,6 +319,17 @@ ActiveRecord::Schema.define(version: 20150805160716) do
 
   add_index "request_categories", ["service_category_id"], name: "index_request_categories_on_service_category_id", using: :btree
 
+  create_table "request_confirmation_fields", force: :cascade do |t|
+    t.string   "name"
+    t.string   "field_type"
+    t.boolean  "required"
+    t.integer  "request_category_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  add_index "request_confirmation_fields", ["request_category_id"], name: "index_request_confirmation_fields_on_request_category_id", using: :btree
+
   create_table "request_fields", force: :cascade do |t|
     t.string   "name"
     t.string   "field_type"
@@ -345,11 +356,13 @@ ActiveRecord::Schema.define(version: 20150805160716) do
     t.integer  "request_category_id"
     t.integer  "user_id"
     t.integer  "service_id"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.hstore   "properties"
+    t.hstore   "confirmation_properties"
   end
 
+  add_index "requests", ["confirmation_properties"], name: "requests_confirmation_properties", using: :gin
   add_index "requests", ["properties"], name: "requests_properties", using: :gin
   add_index "requests", ["request_category_id"], name: "index_requests_on_request_category_id", using: :btree
   add_index "requests", ["service_id"], name: "index_requests_on_service_id", using: :btree
@@ -474,6 +487,7 @@ ActiveRecord::Schema.define(version: 20150805160716) do
   add_foreign_key "order_coupons", "users"
   add_foreign_key "product_services", "services"
   add_foreign_key "request_categories", "service_categories"
+  add_foreign_key "request_confirmation_fields", "request_categories"
   add_foreign_key "request_fields", "request_categories"
   add_foreign_key "request_products", "product_services"
   add_foreign_key "request_products", "requests"

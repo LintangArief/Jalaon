@@ -10,10 +10,14 @@
     .field
       label "Service Kategory"
       = f.select :service_category_id, options_for_select(ServiceCategory.all.map{ |c| [c.name, c.id]}), class:"form-control form-input jualo-search width-100"
-  
   .field
     = f.fields_for :fields do |builder|
       = render 'field_fields', f: builder
     = link_to_add_fields "Add Field", f, :fields
-  
+
+  hr/
+  .field
+    = f.fields_for :confirmation_fields do |builder|
+      = render 'field_fields', f: builder
+    = link_to_add_confirmation_fields "Add Confirmation Field", f, :confirmation_fields
   .actions = f.submit
