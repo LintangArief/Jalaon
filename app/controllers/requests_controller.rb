@@ -70,10 +70,48 @@ class RequestsController < ApplicationController
     end
   end
 
+  def confirmation
+    @request = Request.find(params[:id])
+    if params["ready_ids"].nil?
+      if @request.update_attributes(request_params)
+        if @request.confirmation_request.update_attributes(status: 2)
+          redirect_to requests_path, notice: "Proses Konfirmasi Request Sudah Disimpan"
+        else
+          redirect_to requests_path, notice: "Proses Konfirmasi Request Tidak Dapat Dilakukan"
+        end
+      else
+          redirect_to requests_path, notice: "Proses Konfirmasi Request Tidak Dapat Dilakukan"
+      end
+    else
+      @count_ids = params["ready_ids"].keys.count
+      if @count_ids > 0
+        confirmation_product = ConfirmationRequestProduct.where(request_product_id: params["ready_ids"].keys)
+        confirmation_product.each do |item, index|
+          item.update_attributes(quantity_available: params["quantity"][item.request_product_id.to_s], status: 2)
+        end
+        @request.confirmation_request.update_attributes(status: 2)
+        redirect_to requests_path, notice: "Proses Konfirmasi Request Sudah Disimpan"
+      end
+    end
+  end
+
+  def confirmed_by_user
+    @request = current_user.requests.find(params[:id])
+    if @request.confirmation_request.update_attributes(status: 3)
+      redirect_to requests_path, notice: "Proses Konfirmasi Request Sudah Disimpan"
+    else
+      redirect_to requests_path, notice: "Proses Konfirmasi Request Tidak Dapat Dolakukan"
+    end
+  end
+
   private
     def request_params
-      params.require(:request).permit(:request_category_id, :user_id, :service_id, :properties).tap do |whitelisted|
-        whitelisted[:properties] = params[:request][:properties]
+      params.require(:request).permit(:request_category_id, :user_id, :service_id, :properties, :confirmation_properties).tap do |whitelisted|
+        if params[:request][:properties].nil?
+          whitelisted[:confirmation_properties] = params[:request][:confirmation_properties]
+        else
+          whitelisted[:properties] = params[:request][:properties]
+        end
       end
     end
 end

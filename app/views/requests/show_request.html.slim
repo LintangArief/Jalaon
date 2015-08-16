@@ -15,92 +15,105 @@
       ul.nav.nav-tabs
         li.active
           a data-toggle="tab" href="#friend-request" 
-            | Request To Me / #{@request.service.title.upcase}
-      .tab-content
-        #friend-request.tab-pane.fade.in.active
+            | Request To Me / #{@request.service.title.upcase} / Confirmation
+      .tab-content.col-md-12
+        #friend-request.tab-pane.fade.in.active.col-md-12
           .follower-list
             .col-md-12
               .col-md-10
                 h4
                   span.glyphicon.glyphicon-tags
                   |  #{@request.service.title.upcase}
-                - if @request.confirmation_request.status == 1
-                  - status = "Menunggu Konfirmasi Pemilik Services"
-                - elsif @request.confirmation_request.status == 2
-                  - status = "Menunggu Persetujuan User"
-                - else
-                  - status = nil
-                h6
-                  span Status : #{status}
-                h6
-                  span Request By : #{@request.user.first_name} #{@request.user.last_name}
-                h6
-                  span Request Date : #{@request.created_at.to_date}
-            - if @request.request_products.count > 0
-              table.table.table-hover
-                thead
-                  tr
-                    th Product
-                    th
-                    th Quantity
-                    th.text-center Price
-                    th
+                .profile-usermenu
+                  - if @request.confirmation_request.status == 1
+                    - status = "Menunggu Konfirmasi Pemilik Services"
+                  - elsif @request.confirmation_request.status == 2
+                    - status = "Menunggu Persetujuan User"
+                  - else
+                    - status = nil
+                  ul.nav
+                    li.active style="line-height: 30px;"
+                      | Status : #{status}
+                    li.active style="line-height: 30px;"
+                      | Request By : #{@request.user.first_name} #{@request.user.last_name}
+                    li.active style="line-height: 30px;"
+                      | Metode Service : #{@request.properties["Metode Service"]}
+                    - if @request.properties["Metode Service"] == "Delivery"
+                      li.active style="line-height: 30px;"
+                        | Alamat Delivery : #{@request.properties["Alamat Delivery"]}
+                    li.active style="line-height: 30px;"
+                      | Tanggal Dan Waktu : #{@request.properties["date_request"]} - #{@request.properties["time_request"]}
+                    li.active style="line-height: 30px;"
+                      | Notes : #{@request.properties["Notes"]}
+            .col-md-12
+              hr/
+              - if @request.request_products.count > 0
                 - price = 0
-                tbody
-                  - @request.request_products.each do |item|
-                    - product = ProductService.find(item.product_service_id)
-                    tr
-                      td.col-sm-8.col-md-6
-                        .media
-                          a.thumbnail.pull-left href="#" 
-                            - if product.foto_product_services.count == 0
-                              img.media-object src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png" style=("width: 72px; height: 72px;") /
-                            - else
-                              img alt="img" src="#{product.foto_product_services.first.avatar.large_avatar}"
-                      td.col-sm-8.col-md-6
-                          .media-body
-                            h4.media-heading
-                              strong = link_to product.title, "#"
-                      td.col-sm-1.col-md-1 style=("text-align: center") 
-                        = item.quantity
-                      td.col-sm-1.col-md-1.text-center
-                        | #{item.product_service.price}
-                      - price += item.quantity * item.product_service.price
-                  tr
-                    td
-                    td
-                    td colspan=3
-                      span Total : 
-                      span = number_to_currency(price, unit: "Rp. ")
-                    td
-                      .col-md-12 style="margin: 5px"
-                        button.btn.btn-success.btn-block type="button" 
-                          | Cancel Request
-                          span.glyphicon.glyphicon-play
-              = form_for @request do |f|
-                h4 Confirmation Request
-                table.table.table-hover
-                  thead
-                    tr
-                      th Product
-                      th Jumlah Tersedia
-                      th.text-center Tidak Tersedia?
-                  tbody
-                    - @request.request_products.each do |item|
-                      - product = ProductService.find(item.product_service_id)
+                = form_for @request, url: confirmation_request_path, method: :post do |f|
+                  table.table.table-hover
+                    thead
                       tr
-                        td
-                          .media-body
-                            h4.media-heading
-                              strong = link_to product.title, "#"
-                        td
-                          .media-body
-                            h4.media-heading
-                              strong = text_field_tag :quantity, item.quantity, name: "quantity[#{item.id}]"
-                        td.col-sm-1.col-md-1 style="text-align: center;"
-                          = check_box_tag "ready_ids[]", item.id, false, class: "text-center enable-cart item_ids_", "data-unit-id" => item.id, style: "text-align: center !important; vertical-align: middle;"
+                        th Product
+                        th
+                        th Jumlah Tersedia
+                        th.text-center Tersedia
+                    tbody
+                      - @request.request_products.each do |item|
+                        - product = ProductService.find(item.product_service_id)
+                          - price += item.quantity * item.product_service.price
+                        tr
+                          td.col-sm-8.col-md-6
+                            .media
+                              a.thumbnail.pull-left href="#"
+                                - if product.foto_product_services.count == 0
+                                  img.media-object src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png" style=("width: 72px; height: 72px;") /
+                                - else
+                                  img alt="img" src="#{product.foto_product_services.first.avatar.large_avatar}"
+                          td.col-sm-8.col-md-6
+                            .media-body
+                              h4.media-heading
+                                strong = link_to product.title, "#"
+                          td
+                            .media-body
+                              h4.media-heading
+                                strong = text_field_tag "quantity[#{item.id}]", item.quantity, disabled: item.confirmation_request_product.status == 2
 
-                = f.fields_for :confirmation_properties do |builder|
-                  - @request.request_category.confirmation_fields.each do |field|
-                    = render "/services/fields/#{field.field_type}", field: field, f: builder
-                = f.submit "Confirmation"
+                          td.col-sm-1.col-md-1 style="text-align: center;"
+                            .media-body
+                              = check_box_tag "ready_ids[#{item.id}]", true, class: "text-center enable-cart item_ids_", "data-unit-id" => item.id, style: "text-align: center !important; vertical-align: middle;", disabled: item.confirmation_request_product.status == 2
+                      tr
+                        td collspan=2
+                        td
+                        td
+                          .media-body
+                            - if @request.properties["Metode Service"] == "Delivery"
+                              = f.fields_for :confirmation_properties, OpenStruct.new(@request.confirmation_properties) do |builder|
+                                - @request.request_category.confirmation_fields.each do |field|
+                                  = render "/services/fields/#{field.field_type}", field: field, f: builder
+                        td
+                      tr
+                        td collspan=2
+                        td
+                        td
+                          span Total :
+                          span = number_to_currency(price, unit: "Rp. ")
+                        td
+                          .col-md-12
+                            - if @request.confirmation_request.status == 1
+                              = f.submit "Confirmation",class: "btn btn-success btn-block"
+                          .col-md-12
+                            = link_to 'Cancel Request', @request, data: {:confirm => 'Are you sure?'}, :method => :delete, class: "btn btn-primary"
+              - else
+                h3 Confirmation Request
+                hr/
+                = form_for @request, url: confirmation_request_path, method: :post do |f|
+                  .col-md-12
+                    = f.fields_for :confirmation_properties, OpenStruct.new(@request.confirmation_properties) do |builder|
+                      - @request.request_category.confirmation_fields.each do |field|
+                        = render "/services/fields/#{field.field_type}", field: field, f: builder
+                  .col-md-12
+                    = f.submit "Confirmation", class: "btn btn-primary", style: "margin-right: 5px;"
+                    = link_to 'Cancel Request', @request, data: {:confirm => 'Are you sure?'}, :method => :delete, class: "btn btn-primary"
+
+
+

@@ -40,12 +40,12 @@ Rails.application.routes.draw do
   resources :service_categories
   resources :services
   resources :requests do
-    collection do
-    end
     member do
       get 'show_order', path: 'order'
       get 'show_request', path: 'request'
       post 'cancle_request_product', path: 'cancle'
+      post 'confirmation', path: 'confirmation'
+      post 'confirmed_by_user', path: 'confirmed_by_user'
     end
   end
   devise_for :users, :controllers => { :registrations => "devise/registrations", :omniauth_callbacks => "devise/omniauth_callbacks" } do
@@ -57,7 +57,6 @@ Rails.application.routes.draw do
     end
     member do
       post 'add_cart'
-
     end
   end
 

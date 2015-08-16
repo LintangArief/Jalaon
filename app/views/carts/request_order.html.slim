@@ -42,7 +42,7 @@
                       span Request Date : #{cart.created_at.to_date}
                   .col-md-2
                     h5.span.text-right 
-                    = link_to 'Reject Request', cart, data: {:confirm => 'Are you sure?'}, :method => :delete, class: "btn btn-primary"
+                    = link_to 'Cancel Request', cart, data: {:confirm => 'Are you sure?'}, :method => :delete, class: "btn btn-primary"
                 table.table.table-hover
                   thead
                     tr
