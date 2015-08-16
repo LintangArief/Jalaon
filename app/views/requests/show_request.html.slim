@@ -29,6 +29,8 @@
                     - status = "Menunggu Konfirmasi Pemilik Services"
                   - elsif @request.confirmation_request.status == 2
                     - status = "Menunggu Persetujuan User"
+                  - elsif @request.confirmation_request.status == 3
+                    - status = "Menunggu Layanan Service"
                   - else
                     - status = nil
                   ul.nav
