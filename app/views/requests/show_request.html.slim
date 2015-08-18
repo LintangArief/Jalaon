@@ -82,7 +82,7 @@
 
                           td.col-sm-1.col-md-1 style="text-align: center;"
                             .media-body
-                              = check_box_tag "ready_ids[#{item.id}]", true, class: "text-center enable-cart item_ids_", "data-unit-id" => item.id, style: "text-align: center !important; vertical-align: middle;", disabled: item.confirmation_request_product.status == 2
+                              = check_box_tag "ready_ids[#{item.id}]", true, true, class: "text-center item_ids_", disabled: item.confirmation_request_product.status == 2, "data-unit-id" => item.id, style: "text-align: center !important; vertical-align: middle;"
                       tr
                         td collspan=2
                         td

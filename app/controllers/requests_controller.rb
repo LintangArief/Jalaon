@@ -40,8 +40,10 @@ class RequestsController < ApplicationController
 
   def index
     my_service_ids = current_user.services.map(&:id)
-    @current_request = current_user.requests.joins(:confirmation_request).where(confirmation_requests: {status: [1,2,3]})
-    @order_request = Request.joins(:confirmation_request).where(confirmation_requests: {status: [1,2,3]}, service_id: my_service_ids)
+    @my_order = current_user.requests.joins(:confirmation_request).where(confirmation_requests: {status: [1,2]})
+    @my_current_order = current_user.requests.joins(:confirmation_request).where(confirmation_requests: {status: 3})
+    @order_request = Request.joins(:confirmation_request).where(confirmation_requests: {status: [1,2]}, service_id: my_service_ids)
+    @current_order_request = Request.joins(:confirmation_request).where(confirmation_requests: {status: [3]}, service_id: my_service_ids)
   end
 
   def show_order

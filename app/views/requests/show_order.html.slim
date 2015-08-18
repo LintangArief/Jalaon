@@ -103,8 +103,8 @@
                       - price += item.quantity * item.product_service.price
                       td.col-sm-1.col-md-1
                       td.col-sm-1.col-md-1 style="text-align: center;"
-                        = link_to "Cancel", cancle_request_product_request_path(id: @request.id, request_product_id: item.id), class: "btn btn-danger", method: :post, disabled: item.confirmation_request_product.status == 2 || item.confirmation_request_product.status == 1
-                        = link_to "Edit", "#", class: "btn btn-primary", method: :post, disabled: item.confirmation_request_product.status == 2 || item.confirmation_request_product.status == 1
+                        = link_to "Cancel", cancle_request_product_request_path(id: @request.id, request_product_id: item.id), class: "btn btn-danger", method: :post, disabled: item.confirmation_request_product.status == 2 || item.confirmation_request_product.status == 3
+                        = link_to "Edit", "#", class: "btn btn-primary", method: :post, disabled: item.confirmation_request_product.status == 2 || item.confirmation_request_product.status == 3
                   tr
                     td
                     td
@@ -113,9 +113,9 @@
                       span = number_to_currency(price, unit: "Rp. ")
                     td
                       .col-md-12 style="margin: 5px"
-                        button.btn.btn-success.btn-block type="button" 
+                        = link_to "#", class: "btn btn-success btn-block"
                           | Pay With Cash
                           span.glyphicon.glyphicon-play
-                        button.btn.btn-success.btn-block type="button" 
+                        = link_to "#", class: "btn btn-success btn-block"
                           | Pay With Balance
                           span.glyphicon.glyphicon-play

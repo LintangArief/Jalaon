@@ -21,44 +21,113 @@
       .tab-content
         #friend-request.tab-pane.fade.in.active
           .follower-list
-            - @current_request.each do |request|
-              h4
-                span.glyphicon.glyphicon-tags
-                |  #{request.service.title.upcase}
-              - if request.confirmation_request.status == 1
-                - status = "Menunggu Konfirmasi Pemilik Services"
-              - elsif request.confirmation_request.status == 2
-                - status = "Menunggu Persetujuan User"
-              - else
-                - status = nil
-              h6
-                span Status : #{status}
-              h6
-                span Request By : #{request.user.first_name} #{request.user.last_name}
-              h6
-                span Request Date : #{request.created_at.to_date}
-              = link_to 'Details Request', show_order_request_path(id: request.id), class: "btn btn-primary"
-              = link_to 'Cancel Request', request, data: {:confirm => 'Are you sure?'}, :method => :delete, class: "btn btn-primary"
+              .panel.with-nav-tabs.panel-default
+                .panel-heading
+                  ul.nav.nav-tabs
+                    li.active
+                      a data-toggle="tab" href="#tab1default" Your Order
+                    li
+                      a data-toggle="tab" href="#tab2default" Current Transaction
+                .panel-body
+                  .tab-content
+                    #tab1default.tab-pane.fade.in.active
+                      - @my_order.each do |item|
+                        h4
+                          span.glyphicon.glyphicon-tags
+                          |  #{item.service.title.upcase}
+                        - if item.confirmation_request.status == 1
+                          - status = "Menunggu Konfirmasi Pemilik Services"
+                        - elsif item.confirmation_request.status == 2
+                          - status = "Menunggu Persetujuan User"
+                        - elsif item.confirmation_request.status == 3
+                          - status = "Menunggu Layanan Service"
+                        - else
+                          - status = nil
+                        h6
+                          span Status : #{status}
+                        h6
+                          span Request By : #{item.user.first_name} #{item.user.last_name}
+                        h6
+                          span Request Date : #{item.created_at.to_date}
+                        = link_to 'Details Request', show_order_request_path(id: item.id), class: "btn btn-primary"
+                        = link_to 'Cancel Request', item, data: {:confirm => 'Are you sure?'}, :method => :delete, class: "btn btn-primary"
+                    #tab2default.tab-pane.fade
+                      - @my_current_order.each do |item|
+                        h4
+                          span.glyphicon.glyphicon-tags
+                          |  #{item.service.title.upcase}
+                        - if item.confirmation_request.status == 1
+                          - status = "Menunggu Konfirmasi Pemilik Services"
+                        - elsif item.confirmation_request.status == 2
+                          - status = "Menunggu Persetujuan User"
+                        - elsif item.confirmation_request.status == 3
+                          - status = "Menunggu Layanan Service"
+                        - else
+                          - status = nil
+                        h6
+                          span Status : #{status}
+                        h6
+                          span Request By : #{item.user.first_name} #{item.user.last_name}
+                        h6
+                          span Request Date : #{item.created_at.to_date}
+                        = link_to 'Details Request', show_order_request_path(id: item.id), class: "btn btn-primary"
+                        = link_to 'Cancel Request', item, data: {:confirm => 'Are you sure?'}, :method => :delete, class: "btn btn-primary"
         #my-friend-requests.tab-pane.fade.in
-            .follower-list
-              - @order_request.each do |request|
-                th
-                    h4
-                      span.glyphicon.glyphicon-tags
-                      |  #{request.service.title.upcase}
-                    - if request.confirmation_request.status == 1
-                      - status = "Menunggu Konfirmasi Pemilik Services"
-                    - elsif request.confirmation_request.status == 2
-                      - status = "Menunggu Persetujuan User"
-                    - else
-                      - status = nil
-                    h6
-                      span Status : #{status}
-                    h6
-                      span Owner Service : #{request.user.first_name} #{request.user.last_name}
-                    h6
-                      span Request Date : #{request.created_at.to_date}
-                th
-                  = link_to 'Details Request', show_request_request_path(id: request.id), class: "btn btn-primary"
-                  = link_to 'Cancel Request', request, data: {:confirm => 'Are you sure?'}, :method => :delete, class: "btn btn-primary"
-                hr/
+          .follower-list
+              .panel.with-nav-tabs.panel-default
+                .panel-heading
+                  ul.nav.nav-tabs
+                    li.active
+                      a data-toggle="tab" href="#tabrequest1default" Request To You
+                    li
+                      a data-toggle="tab" href="#tabrequest2default" Current Transaction
+                .panel-body
+                  .tab-content
+                    #tabrequest1default.tab-pane.fade.in.active
+                      - @order_request.each do |request|
+                        th
+                            h4
+                              span.glyphicon.glyphicon-tags
+                              |  #{request.service.title.upcase}
+                            - if request.confirmation_request.status == 1
+                              - status = "Menunggu Konfirmasi Pemilik Services"
+                            - elsif request.confirmation_request.status == 2
+                              - status = "Menunggu Persetujuan User"
+                            - elsif request.confirmation_request.status == 3
+                              - status = "Menunggu Layanan Service"
+                            - else
+                              - status = nil
+                            h6
+                              span Status : #{status}
+                            h6
+                              span Owner Service : #{request.user.first_name} #{request.user.last_name}
+                            h6
+                              span Request Date : #{request.created_at.to_date}
+                        th
+                          = link_to 'Details Request', show_request_request_path(id: request.id), class: "btn btn-primary"
+                          = link_to 'Cancel Request', request, data: {:confirm => 'Are you sure?'}, :method => :delete, class: "btn btn-primary"
+                        hr/
+                    #tabrequest2default.tab-pane.fade
+                      - @current_order_request.each do |request|
+                        th
+                            h4
+                              span.glyphicon.glyphicon-tags
+                              |  #{request.service.title.upcase}
+                            - if request.confirmation_request.status == 1
+                              - status = "Menunggu Konfirmasi Pemilik Services"
+                            - elsif request.confirmation_request.status == 2
+                              - status = "Menunggu Persetujuan User"
+                            - elsif request.confirmation_request.status == 3
+                              - status = "Menunggu Layanan Service"
+                            - else
+                              - status = nil
+                            h6
+                              span Status : #{status}
+                            h6
+                              span Owner Service : #{request.user.first_name} #{request.user.last_name}
+                            h6
+                              span Request Date : #{request.created_at.to_date}
+                        th
+                          = link_to 'Details Request', show_request_request_path(id: request.id), class: "btn btn-primary"
+                          = link_to 'Cancel Request', request, data: {:confirm => 'Are you sure?'}, :method => :delete, class: "btn btn-primary"
+                        hr/
